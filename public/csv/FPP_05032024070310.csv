@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BRX0,PZ0124030519698,Bristol,2024-03-05,19:39:28,2024-03-07,05:15:00,2024-03-21,12:00:00,"Bristol terminal 1","Bristol terminal 1",15,Mr,Mark,Keepfer,07976700222,127,111.76,15.24,TBA,,0,"Vw transporter",Combie,Grey,Ek70uua,Next

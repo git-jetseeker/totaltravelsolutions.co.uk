@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+AVP-001,PZ0124110720666,Gatwick,2024-11-07,21:25:41,2024-12-05,08:00:00,2024-12-19,17:00:00,South,South,15,Mr,Sayed,Hashem,07956848477,74.99,54.7427,20.2473,TBA,Ux1015,0,Peugeot,308,Grey,KP17ZNU,Next

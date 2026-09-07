@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0124031719726,Heathrow,2024-03-17,15:39:48,2024-03-24,17:00:00,2024-04-03,06:00:00,"Terminal 3","Terminal 3",11,Mr,Oleksiy,Gordiychuk,07805011342,94.99,66.493,28.497,TBA,,0,Mercedes’,C250,White,VK66UJS,Next

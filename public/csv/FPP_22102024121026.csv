@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HVP-01,PZ0124102120608,Heathrow,2024-10-22,00:55:16,2024-10-23,05:15:00,2024-10-30,06:30:00,"Terminal 2","Terminal 2",8,Mr,Gus,Caesar,07830149245,66.99,46.893,20.097,TBA,,0,Renault,Arkana,Grey,Et24bue,Next

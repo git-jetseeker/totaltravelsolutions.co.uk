@@ -1,0 +1,929 @@
+/**
+ * Jetseeker — Homepage booking widget (APB-style layout, Jetseeker colors)
+ */
+
+.js-booking-card {
+    max-width: min(1100px, calc(100vw - 24px));
+    margin: 30px auto 0;
+    background: #fff;
+    border-radius: 0;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+    overflow: visible;
+    text-align: left;
+}
+
+.js-booking-widget,
+.js-booking-widget-body,
+.js-product-panel,
+.js-booking-row,
+.js-booking-field--guests,
+.js-guest-picker {
+    overflow: visible;
+}
+
+/* Square corners across booking widget form UI */
+.js-booking-card .js-booking-input,
+.js-booking-card .js-booking-field select,
+.js-booking-card .js-booking-submit,
+.js-booking-card .js-guest-trigger,
+.js-booking-card .js-guest-panel,
+.js-booking-card .js-stepper-btn,
+.js-booking-card .js-guest-done button,
+.js-booking-card .js-soon-badge,
+.js-booking-card .js-carhire-soon__badge,
+.js-booking-card .hotel-child-ages__item select,
+.js-booking-card .select2-container--default .select2-selection--single {
+    border-radius: 0 !important;
+}
+
+.js-booking-widget {
+    width: 100%;
+}
+
+/* ── Tab bar ── */
+.js-product-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    background: var(--js-primary-dark);
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.js-product-tab {
+    flex: 1 1 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 52px;
+    padding: 12px 16px;
+    margin: 0;
+    border: none !important;
+    border-bottom: 3px solid transparent !important;
+    border-radius: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.js-product-tab:focus,
+.js-product-tab:focus-visible,
+.js-product-tab:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.js-product-tab i {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.js-product-tab:hover {
+    color: #fff;
+    background: rgba(26, 26, 26, 0.35);
+}
+
+.js-product-tab.is-active:hover {
+    color: var(--js-primary-dark);
+    background: #f0f4ff;
+}
+
+.js-product-tab.is-active {
+    background: #fff;
+    color: var(--js-primary-dark);
+    border: none !important;
+    border-bottom: 3px solid var(--js-primary) !important;
+    box-shadow: inset 0 3px 0 var(--js-primary) !important;
+}
+
+.js-product-tab.is-active:focus,
+.js-product-tab.is-active:focus-visible {
+    box-shadow: inset 0 3px 0 var(--js-primary) !important;
+}
+
+.js-product-tab.is-active i {
+    color: var(--js-primary);
+}
+
+.js-soon-badge,
+.js-booking-card .js-soon-badge,
+.js-product-tab .js-soon-badge,
+.js-product-tab.is-active .js-soon-badge {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff !important;
+    background: #C2185B !important;
+    border-radius: 0;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+/* ── Coming soon panel ── */
+.js-carhire-soon {
+    padding: 28px 8px 36px;
+    max-width: 640px;
+}
+
+.js-carhire-soon__badge,
+.js-booking-card .js-carhire-soon__badge {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff !important;
+    background: #C2185B !important;
+    border-radius: 0;
+    line-height: 1.2;
+}
+
+.js-carhire-soon__title {
+    margin: 0 0 12px;
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    font-weight: 700;
+    color: var(--js-primary-dark);
+    line-height: 1.3;
+}
+
+.js-carhire-soon__text {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--js-muted);
+    max-width: 560px;
+}
+
+/* ── Widget body ── */
+.js-booking-widget-body {
+    padding: 24px 28px 28px;
+    text-align: left;
+}
+
+.js-panel-hint {
+    margin: 0 0 20px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--js-muted);
+    text-align: left;
+}
+
+.js-booking-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 0 -8px;
+    gap: 0;
+}
+
+.js-booking-field {
+    flex: 1 1 140px;
+    min-width: 0;
+    padding: 0 8px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+}
+
+.js-booking-field--airport {
+    flex: 1.3 1 160px;
+}
+
+.js-booking-field--time {
+    flex: 0.7 1 88px;
+    min-width: 88px;
+}
+
+.js-booking-field--promo {
+    flex: 0.9 1 110px;
+}
+
+.js-booking-field--guests {
+    flex: 1.2 1 180px;
+    min-width: 160px;
+    position: relative;
+    z-index: 1;
+}
+
+.js-booking-field--guests:has(.js-guest-trigger.is-open),
+.js-guest-picker:has(.js-guest-trigger.is-open) {
+    z-index: 1060;
+}
+
+.js-booking-field label {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--js-heading);
+    letter-spacing: 0.02em;
+    text-align: left;
+}
+
+.js-booking-card label,
+.js-booking-widget label {
+    text-align: left;
+}
+
+.js-booking-field .form-group {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.js-booking-field .form-group-calender {
+    position: relative;
+}
+
+.js-booking-input,
+.js-booking-field select,
+.js-booking-field input[type="text"] {
+    width: 100%;
+    height: 44px;
+    min-height: 44px;
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    background: #fff;
+    border: 1px solid #c5d5e0;
+    border-radius: 0;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.js-booking-input:hover,
+.js-booking-field select:hover {
+    border-color: var(--js-primary);
+    background: #f8faff;
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.12);
+}
+
+.js-booking-input:focus,
+.js-booking-field select:focus {
+    border-color: var(--js-primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.22);
+    outline: none;
+}
+
+.js-booking-field--date .js-booking-input:hover + .fa-calendar,
+.js-booking-field--date .js-booking-input:focus + .fa-calendar {
+    color: var(--js-primary);
+}
+
+.js-booking-field--date {
+    position: relative;
+}
+
+.js-booking-field--date .js-booking-input {
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+.js-booking-field--date .fa-calendar,
+.js-booking-field .form-group-calender .fa-calendar {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--js-muted);
+    pointer-events: auto;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    z-index: 2;
+}
+
+.js-booking-field .select2-container {
+    width: 100% !important;
+}
+
+.js-booking-field .select2-container--default .select2-selection--single {
+    height: 44px !important;
+    border: 1px solid #c5d5e0 !important;
+    border-radius: 0 !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+.js-booking-field .select2-container--default .select2-selection--single:hover {
+    border-color: var(--js-primary) !important;
+    background: #f8faff !important;
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.12) !important;
+}
+
+.js-booking-field .select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 42px !important;
+    padding-left: 12px !important;
+    color: #1e293b !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+.js-booking-field .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 42px !important;
+}
+
+.js-booking-field .select2-container--default.select2-container--open .select2-selection--single,
+.js-booking-field .select2-container--default.select2-container--focus .select2-selection--single {
+    border-color: var(--js-primary) !important;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.18) !important;
+}
+
+/* ── Guest picker ── */
+.js-guest-picker {
+    position: relative;
+}
+
+.js-booking-input[readonly] {
+    color: #1e293b !important;
+    opacity: 1 !important;
+}
+
+.js-guest-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    background: #fff;
+    border: 1px solid #d5e3ea;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--js-text);
+    box-sizing: border-box;
+}
+
+.js-guest-trigger:hover,
+.js-guest-trigger.is-open {
+    border-color: var(--js-primary);
+    background: #f8faff;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.18);
+}
+
+.js-guest-trigger .fa-chevron-down {
+    color: var(--js-primary);
+    font-size: 11px;
+    transition: transform 0.2s ease;
+}
+
+.js-guest-trigger.is-open .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.js-guest-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    width: min(300px, calc(100vw - 48px));
+    z-index: 1200;
+    background: #fff;
+    border: 1px solid var(--js-border);
+    border-radius: 0;
+    box-shadow: var(--js-shadow-lg);
+    padding: 16px;
+}
+
+.js-guest-panel.is-open {
+    display: block;
+}
+
+.js-guest-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.js-guest-row:last-of-type {
+    border-bottom: none;
+}
+
+.js-guest-row strong {
+    display: block;
+    font-size: 14px;
+    color: var(--js-heading);
+}
+
+.js-guest-row span {
+    font-size: 12px;
+    color: var(--js-muted);
+}
+
+.js-stepper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.js-stepper-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #dadada;
+    border-radius: 0;
+    background: #fff;
+    color: var(--js-primary);
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.js-stepper-btn:hover:not(:disabled) {
+    background: var(--js-primary);
+    border-color: var(--js-primary);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.js-stepper-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.js-stepper-value {
+    min-width: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.js-guest-done {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.js-guest-done button {
+    background: var(--js-primary);
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.js-guest-done button:hover {
+    background: var(--js-primary-dark);
+}
+
+.js-room-type {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.js-room-type label {
+    margin-bottom: 6px;
+}
+
+/* ── Submit ── */
+.js-submit-wrap {
+    padding: 4px 8px 0;
+    text-align: center;
+}
+
+.js-booking-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: min(100%, 240px);
+    width: 100%;
+    max-width: 320px;
+    height: 48px;
+    padding: 0 28px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff !important;
+    background: linear-gradient(135deg, var(--js-primary) 0%, #C2185B 100%);
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(26, 26, 26, 0.4);
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.js-booking-submit:hover {
+    background: linear-gradient(135deg, var(--js-primary-dark) 0%, var(--js-primary) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(26, 26, 26, 0.45);
+}
+
+.js-product-panel[hidden] {
+    display: none !important;
+}
+
+/* Hotel child ages + validation */
+.hotel-child-ages {
+    padding: 8px 0 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.hotel-child-ages__hint {
+    margin: 0 0 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--js-primary);
+}
+
+.hotel-child-ages__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.hotel-child-ages__item label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--js-muted);
+}
+
+.hotel-child-ages__item select {
+    width: 100%;
+    height: 36px;
+    border: 1px solid #dadada;
+    border-radius: 0;
+    padding: 4px 8px;
+    font-size: 13px;
+}
+
+#search_form_hotel .border-red {
+    border-color: #e74c3c !important;
+}
+
+#search_form_hotel .error-massage {
+    color: #e74c3c;
+    font-size: 12px;
+    display: block;
+    margin-top: 4px;
+}
+
+/* ── Datepicker readability (booking widget) ── */
+#ui-datepicker-div.js-datepicker-panel {
+    background: #fff !important;
+    border: 1px solid #c5d5e0 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18) !important;
+    padding: 10px !important;
+}
+
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-header {
+    background: linear-gradient(135deg, var(--js-primary) 0%, var(--js-primary-dark) 100%) !important;
+    border-radius: 0 !important;
+    padding: 10px 8px !important;
+}
+
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-title {
+    color: #fff !important;
+    font-size: 14px !important;
+}
+
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-prev,
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-next {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 6px !important;
+    top: 10px !important;
+    width: 28px !important;
+    height: 28px !important;
+    cursor: pointer !important;
+}
+
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-prev:hover,
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-next:hover {
+    background: var(--js-accent) !important;
+}
+
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-prev span,
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-next span {
+    filter: brightness(0) invert(1) !important;
+}
+
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-calendar thead {
+    background: #FDF2F8 !important;
+}
+
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-calendar thead th {
+    color: var(--js-primary-dark) !important;
+    font-weight: 700 !important;
+    font-size: 11px !important;
+    padding: 8px 4px !important;
+}
+
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-calendar td {
+    padding: 2px !important;
+}
+
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-calendar td a,
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-calendar td span {
+    display: block !important;
+    padding: 7px 6px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #1e293b !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 0 !important;
+    text-align: center !important;
+}
+
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-calendar td a.ui-state-hover {
+    background: #FCE7F3 !important;
+    color: var(--js-primary-dark) !important;
+    border-color: #F9A8D4 !important;
+}
+
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-calendar td a.ui-state-active,
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-calendar td a.ui-state-active.ui-state-hover {
+    background: var(--js-primary) !important;
+    color: #fff !important;
+    border-color: var(--js-primary) !important;
+    font-weight: 700 !important;
+}
+
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-calendar td.ui-datepicker-today a {
+    background: #eff6ff !important;
+    border-color: var(--js-primary) !important;
+    color: var(--js-primary-dark) !important;
+}
+
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-calendar td.ui-datepicker-today a.ui-state-active {
+    background: var(--js-primary) !important;
+    color: #fff !important;
+}
+
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-calendar td.ui-state-disabled span,
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-calendar td.ui-state-disabled a {
+    color: #94a3b8 !important;
+    opacity: 1 !important;
+    background: #f8fafc !important;
+    font-weight: 500 !important;
+}
+
+#ui-datepicker-div.js-datepicker-panel .ui-datepicker-multi .ui-datepicker-group {
+    border-right: 1px solid #e2e8f0;
+    padding: 0 10px 6px;
+}
+
+#ui-datepicker-div.js-datepicker-panel.ui-datepicker-multi-2 {
+    width: auto !important;
+    min-width: 520px;
+}
+
+/* ── Responsive (APB-style: 2×2 tabs + stacked fields on mobile) ── */
+.js-booking-card--hero {
+    margin: 28px auto 0;
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Tablet + mobile: full-width stacked fields (override legacy responsive.css) */
+@media (max-width: 991px) {
+    .js-booking-widget-body {
+        padding: 18px 16px 20px;
+    }
+
+    .js-booking-card--hero {
+        margin-inline: 0;
+    }
+
+    .js-booking-card,
+    .js-booking-widget {
+        overflow: visible !important;
+    }
+
+    .js-booking-card form.js-booking-form,
+    form#search_form_1.js-booking-form,
+    form#search_form_hotel.js-booking-form,
+    form#search_form_lounge.js-booking-form {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .js-booking-row {
+        display: block !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    .js-booking-field,
+    .js-booking-field--airport,
+    .js-booking-field--date,
+    .js-booking-field--time,
+    .js-booking-field--promo,
+    .js-booking-field--guests {
+        flex: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding: 0 0 14px !important;
+    }
+
+    .js-booking-field .form-group,
+    .js-booking-field .form-group-calender {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .js-booking-input,
+    .js-booking-field select,
+    .js-booking-field input[type="text"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .js-booking-field .select2-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+    }
+
+    .js-guest-trigger {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .js-submit-wrap {
+        padding: 4px 0 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .js-booking-submit {
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+    }
+
+    #ui-datepicker-div.js-datepicker-panel,
+    #ui-datepicker-div {
+        z-index: 10060 !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* Mobile: 2×2 tab grid, icon above label */
+@media (max-width: 767px) {
+    .js-booking-widget-body {
+        padding: 14px 12px 16px;
+    }
+
+    .js-panel-hint {
+        margin-bottom: 14px;
+        font-size: 13px;
+        line-height: 1.45;
+    }
+
+    .js-product-tabs {
+        flex-wrap: wrap;
+    }
+
+    .js-product-tab {
+        flex: 1 1 50%;
+        max-width: 50%;
+        min-width: 0;
+        flex-direction: column;
+        gap: 4px;
+        min-height: 58px;
+        padding: 8px 4px;
+        font-size: 12px;
+    }
+
+    .js-product-tab i {
+        font-size: 17px;
+    }
+
+    .js-product-tab .js-soon-badge {
+        margin-left: 0;
+        margin-top: 2px;
+        padding: 2px 6px;
+        font-size: 8px;
+    }
+
+    .js-booking-field label {
+        margin: 0;
+        font-size: 12px;
+        color: var(--js-primary-dark);
+    }
+
+    .js-booking-field {
+        gap: 8px;
+    }
+
+    .js-booking-field--date .fa-calendar,
+    .js-booking-field .form-group-calender .fa-calendar {
+        right: 12px;
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
+    }
+
+    .js-guest-panel {
+        left: 0;
+        right: 0;
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+    }
+
+    .js-carhire-soon {
+        padding: 20px 4px 28px;
+    }
+
+    .js-carhire-soon__title {
+        font-size: 1.25rem;
+    }
+
+    .hotel-child-ages__list {
+        grid-template-columns: 1fr;
+    }
+
+    /* Homepage hero — card inset like APB */
+    .search1.js-hero .js-booking-card {
+        margin-left: 12px;
+        margin-right: 12px;
+        max-width: calc(100% - 24px);
+    }
+
+    /* Datepicker fits viewport on mobile */
+    #ui-datepicker-div.js-datepicker-panel,
+    #ui-datepicker-div {
+        width: calc(100vw - 24px) !important;
+        max-width: calc(100vw - 24px) !important;
+        left: 12px !important;
+        right: auto !important;
+        padding: 6px !important;
+    }
+
+    #ui-datepicker-div.js-datepicker-panel.ui-datepicker-multi-2 {
+        min-width: 0;
+        width: calc(100vw - 24px) !important;
+    }
+
+    #ui-datepicker-div table {
+        width: 100% !important;
+        table-layout: fixed !important;
+    }
+
+    #ui-datepicker-div th,
+    #ui-datepicker-div td {
+        padding: 1px !important;
+    }
+
+    #ui-datepicker-div td span,
+    #ui-datepicker-div td a {
+        padding: 0.45em 0 !important;
+        font-size: 13px !important;
+    }
+}
+
+/* Narrow phones — keep 2×2 tabs (same as APB), tighten card margins */
+@media (max-width: 575px) {
+    .js-booking-card {
+        margin-inline: 12px;
+        max-width: calc(100% - 24px);
+    }
+
+    .js-booking-card--hero {
+        margin-inline: 0;
+        max-width: 100%;
+    }
+
+    .js-product-tab {
+        font-size: 11px;
+        min-height: 54px;
+    }
+}

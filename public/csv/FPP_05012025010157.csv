@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-02,PZ0125010520784,Heathrow,2025-01-05,13:03:47,2025-01-07,10:30:00,2025-01-18,11:45:00,"Terminal 3","Terminal 3",12,Mr,Peter,Macann,07971188309,66.99,46.893,20.097,TBA,EK001,0,AUDI,A3,GREY,LN65UPP,Next

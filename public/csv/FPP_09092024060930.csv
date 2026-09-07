@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP417,PZ0124090920425,Luton,2024-09-09,18:14:37,2024-10-04,06:30:00,2024-10-07,18:00:00,Main,Main,4,Mr,Yiannakis,Pieri,07904625317,63,45.99,17.01,TBA,W62205,0,Lexus,Rx450,White,P11erh,Next

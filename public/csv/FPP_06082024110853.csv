@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LGD4,PZ0124080620308,Gatwick,2024-08-06,11:02:45,2024-10-19,08:00:00,2024-10-26,13:30:00,South,South,8,Mr,Kathleen,West,07721024214,149,131.12,17.88,TBA,BA2667,0,Nissan,X-Trail,Brown,"HV57 XVL",Next

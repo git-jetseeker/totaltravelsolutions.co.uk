@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP487,PZ0124102520625,Luton,2024-10-25,11:08:56,2024-11-18,13:00:00,2024-11-23,22:00:00,Main,Main,6,Mr,Vilija,Valkauskaite,07926771400,31,26.66,4.34,TBA,W95450,0,Nissan,Note,Silver,SL56RHF,Next

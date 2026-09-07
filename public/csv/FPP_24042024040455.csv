@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP581,PZ0124042419889,Manchester,2024-04-24,16:41:05,2024-06-24,06:30:00,2024-07-05,23:30:00,"Terminal 3","Terminal 3",12,Mr,Ian,Denoual,07774968143,89,69.42,19.58,TBA,FR3446,0,Renault,Kadjar,Grey,PN19YFJ,Next

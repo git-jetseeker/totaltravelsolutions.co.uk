@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124092420473,Stansted,2024-09-24,18:18:05,2024-10-16,03:00:00,2024-10-23,23:45:00,Main,Main,8,Mr,Erzsebet,Albert,07453987100,82.99,64.31725,18.67275,TBA,FR9797,0,Skoda,Superb,Grey,BD65CVV,Next

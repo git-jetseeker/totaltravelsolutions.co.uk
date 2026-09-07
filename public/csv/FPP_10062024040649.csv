@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP4,PZ0124061020131,Heathrow,2024-06-10,16:11:25,2024-09-01,11:45:00,2024-09-08,22:30:00,"Terminal 5","Terminal 5",8,Mr,Hussain,Ali,07403469779,76,55.48,20.52,TBA,BA0595,0,Mercedes,Gla200d,Silver,Wn21vbx,Next

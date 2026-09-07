@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HAPS-002,JS-P8UFYW,Heathrow,2025-10-31,13:40:19,2026-07-01,09:00:00,2026-07-15,09:00:00,"Terminal 2","Terminal 3",15,Mr,test,test,56464545454545,73.99,51.793,22.197,TBA,54789,0,toyota,corola,red,12345,Next

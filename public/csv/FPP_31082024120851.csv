@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP28,PZ0124083120379,Stansted,2024-08-31,12:04:55,2024-09-01,02:00:00,2024-09-08,12:00:00,Main,Main,8,Mr,Christopher,Pope,07940848242,100,73,27,TBA,FR579,0,Volvo,V40,Grey,"GD65 PXF",Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP002,PZ0124082620357,Stansted,2024-08-26,20:58:54,2024-08-30,03:00:00,2024-09-02,02:00:00,Main,Main,4,Mr,Daren,Hales,07957147331,89.99,67.4925,22.4975,TBA,FR4208,0,BMW,440i,"Carbon Black",OU69KCO,Next

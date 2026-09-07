@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124101820589,Gatwick,2024-10-18,12:42:53,2024-10-25,06:30:00,2024-10-27,22:30:00,North,North,3,Mr,Catherine,Wilson,07918131163,44.99,31.493,13.497,TBA,EZY870,0,Peugeot,3008,"Dark grey metallic","MW15 GRX",Next

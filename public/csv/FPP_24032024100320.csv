@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124032419748,Stansted,2024-03-24,10:20:27,2024-04-07,07:00:00,2024-04-11,18:00:00,Main,Main,5,Mr,Annu,Diwan,07830774579,62.99,48.81725,14.17275,TBA,"FR 1875",0,Vauxhall,"Vauxhall Mokka",Blue,MM14NLP,Next

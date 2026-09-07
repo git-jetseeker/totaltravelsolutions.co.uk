@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124070120194,Gatwick,2024-07-01,10:30:25,2024-08-01,06:00:00,2024-08-10,01:00:00,South,South,10,Mr,MRUNAL,SAWANT,07732521106,111.99,78.393,33.597,TBA,BA2753,0,BMW,520D,BLUE,LR17YXK,Next

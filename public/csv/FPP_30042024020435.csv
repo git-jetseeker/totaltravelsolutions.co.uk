@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124043019911,Stansted,2024-04-30,14:11:50,2024-05-23,16:15:00,2024-05-31,23:45:00,Main,Main,9,Mr,Susan,Witton,07921495705,89.99,69.74225,20.24775,TBA,FR9254,0,Ford,Ranger,Orange,"Ln18 ojw",Next

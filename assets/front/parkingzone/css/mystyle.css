@@ -1,0 +1,116 @@
+/* ----------------------------------------------------
+Author:			Aamir Sarwar
+------------------------------------------------------- */
+#sc_services_1750719450 .trx_addons_columns_wrap {margin-left: 0px !important;}
+/*#sc_content_653695428 .sc_content_container {margin-left: 20px; margin-right: 20px;}*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* Styles */
+	#howitsworkdiv .trx_addons_column-1_4{width: 50%;}
+}
+@media (max-width: 767px) {
+	.sc_layouts_row .wpb_text_column p {text-align:left !important;}
+}
+@media (max-width: 1199px) {
+	.nav>li {float: none;}
+	.nav>li, .nav>li>a {display: inline-block;}
+}
+@media (max-width: 991px) {
+    .margintop110{margin-top: 0px;}
+}
+@media (min-width: 991px) {
+    .setgenderwidth{width: 16.555%;}
+}
+.whitecolor {
+    font-family: Lato,sans-serif;
+}
+
+.col-right-norm h2,
+h3,
+h4,
+h5 {
+    font-size: 22px;
+    font-family: Lato,sans-serif !important;
+    font-weight: 700
+}
+
+.nrm-cont h3 {
+    font-size: 22px;
+    color: #1d9cbc;
+    padding-left: 22px;
+    font-family: Lato,sans-serif !important;
+    margin-bottom: 0;
+    background: none
+}
+
+body .body_wrap .BigWhiteText,
+body .body_wrap .BigWhiteText2 {
+    font-family: Lato,sans-serif !important;
+}
+
+body .body_wrap .SmallWhiteText {
+    font-family: Lato,sans-serif !important;
+}
+
+#banner-6 .banner-6-text h2 span, #slider-2 li .meta h1 span, .footer-heading span, .page-heading span, .room-block-2-title h3 a, h1, h2, h3, h4, h5, h6 {
+    font-family: Lato,sans-serif !important;
+}
+
+.col-right-norm h2, h3, h4, h5 {
+    font-family: Lato,sans-serif !important; 
+}
+.select_container select{
+    padding-right: 1em !important;
+    padding-left: 10px;
+}
+#personal_details_form .margin15 {
+    margin-top: 15px;
+}
+.total_charged{clear: both; padding-left: 25px; padding-top: 25px;}
+.my-class{width: 100% !important; margin-right: 0px;}
+#getaddress_button {margin-top: 15px; margin-bottom: 15px;}
+#payzone_form{padding-top: 25px;}
+
+/*#newsletter .row{margin-left: -10px; margin-right: -11px;}*/
+
+.frombgbookingh4{padding: 12px 0 5px 0; color: #fff;}
+
+.scheme_default h4{color: #fff;}
+.scheme_default #services h4{color: #000;}
+.scheme_default button{background: #0f6be1;}
+.scheme_default button:hover{background: #13c33e;}
+.btn-yellow p {color: #fff;}
+#bookingDetails {color: #fff !important;}
+hr{border-top: 2px solid #b3b1aa !important;}
+.passenger-detail h3{background: #1690d3 !important;}
+#menu-tabs li{border: none !important;}
+#rounded{box-shadow:unset !important;}
+.bhoechie-tab-container{box-shadow: unset !important;}
+.bhoechie-tab-menu .list-group{margin-bottom:0px !important;}
+a:active{background:unset !important;}
+.sb-serc a{background:#1690d3 !important;}
+/*.scheme_default a:hover{color: #000 !important;}*/
+.scheme_default a{color: #000;}
+.scheme_default a:hover{color: #fff !important;}
+.scheme_default .margintop72 a:hover{color: #000 !important; text-decoration: none;} /* for faq*/
+.scheme_default a.other-airports:hover{color: #000 !important; text-decoration: none;}
+.search-box a:hover{color: #000 !important;}
+.other-airports{font-size: 24px;}
+#airportParkingForm12 .btn-quote-ap {background:#13c33e !important;}
+.cart-highlight, .support-block1{border-bottom: 2px solid #dad3d3;}
+.customer_support_heading {background:#c5c5c5 !important;}
+.nrm-cont h3{color: #fff !important;}
+div#CardSectionTop{margin-bottom: 20px;}
+.cnf_booking{margin-top: 70px;}
+#myfont{background:unset !important;}
+#thankyou{padding-top: 20px;}
+#thankyou .table span{color: #000 !important;}
+.sub-detail-2{border: 4px solid #c7c7c7 !important; border-right: 0 !important; border-left: 0 !important;}
+#bookingheader{display: none;}
+.frombgbooking{border:none;}
+#divhole{border-left:none !important;}
+#Resultofsearchbar{border: 2px solid #a7a7a7 !important; box-shadow: unset !important;}
+@media (min-width: 1200px) {
+    .container {
+        width: 1200px;
+    }
+}

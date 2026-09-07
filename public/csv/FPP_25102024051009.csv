@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP003,PZ0124102520628,Stansted,2024-10-25,18:45:00,2024-12-26,09:00:00,2025-01-01,21:15:00,Main,Main,7,Mr,Fatjon,Dautaj,07740101227,79.99,59.9925,19.9975,TBA,"RK 33",0,BMW,5.20d,Grey,YE12DHC,Next

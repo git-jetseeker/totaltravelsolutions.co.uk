@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP494,PZ0124062020168,Bristol,2024-06-20,21:26:55,2024-06-29,07:00:00,2024-07-06,17:00:00,"Bristol terminal 1","Bristol terminal 1",8,Mr,Luke,Joseph,07979452130,112,101.92,10.08,TBA,EZY2836,0,Audi,Q2,White,Ce69pjv,Next

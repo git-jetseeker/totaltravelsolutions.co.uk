@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LHL6,PZ0124031919732,Heathrow,2024-03-19,20:48:59,2024-03-25,10:00:00,2024-04-05,22:00:00,"Terminal 5","Terminal 5",12,Mr,James,"Le Bouedec",7746823063,259.99,228.7912,31.1988,TBA,BA443,0,"Land Rover",Discovery,Blue,GM23RAX,Next

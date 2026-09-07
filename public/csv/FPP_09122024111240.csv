@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP581,PZ0124120920745,Manchester,2024-12-09,11:07:44,2024-12-12,07:00:00,2024-12-15,22:45:00,"Terminal 2","Terminal 2",4,Mr,Michael,Mcloughlin,07701017427,45,35.1,9.9,TBA,"Kl 1039",0,Bmw,"520i msport",Grey,"Mf65 cxh",Next

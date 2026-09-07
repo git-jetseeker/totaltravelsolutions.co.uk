@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP002,PZ0124081320334,Stansted,2024-08-13,11:33:50,2024-08-19,04:00:00,2024-08-30,22:00:00,Main,Main,12,Mr,Artur,Lech,07922299382,132.99,99.7425,33.2475,TBA,FR8408,0,VW,Passat,black,MW62CGX,Next

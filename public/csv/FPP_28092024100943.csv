@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP494,PZ0124092820507,Bristol,2024-09-28,11:30:26,2024-10-10,03:30:00,2024-10-17,15:30:00,"Bristol terminal 1","Bristol terminal 1",8,Mr,Ronald,Sanders,07525350798,116,105.56,10.44,TBA,LS1898,0,Nissan,Duke,Grey,"VA17 WMM",Next

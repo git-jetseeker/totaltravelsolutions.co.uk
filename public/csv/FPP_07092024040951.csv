@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP28,PZ0124090720417,Stansted,2024-09-07,16:29:50,2024-09-12,12:30:00,2024-09-21,20:30:00,Main,Main,10,Mr,Rosalind,Smith,4407740286458,159,116.07,42.93,TBA,FR2515,0,Mercedes,"E series estate",Black,GN65SZF,Next

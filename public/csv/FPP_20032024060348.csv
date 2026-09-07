@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+GLA7,PZ0124032019735,Glasgow,2024-03-20,18:52:25,2024-03-21,16:30:00,2024-04-01,04:00:00,"Glasgow terminal 1","Glasgow terminal 1",12,Mr,keith,park,07713431421,63.99,56.3112,7.6788,TBA,EZY3166,0,peugeot,3008,red,"fv11 ykd",Next

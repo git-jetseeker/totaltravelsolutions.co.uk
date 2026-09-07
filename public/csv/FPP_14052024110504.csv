@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0124051420001,Heathrow,2024-05-14,11:06:25,2024-05-24,08:00:00,2024-05-30,19:00:00,"Terminal 3","Terminal 3",7,Mr,Mike,Ganley,07771628147,109.99,76.993,32.997,TBA,VS251,0,landrover,vogue,brown,GA14LEY,Next

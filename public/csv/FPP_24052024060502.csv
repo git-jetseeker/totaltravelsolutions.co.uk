@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMP01,PZ0124052420068,Stansted,2024-05-24,18:15:05,2024-06-17,15:00:00,2024-06-23,23:00:00,Main,Main,7,Mr,Mateusz,Goj,7311838888,71.99,55.79225,16.19775,TBA,TBA,0,Audi,A3,Black,Ys13zhc,Next

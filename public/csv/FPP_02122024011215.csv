@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PWU-001,PZ0124120220729,Gatwick,2024-12-02,12:59:06,2024-12-14,12:30:00,2024-12-29,15:00:00,TBA,TBA,16,Mr,Younes,Afassi,07920714847,67,40.2,26.8,TBA,,0,"Range rover",Velar,Black,YO13NES,Next

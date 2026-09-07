@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124101920597,Heathrow,2024-10-19,22:32:19,2024-10-22,09:30:00,2024-11-03,13:30:00,"Terminal 4","Terminal 4",13,Mr,Abid,Rehman,07530200400,71.99,50.393,21.597,TBA,,0,Skoda,Octavia,Black,"GF58 JZX",Next

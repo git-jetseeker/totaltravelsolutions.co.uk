@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+STA2,PZ0124011819649,Stansted,2024-01-18,23:31:42,2024-01-19,16:15:00,2024-01-21,23:45:00,TBA,TBA,3,Mr,Arkadiusz,Janeczko,07838832203,38,32.3,5.7,TBA,TBA,0,Lexus,NX,Silver,HN64VJE,Next

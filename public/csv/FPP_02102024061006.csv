@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124100220517,Gatwick,2024-10-02,19:28:02,2024-10-11,09:00:00,2024-10-19,13:00:00,TBA,TBA,9,Mr,Diana,Tolley,07955207310,97.99,68.593,29.397,TBA,TBA,0,Ford,Galaxy,Blue,EJ12NXL,Next

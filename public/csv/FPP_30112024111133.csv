@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124113020727,Heathrow,2024-11-30,11:27:56,2024-12-21,06:30:00,2024-12-28,15:00:00,"Terminal 4","Terminal 4",8,Mr,David,Pritchard,07754040620,61.99,43.393,18.597,TBA,EY65,0,Jaguar,"F Pace",Blue,P888DAP,Next

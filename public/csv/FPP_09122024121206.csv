@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP405,PZ0124120920746,Heathrow,2024-12-09,12:02:39,2024-12-21,08:00:00,2025-01-03,08:30:00,"Terminal 3","Terminal 3",14,Mr,michael,williamson,07779309648,186,135.78,50.22,TBA,VS132,0,VW,GOLF,BLACK,PK70WFA,Next

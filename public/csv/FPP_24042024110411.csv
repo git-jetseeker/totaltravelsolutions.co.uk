@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP001,PZ0124042419886,Stansted,2024-04-24,11:47:09,2024-06-02,06:15:00,2024-06-13,14:30:00,Main,Main,12,Mr,Steven,Brewer,7714231728,106.99,80.2425,26.7475,TBA,FR3873,0,BMW,340i,Silver,VX68PXC,Next

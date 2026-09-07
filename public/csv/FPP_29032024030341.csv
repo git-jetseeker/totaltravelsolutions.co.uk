@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BHS9,PZ0124032919768,Birmingham,2024-03-29,14:58:35,2024-03-31,14:00:00,2024-04-08,04:00:00,"Bhx Terminal 1","Bhx Terminal 1",9,Mr,Margaret,Marshall,07834412702,130.99,115.2712,15.7188,TBA,TOM7781,0,Mitsubishi,Asx,White,"WN69 YTS",Next

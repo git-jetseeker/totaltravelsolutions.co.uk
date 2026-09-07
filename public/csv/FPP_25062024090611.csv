@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124062520180,Gatwick,2024-06-25,09:22:18,2024-07-11,13:00:00,2024-08-01,07:45:00,North,North,22,Mr,James,OFarrell,07985451000,197.99,138.593,59.397,TBA,MK42,0,BMW,X1,Silver,GU64RSY,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP399,PZ0124050919966,Heathrow,2024-05-09,10:32:42,2024-06-10,09:45:00,2024-07-02,09:00:00,"Terminal 3","Terminal 3",23,Mr,Bridget,Crane,07718758605,105,76.65,28.35,TBA,,0,Nissan,Navara,Silver,BA66TFF,Next

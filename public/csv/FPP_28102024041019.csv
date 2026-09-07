@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124102820640,Heathrow,2024-10-28,16:52:13,2024-10-29,06:00:00,2024-11-05,22:15:00,"Terminal 5","Terminal 5",8,Mr,"Alvaro Jose","Vela ocampo",07931820322,60.99,42.693,18.297,TBA,,0,Volkswagen.,Tiguan,Brown,En17nuf,Next

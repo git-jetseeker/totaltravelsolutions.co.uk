@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+YK-001,JS-6T2HDD,Stansted,2025-11-26,14:45:47,2026-03-10,09:00:00,2026-03-17,09:00:00,TBA,TBA,8,Mr,test,test,45454545454545,110,82.5,27.5,TBA,,0,6s5d4f5s6d4,s5d64fs5d4,sd4fsd54,sf4f465sd4f65,Next

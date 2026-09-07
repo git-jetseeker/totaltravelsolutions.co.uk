@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+JPL-001,PZ0124111320683,Liverpool,2024-11-13,14:12:34,2025-01-15,09:00:00,2025-01-16,17:15:00,TBA,TBA,2,Mr,test,test,54647377,20.99,14.693,6.297,TBA,,0,test,test,test,test,Next

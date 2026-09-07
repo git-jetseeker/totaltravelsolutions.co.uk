@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BP-01,PZ0124090820421,Heathrow,2024-09-08,18:26:03,2024-09-14,05:30:00,2024-09-15,19:00:00,"Terminal 5","Terminal 5",2,Mr,Francesca,Booth,07887426752,37.99,26.593,11.397,TBA,Ba1419,0,Mini,One,Cream,"RV60 ULM",Next

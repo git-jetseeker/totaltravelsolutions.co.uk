@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP3,PZ0124042119867,Luton,2024-04-21,07:15:58,2024-05-17,05:30:00,2024-05-25,18:15:00,Main,Main,9,Mr,Kusam,Alexander,07717378760,115,83.95,31.05,TBA,Fr7806,0,Audi,Tt,Grey,LP12ATz,Next

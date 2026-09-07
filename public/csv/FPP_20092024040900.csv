@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124092020465,Heathrow,2024-09-20,16:04:50,2024-10-15,09:45:00,2024-10-31,12:30:00,"Terminal 3","Terminal 3",17,Mr,Philip,Nix,07951344122,88.99,62.293,26.697,TBA,,0,Skida,Yeti,White,De12lzg,Next

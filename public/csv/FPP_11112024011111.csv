@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP392,PZ0124111120678,Gatwick,2024-11-11,12:59:49,2024-11-13,06:15:00,2024-11-15,23:30:00,North,North,3,Mr,Rebecca,Grinyer,07540375103,39,28.47,10.53,TBA,ezy870,0,Suzuki,Alto,Red,GX53VYO,Next

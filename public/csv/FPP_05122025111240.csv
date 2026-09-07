@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+AVP-001,JS-B6ZCQI,Gatwick,2025-12-05,11:06:52,2026-12-06,09:00:00,2026-12-14,09:00:00,South,North,9,Mr,test,test,4465467845485689,54.99,38.493,16.497,TBA,64564sdfd,0,toyota,corola,red,123456,Next

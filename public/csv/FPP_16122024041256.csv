@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BP-01,PZ0124121620758,Heathrow,2024-12-16,15:21:39,2024-12-22,06:30:00,2025-01-08,23:30:00,"Terminal 5","Terminal 5",18,Mr,Noelia,Munoz,07956876852,95.99,67.193,28.797,TBA,BA0465,0,vauxhall,"mokka E",red,PK22NMU,Next

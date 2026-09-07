@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124070220203,Gatwick,2024-07-02,18:29:02,2024-07-05,12:45:00,2024-07-08,13:00:00,North,North,4,Mr,Fabio,Cosenza,07801474459,59.99,41.993,17.997,TBA,EZY6408,0,VW,Passat,Grey,VN69UKU,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP378,PZ0124040219779,Luton,2024-04-02,18:52:14,2024-05-03,14:00:00,2024-05-05,18:00:00,Main,Main,3,Mr,Jon,Watkins,07759030986,58,45.24,12.76,TBA,EZY21,0,BMW,"One Series",Red,"SB70 BCU",Next

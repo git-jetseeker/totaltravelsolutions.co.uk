@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP003,PZ0124103020647,Stansted,2024-10-30,11:08:03,2024-11-03,10:30:00,2024-11-08,12:15:00,Main,Main,6,Mr,Andrew,Stewart,07732776883,79.99,59.9925,19.9975,TBA,"PC 1531",0,Ford,Puma,Silver,"LG74 XFP",Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMP01,PZ0124032419750,Stansted,2024-03-24,20:36:13,2024-03-31,05:30:00,2024-04-08,18:45:00,Main,Main,9,Mr,Rafal,Kruk,07889897477,62.99,48.81725,14.17275,TBA,,0,Volvo,S80,Grey,Af60owa,Next

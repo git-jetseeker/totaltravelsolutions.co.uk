@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LTN2,PZ0124051119976,Luton,2024-05-11,13:02:12,2024-06-28,04:00:00,2024-07-05,16:45:00,Main,Main,8,Mr,Juliet,Dolman,07883007540,89.99,79.1912,10.7988,TBA,Ezy2304,0,"Land rover","Range Rover vogue","Dark blue",HJ10UUA,Next

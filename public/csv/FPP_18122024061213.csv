@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-02,PZ0124121820763,Heathrow,2024-12-18,18:23:28,2024-12-23,18:00:00,2024-12-27,19:30:00,TBA,TBA,5,Mr,William,Healy,07885204197,48.99,34.293,14.697,TBA,,0,BMW,"BMW I5",Grey,"RX74 HZL",Next

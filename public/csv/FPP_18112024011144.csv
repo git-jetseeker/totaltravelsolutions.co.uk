@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP384,PZ0124111820697,Luton,2024-11-18,13:30:19,2024-11-23,20:30:00,2024-11-27,20:30:00,TBA,TBA,5,Mr,Piotr,Marczewski,07872171179,50,36.5,13.5,TBA,,0,Audi,A5,Gray,77nnx,Next

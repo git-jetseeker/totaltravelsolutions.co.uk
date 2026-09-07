@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124050719945,Stansted,2024-05-07,06:52:20,2024-05-09,04:00:00,2024-05-12,19:00:00,Main,Main,4,Mr,Stephen,reed,07500117828,67.99,52.69225,15.29775,TBA,"Fr 1375",0,Ford,Fiesta,White,SR55BOS,Next

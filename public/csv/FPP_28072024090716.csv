@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP373,PZ0124072820276,Manchester,2024-07-28,09:55:44,2024-08-03,05:30:00,2024-08-13,13:30:00,"Terminal 2","Terminal 2",11,Mr,Sean,Billington,,142,103.66,38.34,TBA,,0,"Range Rover",Sport,Grey,"Km73 DNV",Next

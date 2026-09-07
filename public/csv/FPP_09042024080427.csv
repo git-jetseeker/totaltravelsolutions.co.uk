@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124040919808,Gatwick,2024-04-09,08:16:29,2024-12-17,10:00:00,2024-12-18,20:00:00,TBA,TBA,2,Mr,Test,Test,4242424240,43.99,30.793,13.197,TBA,TBA,0,test,test,test,test,Next

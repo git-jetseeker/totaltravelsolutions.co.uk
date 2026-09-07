@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP588,PZ0124110920673,Luton,2024-11-09,08:58:52,2024-11-19,04:30:00,2024-11-22,23:30:00,Main,Main,4,Mr,Lukas,Spyrou,07861685579,45,35.1,9.9,TBA,EZY2442,0,Ford,Mondeo,Grey,EJ15BZD,Next

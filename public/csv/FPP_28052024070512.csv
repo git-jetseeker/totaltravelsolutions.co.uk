@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP418,PZ0124052820090,Heathrow,2024-05-28,19:36:31,2024-06-05,18:15:00,2024-06-20,05:30:00,"Terminal 5","Terminal 5",16,Mr,Gregory,Hall,07984512917,99,72.27,26.73,TBA,BA0056,0,Audi,Q3,Silver,GJ21PYV,Next

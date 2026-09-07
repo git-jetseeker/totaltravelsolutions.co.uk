@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP28,PZ0124051319991,Stansted,2024-05-13,17:38:22,2024-05-17,13:30:00,2024-05-19,13:30:00,Main,Main,3,Mr,ANDREW,LYNCH,07950692533,75,54.75,20.25,TBA,,0,Tesla,"Model Y",BLACK,"BW73 NPG",Next

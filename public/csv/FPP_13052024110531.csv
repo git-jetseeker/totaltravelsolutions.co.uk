@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124051319986,Gatwick,2024-05-13,11:14:14,2024-05-21,04:30:00,2024-05-28,15:30:00,North,TBA,8,Mr,Alison,Butcher,07799500556,88.99,62.293,26.697,TBA,TBA,0,Nissan,Qashqai,"Midnight Purple/Black","HT18 DYB",Next

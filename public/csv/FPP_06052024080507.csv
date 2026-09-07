@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP003,PZ0124050619933,Stansted,2024-05-06,08:27:56,2024-09-05,11:30:00,2024-09-08,18:00:00,TBA,TBA,4,Mr,Kusam,Alexander,07717378760,69.99,52.4925,17.4975,TBA,TBA,0,audi,TT,grey,LP12ATz,Next

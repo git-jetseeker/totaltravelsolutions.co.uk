@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP3,PZ0124060320108,Luton,2024-06-03,13:10:57,2024-08-03,10:00:00,2024-08-11,12:00:00,Main,Main,9,Mr,Liam,Dodd,07718256092,95,69.35,25.65,TBA,,0,Volkswagen,Tiguan,Grey,"YM17 HZS",Next

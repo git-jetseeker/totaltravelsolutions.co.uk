@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP16,PZ0124091520451,Gatwick,2024-09-15,09:01:56,2024-09-17,16:00:00,2024-09-20,22:00:00,North,North,4,Mr,Stuart,Murdoch,07949228894,91,66.43,24.57,TBA,,0,BMW,"4 Series",Blue,"EA18 UAJ",Next

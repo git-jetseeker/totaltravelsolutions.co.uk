@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124121420756,Heathrow,2024-12-14,11:35:24,2025-11-11,04:00:00,2025-11-25,12:00:00,"Terminal 2","Terminal 2",15,Mr,Jeannette,Wright,07967583315,90.99,63.693,27.297,TBA,SN2093,0,Lexus,NX,Khaki,"KP73 WVX",Next

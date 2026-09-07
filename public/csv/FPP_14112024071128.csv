@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BP-01,PZ0124111420685,Heathrow,2024-11-14,07:38:17,2025-01-26,06:15:00,2025-02-02,21:00:00,"Terminal 2","Terminal 2",8,Mr,Sarah,Cairney,07858658852,65.99,46.193,19.797,TBA,SK533,0,Volkswagen,Poli,Black,NL18MYS,Next

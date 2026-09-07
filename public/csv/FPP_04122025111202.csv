@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HAPS-001,JS-HCYZX1,Heathrow,2025-12-04,11:25:37,2026-03-17,09:00:00,2026-03-23,09:00:00,TBA,TBA,7,Mr,test,test,4454454676465,43.99,30.793,13.197,TBA,,0,HGJKKJHK,HKJHJKH,JHKJHKJ,s65df4sd654,Next

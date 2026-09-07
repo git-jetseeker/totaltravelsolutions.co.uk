@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP003,PZ0125022420856,Stansted,2025-02-24,11:22:56,2025-02-28,17:00:00,2025-03-02,23:00:00,TBA,TBA,3,Mr,Mark,Carroll,07599669599,69.99,52.4925,17.4975,TBA,,0,DS,"DS3 Crossback",PURPLE,"KV20 DPN",Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP3,PZ0124052420065,Luton,2024-05-24,07:46:06,2024-07-07,14:00:00,2024-07-16,15:30:00,Main,Main,10,Mr,michael,bowyer,07506515758,100,73,27,TBA,FR3453,0,renault,Scenic,blue,ky56hyb,Next

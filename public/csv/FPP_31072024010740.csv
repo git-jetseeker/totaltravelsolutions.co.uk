@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0124073120288,Heathrow,2024-07-31,13:03:15,2024-08-10,09:00:00,2024-08-26,09:00:00,"Terminal 5","Terminal 5",17,Mr,Derek,Vickers,07887758398,117.99,82.593,35.397,TBA,BA0028,0,BMW,330E,Grey,LR22OUK,Next

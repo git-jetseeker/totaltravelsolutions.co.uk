@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+AVP-001,PZ0124122820776,Gatwick,2024-12-28,11:36:58,2024-12-29,06:00:00,2025-01-03,09:00:00,South,South,6,Mr,Martina,Hendry,07983417884,44.99,32.8427,12.1473,TBA,,0,Toyota,RAV4,Gray,CD52BEE,Next

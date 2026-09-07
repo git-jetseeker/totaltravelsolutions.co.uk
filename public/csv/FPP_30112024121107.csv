@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SAT-001,PZ0124113020726,Manchester,2024-11-30,00:40:35,2025-02-12,05:00:00,2025-02-16,13:45:00,"Terminal 3","Terminal 1",5,Mr,Ravichandra,Sreedharala,00447894039119,43,30.1,12.9,TBA,Ezy221,0,Mercedes,GLA,Gray,"LE67 NUP",Next

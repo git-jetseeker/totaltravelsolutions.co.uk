@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP460,PZ0124102820636,Manchester,2024-10-28,08:44:23,2024-11-15,03:00:00,2024-11-22,15:30:00,"Terminal 2","Terminal 2",8,Mr,Craig,Bentley,07305775885,114,100.32,13.68,TBA,,0,Dacia,"Sandero Stepway",Orange,YB71MLJ,Next

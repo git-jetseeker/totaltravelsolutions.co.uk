@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124071520249,Stansted,2024-07-15,16:41:54,2024-07-19,14:30:00,2024-07-22,15:00:00,Main,Main,4,Mr,Rebecca,Evans,07808805435,84.99,65.86725,19.12275,TBA,FR256,0,Audi,A4,Grey,"S300 RLB",Next

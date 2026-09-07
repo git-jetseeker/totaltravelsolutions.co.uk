@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP378,PZ0124111220680,Luton,2024-11-12,16:53:41,2025-01-12,07:00:00,2025-01-14,15:00:00,TBA,TBA,3,Mr,Oren,Paynton,07968064024,31,24.18,6.82,TBA,,0,Mini,E,Green,V50ERR,Next

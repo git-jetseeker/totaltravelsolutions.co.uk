@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SP-01,PZ0124092720505,Heathrow,2024-09-27,19:49:31,2024-10-31,14:00:00,2024-11-14,07:30:00,"Terminal 5","Terminal 5",15,Mr,Christopher,Ridley,07971536347,90.99,63.693,27.297,TBA,BA0042,0,Vauxhall,Corsa,white,"LR65 UJW",Next

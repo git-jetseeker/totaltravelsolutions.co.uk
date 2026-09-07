@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PWU-002,PZ0124121820764,Gatwick,2024-12-18,22:15:09,2024-12-26,06:30:00,2024-12-31,19:30:00,South,South,6,Mr,Carlos,Carvalho,07717669308,77,46.2,30.8,TBA,KM3119,0,VAUXHALL,Zafira,BROWN,MT15LMK,Next

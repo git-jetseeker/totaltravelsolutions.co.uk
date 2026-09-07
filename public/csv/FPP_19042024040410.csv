@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP001,PZ0124041919851,Stansted,2024-04-19,04:42:41,2024-04-23,09:30:00,2024-04-28,15:00:00,Main,Main,6,Mr,Godson,Ibeji,07830241815,96.99,72.7425,24.2475,TBA,,0,"RANGE ROVER",2008,BLACK,HN08AZV,Next

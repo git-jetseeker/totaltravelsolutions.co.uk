@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124090420402,Gatwick,2024-09-04,19:25:34,2024-09-10,06:00:00,2024-09-20,19:30:00,South,South,11,Mr,Dave,Ayling,07775764141,109.99,76.993,32.997,TBA,W46901,0,Seat,Tarraco,White,PK20ZHB,Next

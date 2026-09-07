@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124070520216,Gatwick,2024-07-05,10:08:59,2024-07-24,03:30:00,2024-07-31,23:30:00,North,North,8,Mr,Claire,Gilbert,7446961231,78.99,55.293,23.697,TBA,EZY8563,0,Volvo,Vivaro,Pearl,Gn69kxh,Next

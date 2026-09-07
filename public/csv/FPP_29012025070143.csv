@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-02,PZ0125012920813,Heathrow,2025-01-29,19:49:10,2025-02-13,05:00:00,2025-02-18,14:45:00,"Terminal 5","Terminal 5",6,Mr,David,Booth,07733123613,46.99,32.893,14.097,TBA,BA0412,0,Vw,Eos,Red,"Vw11 EOS",Next

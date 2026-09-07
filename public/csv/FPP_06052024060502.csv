@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124050619943,Stansted,2024-05-06,18:31:38,2024-05-26,17:00:00,2024-06-03,14:00:00,Main,Main,9,Mr,Petru,Albu,07463668915,89.99,69.74225,20.24775,TBA,,0,Suzuki,Swace,Blue,EN21YCF,Next

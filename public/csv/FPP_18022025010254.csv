@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0125021820845,Heathrow,2025-02-18,12:58:29,2025-02-27,13:45:00,2025-03-10,15:45:00,"Terminal 3","Terminal 3",12,Mr,Karl,Young,07955125791,69.99,48.993,20.997,TBA,CX257,0,Vauxhall,Meriva,Bronze,HY60lYD,Next

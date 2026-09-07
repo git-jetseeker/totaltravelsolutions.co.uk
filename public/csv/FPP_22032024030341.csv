@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+EMAM,PZ0124032219745,"East Midlands",2024-03-22,14:57:24,2024-03-27,03:15:00,2024-04-03,10:45:00,Main,Main,8,Mr,Jan,Nicholson,07745218172,70,59.5,10.5,TBA,FR9284,0,Nissan,Qashqai,Orange,"TF07 BXE",Next

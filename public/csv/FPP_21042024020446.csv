@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP337,PZ0124042119868,Manchester,2024-04-21,14:48:05,2024-05-17,16:00:00,2024-05-20,11:45:00,"Terminal 3","Terminal 3",4,Mr,Rolands,Skrabe,07729203442,39,28.47,10.53,TBA,FR4097,0,Audi,A6,Black,yb62vgd,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HAPS-001,PZ0125081220891,Heathrow,2025-08-12,12:49:05,2025-08-13,09:00:00,2025-08-13,09:00:00,TBA,TBA,1,Mr,testings,newew,07458745542244,31.99,22.393,9.597,TBA,,0,test,test,test,test,Next

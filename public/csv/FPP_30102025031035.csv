@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HAPS-002,JS-IQBOVC,Heathrow,2025-10-30,15:29:21,2026-09-09,09:00:00,2026-09-17,09:00:00,TBA,TBA,9,Mr,test,test,56456454564564,59.99,41.993,17.997,TBA,,0,gjhgjhgh,jhgjhgjh,jgjhgjhg,jgjhgjhgjh,Next

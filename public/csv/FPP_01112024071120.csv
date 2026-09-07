@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124110120653,Gatwick,2024-11-01,19:21:19,2024-11-04,04:00:00,2024-11-09,03:00:00,North,North,6,Mr,Sachin,Katyal,7407505252,78.99,55.293,23.697,TBA,EZY8215,0,Ford,"Ford fiesta",Blue,PJ55EFW,Next

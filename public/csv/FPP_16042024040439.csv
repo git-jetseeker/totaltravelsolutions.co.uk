@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP581,PZ0124041619835,Manchester,2024-04-16,10:13:18,2024-04-24,05:00:00,2024-04-30,13:30:00,"Terminal 1","Terminal 1",7,Mr,Bridget,Taylor,07817700197,56,43.68,12.32,TBA,EZY2014,0,Mitsubishi,"Outlander PHEV",Brown,FE68ZCX,Next

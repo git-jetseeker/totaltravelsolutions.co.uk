@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0125012420807,Heathrow,2025-01-24,19:39:11,2025-02-13,07:00:00,2025-02-20,10:45:00,"Terminal 3","Terminal 3",8,Mr,Rakesh,Kapur,07908710498,61.99,43.393,18.597,TBA,EK005,0,LEXUS,ES,GREY,R12KSH,Next

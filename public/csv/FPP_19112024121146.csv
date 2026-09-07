@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP384,PZ0124111920700,Luton,2024-11-19,12:43:34,2025-01-24,07:30:00,2025-02-07,22:30:00,Main,Main,15,Mr,Leroy,Morton,07480867279,116,84.68,31.32,TBA,,0,toyota,corolla,blue,fv22rrx,Next

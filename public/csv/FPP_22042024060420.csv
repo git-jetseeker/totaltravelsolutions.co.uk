@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP577,PZ0124042219877,Gatwick,2024-04-22,18:11:06,2024-05-15,05:30:00,2024-05-19,15:00:00,South,North,5,Mr,Sivasothy,Nagaratnam,07800571569,84,61.32,22.68,TBA,,0,Jaguar,xe,Blue,"OV17 KVL",Next

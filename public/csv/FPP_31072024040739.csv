@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP001,PZ0124073120290,Stansted,2024-07-31,16:54:24,2024-08-17,09:45:00,2024-08-24,12:30:00,Main,Main,8,Mr,Harish,Sethi,07956263008,123.99,92.9925,30.9975,TBA,XQ524,0,BMW,X2,Black,AP68NWB,Next

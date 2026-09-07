@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124101220560,Stansted,2024-10-12,10:15:35,2024-11-14,05:00:00,2024-11-18,15:30:00,Main,Main,5,Mr,Amanda,Ayers,07832350328,77.99,60.44225,17.54775,TBA,Fr8165,0,Peugeot,2007,Silver,"Eu71 cvp",Next

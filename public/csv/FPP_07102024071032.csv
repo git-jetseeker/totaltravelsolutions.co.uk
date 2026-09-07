@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124100720537,Heathrow,2024-10-07,20:33:06,2024-10-15,08:30:00,2024-10-28,06:30:00,"Terminal 5","Terminal 5",14,Mr,Steve,Cloutman,07971505433,76.99,53.893,23.097,TBA,BA0254,0,Honda,CR-V,Grey,LL65ETA,Next

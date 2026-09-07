@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP373,PZ0124070520214,Manchester,2024-07-05,06:54:04,2024-07-06,09:00:00,2024-07-14,08:00:00,"Terminal 2","Terminal 2",9,Mr,Sean,George,07850177593,130,94.9,35.1,TBA,TOM189,0,Bmw,418d,White,CA16YWV,Next

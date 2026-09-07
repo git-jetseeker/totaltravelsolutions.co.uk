@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124093020510,Heathrow,2024-09-30,10:56:31,2024-10-04,12:00:00,2024-10-13,12:30:00,"Terminal 5","Terminal 5",10,Mr,Rob,Jones,07832288578,70.99,49.693,21.297,TBA,BA0223,0,Tesla,Y,Silver,"LA24 PVF",Next

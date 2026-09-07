@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP28,PZ0124110220654,Stansted,2024-11-02,10:53:58,2024-11-04,04:30:00,2024-11-15,17:30:00,TBA,TBA,12,Mr,Zana,Abdullah,07537995353,92,67.16,24.84,TBA,,0,Zafira,2012,White,ML62JYX,Next

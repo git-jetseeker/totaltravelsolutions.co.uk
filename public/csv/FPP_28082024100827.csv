@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124082820363,Gatwick,2024-08-28,10:17:42,2024-09-11,06:00:00,2024-09-14,14:00:00,North,North,4,Mr,Katie,Percival,07481848167,66.99,46.893,20.097,TBA,Ezy8536,0,Audi,Q3,White,Wg17hrw,Next

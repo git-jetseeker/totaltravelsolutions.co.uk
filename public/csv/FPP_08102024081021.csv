@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124100820545,Gatwick,2024-10-08,21:03:02,2024-10-23,09:15:00,2024-10-30,12:15:00,South,South,8,Mr,Kim,May-Wickens,07780676538,75.99,53.193,22.797,TBA,,0,Dacia,Duster,Orange,"BV22 PMX",Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+GOPR-1,PZ0124070320207,Heathrow,2024-07-03,09:46:58,2024-11-06,09:00:00,2024-11-07,22:45:00,TBA,TBA,2,Mr,TEST,TEST,234523522332,44,30.8,13.2,TBA,TBA,0,"CF V",DFV,"CX VDF",SCDF,Next

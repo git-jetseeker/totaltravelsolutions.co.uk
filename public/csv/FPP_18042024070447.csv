@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP3,PZ0124041819847,Luton,2024-04-18,06:59:55,2024-07-24,06:00:00,2024-07-29,20:00:00,Main,Main,6,Mr,Erzsebet,Albert,07453987100,80,58.4,21.6,TBA,"W9 3701",0,Skoda,Superb,Grey,BD65CVV,Next

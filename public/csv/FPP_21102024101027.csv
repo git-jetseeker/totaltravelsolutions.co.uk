@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP003,PZ0124102120607,Stansted,2024-10-21,23:07:12,2024-10-25,06:30:00,2024-10-27,14:00:00,TBA,TBA,3,Mr,Luke,Donegan,07921613586,59.99,44.9925,14.9975,TBA,TBA,0,BMW,525i,Bronze,F91CGK,Next

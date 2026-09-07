@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP378,PZ0124082420352,Luton,2024-08-24,16:36:35,2024-09-17,04:00:00,2024-09-22,20:00:00,Main,Main,6,Mr,Abdul,Gafur,07547021791,78,60.84,17.16,TBA,"W9 5302",0,Toyota,Auris,White,Ae18pzv,Next

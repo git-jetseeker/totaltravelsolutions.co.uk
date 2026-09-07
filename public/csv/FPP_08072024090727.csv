@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124070820222,Gatwick,2024-07-08,09:45:02,2024-07-22,08:00:00,2024-07-29,07:30:00,North,North,8,Mr,Stuart,Oliphant,7540132177,125.99,88.193,37.797,TBA,H33YNF,0,Seat,Tarraco,Green,"DE72 GZG",Next

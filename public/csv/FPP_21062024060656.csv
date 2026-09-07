@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP384,PZ0124062120172,Luton,2024-06-21,18:44:17,2025-02-20,10:00:00,2025-02-23,16:00:00,Main,Main,4,Mr,Celena,Dell,7805880361,53,38.69,14.31,TBA,,0,Hyundai,Kona,Blue,KN22FSS,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP392,PZ0124101920594,Gatwick,2024-10-19,10:11:49,2024-10-20,06:15:00,2024-10-23,13:15:00,South,South,4,Mr,Elliot,Foley,07921567267,45,32.85,12.15,TBA,,0,Audi,Q7,Black,GU21TNV,Next

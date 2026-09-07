@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124080920325,Gatwick,2024-08-09,10:31:58,2024-09-28,10:00:00,2024-10-05,16:15:00,North,North,8,Mr,Lisa,Revuelta,07771817817,88.99,62.293,26.697,TBA,EZY8112,0,Nissan,Qasqai,White,"P20 LCC",Next

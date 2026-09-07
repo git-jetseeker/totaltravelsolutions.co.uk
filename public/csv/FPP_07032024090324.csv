@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP002,PZ0124030719703,Stansted,2024-03-07,09:04:27,2024-05-28,15:00:00,2024-06-04,07:45:00,Main,Main,8,Mr,GILLIAN,SWAIN,07411697349,54.99,41.2425,13.7475,TBA,FR2587,0,"Land Rover",Discovery,"Navy Blue","G13 PEA",Next

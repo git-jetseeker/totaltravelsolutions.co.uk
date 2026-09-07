@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP440,PZ0124072920279,Gatwick,2024-07-29,07:29:59,2024-08-22,12:00:00,2024-08-25,15:00:00,North,North,4,Mr,Diane,Amos-curl,07891177292,80,68.8,11.2,TBA,Eju8622,0,VOLVO,V40,Red,Ak13LDX,Next

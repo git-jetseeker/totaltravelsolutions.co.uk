@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124102120603,Gatwick,2024-10-21,13:07:35,2024-11-22,10:00:00,2024-11-26,11:30:00,South,South,5,Mr,Peter,Jordan,07866563547,69.99,48.993,20.997,TBA,KM116,0,Mercedes,"C300 Estate",Silver,D4MPJ,Next

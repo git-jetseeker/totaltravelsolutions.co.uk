@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP392,PZ0124112520713,Gatwick,2024-11-25,16:12:49,2024-12-14,04:00:00,2024-12-20,20:15:00,South,South,7,Mr,Rachel,Bammeke,07903642166,52,37.96,14.04,TBA,BA2663,0,"Mercedes Benz",GLC,Grey,YE12NDE,Next

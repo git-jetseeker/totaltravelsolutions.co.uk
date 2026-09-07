@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124112420708,Heathrow,2024-11-24,16:12:24,2024-12-21,06:30:00,2025-01-05,18:00:00,"Terminal 2","Terminal 2",16,Mr,Jason,Naik,07415277287,77.99,54.593,23.397,TBA,,0,Peugeot,E-5008,"Pale Blue","EA74 KNC",Next

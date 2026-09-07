@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124051319992,Stansted,2024-05-13,18:02:05,2024-05-16,05:45:00,2024-05-19,17:00:00,Main,Main,4,Mr,Nicholas,Wright,07718250983,67.99,52.69225,15.29775,TBA,FR2455,0,Kia,Sportage,Silver,EK13UHH,Next

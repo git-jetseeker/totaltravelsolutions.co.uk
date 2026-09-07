@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124081220331,Gatwick,2024-08-12,19:58:10,2024-08-14,06:00:00,2024-08-22,18:00:00,South,South,9,Mr,Lizbella,Paradela,07775062347,94.99,66.493,28.497,TBA,"Air Europa 1015",0,Kka,Niro,White,"Yw66 ddo",Next

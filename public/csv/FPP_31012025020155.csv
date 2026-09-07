@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0125013120818,Heathrow,2025-01-31,14:47:06,2025-02-27,13:45:00,2025-03-10,15:45:00,"Terminal 3","Terminal 3",12,Mr,PAUL,COLLIER,07831797997,69.99,48.993,20.997,TBA,CX0257,0,Jaguar,XF,Grey,M15REF,Next

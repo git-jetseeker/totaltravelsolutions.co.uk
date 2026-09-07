@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP620,PZ0124120820742,Luton,2024-12-08,09:35:25,2024-12-23,04:30:00,2025-01-02,12:00:00,TBA,TBA,11,Mr,Remus,"Iulian Stachie",07564860753,75,54.75,20.25,TBA,,0,2007,Bmw,Red,RK57MGO,Next

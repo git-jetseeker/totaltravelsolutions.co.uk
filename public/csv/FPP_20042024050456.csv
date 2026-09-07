@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+MAJ6,PZ0124042019866,Manchester,2024-04-20,17:26:04,2024-04-22,09:30:00,2024-04-25,13:30:00,"Terminal 3","Terminal 1",4,Mr,"Tove Agnes",Gascoyne,07711776886,89.99,79.1912,10.7988,TBA,SK4609,0,Volvo,V70,Gold,gk60wkl,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124061320145,Gatwick,2024-06-13,10:06:16,2024-06-21,02:00:00,2024-06-28,13:00:00,TBA,TBA,8,Mr,Jacqui,Cotton,07967805923,117.99,82.593,35.397,TBA,TBA,0,TOYOTA,"RAV 4",WHITE,PF66LKZ,Next

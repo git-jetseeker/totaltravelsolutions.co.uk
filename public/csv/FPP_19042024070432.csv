@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124041919860,Gatwick,2024-04-19,19:57:35,2024-05-30,04:30:00,2024-06-03,16:00:00,South,South,5,Mr,Paul,Laycock,07850394776,65.99,46.193,19.797,TBA,EZY6428,0,Audi,SQ5,Blue,EY15ZWR,Next

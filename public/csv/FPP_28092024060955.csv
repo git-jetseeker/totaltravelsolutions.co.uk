@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124092820508,Gatwick,2024-09-28,19:22:38,2024-10-19,09:00:00,2024-10-27,15:30:00,South,South,9,Mr,Brinda,Ballah,07449314505,90.99,63.693,27.297,TBA,30102,0,Vauxhall,Mokka,Red,Ds15uct,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP003,PZ0124060620118,Stansted,2024-06-06,16:23:15,2024-06-07,14:00:00,2024-06-09,16:15:00,Main,Main,3,Mr,Emma,Pitt,07974271012,76.99,57.7425,19.2475,TBA,,0,Mini,Cooper,Blue,"Lj06 Byh",Next

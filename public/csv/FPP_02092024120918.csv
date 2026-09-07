@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124090220389,Heathrow,2024-09-02,11:58:40,2024-11-14,09:00:00,2024-11-16,09:00:00,"Terminal 2","Terminal 2",3,Mr,test,test,3423432,41.99,29.393,12.597,TBA,,0,dsawe,dsa,das,sads,Next

@@ -1,0 +1,292 @@
+/**
+ * Jetseeker — FAQs page (AVPS-inspired support center layout)
+ */
+
+.js-faqs-page {
+    background: var(--js-background);
+}
+
+/* ── Main layout ── */
+.js-faqs-body {
+    padding: 48px 0 80px;
+}
+
+.js-faqs-main {
+    min-width: 0;
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+/* Intro block (How Can We Help You?) */
+.js-faqs-intro {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 40px;
+}
+
+.js-faqs-intro__badge {
+    display: inline-block;
+    padding: 6px 14px;
+    margin-bottom: 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--js-primary);
+    background: rgba(26, 26, 26, 0.1);
+    border-radius: 999px;
+}
+
+.js-faqs-intro h2 {
+    font-size: clamp(1.5rem, 2.8vw, 1.85rem);
+    font-weight: 800;
+    color: var(--js-heading);
+    margin: 0 0 12px;
+    text-align: center;
+}
+
+.js-faqs-intro p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--js-muted);
+    margin: 0;
+}
+
+/* FAQ list container */
+.js-faqs-panel {
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-lg);
+    padding: 28px 24px 32px;
+    box-shadow: var(--js-shadow-sm);
+}
+
+.js-faqs-category {
+    margin-bottom: 32px;
+}
+
+.js-faqs-category:last-child {
+    margin-bottom: 0;
+}
+
+.js-faqs-category__label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(90deg, var(--js-primary-dark), var(--js-primary));
+    padding: 8px 16px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+}
+
+.js-faqs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* AVPS-style accordion items */
+.js-faqs-page .js-faq-item {
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-md);
+    margin-bottom: 0;
+    background: var(--js-surface);
+    box-shadow: none;
+    transition: border-color 0.25s ease;
+}
+
+.js-faqs-page .js-faq-item:hover {
+    border-color: rgba(26, 26, 26, 0.35);
+}
+
+.js-faqs-page .js-faq-item:has(.js-faq-question[aria-expanded="true"]) {
+    border-color: var(--js-primary);
+    box-shadow: none;
+}
+
+.js-faqs-page .js-faq-question {
+    padding: 20px 22px;
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    font-weight: 600;
+    color: var(--js-heading);
+    gap: 16px;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent;
+}
+
+.js-faqs-page .js-faq-question__text {
+    flex: 1;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.js-faqs-page .js-faq-question__text p {
+    margin: 0;
+}
+
+.js-faqs-page .js-faq-question:hover {
+    background: rgba(26, 26, 26, 0.04);
+}
+
+.js-faqs-page .js-faq-question[aria-expanded="true"] {
+    background: rgba(26, 26, 26, 0.06);
+    color: var(--js-primary-dark);
+}
+
+.js-faqs-page .js-faq-question i {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(26, 26, 26, 0.1);
+    color: var(--js-primary);
+    font-size: 14px;
+    margin-left: auto;
+}
+
+.js-faqs-page .js-faq-question[aria-expanded="true"] i {
+    background: var(--js-primary);
+    color: #fff;
+}
+
+.js-faqs-page .js-faq-answer {
+    padding: 0 22px;
+    font-size: 0.98rem;
+    color: var(--js-text);
+    line-height: 1.8;
+    border-top: 1px solid transparent;
+}
+
+.js-faqs-page .js-faq-answer.is-open {
+    padding: 0 22px 22px;
+    border-top-color: var(--js-border);
+    margin-top: 0;
+    padding-top: 18px;
+}
+
+.js-faqs-page .js-faq-answer p {
+    margin: 0 0 12px;
+    color: var(--js-text);
+}
+
+.js-faqs-page .js-faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+.js-faqs-page .js-faq-answer a {
+    color: var(--js-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.js-faqs-page .js-faq-answer strong,
+.js-faqs-page .js-faq-answer b {
+    color: var(--js-heading);
+}
+
+.js-faqs-page .js-faq-answer ul,
+.js-faqs-page .js-faq-answer ol {
+    margin: 12px 0;
+    padding-left: 20px;
+}
+
+.js-faqs-page .js-faq-answer li {
+    margin-bottom: 8px;
+}
+
+/* Sidebar booking widget */
+.js-faqs-sidebar {
+    position: sticky;
+    top: calc(var(--js-nav-height) + var(--js-topbar-height) + 16px);
+}
+
+.js-faqs-sidebar .sub-serc {
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--js-shadow-md);
+}
+
+.js-faqs-sidebar .passenger-detail,
+.js-faqs-sidebar .accordion-style {
+    background: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+.js-faqs-sidebar .passenger-detail h3,
+.js-faqs-sidebar h3.text-center {
+    margin: 0 !important;
+    padding: 18px 20px !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    background: linear-gradient(135deg, var(--js-primary-dark), var(--js-primary)) !important;
+    border-radius: 0 !important;
+}
+
+.js-faqs-sidebar .panel-body {
+    padding: 20px !important;
+}
+
+.js-faqs-sidebar .form-control {
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-sm);
+    min-height: 42px;
+}
+
+.js-faqs-sidebar .btn,
+.js-faqs-sidebar button[type="submit"],
+.js-faqs-sidebar .form-button {
+    background: var(--js-primary) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: var(--js-radius-sm) !important;
+    font-weight: 700;
+    width: 100%;
+}
+
+/* Hero support-center badge */
+.js-page-hero--faqs .js-page-hero__eyebrow {
+    display: inline-block;
+    padding: 6px 16px;
+    margin-bottom: 18px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #F9A8D4;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+}
+
+@media (max-width: 991px) {
+    .js-faqs-panel {
+        padding: 22px 18px 26px;
+    }
+}
+
+@media (max-width: 767px) {
+    .js-faqs-body {
+        padding: 32px 0 56px;
+    }
+
+    .js-faqs-page .js-faq-question {
+        padding: 16px 18px;
+    }
+
+    .js-faqs-page .js-faq-answer.is-open {
+        padding: 0 18px 18px;
+        padding-top: 14px;
+    }
+}

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0124032319747,Heathrow,2024-03-23,16:01:35,2024-04-04,10:00:00,2024-04-10,07:30:00,"Terminal 5","Terminal 5",7,Mr,Parvinder,Somal,7792329254,75.99,53.193,22.797,TBA,BA0066,0,MERCEDES-BENZ,"CLA AMG 45 S 4MATIC+ PLUS",Black,Kn73vru,Next

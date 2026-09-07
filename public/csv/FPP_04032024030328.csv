@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LGMA,PZ0124030419695,Gatwick,2024-03-04,14:33:19,2024-03-25,04:00:00,2024-03-29,00:00:00,North,North,5,Mr,Olajide,Olunloyo,07538500920,68,59.84,8.16,TBA,EZY8076,0,mazda,6,Black,OY62PUJ,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP441,PZ0124090520407,Gatwick,2024-09-05,13:23:59,2024-11-17,11:45:00,2024-11-29,06:00:00,North,North,13,Mr,David,Abbott,07484837151,118,101.48,16.52,TBA,TOM021,0,Volvo,V40,red,LO17edf,Next

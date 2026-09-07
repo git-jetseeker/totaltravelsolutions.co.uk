@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP399,PZ0124052520073,Heathrow,2024-05-25,12:09:26,2024-11-09,11:30:00,2024-11-18,14:45:00,"Terminal 3","Terminal 3",10,Mr,JOE,CROSSLEY,07943807803,67,48.91,18.09,TBA,VS156,0,AUDI,A3,WHITE,AL05SEN,Next

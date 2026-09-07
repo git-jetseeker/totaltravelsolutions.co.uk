@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124041619832,Gatwick,2024-04-16,07:09:51,2024-05-23,04:15:00,2024-06-04,13:15:00,South,South,13,Mr,Tom,Swinney,07446762304,100.99,70.693,30.297,TBA,BA2655,0,Landrover,Discovery,Blue,N88TDS,Next

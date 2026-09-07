@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+YK-001,JS-INUR2T,Stansted,2025-11-26,14:49:49,2026-03-10,09:00:00,2026-03-17,09:00:00,TBA,TBA,8,Mr,test,test,6546545646545645,110,82.5,27.5,TBA,,0,65sd65f,65d65fd6,656f5,sd54fsd645,Next

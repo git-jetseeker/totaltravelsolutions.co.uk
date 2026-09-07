@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP003,PZ0124102120605,Stansted,2024-10-21,17:06:12,2024-10-25,06:30:00,2024-10-27,14:00:00,Main,Main,3,Mr,Finian,Lurcott,07534215399,59.99,44.9925,14.9975,TBA,FR1731,0,Audi,A3,Grey,KP71YOF,Next

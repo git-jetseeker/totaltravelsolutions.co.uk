@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124032519754,Stansted,2024-03-25,06:36:19,2024-03-28,16:00:00,2024-04-02,22:45:00,Main,Main,6,Mr,Fabio,Cosenza,07801474459,88.99,68.96725,20.02275,TBA,FR9129,0,Volkswagen,Passat,Grey,"VN69 UKU",Next

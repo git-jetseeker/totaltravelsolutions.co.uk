@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124101620584,Heathrow,2024-10-16,20:00:52,2024-10-25,13:00:00,2024-11-03,14:00:00,"Terminal 5","Terminal 5",10,Mr,Nicholas,Thomas,07495185609,65.99,46.193,19.797,TBA,ba497,0,hyundai,i10,blue,wg09nks,Next

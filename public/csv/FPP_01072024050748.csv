@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124070120196,Gatwick,2024-07-01,17:26:36,2024-08-02,04:30:00,2024-08-05,12:30:00,North,North,4,Mr,Ossie,Dias-Gunawardena,07828768488,59.99,41.993,17.997,TBA,,0,Volvo,V60,Black,GN18NDC,Next

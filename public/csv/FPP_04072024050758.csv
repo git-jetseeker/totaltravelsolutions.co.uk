@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0124070420212,Heathrow,2024-07-04,17:38:00,2024-07-28,06:45:00,2024-08-12,08:00:00,"Terminal 3","Terminal 3",16,Mr,Grant,Avery,07774001170,113.99,79.793,34.197,TBA,VS0091,0,BMW,X6,Blue,"A23 VRY",Next

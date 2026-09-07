@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP468,PZ0124101020552,Birmingham,2024-10-10,12:41:36,2024-10-15,11:15:00,2024-10-23,02:00:00,"Bhx Terminal 1","Bhx Terminal 1",9,Mr,Paul,Cox,07850078346,95,89.3,5.7,TBA,TOM7265,0,Tesla,"Model 3",Red,TR51HAJ,Next

@@ -1,0 +1,337 @@
+
+
+.bold-underline {
+    font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    font-weight: 500;
+}
+@media all and (-ms-high-contrast: none),  (-ms-high-contrast: active) {
+    .bold-underline {
+    font-weight: 600;
+}
+}@keyframes fade-in {
+    to {
+    opacity: 1;
+}
+}@keyframes fade-out {
+    to {
+    opacity: 0;
+}
+}.anim-fade-in, .tp-widget-loader, .tp-widget-fallback {
+    animation: fade-in .5s ease .3s forwards;
+}
+.anim-fade-out, .tp-widget-loader--loaded {
+    animation: fade-out .5s ease .3s forwards;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+.hidden {
+    display: none;
+}
+.tp-widget-loader, .tp-widget-fallback {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,  -50%);
+}
+#fallback-logo {
+    display: none;
+}
+.no-svg #fallback-logo {
+    display: inline-block;
+}
+.tp-widget-wrapper {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 750px;
+    opacity: 0;
+    position: relative;
+    transition: opacity 1s ease;
+}
+.tp-widget-wrapper.visible {
+    opacity: 1;
+}
+.tp-stars .tp-star__canvas {
+    fill: #d6d6d6;
+}
+.tp-stars .tp-star__shape {
+    fill: #fff;
+}
+.tp-stars--1 .tp-star:nth-of-type(-n+1) .tp-star__canvas {
+    fill: #ff3722;
+}
+.tp-stars--2 .tp-star:nth-of-type(-n+2) .tp-star__canvas {
+    fill: #fb963a;
+}
+.tp-stars--3 .tp-star:nth-of-type(-n+3) .tp-star__canvas {
+    fill: #f9cd16;
+}
+.tp-stars--4 .tp-star:nth-of-type(-n+4) .tp-star__canvas {
+    fill: #73cf11;
+}
+.tp-stars--5 .tp-star:nth-of-type(-n+5) .tp-star__canvas {
+    fill: #00b67a;
+}
+.tp-widget-loader, .tp-widget-fallback {
+    max-width: 50%;
+    opacity: 0;
+    text-align: center;
+    width: 400vh;
+}
+.tp-widget-loader svg, .tp-widget-fallback svg {
+    width: 100%}
+@media screen and (min-width: 400px) {
+    .tp-widget-loader, .tp-widget-fallback {
+    max-width: 200px;
+}
+}.tp-widget-loader--loaded {
+    opacity: 1;
+}
+.bold-underline {
+    border-bottom: 1px solid rgba(25, 25, 25, 0.6);
+}
+.bold-underline:hover {
+    border-color: #191919;
+}
+.dark {
+    color: #fff;
+}
+.dark a {
+    color: #fff;
+}
+.dark .bold-underline:not(.bold-underline--single-theme) {
+    border-color: rgba(255, 255, 255, 0.6);
+}
+.dark .bold-underline:not(.bold-underline--single-theme):hover {
+    border-color: #fff;
+}
+.dark .tp-logo__text {
+    fill: #fff;
+}
+.dark .tp-widget-loader .tp-logo__text {
+    fill: #191919;
+}
+
+.wrapper-top .tp-widget-reviews-wrapper {
+    opacity: 1;
+    overflow: hidden;
+    transition: opacity .6s ease;
+    visibility: visible;
+    z-index: 2;
+}
+.wrapper-top .tp-widget-reviews {
+    height: 160px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.wrapper-top .tp-widget-reviews .tp-widget-review {
+    background-color: #f8f9fa;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 0 rgba(182, 196, 210, 0.4);
+    display: inline-block;
+    height: 159px;
+    line-height: 16px;
+    margin: 0 24px 0 0;
+    padding: 15px;
+    position: relative;
+    vertical-align: middle;
+    white-space: normal;
+}
+.wrapper-top .tp-widget-reviews .tp-widget-review .tp-widget-stars {
+    margin-bottom: 14px;
+}
+.wrapper-top .tp-widget-reviews .tp-widget-review .tp-stars {
+    width: 100px;
+}
+.wrapper-top .tp-widget-reviews .tp-widget-review .date {
+    color: rgba(25, 25, 25, 0.6);
+    font-size: 12px;
+    line-height: 14px;
+    max-width: calc(100% - 135px);
+    position: absolute;
+    right: 15px;
+    text-align: right;
+    top: 15px;
+}
+.wrapper-top .tp-widget-reviews .tp-widget-review .header {
+    color: #1f2936;
+    font-size: 14px;
+    font-weight: 700;
+    height: 16px;
+    margin: 0 0 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.wrapper-top .tp-widget-reviews .tp-widget-review .text {
+    color: #191919;
+    font-size: 13px;
+    line-height: 16px;
+    max-height: 50px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+.wrapper-top .tp-widget-reviews .tp-widget-review .name {
+    bottom: 12px;
+    color: rgba(25, 25, 25, 0.6);
+    font-size: 12px;
+    left: 16px;
+    overflow: hidden;
+    position: absolute;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: calc(100% - 30px);
+    z-index: 2;
+}
+.wrapper-bottom {
+    line-height: 16px;
+    margin: 10px auto 5px;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.wrapper-bottom span {
+    display: inline-block;
+}
+.wrapper-bottom span span {
+    white-space: nowrap;
+}
+.wrapper-bottom .tp-widget-rating {
+    display: inline-block;
+    vertical-align: bottom;
+}
+.wrapper-bottom .tp-widget-poweredby {
+    display: inline-block;
+    vertical-align: bottom;
+}
+.wrapper-bottom .tp-widget-logo {
+    display: block;
+    margin: 0 auto;
+    width: 80px;
+}
+@media screen and (min-width: 540px) {
+    .wrapper-bottom {
+    font-size: 13px;
+}
+}.wrapper-top .tp-widget-review-next, .wrapper-top .tp-widget-review-prev {
+    cursor: pointer;
+    height: 100%;
+    opacity: .5;
+    position: absolute;
+    stroke: #191919;
+    top: 0;
+    width: 50px;
+    z-index: 10;
+}
+.wrapper-top .tp-widget-review-next .svg-slider-arrow, .wrapper-top .tp-widget-review-prev .svg-slider-arrow {
+    display: block;
+    margin: 68px auto 0 auto;
+    width: 24px;
+}
+.wrapper-top .tp-widget-review-next.display-none, .wrapper-top .tp-widget-review-prev.display-none {
+    cursor: default;
+    opacity: .2;
+}
+.wrapper-top .tp-widget-review-next {
+    right: 0;
+}
+.wrapper-top .tp-widget-review-next svg {
+    transform: rotate(180deg);
+}
+.wrapper-top .tp-widget-review-prev {
+    left: -1px;
+}
+.wrapper-top .tp-widget-reviews--placeholder {
+    height: 160px;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    transition: opacity .6s ease;
+    width: calc(100% + 24px);
+    z-index: 10;
+}
+@keyframes placeHolderShimmer {
+    0% {
+    background-position: -468px 0;
+}
+50% {
+    background-position: 468px 0;
+}
+100% {
+    background-position: 468px 0;
+}
+}.wrapper-top .tp-widget-reviews--placeholder-hide {
+    opacity: 0;
+}
+.wrapper-top .tp-widget-reviews--placeholder .tp-widget-review--placeholder {
+    display: inline-block;
+    position: static;
+    width: calc(100% - 24px);
+}
+.wrapper-top .tp-widget-reviews--placeholder .tp-widget-review__placeholder {
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: linear-gradient(to right,  #f8f9fa 8%,  #d6d6d6 18%,  #f8f9fa 33%);
+    background-size: 800px 10px;
+    height: 10px;
+    margin-top: 10px;
+}
+.wrapper-top .tp-widget-reviews--placeholder .tp-widget-review__placeholder--no-animation {
+    animation-name: none;
+    background: #f8f9fa;
+}
+.wrapper-top .tp-widget-reviews--placeholder .tp-widget-review__placeholder--small {
+    width: 70%}
+@media screen and (min-width: 540px) {
+    .wrapper-top .tp-widget-reviews--placeholder .tp-widget-review--placeholder {
+    width: calc(50% - 24px);
+}
+}@media screen and (min-width: 760px) {
+    .wrapper-top .tp-widget-reviews--placeholder .tp-widget-review--placeholder {
+    width: calc(33% - 24px);
+}
+}@media screen and (min-width: 980px) {
+    .wrapper-top .tp-widget-reviews--placeholder .tp-widget-review--placeholder {
+    width: calc(25% - 24px);
+}
+}@media screen and (min-width: 1200px) {
+    .wrapper-top .tp-widget-reviews--placeholder .tp-widget-review--placeholder {
+    width: calc(20% - 24px);
+}
+}.dark .tp-widget-review-next, .dark .tp-widget-review-prev {
+    stroke: #fff;
+}
+.dark .tp-widget-review-next.display-none, .dark .tp-widget-review-prev.display-none {
+    cursor: default;
+    opacity: .2;
+}
+.first-reviewer .wrapper-top {
+    display: none;
+}
+.tp-widget-wrapper {
+    max-width: none;
+    min-width: 300px;
+    opacity: 1;
+}
+.tp-widget-wrapper .wrapper-left {
+    text-align: center;
+}
+.tp-widget-wrapper .wrapper-top {
+    height: 160px;
+    margin: 10px 0 0;
+    overflow: hidden;
+    padding: 0 50px;
+    position: relative;
+}
+#tp-widget-loader {
+    height: 160px;
+    position: absolute;
+    width: calc(100% - 100px);
+    z-index: 3;
+}
+

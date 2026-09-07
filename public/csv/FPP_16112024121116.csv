@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP392,PZ0124111620693,Gatwick,2024-11-16,12:08:23,2024-11-21,04:30:00,2024-11-25,19:30:00,North,North,5,Mr,Liza,Watts,07769158222,43,31.39,11.61,TBA,,0,Toyota,"Aygo cross",Gold,Gf73vzu,Next

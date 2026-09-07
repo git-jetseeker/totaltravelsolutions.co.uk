@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP616,PZ0124102920644,Gatwick,2024-10-29,23:37:26,2024-11-29,18:30:00,2024-12-02,14:00:00,South,South,4,Mr,Oscar,Flores,07944946393,46,34.5,11.5,TBA,W43031,0,Hyundai,Tucson,Blue,EO18BHF,Next

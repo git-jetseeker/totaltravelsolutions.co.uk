@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0125021320837,Stansted,2025-02-13,16:46:37,2025-02-15,04:00:00,2025-02-18,22:30:00,Main,Main,4,Mr,Rachael,Stuttard,07974006268,67.99,52.69225,15.29775,TBA,FR3005,0,Mitsubishi,L200,Black,"Py16 tkj",Next

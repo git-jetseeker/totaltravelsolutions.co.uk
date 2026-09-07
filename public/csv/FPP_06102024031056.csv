@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HVP-01,PZ0124100620532,Heathrow,2024-10-06,16:40:12,2024-11-02,10:30:00,2024-11-09,20:00:00,"Terminal 5","Terminal 5",8,Mr,Hayley,Bird,07540283717,66.99,46.893,20.097,TBA,ba0415,0,landrover,"discovery sport",grey,"HB55 HRB",Next

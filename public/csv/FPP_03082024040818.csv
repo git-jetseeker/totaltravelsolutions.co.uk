@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+EP-01,PZ0124080320301,Heathrow,2024-08-03,16:35:27,2024-08-05,14:00:00,2024-08-12,07:15:00,"Terminal 2","Terminal 2",8,Mr,Usman,Minhas,07946223999,69.99,48.993,20.997,TBA,,0,Bmw,320d,Black,YK59OBU,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124100920549,Heathrow,2024-10-09,16:15:35,2024-10-25,15:00:00,2024-10-27,17:00:00,"Terminal 4","Terminal 4",3,Mr,Xavier,Goodarzian,07967708153,34.99,24.493,10.497,TBA,,0,Mercedes,CLA,Black,HJ24XTV,Next

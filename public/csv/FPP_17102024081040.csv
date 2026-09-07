@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124101720586,Heathrow,2024-10-17,21:34:21,2024-10-23,06:00:00,2024-10-28,23:30:00,"Terminal 5","Terminal 5",6,Mr,Tommy,Lo,07858910092,49.99,34.993,14.997,TBA,BA0719,0,Mercedes,GLC250d,Black,LK67MXM,Next

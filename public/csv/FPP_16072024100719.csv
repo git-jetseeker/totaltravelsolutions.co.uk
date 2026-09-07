@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+KP-1,PZ0124071620250,Heathrow,2024-07-16,10:48:45,2024-08-05,05:30:00,2024-08-10,23:30:00,"Terminal 5","Terminal 5",6,Mr,Vijay,Poliah,07947188048,62.99,44.093,18.897,TBA,0415,0,Ford,Focus,Black,LO65HVY,Next

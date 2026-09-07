@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP3,PZ0124053020097,Luton,2024-05-30,15:51:50,2024-06-09,09:00:00,2024-06-18,13:30:00,Main,Main,10,Mr,roger,tuck,07900602959,150,109.5,40.5,TBA,ezy622,0,honda,jazz,white,AF67EOD,Next

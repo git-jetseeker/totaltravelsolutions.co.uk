@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BRX0,PZ0124080420302,Bristol,2024-08-04,11:29:51,2024-08-05,04:45:00,2024-08-12,13:00:00,"Bristol terminal 1","Bristol terminal 1",8,Mr,Adrian,Oliver,07973443980,114,100.32,13.68,TBA,EZY2900,0,Tesla,S,Grey,ld17mlz,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BHR5,PZ0124031819729,Birmingham,2024-03-18,18:52:49,2024-06-12,04:30:00,2024-06-19,16:30:00,TBA,TBA,8,Mr,Stephen,Bromell,07305361391,99.99,92.9907,6.9993,TBA,TBA,0,Mazda,"CX30 GT sport",Blue,OE23XWZ,Next

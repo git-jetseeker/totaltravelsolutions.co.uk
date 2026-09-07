@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SAT-002,PZ0125020620825,Manchester,2025-02-06,10:44:02,2025-03-21,06:00:00,2025-04-04,07:30:00,"Terminal 1","Terminal 1",15,Mr,Pamela,Sheldon,07910041522,70,49,21,TBA,E1202,0,Toyota,Aygo,Red,"PE16 VLL",Next

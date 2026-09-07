@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP16,PZ0124080720315,Gatwick,2024-08-07,18:06:19,2024-08-12,04:45:00,2024-08-22,13:30:00,North,South,11,Mr,Nichola,Goode,07894420278,156,113.88,42.12,TBA,EZY6544,0,Honda,CRV,Black,"RK63 KVW",Next

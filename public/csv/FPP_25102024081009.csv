@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SP-01,PZ0124102520629,Heathrow,2024-10-25,21:31:10,2024-10-27,18:00:00,2024-11-03,16:30:00,"Terminal 3","Terminal 3",8,Mr,Sharon,Albazzaz,07522110416,66.99,46.893,20.097,TBA,VS401,0,Peugeot,3008,Copper,BF17TEY,Next

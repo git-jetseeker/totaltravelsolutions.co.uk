@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+EP-01,PZ0124073020283,Heathrow,2024-07-30,13:08:02,2024-11-12,09:00:00,2024-11-19,19:00:00,TBA,TBA,8,Mr,Test,Booking,538639819,69.99,48.993,20.997,TBA,TBA,0,testmake,test,test,testreg,Next

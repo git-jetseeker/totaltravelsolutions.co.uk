@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ48,PZ0124012219652,Stansted,2024-01-22,13:27:15,2024-05-27,09:00:00,2024-06-04,15:00:00,Main,Main,9,Mr,Anthony,Custance,07733733722,56.7,47.061,9.639,TBA,,0,Vauxhall,Corsa,Black,du64czs,Next

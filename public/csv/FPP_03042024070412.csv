@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ94,PZ0124040319782,Manchester,2024-04-03,19:34:54,2024-06-21,14:00:00,2024-06-29,02:45:00,"Terminal 1","Terminal 1",9,Mr,Julie,Dimishky,07533182244,91.99,78.1915,13.7985,TBA,,0,Audi,A3,Black,"BD70 ZLV",Next

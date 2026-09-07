@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+STU2,PZ0124080220296,Stansted,2024-08-02,09:23:54,2024-08-12,08:00:00,2024-08-22,21:00:00,Main,Main,11,Mr,Nadine,Oehmcke,07923395370,132.99,117.0312,15.9588,TBA,,0,Honda,Civic,Grey,FP16OKG,Next

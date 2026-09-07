@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP002,PZ0124042419883,Stansted,2024-04-24,09:18:19,2024-07-24,07:30:00,2024-08-07,16:00:00,Main,Main,15,Mr,Neve,Cunningham,07973128671,101.99,76.4925,25.4975,TBA,,0,Citroen,"C4 Spacetourer",Blue,"OV68 WTX",Next

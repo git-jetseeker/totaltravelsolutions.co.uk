@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+STP1,PZ0124050219921,Stansted,2024-05-02,19:51:07,2024-05-29,16:00:00,2024-06-02,23:30:00,Main,Main,5,Mr,vecelin,Kolev,07813028499,102.89,90.5432,12.3468,TBA,,0,Lexus,Rx450,Blue,Lg19hlw,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HVP-01,PZ0124101120558,Heathrow,2024-10-11,19:29:58,2024-10-26,06:00:00,2024-10-30,11:15:00,"Terminal 5","Terminal 5",5,Mr,Angela,Chandler,07841652971,54.99,38.493,16.497,TBA,BA1325,0,Vauxhall,Corsa,Grey,LP17WEK,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124051219983,Gatwick,2024-05-12,19:18:07,2024-05-22,04:30:00,2024-05-29,17:00:00,North,North,8,Mr,Karen,Dewhurst,07866770715,88.99,62.293,26.697,TBA,Ezy8190,0,Fiat,500,Green,"BW15 KWN",Next

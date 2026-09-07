@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP384,PZ0124082620356,Luton,2024-08-26,20:31:49,2024-08-28,03:00:00,2024-09-04,11:00:00,Main,Main,8,Mr,Suzanne,Curran,07500363332,115,83.95,31.05,TBA,W95462,0,Audi,Sq5,Blue,Ly66nyb,Next

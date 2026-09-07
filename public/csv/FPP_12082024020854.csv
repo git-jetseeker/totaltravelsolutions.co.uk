@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124081220330,Gatwick,2024-08-12,14:26:25,2024-09-09,09:45:00,2024-09-12,19:45:00,North,North,4,Mr,Carlo,SANTANIELLO,07753811519,66.99,46.893,20.097,TBA,EZY850,0,BMW,"5 SERIES",BLACK,"YC65 DTZ",Next

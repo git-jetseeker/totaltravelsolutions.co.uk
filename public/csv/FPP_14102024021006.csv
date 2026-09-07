@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP440,PZ0124101420573,Gatwick,2024-10-14,15:27:48,2024-12-30,07:30:00,2025-01-06,22:30:00,North,North,8,Mr,Sharon,Kemp,7587242043,94,80.84,13.16,TBA,TOM394,0,Toyota,Verso,Blue,Caz4026,Next

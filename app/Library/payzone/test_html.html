@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Payzone Gateway - Payment</title>
+    <meta name="description" content="Payment Gateway example integration">
+    <meta name="author" content="Keith Rigby - Payzone">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--Payzone CSS -->
+    <link rel="stylesheet" href="assets/payzone_gateway.css?v=1.2">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body onload="payzonePaymentPageLoad();">
+<form class='payzone-form' id='payzone-payment-form' name='payzone-payment-form' target="_self" method="POST"
+      style='display:none' action="#">
+    <div class='payzone-form-section'>
+        <a href='https://www.payzone.co.uk/' target="_blank">
+            <img class='payzone-logo' src="http://localhost/payzone-direct//assets/images/payzone_logo.png"/>
+        </a>
+    </div>
+    <hr>
+    <div class='payzone-form-section'>
+        <p class='payzone-form-header'>Card Details</p>
+    </div>
+    <div class='payzone-form-section'>
+        <label for='CrossReferenceTransaction'>Use cross reference transaction</label>
+        <select id="CrossReferenceTransaction" name="CrossReferenceTransaction" class='select-70'>
+            <option value='false'>New card</option>
+            <option value='true'>Cross Ref Transaction</option>
+        </select>
+        <span id='CardSectionCRef' style="display:none;">
+  <label for='CrossReference'>Cross Reference</label>
+  <input type="text" name="CrossReference" value=""/>
+</span>
+        <span id='CardSectionTop'>
+  <label for='CardName'>Card Name</label>
+  <input type="text" name="CardName" value="Geoff Wayne"/>
+  <label for='CardNumber'>Card Number</label>
+  <input type="tel" name="CardNumber" id="CardNumber" value="" placeholder="XXXX XXXX XXXX XXXX"
+         pattern="\d{4} \d{4} \d{4} \d{4}" class="masked"/>
+</span>
+        <span class='cvv-wrap'>
+    <label for='CV2'>CV2</label>
+    <input type="text" name="CV2" value="" maxlength="4"
+           onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+  </span>
+        <span id="CardSectionBottom">
+  <label for='StartDateMonth'>Start Date</label>
+  <select name="StartDateMonth" class='select-30'>
+    <option value=''> </option>
+    <option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+  </select>
+  <select name="StartDateYear" class='select-70'>
+    <option value=''> </option>
+    <option value="18">2018</option>
+<option value="17">2017</option>
+<option value="16">2016</option>
+<option value="15">2015</option>
+<option value="14">2014</option>
+<option value="13">2013</option>
+<option value="12">2012</option>
+<option value="11">2011</option>
+<option value="10">2010</option>
+<option value="09">2009</option>
+<option value="08">2008</option>
+  </select>
+  <label for='ExpiryDateMonth'>Expiry Date</label>
+  <select name="ExpiryDateMonth" class='select-30'>
+    <option value=''> </option>
+    <option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+  </select>
+  <select name="ExpiryDateYear" class='select-70'>
+    <option value=''> </option>
+    <option value="18">2018</option>
+<option value="19">2019</option>
+<option value="20">2020</option>
+<option value="21">2021</option>
+<option value="22">2022</option>
+<option value="23">2023</option>
+<option value="24">2024</option>
+<option value="25">2025</option>
+<option value="26">2026</option>
+<option value="27">2027</option>
+<option value="28">2028</option>
+  </select>
+</span>
+    </div>
+    <hr>
+    <script src="assets/inputmasking.js" data-autoinit="true"></script>
+    <span id='form_errors'></span>
+    <div class='payzone-form-section'>
+        <input id='payzone-direct' type="hidden" name="payzone-direct" value="submitted"/>
+        <input id='payzone-cart-submit' type="submit" name="Submit" value="Submit"/>
+    </div>
+    <!--<div class='payzone-form-section'>-->
+        <!--<a href="https://www.payzone.co.uk/" target="_blank">-->
+            <!--<img class='payzone-footer-image'-->
+                 <!--src="http://localhost/payzone-direct//assets/images/payzone_cards_accepted.png"/>-->
+        <!--</a>-->
+    <!--</div>-->
+    <input type='hidden' name='MerchantID' value='PARKIN-7352837'/>
+    <input type='hidden' name='Amount' value='7977'/>
+    <input type='hidden' name='FullAmount' value='79.77'/>
+    <input type='hidden' name='CurrencyCode' value='826'/>
+    <input type='hidden' name='OrderID' value='1540881376'/>
+    <input type='hidden' name='TransactionType' value='SALE'/>
+    <input type='hidden' name='TransactionDateTime' value='2018-10-30 07:36:16 +01:00'/>
+    <input type='hidden' name='OrderDescription' value='Example order processing | Direct API '/>
+    <input type='hidden' name='CustomerName' value='Geoff Wayne'/>
+    <input type='hidden' name='Address1' value='113 Glendower Road'/>
+    <input type='hidden' name='Address2' value=''/>
+    <input type='hidden' name='Address3' value=''/>
+    <input type='hidden' name='Address4' value=''/>
+    <input type='hidden' name='City' value='Birmingham'/>
+    <input type='hidden' name='State' value='West Midlands'/>
+    <input type='hidden' name='PostCode' value='B42 1SX'/>
+    <input type='hidden' name='CountryCode' value='826'/>
+    <input type='hidden' name='HashMethod' value='SHA1'/>
+    <input type='hidden' name='EmailAddress' value=''/>
+    <input type='hidden' name='CallbackURL' value='http://localhost/payzone-direct/results.php'/>
+    <input type='hidden' name='HashDigest' value='ce85a421d3699009eae34f221122437d4592dd16'/>
+
+</form>
+
+
+<div id='payzone-payment-modal-background'></div>
+<div id='payzone-payment-modal'>
+    <a id='payzone-modal-close' href='#'>&times;</a>
+</div>
+
+<div id='payzone-loading-modal-background'></div>
+<div id='payzone-loading-modal'>
+    <div class='payzone-loading-wrap' id='payzone-loading-wrap'>
+        <img src='assets/images/loading.gif'/>
+    </div>
+</div>
+<script>
+    var siteRoot = "http://localhost";
+    var siteBase = "http://localhost/payzone-direct/";
+    var cartPage = "http://localhost/payzone-direct/cart.php";
+    var homePage = "http://localhost/payzone-direct/index.php";
+    var pzgModal = document.getElementById('payzone-payment-modal');
+    var pzgLoading = document.getElementById('payzone-loading-modal');
+    var pzgModalBG = document.getElementById('payzone-payment-modal-background');
+    var pzgLoadingBG = document.getElementById('payzone-loading-modal-background');
+</script>
+<script src="assets/payzone_modal.js?v=1.0.12" data-autoinit="true"></script>
+<script>
+    document.getElementById("payzone-payment-modal-background").addEventListener("click", closePayzoneModal);
+    document.getElementById("payzone-modal-close").addEventListener("click", closePayzoneModal);
+</script>
+<script>
+
+    PayzonePaymentForm = document.getElementById('payzone-payment-form');
+
+    function payzonePaymentPageLoad() {
+        PayzonePaymentForm.style.display = 'block';
+
+        window.parent.postMessage({'option': 'modalsize', 'value': '5'}, "http://localhost");
+        window.parent.postMessage({'option': 'iframesrc', 'value': 'payment'}, "http://localhost");
+    }
+</script>
+<script src="assets/payzone_validate.js?v=1.0.8"></script>
+
+
+<script>
+    var iframepage = 'payment';
+    document.getElementById("payzone-payment-modal-background").addEventListener("click", closePayzoneModal);
+    document.getElementById("payzone-modal-close").addEventListener("click", closePayzoneModal);
+    document.getElementById("payzone-cart-submit").addEventListener("click", payzoneCartFormSubmission);
+    document.getElementById("CrossReferenceTransaction").addEventListener("change", CrossReferenceTransaction);
+
+    function CrossReferenceTransaction(evt) {
+        var CrossRefTrans = (document.getElementById("CrossReferenceTransaction").value == 'false') ? 'false' : 'true';
+        if (CrossRefTrans == 'true') {
+            document.getElementById('CardSectionTop').style.display = 'none';
+            document.getElementById('CardSectionBottom').style.display = 'none';
+            document.getElementById('CardSectionCRef').style.display = 'block';
+        } else {
+            document.getElementById('CardSectionTop').style.display = 'block';
+            document.getElementById('CardSectionBottom').style.display = 'block';
+            document.getElementById('CardSectionCRef').style.display = 'none';
+        }
+    }
+
+    function payzoneCartFormSubmission(evt) {
+        evt.preventDefault();
+        window.addEventListener("message", receiveMessageCart, false);
+        var cartForm = document.getElementById('payzone-payment-form');
+        var pzgModal = document.getElementById('payzone-payment-modal');
+        openLoadingModal('loading');
+        var validated = validateForm(cartForm, 'direct', 'true');
+        if (validated) {
+            var cartData = new FormData(cartForm);
+            var XHR = new XMLHttpRequest();
+            XHR.open("POST", "http://localhost/payzone-direct/process.php?pzgact=process", true);
+            XHR.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    responseObj = JSON.parse((this.responseText))
+                    if (responseObj["StatusCode"] == 3) {
+                        openPayzoneModal(1);
+                        var ifrm = document.createElement("iframe");
+                        ifrm.setAttribute("id", "payzone-iframe");
+                        ifrm.setAttribute("name", "payzone-iframe");
+                        ifrm.setAttribute("src", "http://localhost/payzone-direct/assets/loading.html");
+                        ifrm.setAttribute("scrolling", "none");
+                        ifrm.setAttribute("frameborder", "none");
+                        var threeForm = document.createElement("form");
+                        threeForm.setAttribute("id", "payzone_acs");
+                        threeForm.setAttribute("name", "payzone_acs");
+                        threeForm.setAttribute("action", responseObj["ACSURL"]);
+                        threeForm.setAttribute("method", "POST");
+                        threeForm.setAttribute("target", "payzone-iframe");
+                        var MD = createInput('MD', responseObj["CrossReference"]);
+                        var PaREQ = createInput('PaReq', responseObj["PaREQ"]);
+                        var TermUrl = createInput('TermUrl', responseObj["TermUrl"]);
+                        pzgModal.appendChild(ifrm);
+                        pzgModal.appendChild(threeForm);
+                        threeForm.appendChild(MD);
+                        threeForm.appendChild(PaREQ);
+                        threeForm.appendChild(TermUrl);
+                        openPayzoneModal(5);
+                        sizePayzoneModal('threed');
+                        document.getElementById('payzone_acs').submit();
+                        closeLoadingModal();
+                    } else {
+                        closeLoadingModal();
+                        sendToResults(responseObj);
+                    }
+                }
+            };
+            XHR.send(cartData);
+        }
+        else {
+            closeLoadingModal();
+        }
+    }
+
+    function createInput(name, value) {
+        input = document.createElement("input");
+        input.setAttribute("name", name);
+        input.setAttribute("type", "hidden");
+        input.setAttribute("value", value);
+        return input;
+    }
+
+</script>
+</body>
+</html>

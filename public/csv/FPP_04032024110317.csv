@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BRX0,PZ0124030419694,Bristol,2024-03-04,11:40:18,2024-03-22,06:00:00,2024-03-29,22:00:00,"Bristol terminal 1","Bristol terminal 1",8,Mr,Sophie,Eatwell,07881522511,86,75.68,10.32,TBA,EZY2892,0,BMw,X1,Black,"OV71 SVA",Next

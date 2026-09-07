@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124093020512,Heathrow,2024-09-30,18:16:42,2024-10-01,19:00:00,2024-10-26,16:00:00,"Terminal 2","Terminal 2",26,Mr,Luis,"Barragan ponce",07401157115,107.99,75.593,32.397,TBA,"AV 5202",0,"Land Rover","Discovery sport",Black,LR68CXV,Next

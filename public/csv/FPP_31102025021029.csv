@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+AVP-001,JS-YTSBHI,Gatwick,2025-10-31,14:33:05,2026-04-14,09:00:00,2026-04-16,09:00:00,TBA,TBA,3,Mr,test,test,65456456454545,42.99,30.093,12.897,TBA,,0,test,test,test,test,Next

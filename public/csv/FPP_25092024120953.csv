@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP615,PZ0124092520484,Gatwick,2024-09-25,13:42:40,2024-09-26,06:00:00,2024-09-30,12:00:00,South,North,5,Mr,Michelle,Ballington,07718998645,45,33.75,11.25,TBA,EZY8332,0,Mini,"Cooper S",cream,"LS14 CXN",Next

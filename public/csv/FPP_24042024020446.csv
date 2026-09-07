@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BRY5,PZ0124042419887,Bristol,2024-04-24,14:26:08,2024-04-29,18:00:00,2024-04-30,20:00:00,"Bristol terminal 1","Bristol terminal 1",2,Mr,Sheila,Dickins,07961315073,52,45.76,6.24,TBA,EZY2718,0,Toyota,"Yaris Cross",Grey,WD23DZH,Next

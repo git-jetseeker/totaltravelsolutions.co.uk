@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124090420400,Heathrow,2024-09-04,13:14:36,2024-12-26,15:15:00,2025-01-11,05:30:00,"Terminal 5","Terminal 5",17,Mr,Marcus,Bray,07538713850,96.99,67.893,29.097,TBA,BA0058,0,Ford,Ranger,Black,"M8 FSG",Next

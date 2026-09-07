@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+EP-01,PZ0124100320524,Heathrow,2024-10-03,22:06:36,2024-10-13,17:30:00,2024-11-03,07:30:00,"Terminal 4","Terminal 4",22,Mr,Arran,Hillier,07468428020,111.99,78.393,33.597,TBA,,0,Bmw,X5,Grey,T25ANH,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124102820637,Stansted,2024-10-28,10:49:30,2024-12-16,06:00:00,2025-01-07,20:00:00,Main,Main,23,Mr,Andreas,Rieder,7990569440,179.99,139.49225,40.49775,TBA,FR831,0,Peugeot,308,Gray,"LN18 FJV",Next

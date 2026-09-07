@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LTN2,PZ0124032219746,Luton,2024-03-22,20:11:56,2024-03-23,14:00:00,2024-03-28,01:00:00,Main,Main,6,Mr,Edison,Motina,07557648755,60.99,53.6712,7.3188,TBA,,0,mercedes,"c class",grey,pn15fng,Next

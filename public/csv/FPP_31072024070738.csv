@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+EP-01,PZ0124073120291,Heathrow,2024-07-31,19:28:10,2024-08-02,13:45:00,2024-08-07,22:30:00,"Terminal 5","Terminal 5",6,Mr,Adam,Bousfield,07799345670,54.99,38.493,16.497,TBA,,0,Nissan,Qashqai,Blue,"AK04 ABO",Next

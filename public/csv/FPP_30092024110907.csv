@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP373,PZ0124093020513,Manchester,2024-10-01,00:01:34,2024-10-02,10:45:00,2024-10-07,13:45:00,"Terminal 1","Terminal 3",6,Mr,Milo,Brennan,7770565847,111,81.03,29.97,TBA,,0,Honda,Insight,Silver,GJ11ZSR,Next

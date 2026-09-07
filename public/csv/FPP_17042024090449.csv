@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP3,PZ0124041719840,Luton,2024-04-17,09:11:31,2024-06-07,04:15:00,2024-06-14,18:00:00,Main,Main,8,Mr,Leanne,Etheridge,07828636431,90,65.7,24.3,TBA,EZY2552,0,Ford,Kuga,Grey,YH73ZMV,Next

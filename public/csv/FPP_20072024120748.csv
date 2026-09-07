@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124072020259,Stansted,2024-07-20,11:48:17,2024-07-24,12:00:00,2024-08-03,02:15:00,Main,Main,11,Mr,Tony,Begley,07742165022,139.99,108.49225,31.49775,TBA,TBA,0,Nissan,"Qash Qai",silver,"BV62 FXS",Next

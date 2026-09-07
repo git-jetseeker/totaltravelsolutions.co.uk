@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP585,PZ0125022420852,Birmingham,2025-02-24,08:47:37,2025-03-01,10:00:00,2025-03-08,23:45:00,TBA,TBA,8,Mr,Tim,Fenemore,07403418978,60,46.8,13.2,TBA,TBA,0,Skoda,Superb,Grey,MD65ULH,Next

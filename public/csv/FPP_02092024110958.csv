@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+EP-01,PZ0124090220387,Heathrow,2024-09-02,11:08:10,2024-09-03,06:30:00,2024-09-06,21:30:00,"Terminal 5","Terminal 5",4,Mr,Olaseni,Fuwa,07505791307,48.99,34.293,14.697,TBA,,0,Mitsubishi,ASX,White,LX18XYP,Next

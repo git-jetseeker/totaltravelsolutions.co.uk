@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124090620412,Gatwick,2024-09-06,17:30:15,2024-09-08,04:30:00,2024-09-13,12:15:00,North,South,6,Mr,nicholas,tong,07860486131,78.99,55.293,23.697,TBA,ezy6492,0,mercedes,citan,silver,ov13hwm,Next

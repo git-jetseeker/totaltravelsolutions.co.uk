@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124050819954,Gatwick,2024-05-08,12:04:10,2024-05-11,18:15:00,2024-05-17,19:15:00,South,South,7,Mr,Adam,Dodkins,07722804664,84.99,59.493,25.497,TBA,"AI 145",0,Kia,Ceed,Black,EF10LLZ,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP17,PZ0124082020344,Gatwick,2024-08-20,12:16:19,2024-08-21,06:30:00,2024-08-29,00:30:00,South,South,9,Mr,Emma,Lee,07891508914,160,116.8,43.2,TBA,BA2663,0,Volkswagen,Tiguan,Grey,"LE21 OKT",Next

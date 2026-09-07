@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124090520404,Heathrow,2024-09-05,10:00:08,2024-09-18,15:00:00,2024-10-09,17:30:00,"Terminal 4","Terminal 4",22,Mr,Duy,Bui,07449172112,99.99,69.993,29.997,TBA,055,0,BMW,X6,White,"AK69 SXJ",Next

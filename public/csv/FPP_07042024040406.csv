@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ34,PZ0124040719801,Gatwick,2024-04-07,16:30:03,2024-05-01,03:00:00,2024-05-05,23:45:00,South,South,5,Mr,Ovidiu,Ciubotaru,07846920555,69.92,58.0336,11.8864,TBA,W95754,0,Ford,Mondeo,Silver,BG16HCF,Next

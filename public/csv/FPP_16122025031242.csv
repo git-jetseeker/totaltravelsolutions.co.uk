@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+AVP-001,JS-1RZOS5,Gatwick,2025-12-16,15:28:26,2026-04-07,09:00:00,2026-04-19,09:00:00,TBA,TBA,13,Mr,test,test,65465465426542564,66.99,46.893,20.097,TBA,,0,test,test,test,test,Next

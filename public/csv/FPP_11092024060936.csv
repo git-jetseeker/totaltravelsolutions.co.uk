@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP581,PZ0124091120439,Manchester,2024-09-11,18:21:06,2024-09-16,15:30:00,2024-09-19,22:45:00,"Terminal 1","Terminal 1",4,Mr,Debbie,Jarman,07903031390,84,65.52,18.48,TBA,Ezy2230,0,Audi,A3,Black,Df14jar,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PG-1,PZ0124080920326,Heathrow,2024-08-09,12:42:05,2024-12-06,05:30:00,2025-01-02,21:30:00,"Terminal 3","Terminal 3",28,Mr,TERENCE,OLIVER,07503110978,112.99,79.093,33.897,TBA,EK5,0,FORD,"FOC US",WHITE,"YN20 NLT",Next

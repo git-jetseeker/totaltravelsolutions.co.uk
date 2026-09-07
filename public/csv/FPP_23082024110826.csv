@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ002,PZ0124082320349,Heathrow,2024-08-23,10:56:30,2024-09-12,08:00:00,2024-09-19,13:45:00,"Terminal 5","Terminal 5",8,Mr,stewart,dunkley,07795214700,87.99,61.593,26.397,TBA,Ba0485,0,Citroen,C5x,Grey,Kn24yvc,Next

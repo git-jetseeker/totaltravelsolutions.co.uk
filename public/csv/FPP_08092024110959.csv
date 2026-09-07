@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124090820418,Gatwick,2024-09-08,11:01:12,2024-09-18,12:00:00,2024-09-25,21:00:00,South,South,8,Mr,Vicki,Ballard,07842268248,94.99,66.493,28.497,TBA,EZY6516,0,mini,cooper,blue,DT17PXE,Next

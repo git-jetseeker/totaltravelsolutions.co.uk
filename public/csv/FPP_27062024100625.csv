@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP378,PZ0124062720189,Luton,2024-06-27,10:44:38,2024-07-14,04:00:00,2024-07-19,21:00:00,Main,Main,6,Mr,Richard,Hannigan,07815610983,88,68.64,19.36,TBA,EJU7252,0,"Land Rover","Range Rover Evoque",Grey,"VN15 KAO",Next

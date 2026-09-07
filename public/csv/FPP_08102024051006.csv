@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP28,PZ0124100820544,Stansted,2024-10-08,18:00:31,2024-10-09,13:15:00,2024-10-12,22:30:00,Main,Main,4,Mr,Andrea,Varga,07412392309,60,43.8,16.2,TBA,Fr3718,0,"Alfa Romeo",Guiletta,Black,FG12UDH,Next

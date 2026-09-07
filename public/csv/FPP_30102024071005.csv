@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP16,PZ0124103020648,Gatwick,2024-10-30,19:29:13,2024-11-12,15:00:00,2024-11-16,18:15:00,South,North,5,Mr,SAMIA,El-Dalil,07771988683,64,46.72,17.28,TBA,EZY8420,0,MERCEDES,"GLC 250",WHITE,"A5 RUV",Next

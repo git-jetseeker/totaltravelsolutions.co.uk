@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PG-1,PZ0124072920280,Heathrow,2024-07-29,22:05:12,2024-08-14,05:45:00,2024-08-28,21:30:00,"Terminal 5","Terminal 5",15,Mr,Mustapha,"Ait si Larbi",07910035132,84.99,59.493,25.497,TBA,BA0545,0,Peugeot,Partner,Grey,YR14XFT,Next

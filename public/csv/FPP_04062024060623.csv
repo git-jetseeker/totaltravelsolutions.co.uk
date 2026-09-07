@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124060420112,Gatwick,2024-06-04,18:01:15,2024-06-07,04:30:00,2024-06-08,20:30:00,North,South,2,Mr,katie,Loizi,07966388703,58.99,41.293,17.697,TBA,BA7198,0,Audi,Q3,Black,"Lv64 vdl",Next

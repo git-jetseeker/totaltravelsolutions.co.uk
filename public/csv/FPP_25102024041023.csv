@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP616,PZ0124102520627,Gatwick,2024-10-25,17:45:29,2024-11-22,06:00:00,2024-11-26,17:00:00,South,South,5,Mr,Oren,Paynton,07968064024,51,38.25,12.75,TBA,BA2611,0,BMW,520,Silver,VO17DTN,Next

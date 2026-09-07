@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124100220518,Heathrow,2024-10-02,20:45:40,2024-10-19,06:00:00,2024-10-26,16:00:00,"Terminal 4","Terminal 4",8,Mr,Beverly,Knott,07400568715,61.99,43.393,18.597,TBA,EY25,0,BMW,X1,Grey,"LD74 SYT",Next

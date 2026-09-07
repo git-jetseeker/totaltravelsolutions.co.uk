@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMP01,PZ0124040119776,Stansted,2024-04-01,16:28:54,2024-04-05,04:00:00,2024-04-08,14:30:00,Main,Main,4,Mr,Resham,Talawila,07496604360,64.99,50.36725,14.62275,TBA,FR2224,0,Renault,Scenic,Brown,AF64RNO,Next

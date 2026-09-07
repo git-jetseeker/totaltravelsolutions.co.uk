@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+AVP-001,JS-UH1UFV,Gatwick,2026-02-04,10:16:23,2026-03-09,09:00:00,2026-03-10,09:00:00,TBA,TBA,2,Mr,test,test,451454654645,39.99,27.993,11.997,TBA,,0,test,test,test,test,Next

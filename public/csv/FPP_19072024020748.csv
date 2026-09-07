@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP488,PZ0124071920256,Luton,2024-07-19,14:29:17,2024-08-04,02:30:00,2024-08-18,13:30:00,Main,Main,15,Mr,Peter,Kolesar,00447838250892,152,133.76,18.24,TBA,W95458,0,Skoda,Octavia,White,CF65FKG,Next

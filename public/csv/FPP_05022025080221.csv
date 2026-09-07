@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP620,PZ0125020520823,Luton,2025-02-05,08:47:13,2025-04-25,16:00:00,2025-05-03,19:30:00,Main,Main,9,Mr,Nikolett,Fabian,07835289914,65,47.45,17.55,TBA,W62205,0,Audi,A3,Black,BJ10VVU,Next

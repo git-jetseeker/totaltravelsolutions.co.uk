@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP487,PZ0124090320396,Luton,2024-09-03,14:28:18,2024-10-28,17:00:00,2024-11-04,03:30:00,Main,Main,8,Mr,Andreea,Acatrinei,07466702741,56,48.16,7.84,TBA,,0,Lexus,"Îs 250","Dark grey",Fg57leu,Next

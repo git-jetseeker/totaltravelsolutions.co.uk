@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HAPS-001,PZ0125022120850,Heathrow,2025-02-21,19:47:45,2025-03-02,03:30:00,2025-03-19,06:45:00,TBA,TBA,18,Mr,Daniel,Hewitt,07702200033,92.99,65.093,27.897,TBA,,0,Audi,Audi,"Light grey",Wp21yww,Next

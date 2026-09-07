@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+AVP-001,JS-QNSP3S,Gatwick,2026-01-31,12:43:33,2026-03-10,09:00:00,2026-03-12,09:00:00,South,North,3,Mr,test,test,465464654887,42.99,30.093,12.897,TBA,,0,test,test,test,test,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HAPS-001,PZ0125022020848,Heathrow,2025-02-20,18:29:58,2025-02-22,10:15:00,2025-02-26,10:45:00,"Terminal 4","Terminal 2",5,Mr,Graham,Sims,07702136570,46.99,32.893,14.097,TBA,OS453,0,Volvo,V90,"Light blue","YA 70 OPC",Next

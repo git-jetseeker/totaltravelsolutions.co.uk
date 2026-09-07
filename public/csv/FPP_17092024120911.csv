@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124091720457,Heathrow,2024-09-17,12:03:40,2024-12-06,14:00:00,2024-12-09,20:00:00,"Terminal 5","Terminal 5",4,Mr,Marion,Cannon,07939814427,46,32.2,13.8,TBA,BA0911,0,NISSAN,JUKE,BLACK,DV19KRJ,Next

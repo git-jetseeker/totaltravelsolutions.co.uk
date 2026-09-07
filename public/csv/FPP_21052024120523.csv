@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124052120040,Gatwick,2024-05-21,11:56:37,2024-05-29,15:30:00,2024-06-02,23:30:00,North,North,5,Mr,Inga,Poulsen,07954002841,110.99,77.693,33.297,TBA,EZY8724,0,Peugot,207,Blue,SF13WMD,Next

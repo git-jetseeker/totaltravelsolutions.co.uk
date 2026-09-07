@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP378,PZ0124042219874,Luton,2024-04-22,14:28:36,2024-04-26,16:00:00,2024-04-28,01:45:00,TBA,TBA,3,Mr,Ricardo,Fernandes,07761801155,41,31.98,9.02,TBA,TBA,0,Seat,Ibiza,Red,LP16DYM,Next

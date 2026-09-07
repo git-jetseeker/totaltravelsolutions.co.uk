@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124092320471,Heathrow,2024-09-23,20:56:23,2024-09-26,21:30:00,2024-09-29,17:30:00,"Terminal 2","Terminal 2",4,Mr,Sam,Ward,07788770425,42.99,30.093,12.897,TBA,"Arrive 17.05 from Munich",0,VW,Golf,Black,"YF61 EGV",Next

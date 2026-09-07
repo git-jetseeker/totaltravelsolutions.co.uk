@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BOOKFHR_2645,JS-WPASUG,Heathrow,2026-08-31,16:27:40,2026-09-01,09:00:00,2026-09-16,09:00:00,TBA,TBA,16,Mr,test,test,345678765456,235.24,164.668,70.572,TBA,,0,test,test,test,test,Next

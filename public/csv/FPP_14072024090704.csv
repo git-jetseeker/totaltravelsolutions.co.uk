@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0124071420246,Heathrow,2024-07-14,09:56:46,2024-07-25,17:30:00,2024-08-10,23:45:00,"Terminal 3","Terminal 3",17,Mr,Manjula,Satheesan,07972125933,117.99,82.593,35.397,TBA,UL503,0,Nissan,Qashqai,Blue,"K33 RHS",Next

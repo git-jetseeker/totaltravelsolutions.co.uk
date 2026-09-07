@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PWU-002,PZ0124121120751,Gatwick,2024-12-11,13:39:18,2024-12-27,10:30:00,2025-01-02,16:00:00,South,South,7,Mr,Richard,Canton,07949043505,68,40.8,27.2,TBA,BA2615,0,Mercedes,CLA220D,Silver,KN71JKO,Next

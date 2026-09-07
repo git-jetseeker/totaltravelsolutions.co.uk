@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0124071420247,Heathrow,2024-07-14,16:04:53,2024-09-07,05:45:00,2024-09-22,09:45:00,"Terminal 3","Terminal 3",16,Mr,Dawn,Renwick,07956966765,113.99,79.793,34.197,TBA,,0,Volkswagon,Golf,Black,"EX03 JWE",Next

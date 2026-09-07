@@ -1,0 +1,431 @@
+/**
+ * Jetseeker — Parking Services page
+ */
+
+.js-parking-services {
+    background: var(--js-background);
+}
+
+/* ── Intro (content + sidebar) ── */
+.js-ps-intro {
+    padding: 56px 0 64px;
+}
+
+.js-ps-intro__layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 40px;
+    align-items: start;
+}
+
+.js-ps-intro__main {
+    min-width: 0;
+}
+
+.js-ps-intro__eyebrow {
+    display: inline-block;
+    padding: 6px 14px;
+    margin-bottom: 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--js-primary);
+    background: rgba(26, 26, 26, 0.1);
+    border-radius: 999px;
+}
+
+.js-ps-intro__title {
+    font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+    font-weight: 800;
+    color: var(--js-heading);
+    margin: 0 0 24px;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.js-ps-intro__card {
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--js-shadow-sm);
+}
+
+.js-ps-intro__card-head {
+    padding: 20px 28px;
+    background: linear-gradient(135deg, var(--js-primary-dark) 0%, var(--js-primary) 100%);
+    color: #fff;
+}
+
+.js-ps-intro__card-head h2,
+.js-ps-intro__card-head h3 {
+    margin: 0;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 700;
+    line-height: 1.4;
+    color: #fff !important;
+    background: none !important;
+    padding: 0 !important;
+}
+
+.js-ps-intro__card-body {
+    padding: 28px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--js-text);
+}
+
+.js-ps-intro__card-body p {
+    margin: 0 0 14px;
+}
+
+.js-ps-intro__card-body p:last-child {
+    margin-bottom: 0;
+}
+
+.js-ps-intro__card-body a {
+    color: var(--js-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* Sidebar search */
+.js-ps-sidebar {
+    position: sticky;
+    top: calc(var(--js-nav-height) + var(--js-topbar-height) + 16px);
+}
+
+.js-ps-sidebar .sub-serc {
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--js-shadow-md);
+}
+
+.js-ps-sidebar .passenger-detail,
+.js-ps-sidebar .accordion-style {
+    background: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+.js-ps-sidebar .passenger-detail h3,
+.js-ps-sidebar h3.text-center {
+    margin: 0 !important;
+    padding: 18px 20px !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    background: linear-gradient(135deg, var(--js-primary-dark), var(--js-primary)) !important;
+    border-radius: 0 !important;
+    line-height: 1.35 !important;
+}
+
+.js-ps-sidebar .panel-body {
+    padding: 20px !important;
+}
+
+.js-ps-sidebar label.title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--js-heading);
+    margin-bottom: 6px;
+}
+
+.js-ps-sidebar .form-control {
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-sm);
+    font-size: 14px;
+    min-height: 42px;
+}
+
+.js-ps-sidebar .form-control:focus {
+    border-color: var(--js-primary);
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.15);
+}
+
+.js-ps-sidebar .btn,
+.js-ps-sidebar button[type="submit"],
+.js-ps-sidebar .form-button {
+    background: var(--js-primary) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: var(--js-radius-sm) !important;
+    font-weight: 700;
+    padding: 12px 20px;
+    width: 100%;
+    transition: background var(--js-transition);
+}
+
+.js-ps-sidebar .btn:hover,
+.js-ps-sidebar button[type="submit"]:hover {
+    background: var(--js-primary-dark) !important;
+}
+
+.js-ps-sidebar .panel-title a {
+    color: var(--js-heading);
+    font-weight: 600;
+}
+
+/* ── Section headers ── */
+.js-ps-section-head {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 40px;
+}
+
+.js-ps-section-head__badge {
+    display: inline-block;
+    padding: 6px 14px;
+    margin-bottom: 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--js-primary);
+    background: rgba(26, 26, 26, 0.1);
+    border-radius: 999px;
+}
+
+.js-ps-section-head h2,
+.js-ps-section-head__title,
+.js-ps-section-head__title h2,
+.js-ps-section-head__title h3 {
+    font-size: clamp(1.65rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: var(--js-heading);
+    margin: 0 0 14px;
+    line-height: 1.25;
+    text-align: center;
+}
+
+.js-ps-section-head h2,
+.js-ps-section-head__title h2,
+.js-ps-section-head__title h3 {
+    padding: 0;
+    background: none;
+}
+
+.js-ps-section-head p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--js-muted);
+    margin: 0;
+}
+
+.js-ps-section-head p a {
+    color: var(--js-primary);
+}
+
+/* ── Parking types (gate lanes) ── */
+.js-ps-types {
+    padding: 64px 0;
+    background: var(--js-surface);
+    border-top: 1px solid var(--js-border);
+    border-bottom: 1px solid var(--js-border);
+}
+
+.js-ps-types__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.js-ps-type-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--js-background);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-md);
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.js-ps-type-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--js-shadow-md);
+}
+
+.js-ps-type-card__codebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    background: linear-gradient(90deg, var(--js-primary-dark), var(--js-primary));
+    color: #fff;
+}
+
+.js-ps-type-card__code {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.js-ps-type-card__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.js-ps-type-card__icon {
+    padding: 28px 24px 16px;
+    text-align: center;
+    background: rgba(26, 26, 26, 0.04);
+}
+
+.js-ps-type-card__icon img {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+}
+
+.js-ps-type-card__title {
+    margin: 0;
+    padding: 0 24px 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--js-heading);
+    text-align: center;
+}
+
+.js-ps-type-card__body {
+    flex: 1;
+    padding: 0 24px 28px;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--js-muted);
+    text-align: center;
+}
+
+.js-ps-type-card__body p {
+    margin: 0;
+}
+
+/* ── Steps timeline ── */
+.js-ps-steps {
+    padding: 64px 0 80px;
+    background: linear-gradient(180deg, var(--js-background) 0%, #FDF2F8 100%);
+}
+
+.js-ps-steps__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    counter-reset: ps-step;
+}
+
+.js-ps-step-card {
+    position: relative;
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-md);
+    padding: 28px 24px 32px;
+    text-align: center;
+    box-shadow: var(--js-shadow-sm);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.js-ps-step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--js-shadow-md);
+}
+
+.js-ps-step-card::before {
+    counter-increment: ps-step;
+    content: counter(ps-step, decimal-leading-zero);
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: var(--js-accent);
+}
+
+.js-ps-step-card__image {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(26, 26, 26, 0.15);
+    background: rgba(26, 26, 26, 0.06);
+}
+
+.js-ps-step-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.js-ps-step-card__body {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--js-text);
+    text-align: left;
+}
+
+.js-ps-step-card__body p {
+    margin: 0;
+}
+
+.js-ps-step-card__body strong {
+    color: var(--js-heading);
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+    .js-ps-intro__layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .js-ps-sidebar {
+        position: static;
+        order: -1;
+    }
+
+    .js-ps-types__grid,
+    .js-ps-steps__grid {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .js-ps-intro {
+        padding: 40px 0 48px;
+    }
+
+    .js-ps-intro__card-head {
+        padding: 16px 20px;
+    }
+
+    .js-ps-intro__card-body {
+        padding: 20px;
+    }
+
+    .js-ps-types,
+    .js-ps-steps {
+        padding: 48px 0;
+    }
+
+    .js-ps-step-card__image {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .js-ps-intro__layout {
+        grid-template-columns: 1fr 300px;
+        gap: 32px;
+    }
+}

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+EP-01,PZ0124092720503,Heathrow,2024-09-27,13:35:03,2024-09-28,05:30:00,2024-10-02,13:15:00,"Terminal 5","Terminal 3",5,Mr,Gavin,Frost,07796824225,51.99,36.393,15.597,TBA,Aa0134,0,Peugeot,Kangoo,Black,Nu16yon,Next

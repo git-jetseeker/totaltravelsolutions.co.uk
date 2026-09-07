@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP002,PZ0124042919905,Stansted,2024-04-29,19:56:43,2024-05-10,06:15:00,2024-05-13,14:45:00,Main,Main,4,Mr,stephen,rose,07914754537,66.99,50.2425,16.7475,TBA,Fr7381,0,Nissan,Duke,Red,VU16PZJ,Next

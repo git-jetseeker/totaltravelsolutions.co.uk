@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP399,PZ0124051820028,Heathrow,2024-05-18,08:44:26,2024-05-19,06:30:00,2024-05-22,12:30:00,"Terminal 5","Terminal 4",4,Mr,Wale,Adepoju,07899985263,45,32.85,12.15,TBA,"JU 210",0,Peugoet,3008,Black,F10NOE,Next

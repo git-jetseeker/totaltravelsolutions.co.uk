@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124072720275,Heathrow,2024-07-27,19:23:58,2024-07-28,06:00:00,2024-07-30,08:00:00,"Terminal 5","Terminal 5",3,Mr,Hannah,Pearce,07712539660,43.99,30.793,13.197,TBA,BA0323,0,"Land Rover","Range Rover Sport",Black,SG16RCZ,Next

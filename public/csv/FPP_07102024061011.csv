@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP616,PZ0124100720534,Gatwick,2024-10-07,07:18:41,2024-11-22,12:00:00,2024-12-09,09:00:00,South,South,18,Mr,John,Hardcastle,07949381490,81,60.75,20.25,TBA,Ba2064,0,Vauxhall,Crossland,Blue,Du19kyy,Next

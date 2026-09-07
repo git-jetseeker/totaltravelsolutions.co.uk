@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ59,PZ0124051520009,Gatwick,2024-05-15,15:32:00,2024-10-06,11:00:00,2024-10-21,00:30:00,South,South,16,Mr,Derek,Fraser,07831117303,103,87.55,15.45,TBA,BA2707,0,Nissan,Qashqai,Blue,"FD73 AWP",Next

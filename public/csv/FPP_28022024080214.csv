@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+MAN6,PZ0124022819684,Manchester,2024-02-28,08:19:41,2024-03-20,09:00:00,2024-03-27,01:30:00,"Terminal 1","Terminal 1",8,Mr,Lea,Carter,7768790665,112,98.56,13.44,TBA,,0,Audi,Q3,Green,"WP67 FWG",Next

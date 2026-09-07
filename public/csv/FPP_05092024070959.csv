@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP392,PZ0124090520408,Gatwick,2024-09-05,15:14:39,2024-11-05,05:00:00,2024-11-09,16:00:00,North,North,5,Mr,"Patrice C",Okaro,07710918752,43,31.39,11.61,TBA,,0,JAGUAR,F-Type,Red,KY23BVO,Next

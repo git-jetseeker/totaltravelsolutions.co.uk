@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124052120039,Gatwick,2024-05-21,08:51:42,2024-06-03,05:00:00,2024-06-06,18:00:00,North,North,4,Mr,Malcolm,Sargeant,07895734188,78.99,55.293,23.697,TBA,,0,Toyota,Auris,Blue,"GV15 WGF",Next

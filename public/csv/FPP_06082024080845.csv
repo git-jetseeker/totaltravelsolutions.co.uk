@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+APM-1,PZ0124080620307,Heathrow,2024-08-06,08:23:25,2024-08-12,18:45:00,2024-08-26,10:30:00,"Terminal 2","Terminal 2",15,Mr,Mike,Ganley,07771628147,97.99,68.593,29.397,TBA,"CA 855",0,landrover,"range rover vogue",brown,GA14LEY,Next

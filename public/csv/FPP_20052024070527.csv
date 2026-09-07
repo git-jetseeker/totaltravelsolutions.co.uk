@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124052020034,Gatwick,2024-05-20,19:15:08,2024-06-05,12:00:00,2024-06-13,02:00:00,North,North,9,Mr,Tazmyn,Chalke,7588189563,87.99,61.593,26.397,TBA,EZY8558,0,Hyundai,Bayon,Black,"HV72 RTX",Next

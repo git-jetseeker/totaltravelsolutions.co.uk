@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+AVP-002,JS-Q8A8PP,Gatwick,2025-12-05,10:25:03,2026-05-18,09:00:00,2026-05-27,09:00:00,TBA,TBA,10,Mr,test,test,4646546465454887,102.99,75.1827,27.8073,TBA,,0,kjhkjhjk,hjkh,hjkhjk,khkhkh,Next

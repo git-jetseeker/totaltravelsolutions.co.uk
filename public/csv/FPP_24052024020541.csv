@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BRX0,PZ0124052420067,Bristol,2024-05-24,14:20:21,2024-07-12,15:30:00,2024-07-14,02:00:00,"Bristol terminal 1","Bristol terminal 1",3,Mr,Saul,Kelleher,07973536835,95,83.6,11.4,TBA,EZY2706,0,Ford,Focus,Black,"AOo8 OWG",Next

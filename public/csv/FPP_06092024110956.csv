@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP16,PZ0124090620411,Gatwick,2024-09-06,11:30:59,2024-10-08,09:30:00,2024-10-15,18:30:00,South,South,8,Mr,Derek,Gilbert,07836724206,129,94.17,34.83,TBA,EZY6510,0,jaguar,XF,black,RF68YPH,Next

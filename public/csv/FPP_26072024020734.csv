@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+KP-1,PZ0124072620273,Heathrow,2024-07-26,14:23:08,2024-08-14,17:00:00,2024-08-26,20:15:00,"Terminal 2","Terminal 2",13,Mr,Rob,Marsh,07931931717,80.99,56.693,24.297,TBA,,0,Audi,"A4 avant",Grey,Kx15whu,Next

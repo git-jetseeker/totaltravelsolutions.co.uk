@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+EP-01,PZ0124101420569,Heathrow,2024-10-14,13:10:28,2024-10-16,07:00:00,2024-10-18,19:00:00,"Terminal 2","Terminal 2",3,Mr,Rob,Coxon,7725679955,45.99,32.193,13.797,TBA,,0,TESLA,3,WHITE,AJ21DVO,Next

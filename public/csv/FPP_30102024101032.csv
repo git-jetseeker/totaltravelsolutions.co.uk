@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP378,PZ0124103020646,Luton,2024-10-30,10:14:43,2024-12-24,11:30:00,2024-12-28,17:00:00,Main,Main,5,Mr,Alison,Hackney,07970238545,86,67.08,18.92,TBA,EZY2624,0,Dacia,Sanderi,Grey,"AJ72 GYY",Next

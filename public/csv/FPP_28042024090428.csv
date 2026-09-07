@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ65,PZ0124042819899,"East Midlands",2024-04-28,09:50:13,2024-05-02,03:00:00,2024-05-06,23:45:00,Main,Main,5,Mr,Andrew,Butler,07375862913,82.64,70.244,12.396,TBA,,0,Bmw,530d,Blue,Ea67efs,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP440,PZ0124062620185,Gatwick,2024-06-26,11:08:11,2024-06-29,03:00:00,2024-07-06,14:30:00,South,South,8,Mr,Lindsey,Dobson,07769351372,120,103.2,16.8,TBA,By547,0,Vauxhall,"Zafira Design",Grey,SH62NVF,Next

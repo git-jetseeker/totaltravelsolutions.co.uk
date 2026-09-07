@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SAT-001,PZ0124120420736,Manchester,2024-12-04,21:23:35,2024-12-06,05:00:00,2024-12-13,14:00:00,"Terminal 2","Terminal 2",8,Mr,Lisa,Chiu,07818446070,52,36.4,15.6,TBA,LS804,0,BMW,120d,White,YW64FRZ,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124050819960,Stansted,2024-05-08,18:16:17,2024-05-10,05:30:00,2024-05-13,13:15:00,Main,Main,4,Mr,James,Stirling,07768877300,67.99,52.69225,15.29775,TBA,"FR 1751",0,Volkswagen,Touareg,Silver,LC16DDA,Next

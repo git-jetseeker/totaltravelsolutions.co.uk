@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP615,PZ0124092120467,Gatwick,2024-09-21,13:02:43,2024-09-24,05:30:00,2024-10-01,14:00:00,South,South,8,Mr,Gemma,"Cove Talbott",07751327554,110,82.5,27.5,TBA,,0,Jaguar,"F pace",Gray,"RA18 TSX",Next

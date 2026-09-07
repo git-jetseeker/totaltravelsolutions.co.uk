@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP3,PZ0124041719839,Luton,2024-04-17,09:10:05,2024-06-07,04:15:00,2024-06-14,18:30:00,Main,Main,8,Mr,Chloe,Etheridge,07807945559,90,65.7,24.3,TBA,EZY2552,0,ford,puma,black,"YA72 SXW",Next

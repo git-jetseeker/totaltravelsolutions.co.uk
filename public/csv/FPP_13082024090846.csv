@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP581,PZ0124081320333,Manchester,2024-08-13,09:44:29,2024-08-14,15:30:00,2024-08-19,17:00:00,"Terminal 1","Terminal 1",6,Mr,John,McPherson,07783028152,71,55.38,15.62,TBA,LH2502,0,VW,Golf,Blue,vk18ybm,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124093020511,Heathrow,2024-09-30,12:11:10,2024-10-11,09:00:00,2024-10-27,06:45:00,"Terminal 2","Terminal 2",17,Mr,Fran,Scott,07450552647,80.99,56.693,24.297,TBA,TG910,0,VOLKSWAGEN,TAIGO,WHITE,"DA22 OHP",Next

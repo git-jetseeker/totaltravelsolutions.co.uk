@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP373,PZ0124052620077,Manchester,2024-05-26,07:55:36,2024-06-05,12:00:00,2024-06-15,19:00:00,"Terminal 3","Terminal 3",11,Mr,Steven,Crossley,07802554231,142,103.66,38.34,TBA,HK8Y2Z,0,Kia,Sportage,Red,PN20OCS,Next

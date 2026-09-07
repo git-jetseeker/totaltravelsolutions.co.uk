@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP001,PZ0124090220393,Stansted,2024-09-02,21:13:48,2024-09-06,12:30:00,2024-09-15,23:30:00,Main,Main,10,Mr,Ahmed,Bhula,07742770174,165,123.75,41.25,TBA,FR6763,0,Audi,A3,Black,"YT14 OME",Next

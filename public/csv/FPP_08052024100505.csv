@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124050819953,Gatwick,2024-05-08,10:44:50,2024-05-25,14:00:00,2024-05-31,15:30:00,South,South,7,Mr,Anna,"Capilli Francis",7771984647,84.99,59.493,25.497,TBA,BA2611,0,Fiat,Panda,Orange,RF58TFJ,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+MAQ2,PZ0124061020130,Manchester,2024-06-10,16:09:52,2024-11-14,06:30:00,2024-11-24,23:00:00,"Terminal 2","Terminal 2",11,Mr,"David John",Williams,07772895035,94.99,83.5912,11.3988,TBA,"TOM 319",0,Jaguar,F-Pace,"Metallic Grey","VK17 LFV",Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BRX0,PZ0124032119739,Bristol,2024-03-21,10:33:37,2024-04-18,14:30:00,2024-04-23,23:45:00,"Bristol terminal 1","Bristol terminal 1",6,Mr,Ian,Lee,07768573636,72.5,63.8,8.7,TBA,EZY2936,0,"Mercedes Benz",C200,Black,"20 TOP",Next

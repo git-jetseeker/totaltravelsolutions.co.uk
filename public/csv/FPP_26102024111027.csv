@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP440,PZ0124102620632,Gatwick,2024-10-26,12:11:07,2024-12-17,09:00:00,2024-12-28,13:00:00,North,North,12,Mr,Manigold,Diaz,07490720355,84,72.24,11.76,TBA,,0,"BMW 218i gran tourer","BMW218i gran tourer",Black,"YC18 HXD",Next

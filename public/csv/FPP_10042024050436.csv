@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+EMZ6,PZ0124041019813,"East Midlands",2024-04-10,17:36:44,2024-04-25,11:30:00,2024-05-03,23:45:00,Main,Main,9,Mr,Pam,Ellis,07388926341,99.75,87.78,11.97,TBA,LS653,0,BMW,"1 series",Blue,AK20NWX,Next

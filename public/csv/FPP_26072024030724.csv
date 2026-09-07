@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ002,PZ0124072620271,Heathrow,2024-07-26,10:53:52,2024-08-23,15:15:00,2024-09-01,17:30:00,"Terminal 4","Terminal 4",10,Mr,Dipeah,Parmar,07746802468,94.99,66.493,28.497,TBA,KQ100,0,Audi,Q3,White,YY14YDM,Next

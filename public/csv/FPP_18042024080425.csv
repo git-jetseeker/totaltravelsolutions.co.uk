@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP377,PZ0124041819849,Luton,2024-04-18,08:27:51,2024-05-10,04:30:00,2024-05-13,14:00:00,Main,Main,4,Mr,Rima,Rauduve,07515628287,56,40.88,15.12,TBA,"W9 5450",0,AUDI,A6,GREY,GU15YDT,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP616,PZ0124100720536,Gatwick,2024-10-07,17:51:36,2024-10-12,03:45:00,2024-10-16,18:30:00,North,North,5,Mr,Dominique,Stone,07735881801,63,47.25,15.75,TBA,EZY8296,0,"Land Rover",Discovery,Green,AP04NXJ,Next

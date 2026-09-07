@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP615,PZ0125011720795,Gatwick,2025-01-17,17:04:58,2025-05-08,12:00:00,2025-05-15,01:15:00,North,North,8,Mr,ROYSTON,GOLDING,07770264910,100,75,25,TBA,EZY8236,0,FORD,FOCUS,GREY,NV59XUJ,Next

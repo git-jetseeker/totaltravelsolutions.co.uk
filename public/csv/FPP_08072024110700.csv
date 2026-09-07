@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+KP-1,PZ0124070820223,Heathrow,2024-07-08,10:58:35,2024-07-30,14:15:00,2024-08-14,09:00:00,"Terminal 5","Terminal 5",16,Mr,Ellie,Sturgess,07955787789,88.99,62.293,26.697,TBA,BA0060,0,"Land Rover","Range Rover Evoque",Black,"El14 MGZ",Next

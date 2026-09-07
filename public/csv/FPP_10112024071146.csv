@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP16,PZ0124111020675,Gatwick,2024-11-10,19:32:15,2024-11-18,11:15:00,2024-11-25,16:00:00,South,South,8,Mr,Sheila,Glass,07803987681,75,54.75,20.25,TBA,BA2811,0,Nissan,Juke,Black,S1SGL,Next

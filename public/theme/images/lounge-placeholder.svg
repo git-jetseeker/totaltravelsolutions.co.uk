@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480" role="img" aria-label="Lounge photo placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eef3ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg)"/>
+  <g fill="none" stroke="#C2185B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.55">
+    <path d="M220 330h200"/>
+    <path d="M250 330v-70c0-33 27-60 70-60s70 27 70 60v70"/>
+    <path d="M210 330h220"/>
+    <path d="M320 200v35"/>
+  </g>
+  <circle cx="320" cy="178" r="18" fill="#C2185B" opacity="0.35"/>
+</svg>

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HVP-01,PZ0124072220262,Heathrow,2024-07-22,13:38:35,2024-11-19,09:00:00,2024-11-26,09:00:00,TBA,TBA,8,Mr,Test,test,45678987654,80,56,24,TBA,TBA,0,auaidtest,a66,blue,bhg66,Next

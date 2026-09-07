@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0124061020129,Heathrow,2024-06-10,14:31:54,2025-01-30,16:00:00,2025-02-08,14:15:00,"Terminal 5","Terminal 4",10,Mr,sarah,thrower,07823401428,88.99,62.293,26.697,TBA,BA685,0,Mercedes,GLC,Black,"KS70 PGU",Next

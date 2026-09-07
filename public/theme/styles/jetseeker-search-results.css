@@ -1,0 +1,1573 @@
+/**
+ * Jetseeker Search Results — APB-style layout
+ */
+
+/* ── Results page: logo bar only (no main nav / topbar) ── */
+.js-results-logo-bar {
+    background: var(--js-surface, #fff);
+    border-bottom: 1px solid var(--js-border);
+    padding: 14px 0;
+}
+
+.js-results-logo-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.js-results-logo-bar__link {
+    display: inline-flex;
+    line-height: 0;
+}
+
+.js-results-logo-bar__link img {
+    display: block;
+    height: 52px;
+    width: auto;
+    max-width: min(220px, 60vw);
+}
+
+.js-results-page {
+    --js-results-sticky-top: 20px;
+    --js-results-filter-col: 280px;
+    --js-results-grid-gap: 20px;
+    --js-results-tint: rgba(26, 26, 26, 0.1);
+    --js-results-tint-strong: rgba(26, 26, 26, 0.14);
+    --js-results-tint-border: rgba(26, 26, 26, 0.28);
+    --js-results-divider: rgba(26, 26, 26, 0.12);
+    --js-results-pricing-bg: #f5f5f5;
+    background: var(--js-background);
+    color: var(--js-text);
+    overflow: visible;
+}
+
+/* Allow sticky filters — parent overflow:hidden breaks position:sticky */
+.js-body:has(.js-results-page),
+.super_container:has(.js-results-page) {
+    overflow: visible;
+}
+
+/* Shared centered content column (amend bar + filters/deals) */
+.js-results-page .container.js-results-content {
+    width: 100%;
+    max-width: var(--js-container-max, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ── Title bar — Jetseeker gradient hero ── */
+.js-results-title-bar {
+    background: linear-gradient(135deg, var(--js-primary-dark) 0%, var(--js-secondary) 100%);
+    border-bottom: none;
+    padding: 28px 0 26px;
+    text-align: center;
+}
+
+.js-results-title-bar__inner {
+    display: block;
+}
+
+.js-results-title-bar__copy {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.js-results-title-bar__heading {
+    margin: 0 0 8px;
+    font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: #fff;
+    letter-spacing: 0.01em;
+}
+
+.js-results-title-bar__tag {
+    margin: 0;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    font-weight: 600;
+    color: var(--js-accent, #C2185B);
+    letter-spacing: 0.02em;
+}
+
+/* ── Unified amend search bar (APB-style card) ── */
+.js-results-amend-section {
+    background: var(--js-background);
+    padding: 18px 0 0;
+}
+
+.js-results-amend-bar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--js-surface, #fff);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-md, 10px);
+    box-shadow: var(--js-shadow-sm, 0 1px 3px rgba(26, 26, 26, 0.08));
+    padding: 16px 20px;
+    overflow: hidden;
+}
+
+.js-results-amend-bar__summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px 22px;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.js-results-summary-item {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.js-results-summary-label {
+    color: var(--js-primary);
+    font-weight: 600;
+}
+
+.js-results-summary-value {
+    color: var(--js-heading, #1a1a2e);
+    font-weight: 700;
+}
+
+.js-results-meta__edit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    justify-self: end;
+    min-width: 88px;
+    padding: 10px 22px;
+    background: var(--js-primary);
+    border: none;
+    border-radius: var(--js-radius-sm, 8px);
+    color: #fff !important;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background var(--js-transition, 0.2s ease);
+    white-space: nowrap;
+}
+
+.js-results-meta__edit:hover,
+.js-results-meta__edit.is-open {
+    background: var(--js-primary-dark);
+}
+
+/* ── Collapsible amend search panel ── */
+.js-results-amend-panel {
+    background: var(--js-background);
+    border-bottom: none;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 360ms ease, opacity 280ms ease, padding 360ms ease;
+    padding: 0;
+}
+
+.js-results-amend-panel.is-open {
+    max-height: 640px;
+    opacity: 1;
+    padding: 0 0 12px;
+}
+
+.js-results-amend-panel[hidden]:not(.is-open) {
+    display: block;
+    max-height: 0;
+    padding: 0;
+}
+
+.js-results-amend-panel .container.js-results-content {
+    padding-top: 12px;
+    width: 100%;
+    max-width: var(--js-container-max, 1200px);
+}
+
+.js-results-page .js-results-amend-panel .js-booking-card--results-amend {
+    max-width: 100% !important;
+    width: 100%;
+    margin: 0;
+    box-shadow: var(--js-shadow-md, 0 8px 24px rgba(26, 26, 46, 0.08));
+    border-radius: var(--js-radius-md, 12px);
+    overflow: visible;
+}
+
+.js-results-page .js-results-amend-panel .js-booking-widget,
+.js-results-page .js-results-amend-panel .js-booking-widget-body,
+.js-results-page .js-results-amend-panel .js-product-panel {
+    width: 100%;
+    max-width: 100%;
+}
+
+.js-results-page .js-results-amend-panel .js-booking-widget-body--results-amend {
+    padding: 20px 24px 22px;
+}
+
+.js-results-page .js-results-amend-panel .js-booking-widget-body--results-amend .js-panel-hint {
+    margin: 0 0 16px;
+    padding: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--js-muted);
+}
+
+.js-results-page .js-results-amend-panel .js-booking-field {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    width: auto;
+    max-width: none;
+    flex: 1 1 140px;
+    padding: 0 8px 12px;
+    min-width: 0;
+}
+
+.js-results-page .js-results-amend-panel .js-booking-field label {
+    display: block;
+    margin: 0 !important;
+    padding: 0;
+    line-height: 1.3;
+}
+
+.js-results-page .js-results-amend-panel .js-booking-field .form-group,
+.js-results-page .js-results-amend-panel .js-booking-field .select2-container,
+.js-results-page .js-results-amend-panel .js-booking-field .js-booking-input,
+.js-results-page .js-results-amend-panel .js-booking-field .js-guest-trigger {
+    width: 100%;
+    max-width: 100%;
+}
+
+.js-results-page .js-results-amend-panel .js-booking-field .form-group-calender {
+    position: relative;
+}
+
+.js-results-page .js-results-amend-panel .js-booking-field--date .fa-calendar,
+.js-results-page .js-results-amend-panel .js-booking-field .form-group-calender .fa-calendar {
+    right: 12px;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+}
+
+.js-results-page .js-results-amend-panel #search_form_lounge .js-booking-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px 10px;
+    margin: 0;
+    align-items: start;
+}
+
+.js-results-page .js-results-amend-panel #search_form_lounge .js-booking-field:nth-child(5) {
+    grid-column: span 2;
+}
+
+.js-results-page .js-results-amend-panel #search_form_lounge .js-booking-field:nth-child(6) {
+    grid-column: span 2;
+}
+
+.js-results-page .js-results-amend-panel #search_form_hotel .js-booking-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px 10px;
+    margin: 0;
+    align-items: start;
+}
+
+.js-results-page .js-results-amend-panel #search_form_hotel .js-booking-field:nth-child(4) {
+    grid-column: span 2;
+}
+
+.js-results-page .js-results-amend-panel .js-booking-input,
+.js-results-page .js-results-amend-panel .js-booking-field .select2-container--default .select2-selection--single,
+.js-results-page .js-results-amend-panel .js-guest-trigger {
+    border-radius: 0 !important;
+}
+
+.js-results-page .js-results-amend-panel .js-submit-wrap {
+    padding: 14px 0 0;
+    margin: 0;
+    text-align: left;
+}
+
+.js-results-page .js-results-amend-panel .js-booking-submit {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    height: 46px;
+    border-radius: 0 !important;
+    letter-spacing: 0.06em;
+}
+
+@media (max-width: 1100px) {
+    .js-results-page .js-results-amend-panel #search_form_lounge .js-booking-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .js-results-page .js-results-amend-panel #search_form_lounge .js-booking-field:nth-child(5),
+    .js-results-page .js-results-amend-panel #search_form_lounge .js-booking-field:nth-child(6) {
+        grid-column: span 1;
+    }
+
+    .js-results-page .js-results-amend-panel #search_form_hotel .js-booking-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .js-results-page .js-results-amend-panel #search_form_hotel .js-booking-field:nth-child(4) {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 767px) {
+    .js-results-page .js-results-amend-panel .js-booking-widget-body--results-amend {
+        padding: 16px 16px 18px;
+    }
+
+    .js-results-page .js-results-amend-panel #search_form_lounge .js-booking-row,
+    .js-results-page .js-results-amend-panel #search_form_hotel .js-booking-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .js-results-page .js-results-amend-panel #search_form_lounge .js-booking-field:nth-child(5),
+    .js-results-page .js-results-amend-panel #search_form_lounge .js-booking-field:nth-child(6),
+    .js-results-page .js-results-amend-panel #search_form_hotel .js-booking-field:nth-child(4) {
+        grid-column: span 1;
+    }
+
+    .js-results-page .js-results-amend-panel .js-booking-field {
+        padding: 0;
+    }
+
+    .js-results-page .js-results-amend-panel .js-submit-wrap {
+        padding-top: 6px;
+    }
+}
+
+/* Legacy sections */
+.js-results-amend-row,
+.js-results-meta {
+    display: none !important;
+}
+
+/* Legacy hero (removed from markup) */
+.js-results-hero {
+    display: none !important;
+}
+
+.js-results-amend-btn {
+    display: none !important;
+}
+
+/* ── Layout: filters (left) + deal cards (right), centered under amend bar ── */
+.js-results-page .js-results-body {
+    background: var(--js-background);
+    padding: var(--js-results-grid-gap) 0 48px;
+    overflow: visible;
+}
+
+.js-results-page .js-results-layout {
+    display: grid !important;
+    grid-template-columns: var(--js-results-filter-col) minmax(0, 1fr) !important;
+    gap: var(--js-results-grid-gap);
+    align-items: start;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.js-results-page .js-results-main {
+    grid-column: 2;
+    min-width: 0;
+    width: 100%;
+}
+
+.js-results-page .js-apb-filters {
+    grid-column: 1;
+    position: -webkit-sticky;
+    position: sticky;
+    top: var(--js-results-sticky-top);
+    align-self: start;
+    z-index: 20;
+    height: fit-content;
+    max-height: calc(100vh - var(--js-results-sticky-top) - 16px);
+}
+
+.js-apb-filters__card {
+    background: var(--js-surface, #fff);
+    border: 1px solid var(--js-border);
+    border-radius: 12px;
+    padding: 18px 16px 20px;
+    box-shadow: var(--js-shadow-sm);
+    max-height: calc(100vh - var(--js-results-sticky-top) - 16px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(26, 26, 26, 0.35) transparent;
+}
+
+.js-apb-filters__card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.js-apb-filters__card::-webkit-scrollbar-thumb {
+    background: rgba(26, 26, 26, 0.35);
+    border-radius: 999px;
+}
+.js-results-page .js-apb-deal-card,
+.js-results-page .js-result-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    float: none !important;
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    padding: 0 !important;
+}
+
+.js-results-page .l-listing {
+    height: auto !important;
+    border: none !important;
+    margin: 0 !important;
+    float: none !important;
+}
+
+.js-results-page #lounge-sec .btn-info {
+    float: none !important;
+}
+
+.js-apb-results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── APB filter panel ── */
+.js-apb-filters__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.js-apb-filters__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    border: none !important;
+    background: none;
+    cursor: default;
+    color: var(--js-primary-dark);
+    font: inherit;
+    text-align: left;
+    box-shadow: none !important;
+    outline: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.js-apb-filters__toggle:hover,
+.js-apb-filters__toggle:focus,
+.js-apb-filters__toggle:active {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: none;
+}
+
+.js-apb-filters__toggle:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.js-apb-filters__chevron {
+    display: none;
+    font-size: 12px;
+    color: var(--js-muted);
+    transition: transform 0.22s ease;
+}
+
+.js-apb-filters__panel {
+    display: block;
+}
+
+.js-apb-filters__title {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--js-primary-dark);
+}
+
+.js-apb-filters__reset {
+    background: none;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: var(--js-primary);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.js-apb-filters__reset:hover {
+    text-decoration: underline;
+}
+
+.js-apb-filters__reset:focus,
+.js-apb-filters__reset:active,
+.js-apb-filters__reset:focus-visible {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    text-decoration: underline;
+}
+
+.js-apb-filters__count {
+    display: inline-block;
+    margin: 0 0 14px;
+    padding: 5px 12px;
+    background: var(--js-results-tint);
+    color: var(--js-primary-dark);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.js-apb-filters__search {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.js-apb-filters__search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--js-muted);
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.js-apb-filters__search-input {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px 0 36px;
+    border: 1px solid var(--js-border);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--js-text, #333);
+    background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.js-apb-filters__search-input:focus {
+    outline: none;
+    border-color: var(--js-primary);
+    box-shadow: 0 0 0 3px var(--js-results-tint);
+}
+
+.js-apb-filter-group {
+    margin-bottom: 18px;
+}
+
+.js-apb-filter-group:last-of-type {
+    margin-bottom: 0;
+}
+
+.js-apb-filter-group__title {
+    margin: 0 0 10px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--js-heading, #1a1a2e);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.js-apb-filter-group__icon {
+    font-size: 12px;
+    color: var(--js-primary);
+}
+
+.js-apb-filter-select {
+    width: 100%;
+    height: 42px;
+    border: 1px solid var(--js-border);
+    border-radius: 8px;
+    padding: 0 12px;
+    font-size: 14px;
+    background: #fff;
+    color: var(--js-text, #333);
+    cursor: pointer;
+}
+
+.js-apb-filter-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.js-apb-filter-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    margin-bottom: 2px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--js-text, #333);
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.js-apb-filter-check:hover {
+    background: var(--js-results-tint);
+}
+
+.js-apb-filter-check.is-active {
+    background: var(--js-results-tint-strong);
+}
+
+.js-apb-filter-check input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: var(--js-primary);
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.js-apb-filter-check__label {
+    flex: 1 1 auto;
+    font-weight: 500;
+}
+
+.js-apb-filter-check.is-active .js-apb-filter-check__label {
+    font-weight: 600;
+    color: var(--js-heading, #1a1a2e);
+}
+
+.js-apb-filter-check .js-filter-count,
+.js-apb-filter-check .js-terminal-count {
+    color: var(--js-muted);
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+.js-apb-filters__close,
+.js-filter-toggle,
+.js-results-filter-backdrop {
+    display: none !important;
+}
+
+/* Hide legacy sidebar filter styles */
+.js-results-sidebar,
+.js-results-main__toolbar {
+    display: none !important;
+}
+
+.js-results-error {
+    margin: 24px 0;
+    padding: 20px;
+    border: 1px solid rgba(220, 53, 69, 0.25);
+    border-radius: 12px;
+    background: rgba(220, 53, 69, 0.06);
+    text-align: center;
+}
+
+.js-results-error p {
+    margin: 0 0 12px;
+    color: var(--js-heading);
+    font-weight: 600;
+}
+
+.js-results-error__retry {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 8px;
+    background: var(--js-primary);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.js-results-error__retry:hover {
+    background: var(--js-primary-dark);
+}
+
+/* ── Loading overlay (APB-style) ── */
+.js-results-loader.spiner_container {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(4px);
+    margin: 0;
+    padding: 20px;
+}
+
+.js-results-loader__card.popup1 {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: min(420px, 100%);
+    height: auto !important;
+    min-height: 0;
+    padding: 0;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--js-primary) 0%, var(--js-primary-dark) 100%);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+}
+
+.js-results-loader__brand {
+    margin: 0;
+    padding: 16px 24px 0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+.js-results-loader__heading {
+    margin: 8px 0 4px;
+    padding: 0 24px;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    text-align: center;
+}
+
+.js-results-loader__airport {
+    margin: 0 0 8px;
+    padding: 0 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+}
+
+.js-results-loader__steps.list {
+    background: transparent;
+    height: auto !important;
+    box-shadow: none;
+    padding: 16px 24px !important;
+    margin: 0;
+}
+
+.js-results-loader__steps .li-css {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px 0;
+}
+
+.js-results-loader__steps .li-css span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.js-results-loader__steps .li-css i {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 1.15em;
+    transition: color 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+.js-results-loader__steps .li-css i.icon1 { animation: jsLoaderIcon1 1s step-end forwards; }
+.js-results-loader__steps .li-css i.icon2 { animation: jsLoaderIcon2 3s step-end forwards; }
+.js-results-loader__steps .li-css i.icon3 { animation: jsLoaderIcon3 5s step-end forwards; }
+.js-results-loader__steps .li-css i.icon4 { animation: jsLoaderIcon4 7s step-end forwards; }
+
+@keyframes jsLoaderIcon1 { from { color: rgba(255,255,255,0.35); } to { color: #fff; } }
+@keyframes jsLoaderIcon2 { from { color: rgba(255,255,255,0.35); } to { color: #fff; } }
+@keyframes jsLoaderIcon3 { from { color: rgba(255,255,255,0.35); } to { color: #fff; } }
+@keyframes jsLoaderIcon4 { from { color: rgba(255,255,255,0.35); } to { color: #fff; } }
+
+.js-results-loader__thanks {
+    margin: 0;
+    padding: 12px 24px 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+}
+
+/* ── APB deal cards ── */
+.js-results-main #lounge-sec .container.container-min-w,
+.js-results-main .js-apb-results-list {
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
+}
+
+#lounge-sec.js-results-cards-section {
+    padding: 0;
+    background: transparent;
+}
+
+#lounge-sec .js-apb-results-list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.js-results-page .js-result-card {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.js-apb-deal-card {
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-md);
+    box-shadow: var(--js-shadow-sm);
+    overflow: hidden;
+    transition: box-shadow var(--js-transition);
+}
+
+.js-apb-deal-card:hover {
+    box-shadow: var(--js-shadow-md);
+}
+
+.js-apb-deal-card__header {
+    padding: 18px 20px 14px;
+    border-bottom: 1px solid var(--js-results-divider);
+    background: var(--js-surface);
+}
+
+.js-apb-deal-card__title {
+    margin: 0 0 4px;
+    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+    font-weight: 800;
+    color: var(--js-primary-dark);
+    line-height: 1.3;
+}
+
+.js-apb-deal-card__subtitle {
+    margin: 0 0 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--js-muted);
+}
+
+.js-apb-deal-card__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.js-apb-deal-card__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border: 1px solid var(--js-results-tint-border);
+    border-radius: 999px;
+    background: var(--js-results-tint);
+    color: var(--js-primary-dark);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.js-apb-deal-card__body {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr) minmax(150px, 200px);
+    gap: 0;
+    padding: 0;
+    align-items: stretch;
+}
+
+.js-apb-deal-card__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 18px 16px;
+    text-align: center;
+    border-right: 1px solid var(--js-results-divider);
+}
+
+.js-apb-deal-card__features {
+    padding: 18px 20px;
+    border-right: 1px solid var(--js-results-divider);
+}
+
+.js-apb-deal-card__logo-img {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+    border: 1px solid var(--js-border);
+    border-radius: 8px;
+    padding: 8px;
+    background: #fff;
+}
+
+.js-apb-deal-card__logo-type {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--js-muted);
+}
+
+.js-apb-deal-card__feature-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.js-apb-deal-card__feature-list li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--js-text);
+    line-height: 1.4;
+}
+
+.js-apb-deal-card__feature-list li::before {
+    content: '\f058';
+    font-family: FontAwesome;
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: var(--js-primary);
+    font-size: 14px;
+}
+
+.js-apb-deal-card__pricing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
+    padding: 18px 20px;
+    text-align: right;
+    background: var(--js-results-pricing-bg);
+}
+
+.js-apb-deal-card__was {
+    margin: 0 0 6px;
+    font-size: 13px;
+    color: var(--js-muted);
+    text-decoration: line-through;
+}
+
+.js-apb-deal-card__discount {
+    display: inline-block;
+    align-self: flex-end;
+    margin: 0 0 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    font-size: 11px;
+    font-weight: 700;
+    color: #15803d;
+    line-height: 1.3;
+}
+
+.js-apb-deal-card__total-label {
+    margin: 0 0 4px;
+    font-size: 12px;
+    color: var(--js-muted);
+}
+
+.js-apb-deal-card__price {
+    margin: 0 0 4px;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--js-primary-dark);
+    line-height: 1.1;
+}
+
+.js-apb-deal-card__per-day {
+    margin: 0;
+    font-size: 12px;
+    color: var(--js-muted);
+}
+
+.js-apb-deal-card__btn--pricing {
+    margin-top: 14px;
+    align-self: stretch;
+    width: 100%;
+}
+
+.js-apb-deal-card__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 16px 20px 18px;
+    border-top: 1px solid var(--js-results-divider);
+    background: var(--js-surface);
+}
+
+.js-apb-deal-card__book-form {
+    margin: 0;
+}
+
+.js-apb-deal-card__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.js-apb-deal-card__btn--info {
+    background: var(--js-surface);
+    color: var(--js-primary-dark) !important;
+    border: 2px solid var(--js-primary-dark);
+}
+
+.js-apb-deal-card__btn--info:hover {
+    background: #f0f4ff;
+}
+
+.js-apb-deal-card__btn--book {
+    background: var(--js-primary) !important;
+    color: #fff !important;
+    border: 2px solid var(--js-primary) !important;
+}
+
+.js-apb-deal-card__btn--book:hover {
+    background: var(--js-primary-dark) !important;
+    border-color: var(--js-primary-dark) !important;
+}
+
+.js-apb-deal-card__savings {
+    padding: 12px 20px;
+    background: rgba(250, 158, 27, 0.12);
+    color: var(--js-accent-dark);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    border-top: 1px solid var(--js-results-divider);
+}
+
+#lounge-sec .h3-css {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--js-primary-dark) !important;
+}
+
+/* Hide legacy card chrome inside APB cards */
+.js-apb-deal-card .product-src-badge,
+.js-apb-deal-card .listing-head-div,
+.js-apb-deal-card .listing-typ-div,
+.js-apb-deal-card .facility-icon,
+.js-apb-deal-card marquee {
+    display: none !important;
+}
+
+@media (max-width: 991px) {
+    .js-apb-deal-card__header {
+        padding: 16px 16px 12px;
+    }
+
+    .js-apb-deal-card__body {
+        grid-template-columns: minmax(96px, 34%) minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "logo pricing"
+            "features features";
+    }
+
+    .js-apb-deal-card__logo {
+        grid-area: logo;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 14px 12px;
+        border-right: 1px solid var(--js-results-divider);
+        border-bottom: none;
+    }
+
+    .js-apb-deal-card__logo-img {
+        width: 72px;
+        height: 72px;
+    }
+
+    .js-apb-deal-card__features {
+        grid-area: features;
+        padding: 14px 16px 16px;
+        border-top: 1px solid var(--js-results-divider);
+        border-right: none;
+    }
+
+    .js-apb-deal-card__pricing {
+        grid-area: pricing;
+        grid-column: auto;
+        align-self: stretch;
+        justify-content: center;
+        padding: 14px 16px;
+        text-align: right;
+        border-top: none;
+    }
+
+    .js-apb-deal-card__discount {
+        align-self: flex-end;
+    }
+
+    .js-apb-deal-card__price {
+        font-size: clamp(1.45rem, 6vw, 1.85rem);
+    }
+
+    .js-apb-deal-card__actions {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 14px 16px 16px;
+    }
+
+    .js-apb-deal-card__btn {
+        min-height: 44px;
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .js-apb-deal-card__savings {
+        padding: 11px 16px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 575px) {
+    .js-apb-deal-card__body {
+        grid-template-columns: minmax(88px, 32%) minmax(0, 1fr);
+    }
+
+    .js-apb-deal-card__logo-img {
+        width: 64px;
+        height: 64px;
+    }
+
+    .js-apb-deal-card__btn {
+        font-size: 12px;
+        gap: 6px;
+    }
+
+    .js-apb-deal-card__btn i {
+        font-size: 13px;
+    }
+}
+
+/* Hide legacy toolbar when sidebar present */
+.js-results-body ~ .js-results-toolbar,
+.js-results-toolbar {
+    display: none !important;
+}
+
+/* Edit search modal */
+#search_data_modal .modal-header.primart-bg-color {
+    background: var(--js-primary-dark) !important;
+    border-radius: 0;
+}
+
+#search_data_modal .modal-title {
+    color: #fff !important;
+    font-weight: 700;
+}
+
+#search_data_modal .btn-book.primart-bg-color {
+    background: var(--js-primary) !important;
+    border-color: var(--js-primary) !important;
+    font-weight: 700;
+}
+
+/* ── Deal info modal (More Information) ── */
+.js-results-page .js-deal-info-modal .modal-dialog,
+.js-deal-info-modal .js-deal-info-modal__dialog {
+    max-width: min(720px, calc(100vw - 32px));
+    margin: 1.75rem auto;
+}
+
+.js-results-page .js-deal-info-modal .modal-content,
+.js-deal-info-modal .js-deal-info-modal__content {
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-md);
+    box-shadow: var(--js-shadow-lg);
+    overflow: hidden;
+}
+
+.js-results-page .js-deal-info-modal .modal-header,
+.js-deal-info-modal .js-deal-info-modal__header {
+    background: linear-gradient(135deg, var(--js-primary-dark) 0%, var(--js-secondary) 100%) !important;
+    border-bottom: none;
+    padding: 18px 20px;
+    align-items: center;
+}
+
+.js-results-page .js-deal-info-modal .modal-title,
+.js-deal-info-modal .js-deal-info-modal__title {
+    color: #fff !important;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-weight: 700;
+    margin: 0;
+    padding-right: 12px;
+    line-height: 1.35;
+}
+
+.js-results-page .js-deal-info-modal .close,
+.js-deal-info-modal .js-deal-info-modal__close {
+    color: #fff !important;
+    opacity: 0.92;
+    text-shadow: none;
+    font-size: 1.75rem;
+    font-weight: 300;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    height: auto;
+}
+
+.js-results-page .js-deal-info-modal .close:hover,
+.js-deal-info-modal .js-deal-info-modal__close:hover {
+    opacity: 1;
+}
+
+.js-results-page .js-deal-info-modal .modal-body,
+.js-deal-info-modal .js-deal-info-modal__body {
+    padding: 18px 20px 20px;
+    color: var(--js-text);
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.js-results-page .js-deal-info-modal .js-deal-info-modal__tabs,
+.js-deal-info-modal .js-deal-info-modal__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-bottom: 1px solid var(--js-border);
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+    position: static !important;
+    scroll-snap-type: none !important;
+}
+
+.js-results-page .js-deal-info-modal .js-deal-info-modal__tabs .nav-link,
+.js-deal-info-modal .js-deal-info-modal__tabs .nav-link,
+.js-results-page .js-deal-info-modal #listing-tabs .nav-tabs .nav-link,
+.js-deal-info-modal #listing-tabs .nav-tabs .nav-link {
+    background: var(--js-results-tint) !important;
+    color: var(--js-primary-dark) !important;
+    border: 1px solid var(--js-results-tint-border) !important;
+    border-radius: var(--js-radius-sm) !important;
+    padding: 8px 14px !important;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 !important;
+    white-space: nowrap;
+}
+
+.js-results-page .js-deal-info-modal .js-deal-info-modal__tabs .nav-link.active,
+.js-deal-info-modal .js-deal-info-modal__tabs .nav-link.active,
+.js-results-page .js-deal-info-modal #listing-tabs .nav-tabs .nav-link.active,
+.js-deal-info-modal #listing-tabs .nav-tabs .nav-link.active {
+    background: var(--js-primary) !important;
+    color: #fff !important;
+    border-color: var(--js-primary) !important;
+}
+
+.js-results-page .js-deal-info-modal .js-deal-info-modal__tab-content,
+.js-deal-info-modal .js-deal-info-modal__tab-content {
+    color: var(--js-text) !important;
+    padding: 0 !important;
+}
+
+.js-results-page .js-deal-info-modal .tab-content p,
+.js-results-page .js-deal-info-modal .tab-content li,
+.js-deal-info-modal .tab-content p,
+.js-deal-info-modal .tab-content li {
+    color: var(--js-text);
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 10px;
+}
+
+.js-results-page .js-deal-info-modal .tab-content a,
+.js-deal-info-modal .tab-content a {
+    color: var(--js-primary);
+    font-weight: 600;
+}
+
+.js-results-page .js-deal-info-modal .tab-content iframe,
+.js-deal-info-modal .tab-content iframe {
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-sm);
+}
+
+.js-results-page .js-deal-info-modal .modal-footer,
+.js-deal-info-modal .js-deal-info-modal__footer {
+    display: none !important;
+}
+
+.js-results-page .js-deal-info-modal .alert-info,
+.js-deal-info-modal .alert-info {
+    background: var(--js-results-tint);
+    border: 1px solid var(--js-results-tint-border);
+    color: var(--js-primary-dark);
+    border-radius: var(--js-radius-sm);
+}
+
+@media (max-width: 767px) {
+    .js-results-page .js-deal-info-modal .js-deal-info-modal__tabs,
+    .js-deal-info-modal .js-deal-info-modal__tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 10px;
+    }
+
+    .js-results-page .js-deal-info-modal .js-deal-info-modal__tabs .nav-link,
+    .js-deal-info-modal .js-deal-info-modal__tabs .nav-link {
+        scroll-snap-align: start;
+        flex-shrink: 0;
+    }
+
+    .js-results-page .js-deal-info-modal .modal-body,
+    .js-deal-info-modal .js-deal-info-modal__body {
+        padding: 16px;
+    }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1199px) {
+    .js-results-page {
+        --js-results-filter-col: 260px;
+    }
+}
+
+@media (max-width: 991px) {
+    .js-results-page {
+        --js-results-filter-col: 240px;
+    }
+
+    .js-results-page .js-results-layout {
+        grid-template-columns: 1fr !important;
+        gap: 14px;
+    }
+
+    .js-results-page .js-results-main {
+        grid-column: 1;
+        min-width: 0;
+    }
+
+    .js-apb-results-list {
+        gap: 14px;
+    }
+
+    .js-results-amend-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        padding: 16px 18px;
+        overflow: visible;
+    }
+
+    .js-results-amend-bar__summary {
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .js-results-meta__edit {
+        width: 100%;
+        justify-self: stretch;
+    }
+
+    .js-results-page .js-apb-filters {
+        position: static;
+        top: auto;
+        max-height: none;
+        height: auto;
+        z-index: 1;
+        margin-bottom: 0;
+    }
+
+    .js-apb-filters__card {
+        max-height: none;
+        overflow: visible;
+        padding: 0;
+        border-radius: 12px;
+        box-shadow: var(--js-shadow-sm);
+    }
+
+    .js-apb-filters__head {
+        margin-bottom: 0;
+        padding: 16px 18px;
+    }
+
+    .js-apb-filters__toggle {
+        cursor: pointer;
+        flex: 1 1 auto;
+        min-width: 0;
+        color: var(--js-primary-dark);
+    }
+
+    .js-apb-filters__chevron {
+        display: inline-block;
+        color: var(--js-primary);
+    }
+
+    .js-apb-filters.is-open .js-apb-filters__chevron {
+        transform: rotate(180deg);
+    }
+
+    .js-apb-filters__panel {
+        display: none;
+        padding: 0 18px 18px;
+        border-top: 1px solid var(--js-results-divider);
+    }
+
+    .js-apb-filters.is-open .js-apb-filters__panel {
+        display: block;
+    }
+
+    .js-apb-filters.is-open .js-apb-filters__head {
+        border-bottom: 1px solid var(--js-results-divider);
+    }
+
+    .js-apb-filters.is-open .js-apb-filters__panel {
+        padding-top: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    .js-results-amend-section {
+        padding-top: 12px;
+    }
+
+    .js-results-amend-bar {
+        padding: 14px 16px;
+    }
+
+    .js-results-summary-item {
+        font-size: 12px;
+    }
+
+    #lounge-sec .foldpy {
+        padding: 12px 16px 16px !important;
+    }
+
+    .js-results-loader__steps .li-css {
+        font-size: 14px;
+    }
+}
+
+/* Legacy header overrides (if old classes remain) */
+section.search.bookingSearch.js-results-header {
+    display: none !important;
+}
+
+/* Lounge / hotel product cards in APB layout */
+.js-apb-deal-card--product .js-apb-deal-card__photo {
+    width: 100%;
+    height: 88px;
+    object-fit: cover;
+    padding: 0;
+    border-radius: 8px;
+}
+
+#hotel-sec.js-results-cards-section,
+#hotel-sec .js-apb-results-list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.js-results-empty {
+    text-align: center;
+    padding: 48px 24px;
+    background: var(--js-surface, #fff);
+    border: 1px solid var(--js-border, #e2e8f0);
+    border-radius: var(--js-radius-md, 12px);
+    box-shadow: var(--js-shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.08));
+}
+
+.js-results-empty__img {
+    max-width: 220px;
+    margin-bottom: 16px;
+}
+
+.js-results-empty__icon {
+    font-size: 52px;
+    color: #c7d3de;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.js-results-empty__title {
+    margin: 0 0 8px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--js-primary-dark, #1a1a2e);
+}
+
+.js-results-empty__text {
+    margin: 0 0 20px;
+    color: var(--js-muted, #64748b);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 991px) {
+    .js-apb-deal-card--product .js-apb-deal-card__photo {
+        height: 72px;
+    }
+}

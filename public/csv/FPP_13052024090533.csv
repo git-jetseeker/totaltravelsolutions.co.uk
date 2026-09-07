@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BRX0,PZ0124051319994,Bristol,2024-05-13,21:09:44,2024-05-18,15:30:00,2024-05-23,23:00:00,"Bristol terminal 1","Bristol terminal 1",6,Mr,Keith,Johnston,07950248171,100.5,88.44,12.06,TBA,EZY2876,0,VOLVO,"XC40 Electric",BLACK,BD73WMM,Next

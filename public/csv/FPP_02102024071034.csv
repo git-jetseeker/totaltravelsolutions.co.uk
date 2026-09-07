@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124100220519,Heathrow,2024-10-02,20:50:53,2024-10-04,10:00:00,2024-10-07,22:00:00,"Terminal 5","Terminal 5",4,Mr,Reanna,Sandhu,07794419386,46.99,32.893,14.097,TBA,BA635,0,"Alfa Romeo","Alfa Romeo Mito",Black,"BN10 DDA",Next

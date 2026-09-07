@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124092520481,Heathrow,2024-09-25,12:45:51,2024-10-13,18:30:00,2024-10-23,22:00:00,"Terminal 2","Terminal 2",11,Mr,Christopher,Sayfritz,07702049525,74.99,52.493,22.497,TBA,BR067,0,"LAND ROVER","DISCOVERY SPORTS",GREY,YP21JXH,Next

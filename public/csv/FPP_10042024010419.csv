@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BRY5,PZ0124041019811,Bristol,2024-04-10,13:02:54,2024-05-08,16:30:00,2024-05-12,19:00:00,"Bristol terminal 1","Bristol terminal 1",5,Mr,Tom,Simpson,7590060161,133,117.04,15.96,TBA,EZY2712,0,"Alpha Romeo",Stelvio,Grey,FJ68HKU,Next

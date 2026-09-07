@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LP001,PZ0124022019674,Heathrow,2024-02-20,16:43:42,2024-02-21,08:30:00,2024-02-27,06:30:00,"Terminal 2","Terminal 2",7,Mr,dolly,waddell,07766227008,69.99,48.993,20.997,TBA,tg910,0,VW,Caravelle,"red and white","DK66 TTV",Next

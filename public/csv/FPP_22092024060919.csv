@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP378,PZ0124092220469,Luton,2024-09-22,18:21:47,2024-09-23,07:00:00,2024-09-24,22:30:00,Main,Main,2,Mr,Martin,Richards,07944216400,61,47.58,13.42,TBA,EZY606,0,Nissan,Qashqai,Blue,CA10VLR,Next

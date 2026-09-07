@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP581,PZ0124042919906,Manchester,2024-04-29,20:02:21,2024-06-06,10:00:00,2024-06-16,03:30:00,"Terminal 1","Terminal 1",11,Mr,Jessica,Selim,07880327175,87,67.86,19.14,TBA,LS984,0,"Range Rover",Velar,Grey,"VN18 EVJ",Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124041419824,Gatwick,2024-04-14,15:30:58,2024-05-11,09:00:00,2024-05-19,01:45:00,North,North,9,Mr,Lucie,Reggio,07802510162,83.99,58.793,25.197,TBA,EZY8558,0,Chevrolet,Aveo,Black,"KE13 AEM",Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124050619934,Gatwick,2024-05-06,10:03:48,2024-05-16,14:30:00,2024-05-23,23:45:00,North,North,8,Mr,Carol,Robinson,7956856522,88.99,62.293,26.697,TBA,EZY8050,0,Ford,Fiesta,Blue,Gf19UGA,Next

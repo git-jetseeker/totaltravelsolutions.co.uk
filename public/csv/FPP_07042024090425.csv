@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ35,PZ0124040719803,Gatwick,2024-04-07,21:14:37,2024-05-28,15:15:00,2024-06-06,21:15:00,South,South,10,Mr,Susan,Davies,07850134268,141.55,117.4865,24.0635,TBA,BA2651,0,lexus,NX1,grey,"EN64 YGW",Next

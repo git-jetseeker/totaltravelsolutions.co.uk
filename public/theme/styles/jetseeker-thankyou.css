@@ -1,0 +1,77 @@
+/**
+ * Jetseeker — Thank you / confirmation pages
+ */
+
+.js-thankyou-page {
+    padding: 32px 0 64px;
+    background: var(--js-background);
+}
+
+.js-thankyou-card {
+    background: var(--js-surface);
+    border-radius: var(--js-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--js-shadow-md);
+    border: 1px solid var(--js-border);
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.js-thankyou-card__banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.js-thankyou-card__body {
+    padding: 32px 24px;
+}
+
+.js-thankyou-page .first-h1 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--js-heading);
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.js-thankyou-page .first-h1 span {
+    color: var(--js-primary);
+}
+
+.js-thankyou-page .first-p {
+    font-size: 1rem;
+    color: var(--js-muted);
+    text-align: center;
+    line-height: 1.7;
+    max-width: 720px;
+    margin: 0 auto 24px;
+}
+
+.js-thankyou-page .li-h {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--js-heading);
+}
+
+.js-thankyou-page .li-p {
+    font-size: 15px;
+    color: var(--js-text);
+}
+
+.js-thankyou-page hr {
+    border-color: var(--js-primary-dark);
+    opacity: 0.3;
+}
+
+.js-thankyou-page .section {
+    margin-top: 0;
+    padding: 24px 16px;
+}
+
+@media (min-width: 992px) {
+    .js-thankyou-page .first-p {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+}

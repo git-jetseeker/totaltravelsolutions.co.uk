@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124032119741,Stansted,2024-03-21,16:24:54,2024-07-17,09:30:00,2024-07-20,17:15:00,Main,Main,4,Mr,Jonathan,"Pennington Legh",07900403243,59.99,46.49225,13.49775,TBA,FR965,0,Ford,Kuga,Grey,"EY67 KLX",Next

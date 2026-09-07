@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+AVP-001,JS-Q7S4DM,Gatwick,2025-12-05,10:09:09,2026-10-13,09:00:00,2026-10-20,09:00:00,TBA,TBA,8,Mr,test,test,64654654674878,52.99,37.093,15.897,TBA,,0,hjghjg,jhgjhg,jhgjhg,jhghjgjhg,Next

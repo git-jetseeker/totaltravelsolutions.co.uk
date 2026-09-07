@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP28,PZ0124050719949,Stansted,2024-05-07,20:28:25,2024-05-08,09:30:00,2024-05-10,18:30:00,Main,Main,3,Mr,Richard,Althorp,07710927797,77,56.21,20.79,TBA,fr908,0,btw,m2,black,m27hos,Next

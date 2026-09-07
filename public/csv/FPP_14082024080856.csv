@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BHW8,PZ0124081420335,Birmingham,2024-08-14,08:08:49,2024-09-09,03:30:00,2024-09-20,04:00:00,"Bhx Terminal 1","Bhx Terminal 1",12,Mr,Andrew,stoker,07510174120,137.99,121.4312,16.5588,TBA,Tom757,0,Vauxhall,Insignia,Blue,CP68GSU,Next

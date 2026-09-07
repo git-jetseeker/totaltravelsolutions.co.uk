@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SP-01,PZ0124110720665,Heathrow,2024-11-07,12:00:21,2025-04-14,09:00:00,2025-04-15,09:00:00,"Terminal 3","Terminal 5",2,Mr,Test,Test,4314214123,42.99,30.093,12.897,TBA,,0,BMW,1998,black,14124,Next

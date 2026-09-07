@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+EMAM,PZ0124041519829,"East Midlands",2024-04-15,14:15:50,2024-04-22,13:00:00,2024-04-26,02:00:00,Main,Main,5,Mr,Geoff,Record,07788262412,61,51.85,9.15,TBA,LS634,0,Nissan,Leaf,Grey,DY71PZR,Next

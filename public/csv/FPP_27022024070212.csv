@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ91,PZ0124022719680,Luton,2024-02-27,07:30:36,2024-03-07,15:00:00,2024-03-11,11:00:00,Main,Main,5,Mr,Daniel,Filip,07467579457,28.99,24.6415,4.3485,TBA,EZY2432,0,Renault,Megane,Grey,KF12JHA,Next

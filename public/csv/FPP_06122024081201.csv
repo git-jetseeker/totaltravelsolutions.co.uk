@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP465,PZ0124120620739,Manchester,2024-12-06,19:59:55,2024-12-09,16:00:00,2024-12-15,00:15:00,"Terminal 3","Terminal 3",7,Mr,Jackie,Mckenna,07714266279,67,58.96,8.04,TBA,FR4331,0,Vauxhall,Viva,White,"FY16 VGA",Next

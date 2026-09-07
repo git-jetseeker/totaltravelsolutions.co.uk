@@ -1,0 +1,203 @@
+/**
+ * Jetseeker — Legal pages (Cookie Policy, Privacy Policy, Terms & Conditions)
+ */
+
+.js-legal-page {
+    background: var(--js-background);
+}
+
+.js-legal-body {
+    padding: 48px 0 80px;
+}
+
+.js-legal-body--top {
+    padding-top: 56px;
+}
+
+.js-legal-card {
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-lg);
+    padding: 40px 36px;
+    box-shadow: var(--js-shadow-sm);
+}
+
+.js-legal-card--content {
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.js-legal-card__head {
+    text-align: left;
+    margin-bottom: 32px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--js-border);
+}
+
+.js-legal-card__badge {
+    display: inline-block;
+    padding: 6px 14px;
+    margin-bottom: 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--js-primary);
+    background: rgba(26, 26, 26, 0.1);
+    border-radius: 999px;
+}
+
+.js-legal-card__title {
+    font-size: clamp(1.65rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: var(--js-heading);
+    margin: 0 0 14px;
+    padding: 0 !important;
+    line-height: 1.25;
+    text-align: left !important;
+}
+
+.js-legal-card__title span {
+    color: var(--js-primary);
+}
+
+.js-legal-card__intro {
+    font-size: 1.02rem;
+    line-height: 1.75;
+    color: var(--js-muted);
+    margin: 0;
+    max-width: 720px;
+}
+
+.js-legal-page .js-legal-content {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+.js-legal-page .js-legal-content h1,
+.js-legal-page .js-legal-content h2,
+.js-legal-page .js-legal-content h3,
+.js-legal-page .js-legal-content h4 {
+    color: var(--js-heading);
+    text-align: left !important;
+    padding: 0 !important;
+}
+
+.js-legal-page .js-legal-content h1 {
+    font-size: clamp(1.5rem, 2.8vw, 1.85rem);
+    font-weight: 800;
+    margin: 0 0 20px;
+}
+
+.js-legal-page .js-legal-content h2 {
+    font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+    font-weight: 700;
+    margin: 36px 0 14px;
+    padding-left: 16px !important;
+    border-left: 4px solid var(--js-primary);
+    line-height: 1.35;
+}
+
+.js-legal-page .js-legal-content h2:first-child {
+    margin-top: 0;
+}
+
+.js-legal-page .js-legal-content h3 {
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin: 28px 0 10px;
+}
+
+.js-legal-page .js-legal-content h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 22px 0 8px;
+}
+
+.js-legal-page .js-legal-content p,
+.js-legal-page .js-legal-content li {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--js-text);
+    margin-bottom: 14px;
+}
+
+.js-legal-page .js-legal-content p:last-child {
+    margin-bottom: 0;
+}
+
+.js-legal-page .js-legal-content strong,
+.js-legal-page .js-legal-content b {
+    color: var(--js-heading);
+    font-weight: 600;
+}
+
+.js-legal-page .js-legal-content a {
+    color: var(--js-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.js-legal-page .js-legal-content a:hover {
+    color: var(--js-primary-dark);
+}
+
+.js-legal-page .js-legal-content ul,
+.js-legal-page .js-legal-content ol {
+    padding-left: 24px;
+    margin: 0 0 18px;
+}
+
+.js-legal-page .js-legal-content ul li,
+.js-legal-page .js-legal-content ol li {
+    margin-bottom: 8px;
+}
+
+.js-legal-page .js-legal-content ul li {
+    list-style: disc;
+}
+
+.js-legal-page .js-legal-content ol li {
+    list-style: decimal;
+}
+
+.js-legal-page .js-legal-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95rem;
+}
+
+.js-legal-page .js-legal-content th,
+.js-legal-page .js-legal-content td {
+    padding: 12px 14px;
+    border: 1px solid var(--js-border);
+    text-align: left;
+    vertical-align: top;
+}
+
+.js-legal-page .js-legal-content th {
+    background: rgba(26, 26, 26, 0.08);
+    color: var(--js-heading);
+    font-weight: 600;
+}
+
+@media (max-width: 767px) {
+    .js-legal-body {
+        padding: 32px 0 56px;
+    }
+
+    .js-legal-body--top {
+        padding-top: 32px;
+    }
+
+    .js-legal-card {
+        padding: 28px 20px;
+        border-radius: var(--js-radius-md);
+    }
+
+    .js-legal-page .js-legal-content h2 {
+        padding-left: 12px !important;
+    }
+}

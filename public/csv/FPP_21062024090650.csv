@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP417,PZ0124062120170,Luton,2024-06-21,09:21:09,2024-07-25,11:00:00,2024-08-04,19:00:00,Main,Main,11,Mr,James,Wildt,07734775119,175,127.75,47.25,TBA,,0,Volvo,XC60,White,BG22WEC,Next

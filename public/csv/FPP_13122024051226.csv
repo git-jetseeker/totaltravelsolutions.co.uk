@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP561,PZ0124121320755,Edinburgh,2024-12-13,17:38:57,2024-12-14,14:00:00,2024-12-17,23:45:00,TBA,TBA,4,Mr,Henry,Jemison,07383079513,38,32.68,5.32,TBA,,0,Polestar,2,Magnesium,"Oy24 skd",Next

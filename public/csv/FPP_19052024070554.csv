@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMP01,PZ0124051920031,Stansted,2024-05-19,19:37:57,2024-05-25,08:00:00,2024-06-01,16:00:00,Main,Main,8,Mr,Irina,Chirilenco,07787831300,79.99,61.99225,17.99775,TBA,VF1989,0,CX-5,Mazda,Grey,EJ69KPN,Next

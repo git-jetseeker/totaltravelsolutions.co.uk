@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124082620355,Heathrow,2024-08-26,17:33:50,2024-09-02,16:00:00,2024-09-17,07:15:00,"Terminal 5","Terminal 5",16,Mr,malcolm,fay,07884046743,92.99,65.093,27.897,TBA,BA0012,0,vw,golf,grey,"wp24 nby",Next

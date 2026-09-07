@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124102220615,Heathrow,2024-10-22,20:55:53,2025-02-23,15:30:00,2025-03-12,16:00:00,"Terminal 4","Terminal 4",18,Mr,nazmul,haque,07545953412,83.99,58.793,25.197,TBA,"BG 201",0,bmw,"5 series",silver,NA05MUL,Next

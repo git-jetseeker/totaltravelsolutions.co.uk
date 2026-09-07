@@ -1,0 +1,425 @@
+/**
+ * Jetseeker — /airports listing page
+ */
+
+.js-airports-page {
+    background: var(--js-background);
+}
+
+/* ── Hero ── */
+.js-page-hero--airports-list {
+    padding-bottom: 56px;
+}
+
+.js-page-hero--airports-list::after {
+    content: '';
+    position: absolute;
+    left: -100px;
+    bottom: -120px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26, 26, 26, 0.22) 0%, transparent 68%);
+    pointer-events: none;
+}
+
+.js-page-hero--airports-list .js-page-hero__eyebrow {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--js-accent);
+    background: rgba(250, 158, 27, 0.15);
+    border: 1px solid rgba(250, 158, 27, 0.35);
+}
+
+.js-page-hero--airports-list .js-page-hero__title span {
+    color: #F9A8D4;
+}
+
+.js-page-hero--airports-list .js-booking-card--hero {
+    margin-top: 32px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
+}
+
+.js-page-hero--airports-list .js-container {
+    max-width: min(1100px, calc(100vw - 32px));
+}
+
+/* ── Trust strip ── */
+.js-airports-trust {
+    background: var(--js-surface);
+    border-bottom: 1px solid var(--js-border);
+    padding: 28px 0;
+}
+
+.js-airports-trust__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.js-airports-trust__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 12px;
+}
+
+.js-airports-trust__icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(26, 26, 26, 0.1);
+    color: var(--js-primary);
+    font-size: 20px;
+}
+
+.js-airports-trust__icon img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.js-airports-trust__label {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--js-heading);
+    line-height: 1.4;
+}
+
+/* ── Airport grid section ── */
+.js-airports-list {
+    padding: 56px 0 72px;
+}
+
+.js-airports-list__head {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.js-airports-list__eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--js-primary);
+    background: rgba(26, 26, 26, 0.1);
+}
+
+.js-airports-list__title {
+    margin: 0 0 10px;
+    font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+    font-weight: 700;
+    color: var(--js-heading);
+}
+
+.js-airports-list__title span {
+    color: var(--js-primary);
+}
+
+.js-airports-list__lead {
+    margin: 0 auto;
+    max-width: 640px;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--js-muted);
+}
+
+.js-airports-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 8px;
+}
+
+/* ── Airport card ── */
+.airport-item {
+    display: none;
+    animation: jsAirportsFadeIn 0.5s ease forwards;
+}
+
+.airport-item.show {
+    display: block;
+}
+
+@keyframes jsAirportsFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.airport-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    box-shadow: var(--js-shadow-sm);
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.airport-card::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: linear-gradient(90deg, var(--js-primary) 0%, var(--js-accent) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.airport-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--js-shadow-md);
+    border-color: rgba(26, 26, 26, 0.35);
+}
+
+.airport-card:hover::before {
+    transform: scaleX(1);
+}
+
+.airport-image-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    background: var(--js-background);
+}
+
+.airport-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.airport-card:hover .airport-image-container img {
+    transform: scale(1.06);
+}
+
+.airport-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--js-primary-dark);
+    line-height: 1.2;
+}
+
+.airport-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 22px 20px 20px;
+}
+
+.airport-name {
+    margin: 0 0 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--js-heading);
+    line-height: 1.35;
+    transition: color 0.2s ease;
+}
+
+.airport-card:hover .airport-name {
+    color: var(--js-primary);
+}
+
+.airport-rating {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+
+.airport-rating i {
+    color: var(--js-accent);
+    font-size: 0.9rem;
+}
+
+.airport-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.airport-feature-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--js-background);
+    border: 1px solid var(--js-border);
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.airport-feature-icon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.airport-card:hover .airport-feature-icon {
+    border-color: rgba(26, 26, 26, 0.35);
+    background: rgba(26, 26, 26, 0.06);
+}
+
+.airport-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--js-border);
+}
+
+.airport-price-label {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--js-muted);
+}
+
+.airport-price-value {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--js-primary);
+    line-height: 1.1;
+}
+
+.airport-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    color: #fff !important;
+    background: var(--js-primary);
+    border: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.airport-link:hover {
+    background: var(--js-primary-dark);
+    transform: translateX(3px);
+    color: #fff !important;
+}
+
+.btn-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.btn-show-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--js-primary);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 14px rgba(26, 26, 26, 0.35);
+}
+
+.btn-show-more:hover {
+    background: var(--js-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(26, 26, 26, 0.4);
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+    .js-page-hero--airports-list {
+        padding: 56px 0 40px;
+    }
+
+    .js-airports-trust__grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .js-airports-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .js-airports-list {
+        padding: 48px 0 60px;
+    }
+}
+
+@media (max-width: 767px) {
+    .js-page-hero--airports-list {
+        padding: 48px 0 32px;
+    }
+
+    .js-page-hero--airports-list .js-booking-card--hero {
+        margin-top: 24px;
+    }
+
+    .js-airports-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .airport-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .airport-link {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .btn-show-more {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575px) {
+    .airport-image-container {
+        height: 180px;
+    }
+
+    .airport-content {
+        padding: 18px 16px 16px;
+    }
+}

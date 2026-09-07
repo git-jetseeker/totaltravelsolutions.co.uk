@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP003,PZ0124060920126,Stansted,2024-06-09,14:04:28,2024-06-14,09:30:00,2024-06-24,13:00:00,Main,Main,11,Mr,Robert,Thomson,07951506904,103.99,77.9925,25.9975,TBA,PC1531,0,Vw,"T roc",Black,GL21AOC,Next

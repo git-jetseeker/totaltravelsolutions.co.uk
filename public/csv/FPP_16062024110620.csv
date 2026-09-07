@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124061620158,Gatwick,2024-06-16,11:50:10,2024-07-05,12:00:00,2024-07-12,23:30:00,South,South,8,Mr,Alan,Brown,07789768806,105.99,74.193,31.797,TBA,TOM516,0,Peugout,3008,Blue,Kr21oft,Next

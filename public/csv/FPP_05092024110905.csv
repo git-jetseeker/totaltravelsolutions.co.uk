@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124090520406,Heathrow,2024-09-05,11:44:41,2024-10-14,19:30:00,2024-11-02,14:00:00,"Terminal 2","Terminal 4",20,Mr,Clark,Tracey,07721324491,92.99,65.093,27.897,TBA,QR007,0,BMW,218i,Black,CT60JAZ,Next

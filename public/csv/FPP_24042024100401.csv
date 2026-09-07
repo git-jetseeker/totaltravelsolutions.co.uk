@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124042419884,Gatwick,2024-04-24,10:50:37,2024-05-03,03:00:00,2024-05-06,10:15:00,South,South,4,Mr,Johana,Alley,07563325202,62.99,44.093,18.897,TBA,GDJ9TV,0,RENAULT,CLIO,BLUE,A12LSU,Next

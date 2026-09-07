@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP392,PZ0124050519929,Gatwick,2024-05-05,07:46:50,2024-05-24,07:00:00,2024-06-08,11:00:00,South,South,16,Mr,Rebecca,Wessel-Simpson,7841048073,177,129.21,47.79,TBA,,0,Volkswagen,Polo,Grey,VA14nrj,Next

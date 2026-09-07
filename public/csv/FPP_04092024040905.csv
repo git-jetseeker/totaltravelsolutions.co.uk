@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HVP-01,PZ0124090420401,Heathrow,2024-09-04,16:03:24,2024-10-18,19:00:00,2024-11-05,15:30:00,"Terminal 3","Terminal 3",19,Mr,Yomi,Okundalaiye,07957447864,140.5,98.35,42.15,TBA,VS412,0,Infinite,Q30,Gray,Nj16kov,Next

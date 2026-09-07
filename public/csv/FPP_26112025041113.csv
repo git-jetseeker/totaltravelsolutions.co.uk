@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HAPS-001,JS-NUPKGW,Heathrow,2025-11-26,16:34:32,2026-12-12,09:00:00,2026-12-13,09:00:00,"Terminal 2","Terminal 2",2,Mr,test,test,34234234,33.99,23.793,10.197,TBA,test,0,test,test,test,test,Next

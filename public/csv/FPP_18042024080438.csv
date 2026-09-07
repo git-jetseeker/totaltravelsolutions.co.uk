@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP392,PZ0124041819850,Gatwick,2024-04-18,08:45:45,2024-08-20,06:15:00,2024-08-27,16:15:00,North,North,8,Mr,Michelle,Harvey-Fogg,07730431990,109,79.57,29.43,TBA,TOM4275,0,Volvo,XC60,Grey,"GU18 BZF",Next

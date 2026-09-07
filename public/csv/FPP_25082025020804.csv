@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HAPS-001,TG-LIKL8C,Heathrow,2025-08-25,14:20:16,2025-09-16,09:00:00,2025-09-17,09:00:00,"Terminal 3","Terminal 4",2,Mr,test,tesing,074584111241,35.99,25.193,10.797,TBA,test,0,test,test,test,test,Next

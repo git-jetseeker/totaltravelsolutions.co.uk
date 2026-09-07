@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+EMZ9,PZ0124040819806,"East Midlands",2024-04-08,15:19:09,2024-05-23,12:00:00,2024-05-30,01:00:00,TBA,TBA,8,Mr,Kay,Griffiths,07832072222,75.89,66.7832,9.1068,TBA,TBA,0,Porche,Cayenne,Grey,MR08OBS,Next

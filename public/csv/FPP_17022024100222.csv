@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LP001,PZ0124021719671,Heathrow,2024-02-17,10:33:13,2024-02-22,05:45:00,2024-02-29,20:00:00,"Terminal 5","Terminal 5",8,Mr,Aaron,Talbot,07988607944,71.99,50.393,21.597,TBA,BA0355,0,Nissan,Micra,Red,LT59OXZ,Next

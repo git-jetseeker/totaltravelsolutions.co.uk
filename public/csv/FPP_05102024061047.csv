@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP616,PZ0124100520530,Gatwick,2024-10-05,07:27:51,2024-11-05,05:00:00,2024-11-08,23:45:00,North,North,4,Mr,Gail,Forster,07734420900,46,34.5,11.5,TBA,U28026,0,Kia,Sportage,Black,EN19LRX,Next

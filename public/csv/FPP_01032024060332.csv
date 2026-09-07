@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LP001,PZ0124030119690,Heathrow,2024-03-01,18:32:03,2024-03-31,12:00:00,2024-04-13,08:15:00,"Terminal 4","Terminal 4",14,Mr,Mohammed,Othman,07950254342,91.99,64.393,27.597,TBA,,0,Nissan,Qashqai,"Velvet Black",MF69AKJ,Next

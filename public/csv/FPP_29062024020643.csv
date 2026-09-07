@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP378,PZ0124062920192,Luton,2024-06-29,14:36:58,2024-07-23,13:00:00,2024-08-10,23:00:00,Main,Main,19,Mr,Goran,Grozdanovski,07879894636,230,179.4,50.6,TBA,,0,"MERCEDES BENZ","E 300 HYBRID",BLACK,KS14NUB,Next

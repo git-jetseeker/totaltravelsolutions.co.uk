@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0124031219717,Heathrow,2024-03-12,15:10:43,2024-04-02,12:00:00,2024-04-09,23:45:00,"Terminal 3","Terminal 3",8,Mr,Louise,Sharp,07919164049,79.99,55.993,23.997,TBA,BA0893,0,Ford,Focus,White,"HV17 NHO",Next

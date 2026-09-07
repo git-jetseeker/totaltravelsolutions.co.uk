@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP003,PZ0124103120650,Stansted,2024-10-31,07:46:46,2024-12-19,08:00:00,2025-01-06,08:00:00,Main,Main,19,Mr,Paulo,Abreu,07429350613,134.99,101.2425,33.7475,TBA,,0,Mercedes,C220d,Blue,EN68CCE,Next

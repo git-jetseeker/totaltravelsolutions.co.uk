@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124050819958,Stansted,2024-05-08,16:11:43,2024-06-07,18:00:00,2024-06-17,19:30:00,Main,Main,11,Mr,Carl,Williams,07980317275,99.99,77.49225,22.49775,TBA,EK0068,0,Audi,TT,sunburst,oo07pea,Next

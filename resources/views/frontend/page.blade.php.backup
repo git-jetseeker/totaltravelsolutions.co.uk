@@ -1,0 +1,1524 @@
+@section("title",$page->meta_title)
+@section("meta_keyword",$page->meta_keyword )
+@section("meta_description",$page->meta_description)
+@include('layouts.header')
+@section('content')
+@include('layouts.nav')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+.main_nav_item{list-style: none !important;}
+.tab-content h3{
+            text-align: center !important;
+        }
+        .block-card {
+  display: none;
+}
+
+.block-card.active {
+  display: block;
+}
+@media screen and (min-width: 334px) {
+
+
+        }
+
+        .home_slider_content h2:nth-child(1) {
+    font-size: 31px;
+    color: #fff;
+    margin-top: 116px;
+    margin-left: 868px;
+    font-family: sans-serif;
+        font-weight: 900;
+}
+.home_slider_content h2:nth-child(1) {
+    margin-top: 0%!important;
+}
+@media only screen and (min-width: 1701px) {
+.sb-serc2{max-height: 320px !important;}
+}
+@media screen and (min-device-width: 1555px) and (max-device-width: 1700px) {
+.sb-serc2{height: 320px !important;}
+}
+@media screen and (min-device-width: 1367px) and (max-device-width: 1554px) {
+.sb-serc2{height: 343px !important;}
+}
+@media screen and (min-device-width: 1324px) and (max-device-width: 1366px) {
+.sb-serc2{height: 364px !important;}
+}
+@media screen and (min-device-width: 1225px) and (max-device-width: 1323px) {
+.sb-serc2{height: 388px  !important;}
+}
+@media screen and (min-device-width: 1129px) and (max-device-width: 1224px) {
+.sb-serc2{height: 444px  !important;}
+}
+@media screen and (min-device-width: 1056px) and (max-device-width: 1128px) {
+.sb-serc2{height: 434px !important;}
+}
+@media screen and (min-device-width: 992px) and (max-device-width: 1127px) {
+.sb-serc2{height: 490px !important;}
+}
+.sb-serc1{
+    text-align: center;
+    /*border: 4px solid #fff;*/
+    float: left;
+    margin: 0 0 20px;
+    overflow: hidden;
+    padding-top: 15px;
+    box-shadow: 1px 1px 20px 1px orange;
+border-radius:24px;
+    /*color: #fff;*/
+    /*background-color:#31124b !important;*/
+}
+.main_nav_item-color:hover{
+    background-color:#fa9e1b !important;
+}
+.trust-ticks-p0 {
+    padding: 0px;
+}
+.p1 {
+    font-size: 24px;
+    margin: 12px 0px 0px;
+    padding: 0px;
+    color:black;
+    font-weight:500;
+}
+
+@media only screen and (max-width: 575px) {
+  .heig{
+       /*margin-top: 78px;*/
+}
+.trust-ticks-p0{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+}
+.h1-inner-section{
+        text-align:left;background: orange!important;font-size: 23px;border-radius: 50px;font-family: sans-serif, 'Poppins' !important;background-color: transparent;font-weight: 700;font-variant-numeric: normal;font-variant-east-asian: normal;font-variant-alternates: normal;vertical-align: baseline;
+}
+@media screen and (min-device-width: 273px) and (max-device-width: 469px) {
+        /*div.cal{width: 255px;}*/
+        }
+
+         @media screen and (min-device-width: 995px) and (max-device-width: 1273px) {
+        .p1{    font-size: 18px;}
+        }
+        @media screen and (min-device-width: 223px) and (max-device-width: 357px) {
+        .p1{        font-size: 17px;}
+        }
+        @media screen and (min-device-width: 184px) and (max-device-width: 222px) {
+        .p1{        font-size: 10px;}
+        }
+        @media screen and (min-device-width: 332px) and (max-device-width: 450px) {
+            .sb-serc2{    width: 280px !important;
+                margin-left: -67px !important;}
+            }
+        @media screen and (min-device-width: 181px) and (max-device-width: 331px) {
+        .sb-serc2{    margin-left: -70px !important;
+    width: 271px !important;}
+        }
+
+    .pz-offers{
+        padding-bottom: 0px!important;
+    }
+    @media only screen and (max-width: 575px) {
+  .row2{
+      width: 100%;
+}
+}
+.bhoechie-tab-container {
+    box-shadow: 0 0 8px orange  !important;
+}
+.accordion-style{
+    margin-top: -47px;
+}
+
+span{font-family: sans-serif, 'Poppins' !important;}
+p{font-family: sans-serif, 'Poppins' !important;}
+.p-mar{margin-left: 25px;
+    margin-right: 25px;}
+
+
+@media only screen and (max-width: 991px) {
+  p span,li span{font-size: 17px !important;}
+  p{padding: 0 0px !important;text-align: justify;}
+}
+.nav-tabs .nav-link{
+    font-weight: 700;
+}
+.content-div ul{
+    margin-left: 27px;
+}
+
+</style>
+   @if(request()->get('src') != '')
+{{ session()->put('bk_src', request()->get('src') )}}
+@endif
+
+@if(request()->get('utm_source') == 'ppc')
+{{ session()->put('bk_src', 'PPC' )}}
+@endif
+
+@if(request()->get('utm_source') == 'bing')
+{{ session()->put('bk_src', 'BING' )}}
+@endif
+
+@if(request()->get('utm_source') == 'EMAIL')
+{{ session()->put('bk_src', 'EM' )}}
+@endif
+
+@php
+$discount = request()->get('discount')
+@endphp
+<style>
+    @media only screen and (max-width: 600px) {
+  .search {
+    height: 1024px;
+  }
+}
+@media only screen and (max-width: 991px) {
+   .sty{
+            border-radius:0px !important;
+        }
+}
+.search1{
+
+    background-image:  url("{{ asset('assets/images/services.webp') }}") ;
+
+    width: 100%;
+
+    height: 486px;
+
+    background-size: cover;
+
+}
+@media screen and (min-device-width: 484px) and (max-device-width: 991px) {
+        .search1{height: 1043px;}
+        }
+@media screen and (min-device-width: 341px) and (max-device-width: 483px) {
+        .search1{height: 1030px;}
+        }
+@media only screen and (max-width: 340px) {
+    .search1{ height: 1041px;}
+}
+.main-heading{
+    font-size: 48px !important;
+    font-weight: 700 !important;
+    color: white;
+    text-align: center;
+    margin-top: 201px;
+    font-family: 'Inter',sans-serif !important;
+    line-height: 56px;
+    letter-spacing: -1.152px;
+    margin-bottom: 40px;
+}
+.main-paragraph{
+    color:white;
+    font-size:20px;
+    text-align:center;
+}
+.search_panel1{
+    margin-top: 55px;
+    padding-top: 30px;
+    padding-bottom: 34px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 20px;
+    background-color:rgb(255, 255, 255,0.1);
+
+}
+@media only screen and (min-width: 992px) {
+    .search_panel1{ height: 159px;}
+}
+.main-heading-h2{
+    font-size:30px;
+    color:white;
+    text-align:center;
+}
+
+select{
+    border-radius: 5px;
+}
+input{
+    border-radius: 5px
+}
+
+.form-button {
+    border-radius: 5px;
+    margin-top: -10px;
+    background-color: orange;
+}
+@media only screen and (min-width: 992px) {
+
+.bttn{
+    padding:0px !important;
+    margin: 0px !important;
+   margin-top: -8px !important;
+}
+}
+@media only screen and (max-width: 400px) {
+.search_panel1 {
+    padding-right: 35px;
+    padding-left: 26px;
+}
+}
+@media only screen and (min-width: 1200px) {
+.bttn{width: 155px;}
+}
+@media screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+        .bttn{width: 155px;}
+        }
+@media only screen and (min-width: 1414px) {
+.search_panel1{margin-left: 129px;margin-right: 129px;}
+}
+@media screen and (min-device-width: 992px) and (max-device-width: 1413px) {
+.search_panel1{margin-left: 40px;
+    margin-right: 40px;}
+}
+.fff{
+        position: absolute;
+    color: gray;
+    margin-top: 13px;
+    /* float: left; */
+    margin-left: -26px;
+    z-index: 1;
+    font-size: 20px !important;
+}
+.button{background-color: orange !important;}
+.heig{padding: 30px;}
+.h2tag {
+    /*margin: 0 0 75px;*/
+    padding-top: 60px;
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: center;
+}
+@media only screen and (min-width: 992px) {
+.row-mar{
+        margin-left: 60px !important;
+    margin-right: 60px !important;
+}
+.row-mar2{
+        margin-left: -60px !important;
+    margin-right: -60px !important;
+}
+}
+
+.dev2{    margin-left: 66px !important;
+    margin-right: 38px !important;   }
+    .table2{    margin-left: 66px !important;margin-right: 38px !important;    width: 92% !important;}
+    .our-p{font-size:20px; font-family: sans-serif, 'Poppins' !important;text-align:justify;}
+    .card-text1{
+        text-align:left !important;
+    }
+    .card-title1{    padding-top: 25px; 
+    /*padding-bottom: 18px;*/
+        
+    }
+    .top-offer {}
+
+    @media only screen and (max-width:500px){
+        .row-mar{ margin-left: 0px !important; margin-right: 0px !important; }
+        .dev2{ margin-left: 0px !important; margin-right: 0px !important; }
+        .table2{ margin-left: 0px !important; margin-right: 0px !important; }
+        .card{width:100% !important; margin-bottom:12px;}
+    }
+    @media only screen and (min-width:1400px){
+        .fill_he1{    margin-left: -150px !important;margin-right: -150px !important;}
+    }
+@media screen and (min-device-width: 1280px) and (max-device-width: 1399px) {
+.fill_he1{    margin-left: -75px !important;margin-right: -75px !important;}
+}
+@media screen and (min-device-width: 1100px) and (max-device-width: 1199px) {
+.fill_he1{    margin-left: -65px !important;margin-right: -65px !important;}
+}
+@media screen and (min-device-width: 1045px) and (max-device-width: 1099px) {
+.fill_he1{    margin-left: -60px !important;margin-right: -60px !important;}
+}
+@media screen and (min-device-width: 992px) and (max-device-width: 1044px) {
+.fill_he1{    margin-left: -25px !important;margin-right: -25px !important;}
+.search_panel1{margin-left:0px !important; margin-right:0px !important;}
+}
+.draggable{height:201px;}
+@media only screen and (min-width:992px){
+        .search_button{width: 16% !important;}
+    }
+
+@media only screen and (min-width:1200px){
+        /*.card1{width: 19rem !important;}*/
+        /*.card-body{height: 417px;}*/
+    }
+@media screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+/*.card1{width: 15rem !important;}*/
+/*.card-body{height: 495px;}*/
+}
+    @media only screen and (max-width:991px){
+        .card1{width: 100% !important;margin-bottom: 17px;}
+    }
+#block-1{margin-top: 10;}
+#block-2{margin-top: 10;}
+#block-3{margin-top: 10;}
+#block-5{margin-top: 10;}
+.passenger-detail h3{ border-radius: 4px!important;background: none !important;}
+.passenger-detail h2{ border-radius: 4px!important;/*background: orange!important;*/background: none !important;}
+.ap_page_content{    padding-left: 0px !important;padding-right: 0px !important;}
+.row-mar3{margin-top:-75px;}
+@media only screen and (max-width:497px){
+.list-group-item.active{width: 177px !important;}
+.list-group-item{width: 177px !important;}
+    }
+    .accordion .dot {
+    display: inline-block;
+    float: right;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    margin-top: -10px;
+    text-align: center;
+    position: relative;
+    background: #e9e9e9;
+    color: #7f7f7f;
+    border-left: solid 1px #d3d3d3;
+    border-radius: 0px;
+}
+.accordion .collapsed .dot:before {
+    content: '\f067';
+}
+.accordion .dot:before {
+    font-family: 'FontAwesome';
+}
+.panel-heading a:hover{color: orange !important;}
+.section-title small + span {
+    margin-top: 10px;
+}
+@media only screen and (max-width:992px){
+.nvr-img{margin-left: 23px;}
+    }
+}
+@media only screen and (min-width:498px){
+.mobi{
+    display:none;
+}
+}
+@media only screen and (max-width:497px){
+.dest{
+    display:none;
+}
+}
+@media only screen and (max-width:433px){
+.mob-padd0{
+    padding-left:0px !important;
+    padding-right:0px !important;
+}
+}
+@media only screen and (max-width:991px){
+.cont-mam{    margin-top: -40px;}
+}
+.content-div{padding-left: 28px !important;padding-right: 28px !important;}
+.tabs__controls {
+    position: relative;
+    /* overflow: auto; */
+    -ms-scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
+}
+@media only screen and (max-width:450px){
+.destop-view1{display:none !important;}
+}
+@media only screen and (min-width:451px){
+.mobile-view1{display:none !important;}
+}
+.a-td-none{
+    text-decoration: none !important;
+}
+
+h1 span,h1{
+    font-family: "Poppins",Sans-serif !important;
+    font-size:36px !important;
+    font-weight:700 !important;
+}
+h2 span,h2{
+    font-family: "Poppins",Sans-serif !important;
+    font-size:30px !important;
+    font-weight:600 !important;
+}
+h3 span,h3{
+    font-family: "Poppins",Sans-serif !important;
+    font-size:24px !important;
+    font-weight:600 !important;
+}
+h4 span,h4{
+    font-family: "Poppins",Sans-serif !important;
+    font-size:20px !important;
+    font-weight:400 !important;
+}
+h5 span,h5{
+    font-family: "Poppins",Sans-serif !important;
+    font-size:18px !important;
+    font-weight:400 !important;
+}
+h6 span,h6{
+    font-family: "Poppins",Sans-serif !important;
+    font-size:16px !important;
+    font-weight:400 !important;
+}
+/*a:focus span,a:focus{*/
+/*    color: #428bca !important;*/
+/*}*/
+a:hover span{
+    color: #3B5998 !important;
+}
+a,span,p,li,ul,a,b{
+    font-family: "Poppins",Sans-serif !important;
+}
+ul li,li p span{
+    list-style-type: disc !important;
+    list-style: disc !important;
+}
+li#room-list-1{
+    list-style: none !important;
+}
+p span,li span,#ap_content li{
+    font-size: 15px !important;
+}
+.nav-tabs>li>a{color: black;}
+a, a:hover, a:visited, a:active, a:link{
+    text-decoration:none !important;
+    /*background:none!important;*/
+}
+span a,span a:hover,span a:visited,span a:active,span a:link,p a,p a:hover,p a:visited,span a:active,p a:link{
+    background:none!important;
+}
+@media screen and (max-width: 992px) {
+.main-heading{margin-top: 25px;font-size: 30px !important;line-height: normal;}
+}
+.fill_height{height: auto;}
+.search1{height: auto;}
+.search_panel_content_pages{height: auto;}
+.reviews-stars{
+    color: orange;
+    font-size: 16px;
+}
+@media only screen and (min-width:992px){
+    .alluring-row{
+        display: flex; gap: 20px;
+    }
+    .alluring-col{
+        flex: 1 !important;
+    }
+    .card1{
+        display: flex; flex-direction: column; height: 100%;
+    }
+    .alluring-col .card-body{
+        flex-grow: 1;
+    }
+}
+.airports_Detail-p{
+    font-size: 15px !important;
+    margin: 20px 0 !important;
+}
+.we-acc li{
+    list-style: none !important;
+}
+  .mnt .hed{
+        background: orange;
+        color: white;
+        padding: 8px 0 8px !important;
+        margin: 0;
+        border-radius: 8px 8px 0 0;
+    }
+    .rChev, .lChev{
+        color:white;
+    }
+    .dHd{
+        background: orange;
+        width: 30px;
+        margin-bottom: 4px;
+        color: #fff;
+    }
+    .tp-cc .day{
+        width: 30px;
+    }
+    div.cal{
+        overflow: hidden;
+    }
+    .form-group-calender{
+        background: white;
+        border-radius: 5px;
+    }
+    .form-group-calender i{
+       z-index: 0;
+    }
+    .form-group-calender input{
+        z-index: 1;
+        position: relative;
+        background: none !important;
+    }
+    .nav .rChev{
+        background: orange;
+        color: white;
+        padding: 10px;
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        border-radius: 2px 8px 2px 2px;
+    }
+    .nav .lChev {
+        background: orange;
+    color: white;
+    padding: 10px;
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    border-radius: 8px 2px 2px 2px;
+    }
+    
+    .th_class1{
+    background: #14213D !important;
+    color: white !important;}
+</style>
+<div style="display:none;" id="notification"></div>
+<section class="search1">
+    <div >
+
+
+        <!-- Search Contents -->
+
+        <div class="container fill_height">
+            <div class="row fill_height fill_he1 ">
+                <div class="col fill_height">
+                    <h1 class="main-heading"> {!! $page->page_title !!} </h1>
+                    <div id="home_search_form" class="search_panel1">
+                        <!--<h2 class="main-heading-h2"><b><span style="color:orange">BOOK</span> NOW</b></h2>-->
+                        <form method="get" action="{{ route("searchresult") }}" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start search_panel_content_pages">
+                               <div class="search_item airport-w">
+                                <div>Airport</div>
+                                <div class="form-group">
+                               <select required name="airport_id"   class="dropdown_item_select search_input sty" required="required">
+
+                                                <option value="" disabled selected>Select</option>
+                                                @foreach($airports as $airport)
+                                                @if($airport->id != 12)  <!-- Exclude airport with id 12 i.e Cardif Airport as we have no products yet -->
+                                                    <option @if($airport->id == 20) selected @endif value="{{ $airport->id }}">
+                                                        {{ $airport->name }}
+                                                    </option>
+                                                @endif
+                                            @endforeach
+
+                                 </select>
+                             </div>
+                                </div>
+                            <div class="search_item dep-w" >
+                                <!--<div>Drop off Date</div>-->
+                                <div>Check In</div>
+
+                                     <div class="form-group form-group-calender">
+
+                                            <input autocomplete="off" name="dropoffdate" type="text"
+                                            id="startDate"
+
+                                                   class="check_in search_input \ dpd1" style="" placeholder="Dropoff Date"
+
+                                                   readonly
+
+                                                   required/>
+                                                   <i class="fa fa-calendar fff" ></i>
+
+
+                                        </div>
+
+                            </div>
+
+
+                            <div class="search_item drop-w">
+
+                                <!--<div>Drop off time</div>-->
+                               <div>&nbsp;</div>
+                                      <div class="form-group">
+
+                                          @php
+
+                                            $dropdown_timer = [];
+                                               for ($i = 0; $i <= 23; $i++) {
+                                                   for ($j = 0; $j <= 45; $j += 15) {
+                                                      //$sel = str_pad($i, 2, "0", STR_PAD_LEFT).':'.str_pad($j, 2, "0", STR_PAD_LEFT) == $opening_time ? 'selected' : '';
+                                                          //echo '<option value="'.str_pad($i, 2, "0", STR_PAD_LEFT).':'.str_pad($j, 2, "0", STR_PAD_LEFT).'"'.$sel.'>'.str_pad($i, 2, "0", STR_PAD_LEFT).':'.str_pad($j, 2, "0", STR_PAD_LEFT).'</option>';
+                                                            $dropdown_timer[str_pad($i, 2, "0", STR_PAD_LEFT) . ':' . str_pad($j, 2, "0", STR_PAD_LEFT)] = str_pad($i, 2, "0", STR_PAD_LEFT) . ':' . str_pad($j, 2, "0", STR_PAD_LEFT);
+                                                            //print_r($dropdown_timer);
+
+                                                         }
+                                                        }
+
+                                            @endphp
+
+                                            {{-- {{ Form::select('dropoftime',$dropdown_timer,"",["class"=>"check_in search_input","id"=>"dropoftime"]) }} --}}
+
+                                            <select class="check_in search_input" id="dropoftime" name="dropoftime">
+                                              @php
+                                                foreach ($dropdown_timer as $key => $value) {
+                                                  $selected ='';
+                                                  if($value == '09:00'){
+                                                    $selected ='selected';
+                                                  }
+                                              @endphp
+                                                 <option {{$selected}} value="{{ $value }}">{{ $value }}</option>
+                                              @php
+                                              }
+                                              @endphp
+                                            </select>
+
+                                        </div>
+                            </div>
+                            <div class="search_item arival-w" style="width: 15%">
+                             <!--<div>Pick Up Date</div>-->
+                             <div>Check Out</div>
+
+
+                                        <div class="form-group form-group-calender">
+
+                                            <input type="text" readonly autocomplete="off" name="departure_date"
+                                            id="endDate"
+
+                                                   class="check_in search_input dpd2" placeholder="PickUp Date"
+
+                                                   required/>
+                                                   <i class="fa fa-calendar fff" ></i>
+
+
+
+                                        </div>
+
+                            </div>
+                            <div class="search_item pickup-w">
+                                <!--<div>Pickup time</div>-->
+                                <div>&nbsp;</div>
+
+
+
+                                        <div class="form-group">
+
+
+                                           <select class="dropdown_item_select search_input" id="pickup_time" name="pickup_time">
+                                              @php
+                                                foreach ($dropdown_timer as $key => $value) {
+                                                  $selected ='';
+                                                  if($value == '09:00'){
+                                                    $selected ='selected';
+                                                  }
+                                              @endphp
+                                                 <option {{$selected}} value="{{ $value }}">{{ $value }}</option>
+                                              @php
+                                              }
+                                              @endphp
+                                            </select>
+
+                                            {{-- {{ Form::select('pickup_time',$dropdown_timer,"",["class"=>"dropdown_item_select search_input","id"=>"pickup_time"]) }} --}}
+
+
+
+                                        </div>
+
+
+
+                            </div>
+                           <div class="search_item pickup-w">
+                                    <div>Email</div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control search_input" name="email" value="{{ request()->email }}" placeholder="Enter your email" required>
+                                    </div>
+                                </div>
+                            @if($discount != null)
+                            <div class="alert alert-success" style = 'margin-right:10px ; margin-top:33px ; width:250px'>
+                        <strong>Success!</strong> Discount Applied.
+                            </div>
+                            <div class="search_item promo-w" style = 'display:none'>
+                                <div>Promo Code</div>
+
+
+                                        <div class="form-group">
+
+                                            <input type="hidden" name="promo" class="check_in search_input"
+
+                                                   placeholder="Promo Code" value="{{ request()->get('discount') }}" />
+
+
+                                     </div>
+                            </div>
+                            @else
+                            <div class="search_item promo-w">
+                                <div>Promo Code</div>
+
+
+                                        <div class="form-group">
+                                            @if(session()->get('bk_src') =='')
+
+                                            <input type="text" name="promo" class="check_in search_input"
+
+                                                   placeholder="Optional" value=""{{ request()->get('promo') }}"" />
+                                            @else
+
+                                                <input type="text" name="promo" class="check_in search_input"
+
+                                                       placeholder="Optional" value="{{ request()->get('promo') }}" />
+                                            @endif
+                                     </div>
+                            </div>
+                            @endif
+                            <input type="hidden" value="{{ (request()->get('promo') != null) ? 'EM' : 'ORG' }}" name='src'>
+                            <button class="button form-button search_button bttn">Get A Quote</button>
+                        </form>
+                    </div>
+                    <br>
+
+                    <!-- Search Panel -->
+
+                    <div class="search_panel">
+                        <form action="#" id="search_form_2" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+
+
+
+                        <center>    <button type="button" class="button search_button">Coming Soon<span></span><span></span><span></span></button> </center>
+                        </form>
+                    </div>
+
+                    <!-- Search Panel -->
+
+                    <div class="search_panel">
+                    <form action="#" id="search_form_2" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+
+
+
+                           <center> <button type="button" class="button search_button">Coming Soon<span></span><span></span><span></span></button></center>
+                        </form>
+                    </div>
+
+                    <!-- Search Panel -->
+
+
+                    <!-- Search Panel -->
+
+                    <!-- Search Panel -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <section style="background-color:#F3F6F9">
+        <div class="container  mb-3 pb-2" >
+                    <div class="row heig fill_he1">
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 trust-ticks-p0">
+                         <div class="row text-center">
+                            <div class="col-lg-12">
+                                     <img src="{{asset('assets/images/serviceicon3.webp')}}" alt="serviceicon1" class="img-fluid">
+                                </div>
+                                <div class="col-lg-12">
+                                    <p class="p1" style="text-align: center;"><span>Years of Experience</span> </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 trust-ticks-p0">
+                            <div class="row text-center">
+                                <div class="col-lg-12">
+                                     <img src="{{asset('assets/images/serviceicon1.webp')}}" alt="serviceicon1" class="img-fluid">
+                                </div>
+                                <div class="col-lg-12">
+                                    <p class="p1" style="text-align: center;"><span> Free Cancellation</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 trust-ticks-p0">
+                            <div class="row text-center">
+                                <div class="col-lg-12">
+                                     <img src="{{asset('assets/images/serviceicon2.webp')}}" alt="serviceicon1" class="img-fluid nvr-img">
+                                </div>
+                                <div class="col-lg-12">
+                                    <p class="p1" style="text-align: center;"><span>Never Beaten on Price</span> </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+    </section>
+    <!--<section class="col-lg-12 col-md-12 col-sm-12 col-xs-12  trust-ticks-p0 mb-5" style="margin-top: -100px;">-->
+
+    <!--    <div class="mt-4 mb-5 trust-ticks">-->
+
+    <!--    </div>-->
+    <!--</section>-->
+       @php
+        $site_settings_main=[];
+            $settingsAll = App\Models\settings::all();
+                    foreach ($settingsAll as $setting) {
+                        $site_settings_main[$setting->field_name] = $setting->field_value;
+                    }
+    @endphp
+
+   <div class="container cont-mam">
+       <section class="top-offer row-mar2" style="top:0px; margin-bottom:10px ">
+        <div class="container-fluid padding0  mob-padd0">
+
+            <div class="">
+                    <div class="col-md-12 ">
+                        <div class="section-title text-left   passenger-detail">
+                            <h2 class="hotel-view-contents-title" style="background:none">Best Available {{ $page->page_title }} Deals</h2>
+                            <div class="margin10left ap_page_content text-left ">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-menu">
+                                        <select class="form-control hidden-md hidden-lg hidden-xl" id="mobileTabsSelect">
+                                            <option value="#Airport-parking">Airport parking</option>
+                                            <option value="#Airport-overview">Airport overview</option>
+                                            <option value="#Airport-facilities">Airport facilities</option>
+                                            <option value="#Top-things-to-do-at">Top things to do at</option>
+                                            <!--<option value="#Faqs">Frequently Asked Questions</option>-->
+                                        </select>
+                                        <div class="list-group">
+                                            <div class="destop-view1 hidden-xs hidden-sm nav" style="justify-content: center !important">
+                                                <ul class="nav nav-tabs" id="just">
+                                                    <!--<ul class="nav nav-tabs dest" id="just" style="justify-content: center !important">-->
+                                                <!--<ul class="nav nav-tabs dest" role="tablist">-->
+                                                <!--<ul class="tabs__controls d-flex text-center js-tabs-controls mobi" role="tablist">-->
+
+                                					<li class="nav-item">
+                                						<a class="nav-link active" data-toggle="tab" href="#Airport-parking" role="tab">Airport parking</a>
+                                					</li>
+                                					<li class="nav-item ">
+                                						<a class="nav-link " data-toggle="tab" href="#Airport-overview" role="tab">Airport overview</a>
+                                					</li>
+                                					<li class="nav-item ">
+                                						<a class="nav-link " data-toggle="tab" href="#Airport-facilities" role="tab">Airport facilities</a>
+                                					</li>
+                                					<li class="nav-item ">
+                                						<a class="nav-link " data-toggle="tab" href="#Top-things-to-do-at" role="tab">Top things to do at</a>
+                                					</li>
+                                					<!--@if($page->faqs != '')-->
+                                					<!--<li class="nav-item">-->
+                                					<!--	<a class="nav-link " data-toggle="tab" href="#Faqs" role="tab">Faqs</a>-->
+                                					<!--</li>-->
+                                					<!--@endif-->
+                                				</ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container" style="    border-top-right-radius: 5px;">
+
+
+                            <div class="tab-content" id="ap_content">
+        					<div class="tab-pane fade in active" id="Airport-parking" name="Airport-parking" role="tabpanel">
+        						<div class="row">
+        							<div class="col-sm-12" style="margin-top: 14px;">
+        								<div class="row">
+        									<div class="col-md-12 content-div">
+        										{!! $page->airport_parking !!}
+        									</div>
+        								</div>
+        							</div>
+        						</div>
+        					</div>
+        					<div class="tab-pane fade" id="Airport-overview" name="Airport-overview" role="tabpanel">
+        						<div class="row">
+        							<div class="col-sm-12" style="margin-top: 14px;">
+        								<div class="row" style="">
+        									<div class="col-md-12 content-div">
+        										{!! $page->overview !!}
+        									</div>
+        									<!--<div class="hidden-xs hidden-sm col-md-5">-->
+        									<!--	<iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14957.343748674803!2d-0.19048060196493855!3d51.15017148183122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4875efde7d1f391b%3A0x59dda4bf018973ff!2sGatwick+Airport!5e0!3m2!1sen!2suk!4v1511427805195"-->
+        									<!--		width="100%" height="300px" frameborder="0" allowfullscreen=""></iframe>-->
+        									<!--</div>-->
+        								</div>
+        							</div>
+        						</div>
+        					</div>
+        					<div class="tab-pane fade" id="Airport-facilities" name="Airport-facilities" role="tabpanel">
+        						<div class="row">
+        							<div class="col-sm-12" style="margin-top: 14px;">
+        								<div class="row" style="">
+        									<div class="col-md-12 content-div">
+        										{!! $page->facilities !!}
+        									</div>
+        								</div>
+        							</div>
+        						</div>
+        					</div>
+        					<div class="tab-pane fade" id="Top-things-to-do-at" name="Top-things-to-do-at" role="tabpanel">
+        						<div class="row">
+        							<div class="col-sm-12" style="margin-top: 14px;">
+        								<div class="row" style="">
+        									<div class="col-md-12 content-div">
+        										{!! $page->topthings !!}
+        									</div>
+        								</div>
+        							</div>
+        						</div>
+        					</div>
+        					<div class="tab-pane fade" id="Faqs" name="Faqs" role="tabpanel">
+        						<div class="row">
+        							<div class="col-sm-12">
+        								<div class="row">
+        									<div class="col-xs-12 content-div">
+        										<h3 class="primary-color">Guide to Frequently Asked Questions</h3>
+        										<div class="col-xs-12 col-sm-12 col-md-12">
+                                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                    Coming Soon
+                                                    </div>
+                                                </div>
+        									</div>
+        								</div>
+        							</div>
+        						</div>
+        					</div>
+        				</div>
+
+
+
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab-content ">
+                                        {!! $page->content !!}                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <!--<div class="col-md-4">-->
+            <!--    <div class="section-title passenger-detail">-->
+            <!--        <h3 class="text-center ">Other Airport Options</h3>-->
+            <!--        <div class="col-xs-12 ">-->
+            <!--            @php $i=0; @endphp-->
+            <!--            @foreach($airports as $airport)-->
+            <!--                @if($page->typeid!=$airport->id)-->
+            <!--                    <a class="other-airports"-->
+            <!--                       href="{{ route("page",["slug"=>$airport->name."-airport-parking"]) }}">-->
+            <!--                        <strong> {{  $airport->name }} airport </strong>-->
+            <!--                    </a>-->
+            <!--                    @if($i>4)  @break @endif-->
+
+            <!--                    @php $i++; @endphp-->
+            <!--                @endif-->
+            <!--            @endforeach-->
+
+            <!--        </div>-->
+            <!--    </div>-->
+
+            <!--</div>-->
+                </div>
+
+
+
+
+
+
+
+
+
+            <!--<div class="col-md-12 mob-padd0">-->
+            <!--    <div class="section-title text-left   passenger-detail">-->
+            <!--        <h3 style="    width: 100%; margin-left: 0px;    margin-top: 40px;" class="margin10left text-center">Best Available {{ $page->page_title }} Deals</h3>-->
+            <!--        <div class="margin10left ap_page_content text-left ">-->
+            <!--                <div class="bhoechie-tab-menu">-->
+            <!--                    <div class="list-group">-->
+
+            <!--                        <ul class="tabs__controls d-flex js-tabs-controls dest" id="just" style="scroll-snap-type: x mandatory;position: relative;overflow: auto;justify-content: center !important">-->
+
+            <!--                        <ul class="tabs__controls d-flex js-tabs-controls mobi" id="just" style="scroll-snap-type: x mandatory;position: relative;overflow: auto;">-->
+            <!--                            <li class=" tabs-button" id="liofairports" ><a data-target="#block-1" data-toggle="tab" aria-expanded="false" href="#parking"-->
+            <!--                                            class="list-group-item text-center filter-btn active" id="rounded" >-->
+            <!--                                    <i class="fa fa-paper-plane fa-lg" aria-hidden="true"></i> <br>Airport Parking-->
+            <!--                                </a></li>-->
+            <!--                            <li class=" tabs-button" id="liofairports" ><a data-target="#block-2" data-toggle="tab" aria-expanded="false" href="#overview"-->
+            <!--                                            class="list-group-item text-center filter-btn" id="rounded">-->
+            <!--                                    <i class="fa fa-road fa-lg" aria-hidden="true"></i> <br>Airport Overview-->
+            <!--                                </a></li>-->
+            <!--                            <li class=" tabs-button" id="liofairports"><a data-target="#block-3" data-toggle="tab" aria-expanded="false" href="#fac"-->
+            <!--                                                  class="list-group-item text-center filter-btn" id="rounded">-->
+            <!--                                    <i class="fa fa-home fa-lg" aria-hidden="true"></i> <br>Airport facilities-->
+            <!--                                </a></li>-->
+
+            <!--                            <li class=" tabs-button" id="liofairports"><a data-target="#block-5" data-toggle="tab" aria-expanded="false" href="#top_things"-->
+            <!--                                            class="list-group-item text-center" id="rounded">-->
+            <!--                                    <i class="fa fa-child fa-lg" aria-hidden="true"></i> <br>Top things to do-->
+            <!--                                    at </a></li>-->
+            <!--                            {{--<li class=""><a data-toggle="tab" aria-expanded="false" href="#map"--}}-->
+            <!--                            {{--class="list-group-item text-center">--}}-->
+            <!--                            {{--<h4><i class="fa fa-map-marker" aria-hidden="true"></i></h4>Map--}}-->
+            <!--                            {{--</a></li>--}}-->
+            <!--                        </ul>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container " style="    border-top-right-radius: 5px;">-->
+            <!--                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab-content block-card active" id="block-1">-->
+            <!--                    {!! $page->airport_parking !!}  <br> -->
+            <!--                    {!! $page->parking_options !!} -->
+            <!--                    </div>-->
+
+            <!--                    <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab-content  block-card" id="block-2">-->
+            <!--                       {!! $page->overview !!}  -->
+            <!--                    </div>-->
+            <!--                    <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab-content  block-card" id="block-3">-->
+            <!--                        {!! $page->facilities !!}  -->
+            <!--                    </div>-->
+            <!--                    <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab-content  block-card" id="block-5">-->
+            <!--                        {!! $page->topthings !!}  -->
+            <!--                    </div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--</div>-->
+            <br>
+
+
+        <div class="clearfix"></div>
+
+
+    </section>
+       <div class="row fill_he1">
+           <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="pz-offers">
+        <div class="container-fluid">
+        <section class="section-padding" >
+        <div class="row">
+
+            <ul id="room-list" class="list-unstyled row2">
+                <!--<h1 class="h2tag"><span style="color:orange">{!! $page->page_title !!}</span></h1>-->
+                <!--<h1 style="font-size: 40px;color: #350a4e;font-weight: 700;">{!! $page->page_title !!}</h1>-->
+                <li id="room-list-1">
+                    <div class="container-fluid">
+                        <!--<div class="row row-mar">-->
+                        <!--    <div class="col-xs-12">-->
+                        <!--        {!! $airports_Detail->description !!}-->
+                        <!--    </div>-->
+                        <!--</div>-->
+                        @if(count($all_records_md)>0)
+                        <div class="col-sm-12">
+                            <div class="dev2"><br>
+                                <h2 class="h1-inner-section text-center">{{ ucwords($airports_Detail->name) }} Airport Meet &amp; Greet
+                                    Airport Parking</h2>
+                                <p class="text-center airports_Detail-p">
+                                    {!!  $page->meet_and_greet !!}
+                                </p>
+                            </div>
+                                        <table class="table table-striped table-bordered airportscolor table2">
+                                            <thead>
+                                            <tr>
+                                                
+ 
+                                                <th class="th_class1 text-center">Car Park</th>
+                                                <th class="th_class1 hidden-sm hidden-xs">
+                                                    <div class="table-sort">
+                                                        <div class="table-sort-text text-center">Customer Rating</div>
+                                                    </div>
+                                                </th>
+                                                <th class="th_class1 text-center">Transfer Time</th>
+                                                <th class="th_class1 hidden-sm hidden-xs text-center">Awards</th>
+                                                <th class="th_class1">
+                                                    <div class="table-sort text-center">
+                                                        <div class="table-sort-text">
+                                                            Price
+                                                            <small> (per week)</small>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($all_records_md as $company)
+                                                <tr class="gtmSiteItem own-product-row"
+                                                    @if($company["price"]=='0.00') style="display: none" @endif >
+                                                    <td class="car-park" style="vertical-align: middle;text-align: center;">
+                                                        {{ $company['name'] }}
+                                                    </td>
+                                                    <td class="fpp-customer-reviews hidden-sm hidden-xs" style="vertical-align: middle;text-align: center;">
+                                                        <div class="reevoo-badge with-background block-mobile ">
+                                                            @php
+                                                                $modules = \App\Models\reviews::where("type_id",$company["companyID"])->where("status","Yes");
+                                                                $avg = $modules->avg("rating");
+                                                                $count_reviews = $modules->count("rating");
+                                                                $avgRating =round($avg,2) * 2;
+                                                                $fiverating =  $avgRating / 2;
+
+                                                            @endphp
+
+                                                            @if($avgRating>0)
+                                                                <div class="ape-badge">
+                                                                    <div class="score">
+                                                                        <div class="score">{{ $avgRating }}</div>
+                                                                        <div class="score-text"></div>
+                                                                    </div>
+                                                                    <div class="extra-info">
+                                                                        <div class="score-logo">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            @endif
+                                                        </div>
+                                                        <span><i class="fa fa-star reviews-stars" aria-hidden="true"></i></span>
+                                                        <span><i class="fa fa-star reviews-stars" aria-hidden="true"></i></span>
+                                                        <span><i class="fa fa-star reviews-stars" aria-hidden="true"></i></span>
+                                                        <span><i class="fa fa-star reviews-stars" aria-hidden="true"></i></span>
+                                                        <span><i class="fa fa-star reviews-stars" aria-hidden="true"></i></span>
+                                                    </td>
+                                                    <td class="fpp-airport-distance" style="vertical-align: middle;text-align: center;">
+                                                        <span style="font-size: 13px;" class="dist-text">
+                                                        <br>
+                                                            Chauffeur will Pick Car ON Airport
+                                                        </span>
+                                                    </td>
+                                                    <td class="fpp-award hidden-sm hidden-xs" style="vertical-align: middle;text-align: center;">
+                                                        @php
+                                                            $arrangeAwardList=[];
+                                                            $awards = \App\Models\companies_assign_awards::all()->where("cid",$company["companyID"]);
+                                                            foreach($awards as $award){
+
+                                                                $arrangeAwardList[] = $award;
+                                                            }
+
+                                                               $companyPrice = number_format( ($company["price"]/8),2);
+                                                               $expPrice = explode(".",$companyPrice);
+                                                        @endphp
+                                                        @if(count($arrangeAwardList)>0)
+                                                            <img class="awards-img" src="{{ asset("storage/".$arrangeAwardList[0]->award->image)  }}" alt="{{ $company['name'] }}">
+                                                        @endif
+                                                    </td>
+                                                    <td class="product-price" style="vertical-align: middle;text-align: center;">
+                                                        <div class="price">
+                                                            <span style="cursor:pointer;" class="target_book value">
+                                                            £{{ $expPrice[0]  }}.<sup>{{ $expPrice[1]  }}</sup>
+                                                            </span>
+                                                        </div>
+                                                        Per / Day
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                        </div>
+                        @endif
+                        @if(count($all_records_pd)>0)
+                        <div class="row">
+                            <div class="col-xs-12"><br>
+                                <h2 class="h1-inner-section text-center">{{ ucwords($airports_Detail->name) }} Airport Park & Ride Parking</h2>
+                                <p class="text-center airports_Detail-p">
+                                    {!!  $page->park_and_ride !!}
+                                </p>
+                            </div>
+                                <div class="col-sm-12">
+                                    <div class="">
+                                        <table class="table table-striped table-bordered airportscolor">
+                                            <thead>
+                                            <tr>
+                                                <th class="th_class1 text-center">Car Park</th>
+                                                <th class="th_class1 hidden-sm hidden-xs text-center">
+                                                    <div class="table-sort">
+                                                        <div class="table-sort-text">Customer Rating</div>
+                                                    </div>
+                                                </th>
+                                                <th class="th_class1 text-center">Transfer Time</th>
+                                                <th class="th_class1 hidden-sm hidden-xs text-center">Awards</th>
+                                                <th class="th_class1 text-center">
+                                                    <div class="table-sort">
+                                                        <div class="table-sort-text">
+                                                            Price
+                                                            <small> (per week)</small>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($all_records_pd as $company)
+
+                                                <tr class="gtmSiteItem own-product-row"
+                                                    @if($company["price"]=='0.00') style="display: none" @endif >
+                                                    <td class="car-park"
+                                                        style="vertical-align: middle;text-align: center;">
+                                                        {{ $company['name'] }}
+
+                                                    </td>
+                                                    <td class="fpp-customer-reviews hidden-sm hidden-xs"
+                                                        style="vertical-align: middle;text-align: center;">
+                                                        <div class="reevoo-badge with-background block-mobile ">
+
+                                                            @php
+                                                                $modules = \App\Models\reviews::where("type_id",$company["companyID"])->where("status","Yes");
+                                                                $avg = $modules->avg("rating");
+                                                                $count_reviews = $modules->count("rating");
+
+
+                                                                $avgRating =round($avg,2) * 2;
+                                                                $fiverating =  $avgRating / 2;
+
+                                                                $companyPrice = number_format( ($company["price"]/8),2);
+                                                               $expPrice = explode(".",$companyPrice);
+
+                                                            @endphp
+
+                                                            @if($avgRating>0)
+                                                                <div class="ape-badge">
+                                                                    <div class="score">
+                                                                        <div class="score">{{ $avgRating }}</div>
+                                                                        <div class="score-text"></div>
+                                                                    </div>
+                                                                    <div class="extra-info">
+                                                                        <div class="score-logo">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            @endif
+                                                        <span><i class="fa fa-star reviews-stars" aria-hidden="true"></i></span>
+                                                        <span><i class="fa fa-star reviews-stars" aria-hidden="true"></i></span>
+                                                        <span><i class="fa fa-star reviews-stars" aria-hidden="true"></i></span>
+                                                        <span><i class="fa fa-star reviews-stars" aria-hidden="true"></i></span>
+                                                        <span><i class="fa fa-star reviews-stars" aria-hidden="true"></i></span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="fpp-airport-distance"
+                                                        style="vertical-align: middle;text-align: center;">
+                                        <span style="font-size: 13px;" class="dist-text">
+                                        <br>
+                                            Chauffeur will Pick Car ON Airport
+                                    </span></td>
+                                                    <td class="fpp-award hidden-sm hidden-xs"
+                                                        style="vertical-align: middle;text-align: center;">
+                                                        @php
+                                                            $arrangeAwardList=[];
+                                                            $awards = \App\Models\companies_assign_awards::all()->where("cid",$company["companyID"]);
+                                                            foreach($awards as $award){
+
+                                                                $arrangeAwardList[] = $award;
+                                                            }
+
+                                                        @endphp
+                                                        @if(count($arrangeAwardList)>0)
+                                                            <img class="awards-img"
+                                                                 src='{{ url("https://dashboard.jetseekergroup.com/storage/app/".$arrangeAwardList[0]->award->image) }}' alt="{{ $company['name'] }}">
+                                                        @endif
+
+
+                                                    </td>
+                                                    <td class="product-price"
+                                                        style="vertical-align: middle;text-align: center;">
+                                                        <div class="price">
+                                            <span style="cursor:pointer;" class="target_book value">
+                                            £{{ $expPrice[0]  }}.<sup>{{ $expPrice[1]  }}</sup>
+                                            </span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                        </div>
+                    @endif
+                    </div>
+                    @php
+                        $txt_about = "Here at JET SEEKER Limited, we only prefer those parking fields for our clients which satisfy our rigorous security standards. We deliver three types of cool parking services at the reasonable rates of £4 per day or £28 per week. Our goal is to avail you what is soundest. Below is the list of our parking services: .
+";
+                       $txt_mg = "Save money and enjoy freedom vibes! Park your car at our protected parking lot yourself. You do not need to entrust your car keys, anyone, at all. Your car will be watched over well till your arrival..";
+                       $txt_pr = "Simple, easy and comfortable! Just pre-book the offer and reach the terminal in tempo. The rest of the work is ours! You will meet our chauffeur who will park your car at our secure and monitored parking area.";
+                       $txt_airport = "Feel uncaged! For the parking fields closer to the terminal, we do not restrict our customers for only two services. Use our On-Airport service by parking your car at our safe parking lot. Reach the terminal by walking. Pre-book now and avail 50% discount now! !";
+
+                    @endphp
+
+                    <div  class="">
+                        <div class="container-fluid text-center">
+                            <section class="section-title text-center row-mar row-mar3">
+                                <h2 class="h2tag mt-5">Our Services</h2>
+                                <!--<h2 class="text-center">Our Alluring Parking Services</h2>-->
+                                <p class="text-center our-p"> {!!  $page->alluring !!}</p>
+                                <div class="container">
+                                    <div class="row alluring-row">
+                                    <div class="col-lg-4 alluring-col">
+                                        <div class="card card1" style="box-shadow: 0px 0px 8px -2px orange;border-radius:24px">
+
+                                          <div class="card-body" style="padding-bottom:0">
+                                             <img src="{{ asset('assets/images/customer-loyalty-_1_ 1.webp') }}" class="img-circle" style="width:70px;height:70px;" alt="customer-loyalty-_1_ 1" loading="lazy">
+                                            <h5 class="card-title1">Meet and Greet</h5>
+                                            <p class="card-text1" styele="text-align:left !important">{!!  $page->alluring_meetandgreet !!}</p>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 alluring-col">
+                                        <div class="card card1" style="box-shadow: 0px 0px 8px -2px orange;border-radius:24px">
+
+                                          <div class="card-body" style="padding-bottom:0">
+                                              <img src="{{ asset('assets/images/car-parking-_1_ 1.webp') }}" class="img-circle" style="width:66.98px;height:68.31px;" alt="car-parking-_1_ 1" loading="lazy">
+                                            <h5 class="card-title1">Park and Ride</h5>
+                                            <p class="card-text1" styele="text-align:left !important">{!!  $page->alluring_parkandride !!}</p>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 alluring-col">
+                                        <div class="card card1" style="box-shadow: 0px 0px 8px -2px orange;border-radius:24px">
+
+                                          <div class="card-body" style="padding-bottom:0">
+                                               <img src="{{ asset('assets/images/Group.webp') }}" class="img-circle" style="width:70px;height:69.97px;" alt="Group" loading="lazy">
+                                            <h5 class="card-title1">On-Site</h5>
+                                            <p class="card-text1" styele="text-align:left !important">{!!  $page->alluring_onairport !!}</p>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                            </section>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+        </div>
+    </div>
+    <section class="top-offer row-mar" style="top:0px; margin-bottom:10px ">
+        <div class="container-fluid padding0 hidden-xs hidden-sm">
+            <br>
+            <div class="block">
+            <div class="col-md-12" >
+                <div class="section-title passenger-detail">
+                    <h2 class="text-center ">Other Airport Options</h2>
+                    <div class="col-xs-12 text-center">
+                        <br>
+                        <div class="container">
+
+                          <section class="customer-logos slider">
+                        @php $i=0; @endphp
+                        @foreach($airports as $airport)
+                            @if($page->typeid!=$airport->id)
+                               <div class="slide"> <a class="other-airports"
+                                   href="{{ route("page",["slug"=>strtolower($airport->name)."-airport-parking"]) }}">
+                                    <img class="img-responsive" style="" alt="{{  $airport->name }} airport"
+                                         src='{{ url("https://dashboard.jetseekergroup.com/storage/app/".$airport->profile_image) }}'>
+                                    <strong> {{  $airport->name }} airport </strong>
+                                </a> </div>
+                                @if($i>7)  @break @endif
+
+                                @php $i++; @endphp
+                            @endif
+                        @endforeach
+                     </section>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="clearfix"></div>
+        @if($page->type == 'AP')
+        @php
+        $faqs = DB::select("Select * from faqs where agent_id = '1' and airport_id = '$page->typeid'");
+        $i = 1;
+        @endphp
+        <?php /*
+        <section class="page-section">
+            <div class="container">
+
+                <h2 class="section-title wow fadeInDown" data-wow-offset="200" data-wow-delay="100ms" style="    font-size: 30px;font-weight: 900;line-height: 30px;text-transform: uppercase;text-align: center;color: #1F2746;">
+                    <small style="color:orange;display: block;font-size: 18px;font-weight: 400;line-height: 18px;text-transform: none;    margin-bottom: 14px;">See What People Ask to Us</small>
+
+                    <span>FAQS</span>
+                </h2>
+
+                <div class="row">
+                      @foreach($faqs as $faq)
+
+                    <div class="col-md-6 wow fadeInLeft" data-wow-offset="200" data-wow-delay="200ms">
+                        <!-- FAQ -->
+                        <div class="panel-group accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                            <!-- faq1 -->
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading heading-12" role="tab" id="heading{{$i}}">
+                                    <a data-toggle="collapse"  class="collapsed a-td-none" data-parent="#accordion" href="#collapse{{$i}}" aria-expanded="true" aria-controls="collapse{{$i}}">
+                                    <h4 class="panel-title" style="color:black">
+                                        <!--<a data-toggle="collapse"  class="collapsed a-td-none" data-parent="#accordion" href="#collapse{{$i}}" aria-expanded="true" aria-controls="collapse{{$i}}">-->
+                                            <span class="dot"></span> @php echo $faq->title @endphp
+                                        <!--</a>-->
+                                    </h4>
+                                    </a>
+                                </div>
+                                <div id="collapse{{$i}}" class="panel-collapse collapse " role="tabpanel" aria-labelledby="heading{{$i}}">
+                                    <div class="panel-body">
+                                        <p> @php echo $faq->content @endphp </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /faq1 -->
+
+                        </div>
+                        <!-- /FAQ -->
+                    </div>
+                    @php
+                    $i++;
+                    @endphp
+                     @endforeach
+                </div>
+
+            </div>
+        </section>
+       */ ?>
+        @endif
+
+         @include('frontend.review2')
+    </section>
+           </div>
+
+       </div>
+   </div>
+ </div>
+
+@include('layouts.footer')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('.customer-logos').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        arrows: false,
+        dots: false,
+        pauseOnHover: false,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 4
+            }
+        }, {
+            breakpoint: 520,
+            settings: {
+                slidesToShow: 3
+            }
+        }]
+    });
+});
+</script>
+<script>
+    let $blocks = $('.block-card');
+
+$('.filter-btn').on('click', e => {
+  let $btn = $(e.target).addClass('active');
+  $btn.siblings().removeClass('active');
+
+  let selector = $btn.data('target');
+  $blocks.removeClass('active').filter(selector).addClass('active');
+});
+</script>
+
+<script>
+    $(document).ready(function () {
+        // Show/hide tabs based on select dropdown value
+        $('#mobileTabsSelect').on('change', function () {
+            var selectedTab = $(this).val();
+            $('.nav-tabs a[href="' + selectedTab + '"]').tab('show');
+        });
+
+        // Update the select dropdown when tabs are switched
+        $('.nav-tabs a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            var targetTab = $(e.target).attr('href');
+            $('#mobileTabsSelect').val(targetTab);
+        });
+    });
+</script>

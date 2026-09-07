@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+APM-1,PZ0124070220202,Heathrow,2024-07-02,16:38:02,2024-10-02,09:00:00,2024-10-03,09:00:00,"Terminal 3","Terminal 4",2,Mr,test,test,1234567894,77.99,54.593,23.397,TBA,ftr-1234,0,honda,CRV,black,"tse 4912a",Next

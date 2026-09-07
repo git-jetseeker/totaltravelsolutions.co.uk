@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP588,PZ0124120220730,Luton,2024-12-02,14:01:42,2024-12-09,05:30:00,2024-12-12,17:30:00,Main,Main,4,Mr,John,Kennedy,07837813811,46,35.88,10.12,TBA,EYY2636,0,Kia,Sportage,White,LM17XRA,Next

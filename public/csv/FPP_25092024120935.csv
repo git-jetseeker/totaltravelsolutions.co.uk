@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+EP-01,PZ0124092520485,Heathrow,2024-09-25,13:50:54,2024-10-03,06:00:00,2024-10-18,16:00:00,"Terminal 5","Terminal 5",16,Mr,Andy,Kitchin,07977194041,93.99,65.793,28.197,TBA,BA0929,0,MG,5EV,Red,HN22KTK,Next

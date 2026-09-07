@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LHRA,PZ0124062020167,Heathrow,2024-06-20,19:22:29,2024-06-21,05:00:00,2024-06-24,12:15:00,"Terminal 5","Terminal 5",4,Mr,ansurd,jackson,07957808004,50.95,44.836,6.114,TBA,BA19129655,0,mercedes,A200,black,lp22kzl,Next

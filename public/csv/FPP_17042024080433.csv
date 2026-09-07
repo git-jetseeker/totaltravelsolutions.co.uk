@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP003,PZ0124041719838,Stansted,2024-04-17,08:35:55,2024-09-30,10:00:00,2024-10-14,18:00:00,Main,Main,15,Mr,JAN,KARBOWY,07906954254,104.99,78.7425,26.2475,TBA,FR3919,0,KIA,STONIC,WHITE,"KW18 NVJ",Next

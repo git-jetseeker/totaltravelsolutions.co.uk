@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP581,PZ0124091320447,Manchester,2024-09-13,11:52:10,2024-09-16,08:00:00,2024-09-20,00:30:00,"Terminal 1","Terminal 1",5,Mr,James,Hodkinson,07941586694,100,78,22,TBA,LH2504,0,vauxhall,corsa,black,"BC72 CWO",Next

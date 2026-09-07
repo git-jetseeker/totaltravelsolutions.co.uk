@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HAPS-001,PZ0125021020828,Heathrow,2025-02-10,18:28:56,2025-02-20,12:00:00,2025-02-28,18:15:00,"Terminal 5","Terminal 5",9,Mr,Camilla,Aichroth,07798780911,66.99,46.893,20.097,TBA,BA0717,0,VW,Golf,Grey,"VU18 LFM",Next

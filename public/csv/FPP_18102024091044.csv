@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP582,PZ0124101820592,Manchester,2024-10-18,22:45:02,2024-10-31,15:00:00,2024-11-08,17:00:00,"Terminal 3","Terminal 3",9,Mr,Johanna,Hartley,07577957220,86,67.08,18.92,TBA,FR7547,0,Citroen,C4,Grey,YP69MKX,Next

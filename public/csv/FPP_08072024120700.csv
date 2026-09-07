@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124070820220,Gatwick,2024-07-08,00:30:06,2024-07-23,03:45:00,2024-08-06,14:30:00,South,South,15,Mr,Bolanle,Olowolagba,07701092481,186.99,130.893,56.097,TBA,BA2811,0,Lexus,NX300h,Red,MV65DZE,Next

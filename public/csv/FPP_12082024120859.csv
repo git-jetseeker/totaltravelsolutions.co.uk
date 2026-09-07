@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124081220329,Gatwick,2024-08-12,12:28:06,2024-08-25,13:15:00,2024-09-05,22:30:00,North,South,12,Mr,Jacqueline,King,7979946252,109.99,76.993,32.997,TBA,EZY6454,0,Nissan,Micra,Red,"ML06 FDX",Next

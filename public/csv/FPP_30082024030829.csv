@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BP-01,PZ0124083020376,Heathrow,2024-08-30,15:38:26,2024-09-02,13:00:00,2024-10-02,13:00:00,"Terminal 3","Terminal 3",31,Mr,Kastro,Piruti,07706790975,135.99,95.193,40.797,TBA,,0,Audi,"Audi a4",Black,Hj18hlr,Next

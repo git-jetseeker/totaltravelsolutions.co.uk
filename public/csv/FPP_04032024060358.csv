@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LGMA,PZ0124030419696,Gatwick,2024-03-04,18:12:17,2024-03-06,07:00:00,2024-03-10,22:00:00,North,North,5,Mr,Omar,Araque,07946615780,63,55.44,7.56,TBA,,0,Mazda,CX-5,"Sky Blue","BK15 OYG",Next

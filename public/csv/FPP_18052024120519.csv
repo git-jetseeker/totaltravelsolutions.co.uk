@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP3,PZ0124051820029,Luton,2024-05-18,12:19:46,2024-07-03,06:00:00,2024-07-15,09:00:00,Main,Main,13,Mr,Liviu,Popa,07478847627,120,87.6,32.4,TBA,w43751,0,"Alfa Romeo",Giulietta,Grey,Ye61evb,Next

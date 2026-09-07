@@ -1,0 +1,1 @@
+!function(e){"use strict";var a=e(document),n=e(".popup-youtube");a.on("ready",function(){n.magnificPopup({disableOn:700,type:"iframe",mainClass:"mfp-fade",removalDelay:160,preloader:!1,fixedContentPos:!1})})}(jQuery);

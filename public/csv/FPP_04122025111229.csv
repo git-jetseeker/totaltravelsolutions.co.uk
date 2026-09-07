@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HAPS-002,JS-FPW6T2,Heathrow,2025-12-04,11:17:09,2026-06-16,09:00:00,2026-06-24,09:00:00,TBA,TBA,9,Mr,test,test,445454865466565,59.99,41.993,17.997,TBA,,0,toyota,corola,red,uygygj,Next

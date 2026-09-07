@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP484,PZ0124080620309,Luton,2024-08-06,16:16:53,2024-08-07,15:45:00,2024-08-12,12:30:00,Main,Main,6,Mr,Gayle,Shoukry,07949266022,76,65.36,10.64,TBA,Ezy2324,0,Toyota,Corolla,Black,"Gf06 cnn",Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP4,PZ0124051720023,Heathrow,2024-05-17,15:21:10,2024-05-24,11:30:00,2024-06-02,11:00:00,"Terminal 3","Terminal 3",10,Mr,Stephen,Griffiths,07938624947,78,56.94,21.06,TBA,VS4030,0,Nissan,"X Trail",Black,"BT67 EOD",Next

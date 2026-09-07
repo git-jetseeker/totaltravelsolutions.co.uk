@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP597,PZ0124102820641,Birmingham,2024-10-28,21:55:06,2024-11-16,12:30:00,2024-11-20,13:00:00,"Bhx Terminal 1","Bhx Terminal 1",5,Mr,Peter,Evans,07749297227,64,46.72,17.28,TBA,FR2157,0,Kia,Sportage,Black,"CV72 XJU",Next

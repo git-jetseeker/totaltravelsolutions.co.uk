@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PWU-001,PZ0124122720775,Gatwick,2024-12-27,11:41:06,2024-12-30,09:15:00,2025-01-03,10:15:00,North,North,5,Mr,Angela,Macnamara,07590334445,75,45,30,TBA,"Air transat 122",0,Fiat,"Fiat 500",Blue,DU15HBL,Next

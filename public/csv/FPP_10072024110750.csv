@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124071020236,Gatwick,2024-07-10,11:10:47,2024-08-16,05:00:00,2024-08-19,21:15:00,TBA,TBA,4,Mr,Michelle,Simpson,07785281119,85.99,60.193,25.797,TBA,TBA,0,Nissan,Qashqai,"black/purple tint","BT14 EUE",Next

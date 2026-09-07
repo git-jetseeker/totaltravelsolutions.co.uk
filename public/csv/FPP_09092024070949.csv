@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124090920426,Gatwick,2024-09-09,19:24:50,2024-09-11,03:30:00,2024-09-18,12:30:00,North,North,8,Mr,Jaime,Wallden,7866536277,88.95,62.265,26.685,TBA,EZY8010,0,Mercedes,Glc,Grey,Va18eod,Next

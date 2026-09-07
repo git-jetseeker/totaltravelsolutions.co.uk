@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SAT-001,PZ0125012920812,Manchester,2025-01-29,11:58:23,2025-05-30,09:00:00,2025-05-31,09:00:00,TBA,TBA,2,Mr,"Test Booking","Test Booking",1111,50,35,15,TBA,,0,Test,Test,Test,Test,Next

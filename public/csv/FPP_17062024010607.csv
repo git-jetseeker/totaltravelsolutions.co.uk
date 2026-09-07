@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP003,PZ0124061720160,Stansted,2024-06-17,13:15:02,2024-07-19,14:00:00,2024-07-30,01:00:00,TBA,TBA,12,Mr,Bogdan,Gontea,07574127498,116.99,87.7425,29.2475,TBA,TBA,0,Skoda,"Skoda Octavia",Grey,RK13VCM,Next

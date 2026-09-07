@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP373,PZ0124061020127,Manchester,2024-06-10,08:23:36,2024-06-13,06:15:00,2024-06-20,23:15:00,"Terminal 3","Terminal 3",8,Mr,Barry,Paterson,07565532013,124,90.52,33.48,TBA,FR6631,0,Volkswagen,Tiguan,White,Xo11clo,Next

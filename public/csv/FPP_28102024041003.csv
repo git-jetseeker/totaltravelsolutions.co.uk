@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BP-01,PZ0124102820639,Heathrow,2024-10-28,16:48:36,2024-12-22,09:30:00,2024-12-27,18:45:00,"Terminal 2","Terminal 2",6,Mr,Karen,Gimbel,07976461070,50.99,35.693,15.297,TBA,LX326,0,BMW,X5,GREY,"X5 KAG",Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP540,PZ0124081120327,Glasgow,2024-08-11,12:19:21,2024-08-15,04:30:00,2024-08-25,23:45:00,"Glasgow terminal 1","Glasgow terminal 1",11,Mr,darren,kelly,07488998564,83,80.51,2.49,TBA,EZY3172,0,Vauxhall,Astra,Grey,YR61PTU,Next

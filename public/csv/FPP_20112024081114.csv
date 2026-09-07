@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124112020703,Heathrow,2024-11-20,20:57:41,2025-01-04,18:15:00,2025-01-10,16:45:00,"Terminal 3","Terminal 3",7,Mr,Shannon,Sproul,07736224813,54.99,38.493,16.497,TBA,VS0401,0,Audi,A3,Black,"CE71 YRG",Next

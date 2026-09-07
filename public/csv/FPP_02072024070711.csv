@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0124070220198,Heathrow,2024-07-02,07:43:58,2024-07-30,09:00:00,2024-08-07,13:00:00,"Terminal 5","Terminal 5",9,Mr,richard,canton,07949043505,83.99,58.793,25.197,TBA,BA0192,0,Mercedes,CLA220D,Silver,KN71JKO,Next

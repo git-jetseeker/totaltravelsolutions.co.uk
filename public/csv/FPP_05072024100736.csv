@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124070520215,Gatwick,2024-07-05,10:01:06,2024-07-09,12:00:00,2024-07-19,00:30:00,North,North,11,Mr,Peter,Bird,07921804322,96.99,67.893,29.097,TBA,EZY8130,0,Citroen,picasso,Grey,WG07XCX,Next

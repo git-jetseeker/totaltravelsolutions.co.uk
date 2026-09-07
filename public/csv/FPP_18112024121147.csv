@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+AMG-001,PZ0124111820696,Heathrow,2024-11-18,12:30:55,2025-05-01,23:00:00,2025-05-02,07:15:00,TBA,TBA,2,Mr,Test,test,12423412412343,43,30.1,12.9,TBA,,0,honda,2017,red,42341234,Next

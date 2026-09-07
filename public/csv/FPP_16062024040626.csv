@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+MAY8,PZ0124061620159,Manchester,2024-06-16,16:30:55,2024-09-24,10:00:00,2024-10-01,23:30:00,"Terminal 2","Terminal 2",8,Mr,Sandra,Nesbitt,07933266631,78.99,69.5112,9.4788,TBA,TOM2255,0,FIAT,"500 HYBRID",RED,"YE21 LMK",Next

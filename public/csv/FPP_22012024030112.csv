@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LP001,PZ0124012219653,Heathrow,2024-01-22,15:16:58,2024-02-05,12:15:00,2024-02-28,07:15:00,"Terminal 5","Terminal 5",24,Mr,Tim,Whittome,7885520530,121.99,85.393,36.597,TBA,BA206,0,Jaguar,"F Pace",silver,DG67BNV,Next

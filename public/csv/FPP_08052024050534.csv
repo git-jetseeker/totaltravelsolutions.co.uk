@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+CWF0,PZ0124050819950,Cardiff,2024-05-08,05:40:24,2024-05-16,12:15:00,2024-05-23,00:45:00,"Cardiff Terminal 1","Cardiff Terminal 1",8,Mr,Mikolaj,Kukielski,07468572890,93,81.84,11.16,TBA,TOM695,0,Ford,Focus,Black,"LS15 ZZK",Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMP01,PZ0124052220045,Stansted,2024-05-22,06:30:54,2024-05-27,09:30:00,2024-05-30,16:00:00,TBA,TBA,4,Mr,Zbigniew,Goral,07576296496,64.99,50.36725,14.62275,TBA,TBA,0,Audi,A4,Black,Yo16mby,Next

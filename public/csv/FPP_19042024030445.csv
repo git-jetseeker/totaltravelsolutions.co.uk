@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BHW8,PZ0124041919859,Birmingham,2024-04-19,15:52:10,2024-05-20,05:00:00,2024-05-30,23:45:00,"Bhx Terminal 1","Bhx Terminal 1",11,Mr,"STEPHEN P",ALLKINS,07970592041,111.49,98.1112,13.3788,TBA,LS1226,0,HONDA,CRV,"METALIC BLUE",VK09LJL,Next

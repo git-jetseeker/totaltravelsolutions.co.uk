@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124060120103,Gatwick,2024-06-01,12:19:26,2024-06-07,05:30:00,2024-06-14,17:00:00,North,North,8,Mr,James,Lindfield,447586343301,117.99,82.593,35.397,TBA,"U2 8240",0,"Land rover",Evoque,White,"SV71 vzw",Next

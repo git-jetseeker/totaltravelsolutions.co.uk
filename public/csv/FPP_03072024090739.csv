@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PG-1,PZ0124070320206,Heathrow,2024-07-03,09:24:36,2024-09-04,09:00:00,2024-09-04,22:00:00,TBA,TBA,1,Mr,test,test,23521397192,40,28,12,TBA,TBA,0,TBA,SDFSDF,AFDSEF,TBA,Next

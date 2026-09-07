@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP002,PZ0124020619662,Stansted,2024-02-06,22:25:29,2024-02-19,09:00:00,2024-02-25,10:30:00,Main,Main,7,Mr,Akrama,Khan,07545081690,56.99,42.7425,14.2475,TBA,Fr1906,0,Ford,Focus,Black,YP15MSV,Next

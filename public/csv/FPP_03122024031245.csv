@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124120320733,Heathrow,2024-12-03,15:45:39,2024-12-17,07:30:00,2024-12-22,07:15:00,TBA,TBA,6,Mr,Donna,Nixon,07796846676,49.99,34.993,14.997,TBA,,0,Landrover,defender,black,"MV23 RXD",Next

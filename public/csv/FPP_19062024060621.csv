@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP536,PZ0124061920164,Liverpool,2024-06-19,18:00:13,2024-06-28,06:00:00,2024-06-30,19:00:00,Main,Main,3,Mr,"Ming Yan",Choi,07849680499,52,47.32,4.68,TBA,LM0687,0,"Mercedes Benz",EQA250+,Blue,WX24XFR,Next

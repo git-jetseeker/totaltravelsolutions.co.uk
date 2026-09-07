@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ94,PZ0124040119775,Manchester,2024-04-01,14:30:54,2024-06-22,14:00:00,2024-06-29,16:00:00,"Terminal 1","Terminal 1",8,Mr,Karolina,Lambert,07492853488,87.99,74.7915,13.1985,TBA,QQ534,0,Audi,"A4 Avant",Black,WR64ZCF,Next

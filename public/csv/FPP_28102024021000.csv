@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+EP-01,PZ0124102820638,Heathrow,2024-10-28,14:30:49,2024-10-30,14:00:00,2024-11-03,22:00:00,"Terminal 5","Terminal 5",5,Mr,Dave,Baker,07958744389,51.99,36.393,15.597,TBA,BA0595,0,Kia,Niro,Red,WO24VGR,Next

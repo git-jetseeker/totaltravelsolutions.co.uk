@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP417,PZ0124083020373,Luton,2024-08-30,09:20:35,2024-08-31,08:00:00,2024-09-08,10:00:00,TBA,TBA,9,Mr,"Richard William",Squire,07793793794,100,73,27,TBA,TBA,0,ford,ranger,black,"ym70 pxd",Next

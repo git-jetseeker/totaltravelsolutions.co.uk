@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BHW8,PZ0124050619944,Birmingham,2024-05-06,19:48:16,2024-05-13,04:00:00,2024-05-16,13:00:00,"Bhx Terminal 1","Bhx Terminal 2",4,Mr,"GARY JOHN ROBERT",ALDRIDGE,07941013661,71.99,63.3512,8.6388,TBA,FR2150,0,FORD,KUGA,BLACK,KN71BHW,Next

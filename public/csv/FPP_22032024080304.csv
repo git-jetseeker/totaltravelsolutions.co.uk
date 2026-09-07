@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0124032219744,Heathrow,2024-03-22,08:04:41,2024-06-12,09:30:00,2024-06-21,22:15:00,"Terminal 2","Terminal 2",10,Mr,Douglas,Bond,07875219897,89.99,62.993,26.997,TBA,AC868,0,Audi,Q5,Grey,GF19DWU,Next

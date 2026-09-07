@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0124032419749,Heathrow,2024-03-24,16:47:14,2024-03-28,10:30:00,2024-04-11,12:00:00,"Terminal 5","Terminal 5",15,Mr,Richard,Smith,07398168960,114.99,80.493,34.497,TBA,BA222,0,"RANGE ROVER","DISCOVERY SPORT",BLACK,VX19UJK,Next

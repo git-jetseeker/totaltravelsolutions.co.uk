@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124100720538,Heathrow,2024-10-07,21:04:41,2024-10-10,13:30:00,2024-10-18,21:00:00,"Terminal 5","Terminal 5",9,Mr,Donna,Nixon,7796846676,64.99,45.493,19.497,TBA,,0,"Land Rover",Defender,Black,"Mv23 Rxd",Next

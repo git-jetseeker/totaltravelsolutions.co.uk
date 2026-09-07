@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LAA5,PZ0124041919855,Luton,2024-04-19,10:57:15,2024-05-01,04:45:00,2024-05-06,12:00:00,Main,Main,6,Mr,Ernestas,Banaitis,07986995595,40.99,36.11219,4.87781,TBA,,0,Bmw,"3 series",White,Yx11xlh,Next

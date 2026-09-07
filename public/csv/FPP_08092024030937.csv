@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124090820419,Gatwick,2024-09-08,15:20:40,2024-09-26,07:00:00,2024-10-06,11:00:00,South,South,11,Mr,Olutayo,Olajide,07305182018,109.99,76.993,32.997,TBA,,0,VAUXHALL,MERIVA,BLUE,EY60JHE,Next

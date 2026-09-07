@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP479,PZ0124061120137,Birmingham,2024-06-11,12:22:25,2024-06-16,13:00:00,2024-06-23,20:30:00,TBA,TBA,8,Mr,Jolli,Waterland,07900892241,105,90.3,14.7,TBA,TBA,0,Mercedes,Avant-garde,Silver,Y16jol,Next

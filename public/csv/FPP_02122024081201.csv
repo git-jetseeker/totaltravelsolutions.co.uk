@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+ADP-001,PZ0124120220731,Heathrow,2024-12-02,20:04:20,2024-12-07,11:00:00,2025-01-08,06:30:00,"Terminal 3","Terminal 3",33,Mr,Andrew,Gross,07906146019,133.99,93.793,40.197,TBA,Cx255,0,Ford,Kuga,Black,Da14htk,Next

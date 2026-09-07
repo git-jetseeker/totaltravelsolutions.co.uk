@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP581,PZ0124050219920,Manchester,2024-05-02,16:23:45,2024-05-29,04:30:00,2024-06-03,00:30:00,TBA,TBA,6,Mr,Babitha,Baby,07923671140,65,50.7,14.3,TBA,TBA,0,Mazda,CX60,"Navy Blue",BAB14N,Next

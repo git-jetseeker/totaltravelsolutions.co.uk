@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124040319781,Stansted,2024-04-03,15:20:48,2024-05-30,08:15:00,2024-06-07,21:15:00,Main,Main,9,Mr,James,Nelson-Sullivan,07855760954,104.99,81.36725,23.62275,TBA,FR8165,0,"Land Rover","Discovery Sport",Grey,LG67XWS,Next

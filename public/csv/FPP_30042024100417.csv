@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124043019910,Gatwick,2024-04-30,10:47:52,2024-05-19,06:00:00,2024-05-23,20:00:00,North,North,5,Mr,Daniel,Weighill,07595991425,65.99,46.193,19.797,TBA,EJU8092,0,BMW,330E,Blue,GF20PVA,Next

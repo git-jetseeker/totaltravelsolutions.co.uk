@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124112920725,Heathrow,2024-11-29,17:33:23,2025-04-28,14:30:00,2025-05-08,19:30:00,"Terminal 5","Terminal 5",11,Mr,Stuart,Markley,07887537682,67.8,47.46,20.34,TBA,BA0238,0,BMW,"5 SERIES DIESEL",BLUE,AK13FKJ,Next

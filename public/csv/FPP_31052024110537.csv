@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMP01,PZ0124053120100,Stansted,2024-05-31,11:37:48,2024-06-11,13:30:00,2024-06-13,22:00:00,TBA,TBA,3,Mr,Duncan,johnson,07845186293,64.99,50.36725,14.62275,TBA,TBA,0,"Ford Mondeo",Titanium,Blue,SB68GMZ,Next

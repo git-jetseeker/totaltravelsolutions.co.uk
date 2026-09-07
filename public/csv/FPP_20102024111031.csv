@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HVP-01,PZ0124102020599,Heathrow,2024-10-20,12:36:45,2024-10-21,12:30:00,2024-10-26,15:00:00,"Terminal 4","Terminal 4",6,Mr,Fazal,Mukthar,07464972002,58.99,41.293,17.697,TBA,,0,Toyota,Prius,White,"LB64 XDE",Next

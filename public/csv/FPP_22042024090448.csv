@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP429,PZ0124042219871,Heathrow,2024-04-22,09:43:54,2024-04-26,13:30:00,2024-04-28,23:30:00,"Terminal 5","Terminal 5",3,Mr,Jennifer,Boender,07383435756,46,33.58,12.42,TBA,BA2024,0,Citroen,C3,grey,OV15TXD,Next

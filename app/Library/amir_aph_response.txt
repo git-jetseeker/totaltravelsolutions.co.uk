@@ -1,0 +1,156 @@
+Req: 2019-09-02 10:43:13
+<API_Request
+     System="APH"
+     Version="1.0"
+     Product="CarPark"
+     Customer="X"
+     Session="000000003"
+     RequestCode="11">
+     <Agent>
+     <ABTANumber>PZINV</ABTANumber>
+     <Password>KDHSY</Password>
+     <Initials>PZone</Initials>
+     </Agent>
+     <Itinerary>
+     <ArrivalDate>17Sep19</ArrivalDate>
+     <DepartDate>20Sep19</DepartDate>
+     <ArrivalTime>0000</ArrivalTime>
+     <DepartTime>0000</DepartTime>
+     <Location>ABZ</Location>
+     <Terminals>ALL</Terminals>
+     </Itinerary>
+     </API_Request> RES: 
+2019-09-02 10:43:13
+<?xml version="1.0"?><API_Reply System="APH" Version="1.0" Product="CarPark" Customer="X" Session="000000003" RequestCode="11" Result="OK"><CarPark c="0"><CarParkCode>ABZA</CarParkCode><CarParkName>Aberdeen Park + Depart</CarParkName><ProductCode>ABZA</ProductCode><ProductName>ABZ Park and Depart</ProductName><Duration>4</Duration><TotalPrice>17.99</TotalPrice><GatePrice></GatePrice><Commission>.72</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="1"><CarParkCode>ABZ9</CarParkCode><CarParkName>Aberdeen Airpark Flexible</CarParkName><ProductCode>ABZ9</ProductCode><ProductName>Aberdeen Airpark Flexible</ProductName><Duration>4</Duration><TotalPrice>23.50</TotalPrice><GatePrice></GatePrice><Commission>3.53</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="2"><CarParkCode>ABZ3</CarParkCode><CarParkName>Aberdeen Short Stay</CarParkName><ProductCode>ABZ3</ProductCode><ProductName>Short Stay Standard</ProductName><Duration>4</Duration><TotalPrice>69.99</TotalPrice><GatePrice></GatePrice><Commission>2.8</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="3"><CarParkCode>ABZ1</CarParkCode><CarParkName>* Aberdeen Long Stay</CarParkName><ProductCode>ABZ1</ProductCode><ProductName>Aberdeen Long Stay</ProductName><Duration>4</Duration><TotalPrice>53.99</TotalPrice><GatePrice></GatePrice><Commission>2.16</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="4"><CarParkCode>ABZ0</CarParkCode><CarParkName>Aberdeen Airpark Non-Flexible</CarParkName><ProductCode>ABZ0</ProductCode><ProductName>Aberdeen Airpark Non Flexible</ProductName><Duration>4</Duration><TotalPrice>20.50</TotalPrice><GatePrice></GatePrice><Commission>3.08</Commission><Terminals>ALL,</Terminals></CarPark></API_Reply>
+
+
+Req: 2019-09-02 10:47:10
+<API_Request
+     System="APH"
+     Version="1.0"
+     Product="CarPark"
+     Customer="X"
+     Session="000000003"
+     RequestCode="11">
+     <Agent>
+     <ABTANumber>PZINV</ABTANumber>
+     <Password>KDHSY</Password>
+     <Initials>PZone</Initials>
+     </Agent>
+     <Itinerary>
+     <ArrivalDate>17Sep19</ArrivalDate>
+     <DepartDate>20Sep19</DepartDate>
+     <ArrivalTime>0000</ArrivalTime>
+     <DepartTime>0000</DepartTime>
+     <Location>ABZ</Location>
+     <Terminals>ALL</Terminals>
+     </Itinerary>
+     </API_Request> RES: 
+2019-09-02 10:47:10
+<?xml version="1.0"?><API_Reply System="APH" Version="1.0" Product="CarPark" Customer="X" Session="000000003" RequestCode="11" Result="OK"><CarPark c="0"><CarParkCode>ABZA</CarParkCode><CarParkName>Aberdeen Park + Depart</CarParkName><ProductCode>ABZA</ProductCode><ProductName>ABZ Park and Depart</ProductName><Duration>4</Duration><TotalPrice>17.99</TotalPrice><GatePrice></GatePrice><Commission>.72</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="1"><CarParkCode>ABZ9</CarParkCode><CarParkName>Aberdeen Airpark Flexible</CarParkName><ProductCode>ABZ9</ProductCode><ProductName>Aberdeen Airpark Flexible</ProductName><Duration>4</Duration><TotalPrice>23.50</TotalPrice><GatePrice></GatePrice><Commission>3.53</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="2"><CarParkCode>ABZ3</CarParkCode><CarParkName>Aberdeen Short Stay</CarParkName><ProductCode>ABZ3</ProductCode><ProductName>Short Stay Standard</ProductName><Duration>4</Duration><TotalPrice>69.99</TotalPrice><GatePrice></GatePrice><Commission>2.8</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="3"><CarParkCode>ABZ1</CarParkCode><CarParkName>* Aberdeen Long Stay</CarParkName><ProductCode>ABZ1</ProductCode><ProductName>Aberdeen Long Stay</ProductName><Duration>4</Duration><TotalPrice>53.99</TotalPrice><GatePrice></GatePrice><Commission>2.16</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="4"><CarParkCode>ABZ0</CarParkCode><CarParkName>Aberdeen Airpark Non-Flexible</CarParkName><ProductCode>ABZ0</ProductCode><ProductName>Aberdeen Airpark Non Flexible</ProductName><Duration>4</Duration><TotalPrice>20.50</TotalPrice><GatePrice></GatePrice><Commission>3.08</Commission><Terminals>ALL,</Terminals></CarPark></API_Reply>
+
+
+Req: 2019-09-02 10:50:54
+<API_Request
+     System="APH"
+     Version="1.0"
+     Product="CarPark"
+     Customer="X"
+     Session="000000003"
+     RequestCode="11">
+     <Agent>
+     <ABTANumber>PZINV</ABTANumber>
+     <Password>KDHSY</Password>
+     <Initials>PZone</Initials>
+     </Agent>
+     <Itinerary>
+     <ArrivalDate>17Sep19</ArrivalDate>
+     <DepartDate>20Sep19</DepartDate>
+     <ArrivalTime>0000</ArrivalTime>
+     <DepartTime>0000</DepartTime>
+     <Location>ABZ</Location>
+     <Terminals>ALL</Terminals>
+     </Itinerary>
+     </API_Request> RES: 
+2019-09-02 10:50:54
+<?xml version="1.0"?><API_Reply System="APH" Version="1.0" Product="CarPark" Customer="X" Session="000000003" RequestCode="11" Result="OK"><CarPark c="0"><CarParkCode>ABZA</CarParkCode><CarParkName>Aberdeen Park + Depart</CarParkName><ProductCode>ABZA</ProductCode><ProductName>ABZ Park and Depart</ProductName><Duration>4</Duration><TotalPrice>17.99</TotalPrice><GatePrice></GatePrice><Commission>.72</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="1"><CarParkCode>ABZ9</CarParkCode><CarParkName>Aberdeen Airpark Flexible</CarParkName><ProductCode>ABZ9</ProductCode><ProductName>Aberdeen Airpark Flexible</ProductName><Duration>4</Duration><TotalPrice>23.50</TotalPrice><GatePrice></GatePrice><Commission>3.53</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="2"><CarParkCode>ABZ3</CarParkCode><CarParkName>Aberdeen Short Stay</CarParkName><ProductCode>ABZ3</ProductCode><ProductName>Short Stay Standard</ProductName><Duration>4</Duration><TotalPrice>69.99</TotalPrice><GatePrice></GatePrice><Commission>2.8</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="3"><CarParkCode>ABZ1</CarParkCode><CarParkName>* Aberdeen Long Stay</CarParkName><ProductCode>ABZ1</ProductCode><ProductName>Aberdeen Long Stay</ProductName><Duration>4</Duration><TotalPrice>53.99</TotalPrice><GatePrice></GatePrice><Commission>2.16</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="4"><CarParkCode>ABZ0</CarParkCode><CarParkName>Aberdeen Airpark Non-Flexible</CarParkName><ProductCode>ABZ0</ProductCode><ProductName>Aberdeen Airpark Non Flexible</ProductName><Duration>4</Duration><TotalPrice>20.50</TotalPrice><GatePrice></GatePrice><Commission>3.08</Commission><Terminals>ALL,</Terminals></CarPark></API_Reply>
+
+
+Req: 2019-09-02 10:53:04
+<API_Request
+     System="APH"
+     Version="1.0"
+     Product="CarPark"
+     Customer="X"
+     Session="000000003"
+     RequestCode="11">
+     <Agent>
+     <ABTANumber>PZINV</ABTANumber>
+     <Password>KDHSY</Password>
+     <Initials>PZone</Initials>
+     </Agent>
+     <Itinerary>
+     <ArrivalDate>17Sep19</ArrivalDate>
+     <DepartDate>20Sep19</DepartDate>
+     <ArrivalTime>0000</ArrivalTime>
+     <DepartTime>0000</DepartTime>
+     <Location>ABZ</Location>
+     <Terminals>ALL</Terminals>
+     </Itinerary>
+     </API_Request> RES: 
+2019-09-02 10:53:04
+<?xml version="1.0"?><API_Reply System="APH" Version="1.0" Product="CarPark" Customer="X" Session="000000003" RequestCode="11" Result="OK"><CarPark c="0"><CarParkCode>ABZA</CarParkCode><CarParkName>Aberdeen Park + Depart</CarParkName><ProductCode>ABZA</ProductCode><ProductName>ABZ Park and Depart</ProductName><Duration>4</Duration><TotalPrice>17.99</TotalPrice><GatePrice></GatePrice><Commission>.72</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="1"><CarParkCode>ABZ9</CarParkCode><CarParkName>Aberdeen Airpark Flexible</CarParkName><ProductCode>ABZ9</ProductCode><ProductName>Aberdeen Airpark Flexible</ProductName><Duration>4</Duration><TotalPrice>23.50</TotalPrice><GatePrice></GatePrice><Commission>3.53</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="2"><CarParkCode>ABZ3</CarParkCode><CarParkName>Aberdeen Short Stay</CarParkName><ProductCode>ABZ3</ProductCode><ProductName>Short Stay Standard</ProductName><Duration>4</Duration><TotalPrice>69.99</TotalPrice><GatePrice></GatePrice><Commission>2.8</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="3"><CarParkCode>ABZ1</CarParkCode><CarParkName>* Aberdeen Long Stay</CarParkName><ProductCode>ABZ1</ProductCode><ProductName>Aberdeen Long Stay</ProductName><Duration>4</Duration><TotalPrice>53.99</TotalPrice><GatePrice></GatePrice><Commission>2.16</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="4"><CarParkCode>ABZ0</CarParkCode><CarParkName>Aberdeen Airpark Non-Flexible</CarParkName><ProductCode>ABZ0</ProductCode><ProductName>Aberdeen Airpark Non Flexible</ProductName><Duration>4</Duration><TotalPrice>20.50</TotalPrice><GatePrice></GatePrice><Commission>3.08</Commission><Terminals>ALL,</Terminals></CarPark></API_Reply>
+
+
+Req: 2019-09-02 11:02:51
+<API_Request
+     System="APH"
+     Version="1.0"
+     Product="CarPark"
+     Customer="X"
+     Session="000000003"
+     RequestCode="11">
+     <Agent>
+     <ABTANumber>PZINV</ABTANumber>
+     <Password>KDHSY</Password>
+     <Initials>PZone</Initials>
+     </Agent>
+     <Itinerary>
+     <ArrivalDate>17Sep19</ArrivalDate>
+     <DepartDate>20Sep19</DepartDate>
+     <ArrivalTime>0000</ArrivalTime>
+     <DepartTime>0000</DepartTime>
+     <Location>ABZ</Location>
+     <Terminals>ALL</Terminals>
+     </Itinerary>
+     </API_Request> RES: 
+2019-09-02 11:02:51
+<?xml version="1.0"?><API_Reply System="APH" Version="1.0" Product="CarPark" Customer="X" Session="000000003" RequestCode="11" Result="OK"><CarPark c="0"><CarParkCode>ABZA</CarParkCode><CarParkName>Aberdeen Park + Depart</CarParkName><ProductCode>ABZA</ProductCode><ProductName>ABZ Park and Depart</ProductName><Duration>4</Duration><TotalPrice>17.99</TotalPrice><GatePrice></GatePrice><Commission>.72</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="1"><CarParkCode>ABZ9</CarParkCode><CarParkName>Aberdeen Airpark Flexible</CarParkName><ProductCode>ABZ9</ProductCode><ProductName>Aberdeen Airpark Flexible</ProductName><Duration>4</Duration><TotalPrice>23.50</TotalPrice><GatePrice></GatePrice><Commission>3.53</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="2"><CarParkCode>ABZ3</CarParkCode><CarParkName>Aberdeen Short Stay</CarParkName><ProductCode>ABZ3</ProductCode><ProductName>Short Stay Standard</ProductName><Duration>4</Duration><TotalPrice>69.99</TotalPrice><GatePrice></GatePrice><Commission>2.8</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="3"><CarParkCode>ABZ1</CarParkCode><CarParkName>* Aberdeen Long Stay</CarParkName><ProductCode>ABZ1</ProductCode><ProductName>Aberdeen Long Stay</ProductName><Duration>4</Duration><TotalPrice>53.99</TotalPrice><GatePrice></GatePrice><Commission>2.16</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="4"><CarParkCode>ABZ0</CarParkCode><CarParkName>Aberdeen Airpark Non-Flexible</CarParkName><ProductCode>ABZ0</ProductCode><ProductName>Aberdeen Airpark Non Flexible</ProductName><Duration>4</Duration><TotalPrice>20.50</TotalPrice><GatePrice></GatePrice><Commission>3.08</Commission><Terminals>ALL,</Terminals></CarPark></API_Reply>
+
+
+Req: 2019-09-02 11:04:41
+<API_Request
+     System="APH"
+     Version="1.0"
+     Product="CarPark"
+     Customer="X"
+     Session="000000003"
+     RequestCode="11">
+     <Agent>
+     <ABTANumber>PZINV</ABTANumber>
+     <Password>KDHSY</Password>
+     <Initials>PZone</Initials>
+     </Agent>
+     <Itinerary>
+     <ArrivalDate>17Sep19</ArrivalDate>
+     <DepartDate>20Sep19</DepartDate>
+     <ArrivalTime>0000</ArrivalTime>
+     <DepartTime>0000</DepartTime>
+     <Location>EMA</Location>
+     <Terminals>ALL</Terminals>
+     </Itinerary>
+     </API_Request> RES: 
+2019-09-02 11:04:41
+<?xml version="1.0"?><API_Reply System="APH" Version="1.0" Product="CarPark" Customer="X" Session="000000003" RequestCode="11" Result="OK"><CarPark c="0"><CarParkCode>EMAV</CarParkCode><CarParkName>Meet + Greet</CarParkName><ProductCode>EMAV</ProductCode><ProductName>VIP Meet Greet</ProductName><Duration>4</Duration><TotalPrice>57.00</TotalPrice><GatePrice></GatePrice><Commission>8.55</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="1"><CarParkCode>EMAC</CarParkCode><CarParkName>Short Stay 3</CarParkName><ProductCode>EMAC</ProductCode><ProductName>SHORT STAY 3</ProductName><Duration>4</Duration><TotalPrice>45.99</TotalPrice><GatePrice></GatePrice><Commission>6.9</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="2"><CarParkCode>EMAD</CarParkCode><CarParkName>Mid Stay 2</CarParkName><ProductCode>EMAD</ProductCode><ProductName>MID STAY 2</ProductName><Duration>4</Duration><TotalPrice>43.99</TotalPrice><GatePrice></GatePrice><Commission>6.6</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="3"><CarParkCode>EMAI</CarParkCode><CarParkName>Short Stay 1</CarParkName><ProductCode>EMAI</ProductCode><ProductName>Short Stay Parking</ProductName><Duration>4</Duration><TotalPrice>60.00</TotalPrice><GatePrice></GatePrice><Commission>9</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="4"><CarParkCode>EMAH</CarParkCode><CarParkName>Mid Stay 1</CarParkName><ProductCode>EMAH</ProductCode><ProductName>MID STAY 1</ProductName><Duration>4</Duration><TotalPrice>47.99</TotalPrice><GatePrice></GatePrice><Commission>7.2</Commission><Terminals>ALL,</Terminals></CarPark><CarPark c="5"><CarParkCode>EMAG</CarParkCode><CarParkName>Short Stay 2</CarParkName><ProductCode>EMAG</ProductCode><ProductName>Short Stay 2</ProductName><Duration>4</Duration><TotalPrice>48.99</TotalPrice><GatePrice></GatePrice><Commission>7.35</Commission><Terminals>ALL,</Terminals></CarPark></API_Reply>
+
+

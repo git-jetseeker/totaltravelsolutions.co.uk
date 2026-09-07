@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124102120602,Heathrow,2024-10-21,12:59:56,2024-11-21,18:00:00,2024-12-08,07:30:00,"Terminal 4","Terminal 4",18,Mr,James,Williams,07463804529,83.99,58.793,25.197,TBA,EY61,0,Skoda,Karoq,Black,mw69rzt,Next

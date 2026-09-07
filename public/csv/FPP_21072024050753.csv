@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PZ001,PZ0124072120260,Heathrow,2024-07-21,17:26:59,2024-08-03,17:00:00,2024-08-09,20:00:00,"Terminal 5","Terminal 5",7,Mr,Paul,Stein,07528975914,70.99,49.693,21.297,TBA,BA0504,0,Toyota,RAV4,Grey,Gx18whw,Next

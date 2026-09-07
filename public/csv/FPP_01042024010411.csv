@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124040119773,Stansted,2024-04-01,13:13:56,2024-04-08,06:30:00,2024-04-15,16:00:00,Main,Main,8,Mr,Peter,Ronsley,07483899333,99.99,77.49225,22.49775,TBA,LS1412,0,FORD,"C MAX",BLACK,GU60EFC,Next

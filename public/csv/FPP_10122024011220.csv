@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HVP-01,PZ0124121020749,Heathrow,2024-12-10,13:09:35,2024-12-12,15:00:00,2024-12-22,20:30:00,"Terminal 5","Terminal 2",11,Mr,Martin,Buchan,07974762774,77.99,54.593,23.397,TBA,BR067,0,Ford,Fiesta,Silver,CA67ONH,Next

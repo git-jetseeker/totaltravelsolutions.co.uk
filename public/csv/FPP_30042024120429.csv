@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124043019907,Stansted,2024-04-30,00:22:30,2024-05-03,13:00:00,2024-05-06,16:00:00,Main,Main,4,Mr,Carolyn,Godlee,07950032592,67.99,52.69225,15.29775,TBA,,0,Mitsubishi,Outlander,Red,Wn67vju,Next

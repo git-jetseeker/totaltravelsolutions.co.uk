@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP384,PZ0124101120556,Luton,2024-10-11,14:36:33,2024-10-25,05:00:00,2024-10-28,23:45:00,Main,Main,4,Mr,Stephen,Walker,07710138171,97,70.81,26.19,TBA,"EZY 2398",0,Audi,"A4 Avant",Grey,"VK67 DZH",Next

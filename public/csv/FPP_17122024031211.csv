@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124121720760,Stansted,2024-12-17,15:53:38,2024-12-24,13:00:00,2024-12-30,17:00:00,Main,Main,7,Mr,Ahjaz,Abbasi,07787357928,82.99,64.31725,18.67275,TBA,PC1177,0,Mercedes,"ML Blue Tech",White,MF14KVX,Next

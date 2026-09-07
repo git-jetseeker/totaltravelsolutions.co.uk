@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124052720083,Gatwick,2024-05-27,17:46:42,2024-07-09,05:00:00,2024-07-21,20:00:00,North,North,13,Mr,Tony,Hopkins,07714825281,130.99,91.693,39.297,TBA,ezy8604,0,hyundai,"santa fe",black,ea18kyp,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124020819664,Stansted,2024-02-08,04:52:31,2024-02-19,06:45:00,2024-02-19,22:00:00,Main,Main,1,Mr,Saheed,Rufai,07532711427,52.99,41.06725,11.92275,TBA,EZY371,0,Toyota,"Chr excel",Black,KF19GYE,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP615,PZ0124102320617,Gatwick,2024-10-23,09:59:32,2024-11-01,05:00:00,2024-11-16,08:00:00,North,North,16,Mr,mason,lamb,07818805632,114,85.5,28.5,TBA,TOM65,0,FORD,"FOCUS ZITEC",BLUE,"EJ13 LLD",Next

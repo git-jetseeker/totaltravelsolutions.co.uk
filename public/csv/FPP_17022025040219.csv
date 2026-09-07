@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HAPS-001,PZ0125021720842,Heathrow,2025-02-17,16:41:00,2025-03-01,04:15:00,2025-03-08,20:00:00,"Terminal 5","Terminal 5",8,Mr,Roy,Smith,07899877047,63.99,44.793,19.197,TBA,BA0583,0,BMW,X5,Blue,HX74OXA,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP588,PZ0124112720719,Luton,2024-11-27,15:05:00,2024-12-02,05:30:00,2024-12-04,18:00:00,TBA,TBA,3,Mr,Noel,Bourke,07792312511,40,31.2,8.8,TBA,,0,Ford,Fiesta,White,"YR65 NSV",Next

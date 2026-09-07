@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP4,PZ0124061820162,Heathrow,2024-06-18,11:14:00,2024-06-20,20:00:00,2024-06-24,15:00:00,"Terminal 5","Terminal 5",5,Mr,Oren,Paynton,7968064023,64,46.72,17.28,TBA,BA0072,0,Mini,E,Green,V50ERR,Next

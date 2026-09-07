@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+EP-01,PZ0124080920321,Heathrow,2024-08-09,03:19:20,2024-08-09,06:30:00,2024-09-10,23:30:00,"Terminal 2","Terminal 2",33,Mr,Victoria,AZUAMAH,07931719264,135.99,95.193,40.797,TBA,,0,LandRover,Evoque,Grey,DY21YPE,Next

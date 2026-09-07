@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+QP001,PZ0124071120240,Gatwick,2024-07-11,12:45:39,2024-08-01,03:00:00,2024-08-08,13:30:00,South,South,8,Mr,Rebecca,Smith,07881021363,125.99,88.193,37.797,TBA,BY5407,0,Audi,A4,Grey,rv24yws,Next

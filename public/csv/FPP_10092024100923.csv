@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP392,PZ0124091020432,Gatwick,2024-09-10,10:40:25,2024-11-27,07:00:00,2024-12-12,07:00:00,North,North,16,Mr,Simon,Bonney,07540778286,78,56.94,21.06,TBA,TOM085,0,MG,HS,Red,HY22ABN,Next

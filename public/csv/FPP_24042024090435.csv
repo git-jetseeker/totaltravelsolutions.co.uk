@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP4,PZ0124042419890,Heathrow,2024-04-24,21:34:30,2024-04-26,05:45:00,2024-04-29,09:30:00,"Terminal 5","Terminal 5",4,Mr,Robin,Tolson,07774102955,59,43.07,15.93,TBA,,0,Jaguar,"XE Sport",Blue,AE67OJM,Next

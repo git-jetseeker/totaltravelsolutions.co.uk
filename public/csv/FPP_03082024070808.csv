@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP001,PZ0124080320298,Stansted,2024-08-03,07:41:39,2024-08-08,15:30:00,2024-08-13,13:30:00,Main,Main,6,Mr,Elizabeth,Lunn,07752639351,125,93.75,31.25,TBA,FR793,0,"Kia Sportage","Kia Sportage",White,"FV65 XHN",Next

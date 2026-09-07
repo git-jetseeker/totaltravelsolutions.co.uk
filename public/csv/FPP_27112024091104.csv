@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+PWU-001,PZ0124112720717,Gatwick,2024-11-27,09:47:33,2025-01-27,11:00:00,2025-02-06,11:00:00,South,South,11,Mr,Alyson,Hill,07860891853,56,33.6,22.4,TBA,BA2262,0,Audi,Q2,Black,"VE67 BXU",Next

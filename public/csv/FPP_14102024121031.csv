@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP384,PZ0124101420568,Luton,2024-10-14,13:09:22,2024-12-16,11:00:00,2024-12-22,23:00:00,Main,Main,7,Mr,Richard,Walters,07496319011,92,67.16,24.84,TBA,EZY253,0,Tesla,"Model X",Grey,"BK70 WRG",Next

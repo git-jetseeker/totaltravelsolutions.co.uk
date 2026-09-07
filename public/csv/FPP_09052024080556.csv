@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124050919965,Stansted,2024-05-09,08:24:21,2024-06-02,11:00:00,2024-06-08,17:00:00,Main,Main,7,Mr,Marguerite,Hepworth,07482206887,79.99,61.99225,17.99775,TBA,,0,Seat,Ibiza,White,"WK13 WXY",Next

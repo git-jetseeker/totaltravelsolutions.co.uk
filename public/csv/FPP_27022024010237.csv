@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LP001,PZ0124022719681,Heathrow,2024-02-27,12:43:05,2024-05-12,13:30:00,2024-05-24,18:30:00,"Terminal 5","Terminal 5",13,Mr,Matthew,Locke,07703130080,91.99,64.393,27.597,TBA,BA0559,0,Citroen,"C5 Aircross",Red,MB10CKE,Next

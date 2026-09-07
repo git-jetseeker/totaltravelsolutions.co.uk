@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BHH8,PZ0124010819632,Birmingham,2024-01-08,10:01:22,2024-12-25,09:00:00,2024-12-26,09:00:00,"Bhx Terminal 1","Bhx Terminal 1",2,Mr,test,test,2121,39.99,35.1912,4.7988,TBA,2112,0,2121,12121,212121,121,Next

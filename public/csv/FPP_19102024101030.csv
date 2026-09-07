@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124101920595,Heathrow,2024-10-19,11:03:26,2024-10-27,18:00:00,2024-11-10,07:30:00,"Terminal 4","Terminal 4",15,Mr,tariq,ali,07401882668,74.99,52.493,22.497,TBA,GF0007,0,TOYOTA,ESTIMA,BLACK,FH09XHP,Next

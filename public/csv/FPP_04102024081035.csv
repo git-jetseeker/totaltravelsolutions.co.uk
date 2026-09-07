@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SP-01,PZ0124100420527,Heathrow,2024-10-04,09:35:01,2024-10-12,18:00:00,2024-11-01,17:15:00,"Terminal 4","Terminal 4",21,Mr,Zahara,Nsimbi,07956386986,111.99,78.393,33.597,TBA,WB712,0,Toyota,Landcruiser,Black,ND65VXN,Next

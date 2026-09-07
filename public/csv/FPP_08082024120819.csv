@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124080820318,Heathrow,2024-08-08,12:43:40,2024-10-30,08:00:00,2024-11-04,19:30:00,"Terminal 5","Terminal 5",6,Mr,Vasso,Vassiliou,07861293596,53.99,37.793,16.197,TBA,"BA 677",0,FORD,FOCUS,WHITE,"TIA 2986",Next

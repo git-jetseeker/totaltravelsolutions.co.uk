@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124032119740,Stansted,2024-03-21,15:44:16,2024-07-21,16:15:00,2024-08-07,14:00:00,Main,Main,18,Mr,Neil,Hames,07740486402,116.99,90.66725,26.32275,TBA,FR8163,0,Hyundai,Kona,Grey,AV22NVU,Next

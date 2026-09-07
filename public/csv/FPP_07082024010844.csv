@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124080720314,Heathrow,2024-08-07,13:53:47,2024-08-16,15:30:00,2024-08-26,10:00:00,"Terminal 4","Terminal 4",11,Mr,Sveta,Patel,07801753031,72.99,51.093,21.897,TBA,,0,Tesla,Tesla,White,D12RPS,Next

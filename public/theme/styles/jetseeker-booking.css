@@ -1,0 +1,1233 @@
+/**
+ * Jetseeker Booking Page — OneStopBee-style checkout (Jetseeker colors)
+ * Reference: onestopbee.co.uk/booking theme-new/css/booking-design.css
+ */
+
+:root {
+    --js-booking-navy: var(--js-primary-dark, #0D0D0D);
+    --js-booking-blue: var(--js-primary, #1A1A1A);
+    --js-booking-accent: var(--js-accent, #C2185B);
+    --js-booking-accent-dark: #e08a0f;
+    --js-booking-light: #f4f7fb;
+    --js-booking-light-panel: #eef3fc;
+    --js-booking-border: #e2e8f0;
+}
+
+.js-booking-flow .super_container {
+    overflow: visible;
+}
+
+/* Logo bar — centered */
+.apb-booking-logo-bar {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    margin: 0;
+    background: linear-gradient(135deg, var(--js-booking-navy) 0%, var(--js-booking-blue) 100%);
+    border-bottom: none;
+    box-shadow: 0 2px 12px rgba(26, 26, 26, 0.25);
+    text-align: center;
+}
+
+.apb-booking-logo-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.apb-booking-logo-bar__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+.apb-booking-logo-bar__link img {
+    display: block;
+    height: 52px;
+    width: auto;
+    max-width: min(260px, 55vw);
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.js-booking-flow .top_bar,
+.js-booking-flow .header,
+.js-booking-flow .main_nav,
+.js-booking-flow .main_nav_container,
+.js-booking-flow .js-nav,
+.js-booking-flow .navbar,
+.js-booking-flow .nav-menu {
+    display: none !important;
+}
+
+/* Page shell */
+.apb-booking-page.booking_section,
+.js-booking-page.apb-booking-page {
+    background: var(--js-booking-light) !important;
+    padding: 16px 0 56px;
+    margin-top: 0 !important;
+}
+
+.js-booking-page .container,
+.js-booking-page .container-min-w-booking {
+    width: 100%;
+    max-width: min(1200px, calc(100vw - 32px));
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+/* Layout — OneStopBee style: forms left, summary right beside Personal Details */
+.js-booking-page .container-min-w-booking {
+    width: 100%;
+    max-width: min(1200px, calc(100vw - 24px));
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+}
+
+.js-booking-page .frombgbooking.row,
+.js-booking-page.apb-booking-page .frombgbooking.row {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: start;
+    margin: 0 !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+/* Bootstrap clearfix pseudos break CSS Grid column placement */
+.js-booking-page .frombgbooking.row::before,
+.js-booking-page .frombgbooking.row::after,
+.js-booking-page.apb-booking-page .frombgbooking.row::before,
+.js-booking-page.apb-booking-page .frombgbooking.row::after {
+    display: none !important;
+    content: none !important;
+}
+
+.js-booking-page .booking-card .room-list-block > .row {
+    display: block !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.js-booking-page .booking-card .room-list-block > .row > [class*="col-"] {
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    position: static !important;
+}
+
+.js-booking-page .frombgbooking > #show_cart,
+.js-booking-page .frombgbooking > aside#show_cart,
+.js-booking-page .frombgbooking > .side-bar,
+.js-booking-page .frombgbooking > .js-booking-summary,
+.js-booking-page.apb-booking-page .frombgbooking > #show_cart {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    float: none !important;
+    box-sizing: border-box !important;
+}
+
+.js-booking-page .frombgbooking > .booking-card,
+.js-booking-page.apb-booking-page .frombgbooking > .booking-card {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    float: none !important;
+    position: static !important;
+    box-sizing: border-box !important;
+}
+
+@media (min-width: 992px) {
+    .js-booking-page .frombgbooking.row,
+    .js-booking-page.apb-booking-page .frombgbooking.row {
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+        gap: 28px;
+    }
+
+    .js-booking-page .frombgbooking > .booking-card,
+    .js-booking-page.apb-booking-page .frombgbooking > .booking-card {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .js-booking-page .frombgbooking > #show_cart,
+    .js-booking-page .frombgbooking > aside#show_cart,
+    .js-booking-page .frombgbooking > .side-bar,
+    .js-booking-page .frombgbooking > .js-booking-summary,
+    .js-booking-page.apb-booking-page .frombgbooking > #show_cart {
+        grid-column: 2;
+        grid-row: 1;
+        position: sticky !important;
+        top: 24px !important;
+        align-self: start !important;
+    }
+}
+
+/* All form cards equal width inside left column */
+.js-booking-page.apb-booking-page .booking-card,
+.js-booking-page.apb-booking-page #room-list,
+.js-booking-page.apb-booking-page #room-list > li,
+.js-booking-page.apb-booking-page .room-list-block,
+.js-booking-page.apb-booking-page .room-list-block > .row,
+.js-booking-page.apb-booking-page form#personal_details_form,
+.js-booking-page.apb-booking-page form#vechile_detail,
+.js-booking-page.apb-booking-page form#travel_detail {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    float: none !important;
+}
+
+.js-booking-page.apb-booking-page .booking-card .section-borders,
+.js-booking-page.apb-booking-page .booking-card .room-text.section-borders {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    float: none !important;
+    overflow: hidden;
+}
+
+.js-booking-page.apb-booking-page .apb-vehicle-form .apb-field-row--vehicle,
+.js-booking-page.apb-booking-page .apb-travel-form .apb-field-row--travel,
+.js-booking-page.apb-booking-page .apb-personal-form .apb-field-row {
+    min-width: 0 !important;
+}
+
+.js-booking-page.apb-booking-page .apb-vehicle-form .apb-field,
+.js-booking-page.apb-booking-page .apb-travel-form .apb-field,
+.js-booking-page.apb-booking-page .apb-personal-form .apb-field {
+    min-width: 0 !important;
+}
+
+.js-booking-page #room-list > li {
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.js-booking-page .room-list-block {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* Form cards */
+.js-booking-page.apb-booking-page .section-borders,
+.js-booking-page.apb-booking-page .room-text.section-borders {
+    margin: 0 0 24px !important;
+    border: 1px solid var(--js-booking-border) !important;
+    border-radius: 16px !important;
+    background: #fff !important;
+    box-shadow: 0 12px 40px rgba(26, 26, 26, 0.08) !important;
+    overflow: hidden;
+    padding: 0 !important;
+}
+
+/* Section headers */
+.js-booking-page.apb-booking-page .booking-heading,
+.js-booking-page.apb-booking-page .apb-payment-heading,
+.js-booking-page.apb-booking-page .room-name,
+.js-booking-page.apb-booking-page .room-name2 {
+    background: linear-gradient(135deg, var(--js-booking-navy) 0%, var(--js-booking-blue) 100%) !important;
+    color: #fff !important;
+    padding: 20px 28px !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    border-bottom: 3px solid var(--js-booking-accent) !important;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 21px !important;
+    font-weight: 800 !important;
+    line-height: 1.3;
+    box-shadow: none !important;
+    min-height: auto;
+}
+
+.js-booking-page.apb-booking-page .room-name::after,
+.js-booking-page.apb-booking-page .room-name2::after {
+    display: none !important;
+}
+
+.js-booking-page.apb-booking-page .speedy-hding {
+    color: #fff !important;
+    font-size: 21px;
+    font-weight: 800;
+    margin: 0 0 6px;
+    line-height: 1.3;
+}
+
+.js-booking-page.apb-booking-page .apb-personal-heading .apb-heading-sub,
+.js-booking-page.apb-booking-page .booking-heading small {
+    color: rgba(255, 255, 255, 0.92) !important;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    display: block;
+}
+
+.js-booking-page.apb-booking-page .booking-heading-paragh {
+    margin: 6px 0 0 !important;
+    padding: 0;
+}
+
+.js-booking-page.apb-booking-page .booking-heading:has(.booking-heading-paragh input[type="radio"]),
+.js-booking-page.apb-booking-page .apb-vehicle-heading,
+.js-booking-page.apb-booking-page .apb-travel-heading {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: flex-start !important;
+    align-self: flex-start !important;
+    flex: 0 0 auto !important;
+    gap: 8px 16px;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 14px 22px !important;
+}
+
+/* Keep form heading + body stacked; never side-by-side stretch */
+.js-booking-page.apb-booking-page .booking-card .section-borders > div:not(.booking-heading):not(.apb-personal-form):not(.apb-vehicle-form):not(.apb-travel-form):not(.apb-payment-heading):not(.apb-payment-body),
+.js-booking-page.apb-booking-page .room-text > div:not(.booking-heading):not(.apb-personal-form):not(.apb-vehicle-form):not(.apb-travel-form) {
+    display: block !important;
+    width: 100% !important;
+}
+
+.js-booking-page.apb-booking-page .booking-heading:has(.booking-heading-paragh input[type="radio"]) .speedy-hding,
+.js-booking-page.apb-booking-page .apb-vehicle-heading .speedy-hding,
+.js-booking-page.apb-booking-page .apb-travel-heading .speedy-hding {
+    margin: 0 !important;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+}
+
+.js-booking-page.apb-booking-page .booking-heading:has(.booking-heading-paragh input[type="radio"]) .booking-heading-paragh,
+.js-booking-page.apb-booking-page .apb-vehicle-heading .booking-heading-paragh,
+.js-booking-page.apb-booking-page .apb-travel-heading .booking-heading-paragh {
+    flex: 1 1 auto;
+    flex-grow: 0;
+    text-align: right;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    width: auto;
+    max-width: 100%;
+}
+
+.js-booking-page.apb-booking-page .booking-heading-paragh small {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    justify-content: flex-end;
+    color: rgba(255, 255, 255, 0.92) !important;
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.js-booking-page.apb-booking-page .booking-heading-paragh label,
+.js-booking-page.apb-booking-page .booking-heading-paragh .select-label {
+    display: inline-flex !important;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 500;
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.js-booking-page.apb-booking-page .booking-heading-paragh input[type="radio"] {
+    margin: 0 5px 0 0;
+    accent-color: #fff;
+    vertical-align: middle;
+}
+
+.js-booking-page.apb-booking-page .booking-heading-paragh .fa-info-circle {
+    color: var(--js-booking-accent) !important;
+}
+
+/* Form body padding — skip vehicle/travel (they use .apb-*-form padding) */
+.js-booking-page.apb-booking-page .section-borders .col-lg-12:not(.apb-personal-form):not(.apb-vehicle-form):not(.apb-travel-form):not(.margin15),
+.js-booking-page.apb-booking-page .section-borders .plr-mob-15,
+.js-booking-page.apb-booking-page .section-borders .div-width,
+.js-booking-page.apb-booking-page .section-borders .row-wr {
+    padding: 28px 28px 12px !important;
+}
+
+.js-booking-page.apb-booking-page .booking-heading + .col-lg-12,
+.js-booking-page.apb-booking-page .booking-heading + .apb-personal-form {
+    padding-top: 20px !important;
+}
+
+/* Personal details form — compact reference layout */
+.js-booking-page.apb-booking-page .apb-personal-form {
+    padding: 20px 24px 18px !important;
+}
+
+.js-booking-page.apb-booking-page .apb-personal-form .apb-field-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px 16px;
+    margin: 0 0 14px;
+}
+
+.js-booking-page.apb-booking-page .apb-personal-form .apb-field-row:last-of-type {
+    margin-bottom: 0;
+}
+
+.js-booking-page.apb-booking-page .apb-personal-form .apb-field {
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.js-booking-page.apb-booking-page .apb-personal-form .apb-field--email {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.js-booking-page.apb-booking-page .apb-personal-form .apb-field--title {
+    flex: 0 0 92px;
+    max-width: 92px;
+}
+
+.js-booking-page.apb-booking-page .apb-personal-form .apb-field--firstname,
+.js-booking-page.apb-booking-page .apb-personal-form .apb-field--lastname {
+    flex: 1 1 calc(50% - 70px);
+    min-width: 140px;
+}
+
+.js-booking-page.apb-booking-page .apb-personal-form .apb-field--mobile {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .js-booking-page.apb-booking-page .apb-personal-form .apb-field--mobile {
+        flex: 0 0 calc(50% - 8px);
+        max-width: calc(50% - 8px);
+    }
+}
+
+.js-booking-page.apb-booking-page .apb-personal-form label,
+.js-booking-page.apb-booking-page .apb-personal-form .lable {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    margin: 0 0 4px !important;
+    padding: 0 !important;
+    line-height: 1.3;
+}
+
+.js-booking-page.apb-booking-page .apb-personal-form .fa-info-circle {
+    color: var(--js-booking-blue) !important;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.js-booking-page.apb-booking-page .apb-personal-form .required-field {
+    margin-left: 0;
+}
+
+.js-booking-page.apb-booking-page .apb-personal-form .checkout_hint {
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+
+/* Vehicle details — 4 fields desktop / stacked mobile */
+.js-booking-page.apb-booking-page .apb-vehicle-form {
+    padding: 16px 18px 14px !important;
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    clear: both;
+    box-sizing: border-box;
+    min-height: 0 !important;
+    height: auto !important;
+}
+
+.js-booking-page.apb-booking-page .apb-vehicle-form .apb-field-row--vehicle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 12px 14px;
+    margin: 0;
+}
+
+.js-booking-page.apb-booking-page .apb-vehicle-form .apb-field {
+    flex: 1 1 100%;
+    min-width: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+@media (min-width: 576px) {
+    .js-booking-page.apb-booking-page .apb-vehicle-form .apb-field {
+        flex: 1 1 calc(50% - 8px);
+    }
+}
+
+@media (min-width: 992px) {
+    .js-booking-page.apb-booking-page .apb-vehicle-form {
+        padding: 20px 24px 18px !important;
+    }
+
+    .js-booking-page.apb-booking-page .apb-vehicle-form .apb-field {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+}
+
+.js-booking-page.apb-booking-page .apb-vehicle-form label,
+.js-booking-page.apb-booking-page .apb-vehicle-form .lable {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    margin: 0 0 4px !important;
+    padding: 0 !important;
+    line-height: 1.3;
+}
+
+.js-booking-page.apb-booking-page .apb-vehicle-form .fa-info-circle {
+    color: var(--js-booking-blue) !important;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Travel details — stacked mobile / 3-col desktop */
+.js-booking-page.apb-booking-page .apb-travel-form {
+    padding: 16px 18px 14px !important;
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    clear: both;
+    box-sizing: border-box;
+    min-height: 0 !important;
+    height: auto !important;
+}
+
+.js-booking-page.apb-booking-page .apb-travel-form .apb-field-row--travel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 12px 14px;
+    margin: 0;
+}
+
+.js-booking-page.apb-booking-page .apb-travel-form .apb-field {
+    flex: 1 1 100%;
+    min-width: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+@media (min-width: 768px) {
+    .js-booking-page.apb-booking-page .apb-travel-form {
+        padding: 20px 24px 18px !important;
+    }
+
+    .js-booking-page.apb-booking-page .apb-travel-form .apb-field {
+        flex: 1 1 calc(33.333% - 10px);
+    }
+}
+
+.js-booking-page.apb-booking-page .apb-travel-form label,
+.js-booking-page.apb-booking-page .apb-travel-form .lable {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 4px !important;
+    padding: 0 !important;
+    line-height: 1.3;
+}
+
+/* Payment detail — We Accept layout */
+.js-booking-page.apb-booking-page .apb-payment-heading .speedy-hding {
+    margin: 0;
+}
+
+.js-booking-page.apb-booking-page .apb-payment-body {
+    padding: 16px 24px 18px !important;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.js-booking-page.apb-booking-page .apb-payment-accept {
+    margin: 0 0 10px;
+}
+
+.js-booking-page.apb-booking-page .apb-payment-accept__title {
+    margin: 0 0 8px;
+    color: var(--js-booking-navy);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.js-booking-page.apb-booking-page .apb-payment-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.js-booking-page.apb-booking-page .apb-payment-logos .img-crd,
+.js-booking-page.apb-booking-page .apb-payment-logos img {
+    display: block;
+    width: auto;
+    max-width: min(520px, 100%);
+    max-height: 48px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.js-booking-page.apb-booking-page .apb-payment-card-block {
+    margin: 0 0 10px;
+    text-align: left;
+}
+
+.js-booking-page.apb-booking-page .apb-payment-error {
+    margin: 0 0 8px !important;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.js-booking-page.apb-booking-page .apb-payment-error.hidden,
+.js-booking-page.apb-booking-page #c_error[style*="display: none"],
+.js-booking-page.apb-booking-page #c_error[style*="display:none"] {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.js-booking-page.apb-booking-page #card-element {
+    min-height: 48px;
+    padding: 14px 16px;
+    border: 1px solid #cfd6e0;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.js-booking-page.apb-booking-page .apb-payment-charge {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px 12px;
+    margin: 0 0 12px;
+}
+
+.js-booking-page.apb-booking-page .apb-payment-charge__label {
+    color: #1f2937;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.js-booking-page.apb-booking-page .apb-payment-charge__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 84px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: var(--js-booking-navy);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.js-booking-page.apb-booking-page .paymentFrm,
+.js-booking-page.apb-booking-page .paymentFrm .row-wr2,
+.js-booking-page.apb-booking-page .paymentFrm form {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+    text-align: center;
+}
+
+.js-booking-page.apb-booking-page #creditDiv > .margin15,
+.js-booking-page.apb-booking-page #creditDiv > a.reset,
+.js-booking-page.apb-booking-page .paymentFrm .error:not(:has(.message:not(:empty))),
+.js-booking-page.apb-booking-page .paymentFrm #error_personal_detail:empty {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+}
+
+.js-booking-page.apb-booking-page .apb-payment-terms {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto 12px;
+    max-width: 520px;
+    text-align: left;
+}
+
+.js-booking-page.apb-booking-page .apb-payment-terms label {
+    margin: 0 !important;
+    color: #1f2937 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+
+.js-booking-page.apb-booking-page .apb-payment-terms a {
+    color: var(--js-booking-blue) !important;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.js-booking-page.apb-booking-page .cnf_booking,
+.js-booking-page.apb-booking-page #booking_button,
+.js-booking-page.apb-booking-page #bookingButton1 {
+    display: inline-flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    background: var(--js-booking-accent) !important;
+    color: #111 !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-size: 18px;
+    font-weight: 800;
+    padding: 16px 20px !important;
+    box-shadow: 0 8px 24px rgba(250, 158, 27, 0.35);
+    margin: 0 auto;
+}
+
+.js-booking-page.apb-booking-page .cnf_booking:hover:not(:disabled),
+.js-booking-page.apb-booking-page #booking_button:hover,
+.js-booking-page.apb-booking-page #bookingButton1:hover {
+    background: var(--js-booking-accent-dark) !important;
+    color: #111 !important;
+}
+
+/* Labels & inputs */
+.js-booking-page.apb-booking-page label,
+.js-booking-page.apb-booking-page .lable {
+    font-weight: 700 !important;
+    color: var(--js-booking-navy) !important;
+    font-size: 13px !important;
+    margin-bottom: 6px;
+    text-transform: none !important;
+}
+
+.js-booking-page.apb-booking-page .required-field {
+    color: #dc2626 !important;
+}
+
+.js-booking-page.apb-booking-page .form-control,
+.js-booking-page.apb-booking-page .bf-inptfld,
+.js-booking-page.apb-booking-page .bf-slctfld,
+.js-booking-page.apb-booking-page select.form-control {
+    width: 100% !important;
+    border-radius: 10px !important;
+    border: 1px solid #d1d5db !important;
+    background: #fff !important;
+    height: 46px;
+    font-size: 14px;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.js-booking-page.apb-booking-page .form-control:focus,
+.js-booking-page.apb-booking-page .bf-inptfld:focus,
+.js-booking-page.apb-booking-page .bf-slctfld:focus {
+    border-color: var(--js-booking-blue) !important;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.18) !important;
+    outline: none;
+}
+
+.js-booking-page.apb-booking-page .checkout_hint {
+    font-size: 13px;
+    color: #dc2626 !important;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-left: 4px solid #dc2626;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-top: 4px;
+    line-height: 1.55;
+    font-weight: 600;
+}
+
+.js-booking-page.apb-booking-page .form-group {
+    margin-bottom: 18px;
+}
+
+@media (min-width: 768px) {
+    .js-booking-page.apb-booking-page .room-text .row > .col-lg-6.mt-3,
+    .js-booking-page.apb-booking-page .room-text .row > .col-lg-6 {
+        flex: 0 0 calc(50% - 8px) !important;
+        max-width: calc(50% - 8px) !important;
+    }
+}
+
+/* Payment */
+.js-booking-page.apb-booking-page .h4booking {
+    color: var(--js-booking-navy) !important;
+    font-weight: 700;
+}
+
+.js-booking-page.apb-booking-page .amount-s {
+    color: var(--js-booking-blue) !important;
+}
+
+.js-booking-page.apb-booking-page .weaccept-marginleft {
+    padding: 4px 24px 16px !important;
+    text-align: center;
+    border-bottom: 1px solid #c5dff0;
+}
+
+.js-booking-page.apb-booking-page .cnf_booking,
+.js-booking-page.apb-booking-page .btn-booking,
+.js-booking-page.apb-booking-page #booking_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    background: var(--js-booking-accent) !important;
+    color: #1a1a1a !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 16px 20px !important;
+    box-shadow: 0 8px 24px rgba(250, 158, 27, 0.35);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.js-booking-page.apb-booking-page .cnf_booking:hover:not(:disabled),
+.js-booking-page.apb-booking-page #booking_button:hover {
+    background: var(--js-booking-accent-dark) !important;
+    transform: translateY(-1px);
+}
+
+.js-booking-page.apb-booking-page .shield-p {
+    margin: 0 0 20px !important;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--js-booking-light-panel);
+    border: 1px solid #c5dff0;
+    border-radius: 12px;
+    padding: 16px 20px;
+}
+
+.js-booking-page.apb-booking-page .shield-p p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--js-booking-navy);
+    line-height: 1.5;
+}
+
+/* ── Summary sidebar ── */
+.js-booking-page.apb-booking-page #show_cart {
+    display: flow-root;
+    position: sticky;
+    top: 24px;
+}
+
+.js-booking-page.apb-booking-page #show_cart::before {
+    content: 'Booking summary';
+    display: block;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--js-booking-navy);
+    margin-bottom: 12px;
+    padding-left: 4px;
+}
+
+.js-booking-page.apb-booking-page #show_cart .section-borders {
+    padding: 0 !important;
+    overflow: hidden;
+    border: 1px solid var(--js-booking-border) !important;
+    background: #fff !important;
+    box-shadow: 0 12px 40px rgba(26, 26, 26, 0.08) !important;
+}
+
+.js-booking-page.apb-booking-page #show_cart .cardDetail,
+.js-booking-page.apb-booking-page #show_cart .apb-summary-header {
+    margin: 0 !important;
+    padding: 20px 18px !important;
+    border-bottom: 1px solid var(--js-booking-border);
+    background: #fff;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 14px;
+    width: 100% !important;
+    box-sizing: border-box;
+    float: none !important;
+}
+
+.js-booking-page.apb-booking-page #show_cart .js-booking-summary-logo {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 96px !important;
+    width: 96px !important;
+    max-width: 96px !important;
+    min-width: 80px !important;
+    min-height: 80px;
+    height: auto;
+    padding: 8px;
+    background: #f8fafc;
+    border-radius: 10px;
+    border: 1px solid var(--js-booking-border);
+    float: none !important;
+    box-sizing: border-box;
+}
+
+.js-booking-page.apb-booking-page #show_cart .js-booking-summary-info {
+    display: block !important;
+    flex: 1 1 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    text-align: left !important;
+    padding: 0 !important;
+    float: none !important;
+    box-sizing: border-box;
+}
+
+.js-booking-page.apb-booking-page #show_cart .parkImg {
+    display: block;
+    max-height: 72px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+}
+
+.js-booking-page.apb-booking-page #show_cart .booking-second-sec-h2 {
+    color: var(--js-booking-navy) !important;
+    font-weight: 800 !important;
+    font-size: 16px !important;
+    margin: 0 0 4px !important;
+    text-align: left !important;
+    line-height: 1.3;
+}
+
+.js-booking-page.apb-booking-page #show_cart .booking-second-sec-p {
+    color: var(--js-booking-blue) !important;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+.js-booking-page.apb-booking-page #show_cart .departCont,
+.js-booking-page.apb-booking-page #show_cart .noOfDateCont {
+    background: linear-gradient(160deg, var(--js-booking-navy) 0%, var(--js-booking-blue) 100%) !important;
+    margin: 0 !important;
+    padding: 14px 18px !important;
+    border-bottom: none !important;
+}
+
+.js-booking-page.apb-booking-page #show_cart table {
+    width: 100%;
+    margin: 0;
+}
+
+.js-booking-page.apb-booking-page #show_cart table td {
+    padding: 8px 4px !important;
+    border: none !important;
+    vertical-align: top;
+}
+
+.js-booking-page.apb-booking-page .booking-second-sec-table {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 13px;
+    font-weight: 600;
+    width: 42%;
+}
+
+.js-booking-page.apb-booking-page .booking-second-sec-table-2 {
+    color: #fff !important;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.js-booking-page.apb-booking-page #show_cart .apb-discount-row .booking-second-sec-table,
+.js-booking-page.apb-booking-page #show_cart .apb-discount-row .booking-second-sec-table-2 {
+    color: #ffcccc !important;
+}
+
+.js-booking-page.apb-booking-page #show_cart .apb-sidebar-extras {
+    padding: 14px 22px !important;
+    background: linear-gradient(135deg, var(--js-booking-navy) 0%, var(--js-booking-blue) 100%) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.js-booking-page.apb-booking-page #show_cart .select-label,
+.js-booking-page.apb-booking-page #show_cart .select-label.text-white {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #fff !important;
+    font-weight: 400;
+}
+
+.js-booking-page.apb-booking-page #show_cart .feeinput {
+    margin-right: 10px;
+    accent-color: #fff;
+}
+
+.js-booking-page.apb-booking-page #show_cart .booking-second-sec-table-total,
+.js-booking-page.apb-booking-page #show_cart .apb-summary-total-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px 22px !important;
+    border-top: 1px solid var(--js-booking-border) !important;
+    background: var(--js-booking-light-panel) !important;
+    margin: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    float: none !important;
+}
+
+.js-booking-page.apb-booking-page #show_cart .apb-summary-total-label,
+.js-booking-page.apb-booking-page #show_cart .booking-second-sec-table-total .booking-second-sec-table {
+    display: inline-block !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: none !important;
+    color: var(--js-booking-navy) !important;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+}
+
+.js-booking-page.apb-booking-page #show_cart .apb-summary-total-value,
+.js-booking-page.apb-booking-page #show_cart .booking-second-sec-table-total .booking-second-sec-table-2 {
+    display: inline-block !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 0 0 auto !important;
+    padding: 0 !important;
+    text-align: right !important;
+    white-space: nowrap;
+    color: var(--js-booking-navy) !important;
+    font-weight: 700;
+}
+
+.js-booking-page.apb-booking-page #show_cart .booking-second-sec-table-total #totalPrice,
+.js-booking-page.apb-booking-page #show_cart .booking-second-sec-table-total .total {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--js-booking-navy) !important;
+    line-height: 1;
+}
+
+.js-booking-page.apb-booking-page #bookingDetails {
+    display: none;
+}
+
+/* Overlay spinner */
+.js-booking-flow .overlay {
+    z-index: 9998;
+}
+
+@media (max-width: 991px) {
+    .apb-booking-logo-bar {
+        padding: 12px 14px;
+    }
+
+    .apb-booking-logo-bar__link img {
+        height: 42px;
+    }
+
+    .js-booking-page.apb-booking-page .section-borders .col-lg-12:not(.apb-vehicle-form):not(.apb-travel-form),
+    .js-booking-page.apb-booking-page .section-borders .margin15 {
+        padding: 14px 14px 8px !important;
+    }
+
+    .js-booking-page.apb-booking-page .booking-heading,
+    .js-booking-page.apb-booking-page .apb-payment-heading {
+        padding: 12px 14px !important;
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+    /* Compact Yes/No headers — kill empty blue band on mobile/tablet */
+    .js-booking-page.apb-booking-page .booking-heading:has(.booking-heading-paragh input[type="radio"]),
+    .js-booking-page.apb-booking-page .apb-vehicle-heading,
+    .js-booking-page.apb-booking-page .apb-travel-heading {
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        align-items: stretch !important;
+        align-content: flex-start !important;
+        justify-content: flex-start !important;
+        gap: 8px !important;
+        padding: 12px 14px !important;
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+    .js-booking-page.apb-booking-page .apb-vehicle-heading .speedy-hding,
+    .js-booking-page.apb-booking-page .apb-travel-heading .speedy-hding,
+    .js-booking-page.apb-booking-page .booking-heading:has(.booking-heading-paragh input[type="radio"]) .speedy-hding {
+        font-size: 18px !important;
+        line-height: 1.25 !important;
+        margin: 0 !important;
+    }
+
+    .js-booking-page.apb-booking-page .booking-heading:has(.booking-heading-paragh input[type="radio"]) .booking-heading-paragh,
+    .js-booking-page.apb-booking-page .apb-vehicle-heading .booking-heading-paragh,
+    .js-booking-page.apb-booking-page .apb-travel-heading .booking-heading-paragh {
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: left !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+    .js-booking-page.apb-booking-page .booking-heading-paragh small {
+        display: flex !important;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start !important;
+        gap: 8px 10px;
+        width: 100%;
+    }
+
+    .js-booking-page.apb-booking-page .apb-vehicle-form,
+    .js-booking-page.apb-booking-page .apb-travel-form {
+        padding: 14px 14px 12px !important;
+    }
+
+    .js-booking-page.apb-booking-page #show_cart {
+        position: static;
+        max-width: 100%;
+    }
+
+    /* Summary card — larger logo + left-aligned headings on mobile/tablet */
+    .js-booking-page.apb-booking-page #show_cart .cardDetail,
+    .js-booking-page.apb-booking-page #show_cart .apb-summary-header {
+        padding: 16px 16px 14px !important;
+        gap: 16px;
+        flex-direction: row !important;
+    }
+
+    .js-booking-page.apb-booking-page #show_cart .js-booking-summary-logo {
+        flex: 0 0 38% !important;
+        width: 38% !important;
+        max-width: 150px !important;
+        min-width: 110px !important;
+        min-height: 100px;
+        padding: 10px;
+    }
+
+    .js-booking-page.apb-booking-page #show_cart .parkImg {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 90px;
+        max-height: 96px;
+        min-height: 72px;
+        object-fit: contain;
+    }
+
+    .js-booking-page.apb-booking-page #show_cart .js-booking-summary-info {
+        flex: 1 1 auto !important;
+        text-align: left !important;
+    }
+
+    .js-booking-page.apb-booking-page #show_cart .booking-second-sec-h2 {
+        font-size: 16px !important;
+        text-align: left !important;
+    }
+
+    .js-booking-page.apb-booking-page #show_cart .booking-second-sec-p {
+        text-align: left !important;
+    }
+
+    .js-booking-page.apb-booking-page #show_cart .booking-second-sec-table-total,
+    .js-booking-page.apb-booking-page #show_cart .apb-summary-total-row {
+        padding: 14px 16px !important;
+        flex-direction: row !important;
+    }
+
+    .js-booking-page.apb-booking-page #show_cart .booking-second-sec-table-total #totalPrice,
+    .js-booking-page.apb-booking-page #show_cart .booking-second-sec-table-total .total {
+        font-size: 24px;
+    }
+}

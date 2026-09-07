@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+APM-1,JS-GKKLOQ,Heathrow,2025-10-31,09:53:49,2026-08-17,09:00:00,2026-08-24,09:00:00,TBA,TBA,8,Mr,test,test,5456564564654,74.99,52.493,22.497,TBA,,0,jkhjkhjk,jkhjkhk,hjkhjkh,jhbhghkhjkh,Next

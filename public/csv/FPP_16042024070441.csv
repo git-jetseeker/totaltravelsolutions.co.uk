@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LTR3,PZ0124041619831,Luton,2024-04-16,06:59:57,2024-04-20,21:00:00,2024-04-24,17:45:00,Main,Main,5,Mr,Michelle,Carlton-Smith,07732227782,52.7,46.376,6.324,TBA,EZY2431,0,Volvo,XC90,Grey,"AV70 NFM",Next

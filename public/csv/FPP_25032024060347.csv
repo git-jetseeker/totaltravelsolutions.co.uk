@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LAA5,PZ0124032519753,Luton,2024-03-25,06:22:39,2024-04-17,17:00:00,2024-04-27,08:45:00,Main,Main,11,Mr,Nikolett,Fabian,07835289914,49.99,44.04119,5.94881,TBA,"W4 3801",0,Vauxhall,Astra,Grey,MM13ONC,Next

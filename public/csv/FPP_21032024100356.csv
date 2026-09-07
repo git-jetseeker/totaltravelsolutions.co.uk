@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+STF5,PZ0124032119742,Stansted,2024-03-21,21:52:27,2024-03-22,04:15:00,2024-03-25,00:00:00,Main,Main,4,Mr,Sharmaine,mabika,07770659652,101.2,89.056,12.144,TBA,RK1885,0,Mercedes,"A class",White,LK16OZW,Next

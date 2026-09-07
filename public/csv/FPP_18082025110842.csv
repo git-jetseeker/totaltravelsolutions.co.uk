@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+HAPS-001,TG-3U3GGL,Heathrow,2025-08-18,11:33:13,2025-08-20,09:00:00,2025-08-21,09:00:00,"Terminal 5","Terminal 3",2,Mr,Testing,neww,07458744474511,34.99,24.493,10.497,TBA,test,0,test,test,test,test,Next

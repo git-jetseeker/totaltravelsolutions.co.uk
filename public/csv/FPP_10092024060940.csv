@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124090220392,Heathrow,2024-09-02,14:30:43,2024-10-13,17:00:00,2024-10-22,17:15:00,"Terminal 3","Terminal 3",10,Mr,"John O.",Oladimeji,07450475048,68.99,48.293,20.697,TBA,,0,Toyota,Saloon,Red,SG56ZGW,Next

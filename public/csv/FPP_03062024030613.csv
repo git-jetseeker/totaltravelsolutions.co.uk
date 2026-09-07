@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+MAM2,PZ0124060320109,Manchester,2024-06-03,15:41:03,2024-06-04,03:00:00,2024-06-05,22:45:00,"Terminal 2","Terminal 2",2,Mr,Elizabeth,Allanson,07738832445,89.25,78.54,10.71,TBA,KL1028,0,"Audi E tron",Q4,Black,YF71ENV,Next

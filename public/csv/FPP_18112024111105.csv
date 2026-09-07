@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124111820698,Heathrow,2024-11-18,23:17:41,2024-11-19,09:30:00,2024-11-27,14:00:00,"Terminal 4","Terminal 4",9,Mr,Zana,Abdullah,07537995353,63.99,44.793,19.197,TBA,QR007,0,Zafira,2012,White,ML62JYX,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+KP-1,PZ0124071320244,Heathrow,2024-07-13,11:41:15,2024-07-19,19:30:00,2024-07-28,21:00:00,"Terminal 3","Terminal 3",10,Mr,Scott,Cummings,07771544813,73.99,51.793,22.197,TBA,Hu8131,0,Mercedes,Cla,White,Bn22gxf,Next

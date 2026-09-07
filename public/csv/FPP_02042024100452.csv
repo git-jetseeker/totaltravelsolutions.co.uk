@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP581,PZ0124040219778,Manchester,2024-04-02,10:35:47,2024-04-07,14:00:00,2024-04-12,09:15:00,"Terminal 1","Terminal 1",6,Mr,Rob,Sharpley,07891118413,52,40.56,11.44,TBA,TOM2589,0,MERCEDES,CLA,RED,EA22VYB,Next

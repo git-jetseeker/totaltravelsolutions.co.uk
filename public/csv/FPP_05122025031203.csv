@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+AVP-001,JS-GKXIA6,Gatwick,2025-12-05,15:19:43,2026-10-18,09:00:00,2026-10-23,09:00:00,TBA,TBA,6,Mr,test,test,5456454545454,47.99,33.593,14.397,TBA,,0,jhghjgjh,hghjg,ghjghj,hjgjhgjhg,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SMGP01,PZ0124071220243,Stansted,2024-07-12,20:55:48,2024-07-21,04:00:00,2024-07-27,13:30:00,Main,Main,7,Mr,Jennifer,Kemp,07908436353,99.99,77.49225,22.49775,TBA,"FR 973",0,Volkswagon,Golf,Black,LM15MWX,Next

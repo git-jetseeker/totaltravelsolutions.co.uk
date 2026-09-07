@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+LGC3,PZ0124070620218,Gatwick,2024-07-06,13:53:29,2024-07-13,16:00:00,2024-07-17,14:00:00,North,North,5,Mr,Edward,Davenport,07976282359,66.99,60.291,6.699,TBA,ezy8390,0,peugeot,partner,blue,LT10LJY,Next

@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+BP-01,PZ0124122620773,Heathrow,2024-12-26,11:59:50,2024-12-31,14:30:00,2025-01-24,07:00:00,"Terminal 5","Terminal 5",25,Mr,Shane,Gordon,07771738613,116.99,81.893,35.097,TBA,BA0042,0,Mercedes,"C280 Estate",Silver,AG56SAG,Next

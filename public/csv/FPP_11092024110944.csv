@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124091120440,Heathrow,2024-09-11,23:26:10,2024-09-13,08:00:00,2024-09-21,10:15:00,"Terminal 2","Terminal 2",9,Mr,TERESA,CONLEY,07794730008,67,46.9,20.1,TBA,OS457,0,HYUNDAI,"SANTE FE",MOCHA,HV14UDY,Next

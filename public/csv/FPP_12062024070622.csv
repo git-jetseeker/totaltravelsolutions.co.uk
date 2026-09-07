@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+SEP003,PZ0124061220142,Stansted,2024-06-12,19:36:01,2024-06-20,13:00:00,2024-06-26,18:45:00,Main,Main,7,Mr,Nunzia,Ricotta,07801035553,95.99,71.9925,23.9975,TBA,FR8287,0,Jaquar,"F Pace",Black,"LM19 TWY",Next

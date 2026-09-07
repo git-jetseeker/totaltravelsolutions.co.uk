@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+RP-01,PZ0124102320618,Heathrow,2024-10-23,20:39:16,2024-10-24,16:00:00,2024-11-03,18:15:00,"Terminal 2","Terminal 2",11,Mr,Jenny,Lukina,07456630544,67.99,47.593,20.397,TBA,,0,Peugeot,3008,Grey,EA61VNZ,Next

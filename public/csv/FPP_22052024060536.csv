@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+WCP399,PZ0124052220055,Heathrow,2024-05-22,18:08:42,2024-08-05,08:00:00,2024-08-21,16:30:00,"Terminal 3","Terminal 3",17,Mr,stephen,PALMER,07743137649,87,63.51,23.49,TBA,DL31,0,RENAULT,CAPTURE,SILVER,LS65VNZ,Next
