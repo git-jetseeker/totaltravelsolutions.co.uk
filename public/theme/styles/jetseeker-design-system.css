@@ -430,9 +430,9 @@ header.header:not(.js-header) {
 }
 
 .js-navbar__logo img {
-    height: 52px;
+    height: 80px;
     width: auto;
-    max-width: 200px;
+    max-width: 280px;
     display: block;
     object-fit: contain;
     object-position: center center;
@@ -874,12 +874,12 @@ header.header:not(.js-header) {
     }
 
     .js-navbar__logo {
-        height: 68px;
+        height: 76px;
     }
 
     .js-navbar__logo img {
-        height: 44px;
-        max-width: 168px;
+        height: 64px;
+        max-width: 220px;
         transform: none;
     }
 
@@ -1697,9 +1697,12 @@ header.header:not(.js-header) {
 }
 
 .js-footer__logo img {
-    max-height: 56px;
+    height: 88px;
+    max-height: 88px;
     width: auto;
+    max-width: 300px;
     margin-bottom: 16px;
+    object-fit: contain;
 }
 
 .js-footer__about {

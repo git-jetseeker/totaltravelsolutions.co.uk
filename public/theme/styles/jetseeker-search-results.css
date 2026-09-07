@@ -22,9 +22,9 @@
 
 .js-results-logo-bar__link img {
     display: block;
-    height: 52px;
+    height: 72px;
     width: auto;
-    max-width: min(220px, 60vw);
+    max-width: min(280px, 70vw);
 }
 
 .js-results-page {

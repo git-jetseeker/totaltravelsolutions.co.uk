@@ -48,7 +48,7 @@
             <div>
                 <div class="js-footer__logo">
                     <a href="{{ url('/') }}">
-                        <img src="{{ asset('theme/images/logo-white.png') }}" loading="lazy" alt="Total Travel Solutions logo" height="48">
+                        <img src="{{ asset('theme/images/logo-white.png') }}" loading="lazy" alt="Total Travel Solutions logo" width="300" height="88">
                     </a>
                 </div>
                 <p class="js-footer__about">{{ $site_settings_main['footer_catch_line'] ?? '' }}</p>

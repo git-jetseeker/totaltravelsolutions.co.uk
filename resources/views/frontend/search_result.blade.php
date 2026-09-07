@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20260907noblue2') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-search-results.css?v=20260907logo') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-search-results.css?v=20260907logo2') }}">
 
 @include('partials.results-page-logo-bar')
 

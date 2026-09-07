@@ -108,7 +108,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/front/css/datepicker.css') }}" media="all">
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/index-main.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20260907logo') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20260907logo2') }}">
     <script type="text/javascript">
         (function(c, l, a, r, i, t, y) {
             c[a] = c[a] || function() {
