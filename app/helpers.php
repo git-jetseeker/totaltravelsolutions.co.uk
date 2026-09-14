@@ -176,6 +176,7 @@ if (! function_exists('normalize_site_settings')) {
             'google_plus' => '',
             'google_plus_status' => '',
             'sliders' => 'a:0:{}',
+            'payment_type' => 'stripe',
             'booking_fee' => '0',
             'homepage_tagline' => '',
             'homepage_tagline_heading' => '',

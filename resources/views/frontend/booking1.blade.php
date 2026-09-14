@@ -2052,7 +2052,7 @@
                                                         </div>
                                                     </div>
 
-                                                    @if ($settings['payment_type'] == 'stripe')
+                                                    @if (($settings['payment_type'] ?? 'stripe') == 'stripe')
 
                                                 <div class="paymentFrm " id="paymentFrm">
 
@@ -2383,7 +2383,7 @@
 
 
 
-                                                @if ($settings['payment_type'] == 'payzone')
+                                                @if (($settings['payment_type'] ?? 'stripe') == 'payzone')
 
                                                     <img class="img-responsive"
 
@@ -4558,7 +4558,7 @@
 
 
 
-    @if ($settings['payment_type'] == 'payzone')
+    @if (($settings['payment_type'] ?? 'stripe') == 'payzone')
 
         <script type="text/javascript">
 
@@ -5248,7 +5248,7 @@
 
     @endif
 
-    @if ($settings['payment_type'] == 'stripe')
+    @if (($settings['payment_type'] ?? 'stripe') == 'stripe')
 
         <script src="https://js.stripe.com/v3/"></script>
         <script>window.STRIPE_PUBLIC_KEY = @json(config('services.stripe.key'));</script>

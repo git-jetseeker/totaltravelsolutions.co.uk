@@ -652,7 +652,7 @@
                                                 <h3 class="speedy-hding" style="font-size: 20px;">Payment Detail</h3>
                                                 
 
-                                                @if ($settings['payment_type'] == 'stripe')
+                                                @if (($settings['payment_type'] ?? 'stripe') == 'stripe')
                                                     <div class="weaccept-marginleft">
                                                         <h4 style="text-align:center;" class="accept">We Accept</h4>
                                                         <img class="img-responsive"
@@ -774,7 +774,7 @@
                                                     </div>
                                                 @endif
 
-                                                @if ($settings['payment_type'] == 'payzone')
+                                                @if (($settings['payment_type'] ?? 'stripe') == 'payzone')
                                                     <img class="img-responsive"
                                                         src="{{ asset('assets/payzone/images/payzone_cards_accepted.png') }}">
                                                     {{-- PAYZONE FORM --}}
@@ -1900,7 +1900,7 @@
 
 
 
-    @if ($settings['payment_type'] == 'payzone')
+    @if (($settings['payment_type'] ?? 'stripe') == 'payzone')
         <script type="text/javascript">
             $('#postcode_lookup').getAddress({
 
@@ -2243,7 +2243,7 @@
             }
         </script>
     @endif
-    @if ($settings['payment_type'] == 'stripe')
+    @if (($settings['payment_type'] ?? 'stripe') == 'stripe')
         <script src="https://js.stripe.com/v3/"></script>
         <script>window.STRIPE_PUBLIC_KEY = @json(config('services.stripe.key'));</script>
 

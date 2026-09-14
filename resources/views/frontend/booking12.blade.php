@@ -860,7 +860,7 @@ select.form22{height:35px; border-radius:4px; border:solid 1px #bbb; color:#555;
                                                     <h4 style="text-align:center;">We Accept</h4>
 
 
-                                                @if($settings["payment_type"]=='stripe')
+                                                @if(($settings["payment_type"] ?? 'stripe')=='stripe')
 
                                                         <img class="img-responsive" style="    display: block;
     max-width: 50%;
@@ -1153,7 +1153,7 @@ select.form22{height:35px; border-radius:4px; border:solid 1px #bbb; color:#555;
 
                                                 @endif
 
-                                                @if($settings["payment_type"]=='payzone')
+                                                @if(($settings["payment_type"] ?? 'stripe')=='payzone')
 
                                                     <img class="img-responsive"
 
@@ -2859,7 +2859,7 @@ data['discount'] = 1;
 
     </script>
 
-    @if($settings["payment_type"]=='stripe')
+    @if(($settings["payment_type"] ?? 'stripe')=='stripe')
 
         <script src="https://js.stripe.com/v3/"></script>
         <script>window.STRIPE_PUBLIC_KEY = @json(config('services.stripe.key'));</script>

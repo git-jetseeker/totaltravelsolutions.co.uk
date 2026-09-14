@@ -793,7 +793,7 @@
     </script>
 
 
-    @if ($settings['payment_type'] == 'stripe')
+    @if (($settings['payment_type'] ?? 'stripe') == 'stripe')
         <script src="https://js.stripe.com/v3/"></script>
         <script>window.STRIPE_PUBLIC_KEY = @json(config('services.stripe.key'));</script>
 

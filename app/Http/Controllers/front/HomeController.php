@@ -136,6 +136,7 @@ class HomeController extends Controller
         }
 
         $magrFeeDefaults = [
+            'payment_type' => 'stripe',
             'booking_fee' => '1.99',
             'booking_fee_status' => 'Active',
             'cancellation_fee' => '1.25',
