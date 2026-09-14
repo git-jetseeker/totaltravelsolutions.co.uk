@@ -122,6 +122,36 @@ class BookingController extends Controller
 
         }
 
+        foreach ($this->_mysetting as $field => $value) {
+            $this->_setting[$field] = $value;
+        }
+
+        $magrFeeDefaults = [
+            'payment_type' => 'stripe',
+            'booking_fee' => '1.99',
+            'booking_fee_status' => 'Active',
+            'cancellation_fee' => '1.25',
+            'cancellation_fee_status' => 'Active',
+            'sms_notification_fee' => '1.99',
+            'sms_fee_status' => 'Active',
+            'postal_notification_fee' => '1.99',
+            'postal_status' => 'Active',
+            'holiday_extra_type' => 'Inactive',
+            'holiday_extra_amount' => '0',
+            'aph_extra_type' => 'Inactive',
+            'aph_extra_amount' => '0',
+            'a2z_extra_type' => 'Inactive',
+            'a2z_extra_amount' => '0',
+        ];
+        foreach ($magrFeeDefaults as $field => $value) {
+            if (! isset($this->_setting[$field]) || $this->_setting[$field] === '' || $this->_setting[$field] === null) {
+                $this->_setting[$field] = $value;
+            }
+            if (! isset($this->_mysetting[$field]) || $this->_mysetting[$field] === '' || $this->_mysetting[$field] === null) {
+                $this->_mysetting[$field] = $value;
+            }
+        }
+
         if (($this->_mysetting['holiday_extra_type'] ?? 'Inactive') != 'Inactive') {
 
 
@@ -462,7 +492,7 @@ class BookingController extends Controller
 
 
 
-        //$bookingfee = $this->_setting['booking_fee'] > 0 ? $this->_setting['booking_fee'] : 0;
+        //$bookingfee = ($this->_setting['booking_fee'] ?? 0) > 0 ? $this->_setting['booking_fee'] : 0;
 
 
 
@@ -476,9 +506,9 @@ class BookingController extends Controller
 
         }
 
-        //        $sms_notification = $this->_setting['sms_notification_fee'] > 0 ? $this->_setting['sms_notification_fee'] : 0;
+        //        $sms_notification = ($this->_setting['sms_notification_fee'] ?? 0) > 0 ? $this->_setting['sms_notification_fee'] : 0;
 
-        //        $cancellation_fee = $this->_setting['cancellation_fee'] > 0 ? $this->_setting['cancellation_fee'] : 0;
+        //        $cancellation_fee = ($this->_setting['cancellation_fee'] ?? 0) > 0 ? $this->_setting['cancellation_fee'] : 0;
 
         $sms_notification = $request->input('sms_notification_fee');
 
@@ -603,13 +633,13 @@ class BookingController extends Controller
 
         }
 
-        if ($park_api == 'holiday' && $this->_setting['extra_type'] == 'GBP') {
+        if ($park_api == 'holiday' && ($this->_setting['extra_type'] ?? '') == 'GBP') {
 
             $extra_amount = $this->_setting['holiday_extra_amount'];
 
         }
 
-        if ($park_api == 'holiday' && $this->_setting['extra_type'] == 'Percentage') {
+        if ($park_api == 'holiday' && ($this->_setting['extra_type'] ?? '') == 'Percentage') {
 
             $extra_amount = number_format($adjustedShare / 100 * $booking_amount, 2);
 
@@ -1067,17 +1097,17 @@ class BookingController extends Controller
 
         $cancellation_fee = 0.00;
 
-        $bookingfee = $this->_setting['booking_fee'] > 0 ? $this->_setting['booking_fee'] : 0;
+        $bookingfee = ($this->_setting['booking_fee'] ?? 0) > 0 ? $this->_setting['booking_fee'] : 0;
 
         if ($smsfee == 'Yes') {
 
-            $sms_notification = $this->_setting['sms_notification_fee'] > 0 ? $this->_setting['sms_notification_fee'] : 0;
+            $sms_notification = ($this->_setting['sms_notification_fee'] ?? 0) > 0 ? $this->_setting['sms_notification_fee'] : 0;
 
         }
 
         if ($canfee == 'Yes') {
 
-            $cancellation_fee = $this->_setting['cancellation_fee'] > 0 ? $this->_setting['cancellation_fee'] : 0;
+            $cancellation_fee = ($this->_setting['cancellation_fee'] ?? 0) > 0 ? $this->_setting['cancellation_fee'] : 0;
 
         }
 
@@ -1214,7 +1244,7 @@ class BookingController extends Controller
 
 
 
-            if ($this->_setting['extra_type'] == 'Percentage') {
+            if (($this->_setting['extra_type'] ?? '') == 'Percentage') {
 
 
 
@@ -1224,7 +1254,7 @@ class BookingController extends Controller
 
             }
 
-            if ($this->_setting['extra_type'] == 'GBP') {
+            if (($this->_setting['extra_type'] ?? '') == 'GBP') {
 
                 $booking_amount = $booking_amount + $this->_addextra;
 
@@ -2455,7 +2485,7 @@ class BookingController extends Controller
 
     //     $data['deprTerminal'] = $request->input('departterminal');
 
-    //     $bookingfee = $this->_setting['booking_fee'] > 0 ? $this->_setting['booking_fee'] : 0;
+    //     $bookingfee = ($this->_setting['booking_fee'] ?? 0) > 0 ? $this->_setting['booking_fee'] : 0;
 
     //     $data['returnTerminal'] = $request->input('arrivalterminal');
 
@@ -2792,7 +2822,7 @@ class BookingController extends Controller
         'returnTerminal' => $request->input('arrivalterminal'),
         'returnFlight' => $request->input('returnflight'),
         'model' => $request->input('model'),
-        'booking_fee' => $this->_setting['booking_fee'] > 0 ? $this->_setting['booking_fee'] : 0,
+        'booking_fee' => ($this->_setting['booking_fee'] ?? 0) > 0 ? $this->_setting['booking_fee'] : 0,
         'color' => $request->input('color'),
         'make' => $request->input('make'),
         'discount_code' => $request->input('promo'),
