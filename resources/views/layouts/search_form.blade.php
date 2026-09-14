@@ -10,7 +10,7 @@
             <div class="col fill_height">
                 <h1 class="main-heading js-hero__title displayNoneMobile">{{ crm('home.hero_title', 'Book Easy, Park Safe, Travel Happy!') }}</h1>
                 <h1 class="main-heading js-hero__title displayBlockMobile">{{ crm('home.hero_title', 'Book Easy, Park Safe, Travel Happy!') }}</h1>
-                <p class="main-paragraph js-hero__subtitle">Amazing Airport <b>car park deals</b> across all major uk airports</p>
+                <p class="main-paragraph js-hero__subtitle">{{ crm('home.hero_subtitle', 'Amazing Airport car park deals across all major UK airports') }}</p>
 
                 @include('partials.booking-widget')
             </div>

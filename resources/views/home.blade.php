@@ -1545,7 +1545,7 @@
 <section class="js-works-section section-spacing">
     <div class="container">
         <div class="js-section-head js-reveal">
-            <span class="js-section-head__badge js-section-head__badge--light">Simple process</span>
+            <span class="js-section-head__badge js-section-head__badge--light">{{ crm('home.steps_badge', 'Simple process') }}</span>
             <h2 class="js-section-title">{{ crm('home.steps_title', 'How Total Travel Solutions Works') }}</h2>
             <p class="js-section-subtitle">{{ crm('home.steps_lead', 'Book your airport parking in four simple steps') }}</p>
         </div>
@@ -1557,8 +1557,8 @@
                     <i class="fa fa-search"></i>
                 </div>
                 <div class="js-works-step__body">
-                    <h3>Search</h3>
-                    <p>Enter your airport and travel dates</p>
+                    <h3>{{ crm('home.step_1_head', 'Search') }}</h3>
+                    <p>{{ crm('home.step_1_text', 'Enter your airport and travel dates') }}</p>
                 </div>
             </li>
             <li class="js-works-step js-reveal" style="--reveal-delay: 120ms">
@@ -1567,8 +1567,8 @@
                     <i class="fa fa-exchange"></i>
                 </div>
                 <div class="js-works-step__body">
-                    <h3>Compare</h3>
-                    <p>Live prices and services — compare and choose a deal</p>
+                    <h3>{{ crm('home.step_2_head', 'Compare') }}</h3>
+                    <p>{{ crm('home.step_2_text', 'Live prices and services — compare and choose a deal') }}</p>
                 </div>
             </li>
             <li class="js-works-step js-reveal" style="--reveal-delay: 240ms">
@@ -1577,8 +1577,8 @@
                     <i class="fa fa-lock"></i>
                 </div>
                 <div class="js-works-step__body">
-                    <h3>Book Securely</h3>
-                    <p>Add your details and pay via our secure payment gateways</p>
+                    <h3>{{ crm('home.step_3_head', 'Book Securely') }}</h3>
+                    <p>{{ crm('home.step_3_text', 'Add your details and pay via our secure payment gateways') }}</p>
                 </div>
             </li>
             <li class="js-works-step js-reveal" style="--reveal-delay: 360ms">
@@ -1587,8 +1587,8 @@
                     <i class="fa fa-plane"></i>
                 </div>
                 <div class="js-works-step__body">
-                    <h3>Travel Confidently</h3>
-                    <p>Your car is in safe hands — enjoy a stress-free start to your journey</p>
+                    <h3>{{ crm('home.step_4_head', 'Travel Confidently') }}</h3>
+                    <p>{{ crm('home.step_4_text', 'Your car is in safe hands — enjoy a stress-free start to your journey') }}</p>
                 </div>
             </li>
         </ol>
@@ -1603,9 +1603,9 @@
     <div class="js-why-section__mesh" aria-hidden="true"></div>
     <div class="container">
         <div class="js-section-head js-reveal">
-            <span class="js-section-head__badge">Why choose us</span>
+            <span class="js-section-head__badge">{{ crm('home.why_badge', 'Why choose us') }}</span>
             <h2 class="js-section-title">{{ crm('home.why_title', 'Why Book With Total Travel Solutions?') }}</h2>
-            <p class="js-section-subtitle">We offer trusted <a class="linked" href="{{ url('airports') }}">airport parking</a> solutions, guaranteed value and a nation-wide coverage. <strong>Pre-book</strong> now to enjoy great <strong>car park deals!</strong></p>
+            <p class="js-section-subtitle">{{ crm('home.why_lead', 'We offer trusted airport parking solutions, guaranteed value and a nation-wide coverage. Pre-book now to enjoy great car park deals!') }}</p>
         </div>
 
         <div class="js-why-grid">
@@ -1615,8 +1615,8 @@
                 </div>
                 <div class="js-why-item__content">
                     <span class="js-why-item__index">01</span>
-                    <h3 class="cap-text">Park Mark Certified Operators</h3>
-                    <p>Every parking partner meets strict safety and security standards, ensuring your vehicle is in safe 24/7 monitored car parks.</p>
+                    <h3 class="cap-text">{{ crm('home.why_1_title', 'Park Mark Certified Operators') }}</h3>
+                    <p>{{ crm('home.why_1_text', 'Every parking partner meets strict safety and security standards, ensuring your vehicle is in safe 24/7 monitored car parks.') }}</p>
                 </div>
             </article>
 
@@ -1626,8 +1626,8 @@
                 </div>
                 <div class="js-why-item__content">
                     <span class="js-why-item__index">02</span>
-                    <h3 class="cap-text">Best Price Promise</h3>
-                    <p>We monitor market rates daily so you get the best price on all <a class="linked" href="{{ url('airport-parking') }}">airport car park</a> deals — fair, transparent, and free from hidden charges.</p>
+                    <h3 class="cap-text">{{ crm('home.why_2_title', 'Best Price Promise') }}</h3>
+                    <p>{{ crm('home.why_2_text', 'We monitor market rates daily so you get the best price on all airport car park deals — fair, transparent, and free from hidden charges.') }}</p>
                 </div>
             </article>
 
@@ -1637,8 +1637,8 @@
                 </div>
                 <div class="js-why-item__content">
                     <span class="js-why-item__index">03</span>
-                    <h3 class="cap-text">Seamless Booking Experience</h3>
-                    <p>Real-time booking and availability with instant confirmation. Easy amendments and cancellation — no guesswork.</p>
+                    <h3 class="cap-text">{{ crm('home.why_3_title', 'Seamless Booking Experience') }}</h3>
+                    <p>{{ crm('home.why_3_text', 'Real-time booking and availability with instant confirmation. Easy amendments and cancellation — no guesswork.') }}</p>
                 </div>
             </article>
 
@@ -1648,8 +1648,8 @@
                 </div>
                 <div class="js-why-item__content">
                     <span class="js-why-item__index">04</span>
-                    <h3 class="cap-text">Experience Quality Services</h3>
-                    <p>Years of industry experience across 28+ UK airports, with professionalism and quality service you can rely on.</p>
+                    <h3 class="cap-text">{{ crm('home.why_4_title', 'Experience Quality Services') }}</h3>
+                    <p>{{ crm('home.why_4_text', 'Years of industry experience across 28+ UK airports, with professionalism and quality service you can rely on.') }}</p>
                 </div>
             </article>
         </div>
@@ -1664,9 +1664,9 @@
     <div class="js-parking-section__runway" aria-hidden="true"></div>
     <div class="container">
         <div class="js-section-head js-reveal">
-            <span class="js-section-head__badge js-section-head__badge--light">Parking types</span>
+            <span class="js-section-head__badge js-section-head__badge--light">{{ crm('home.options_badge', 'Parking types') }}</span>
             <h2 class="js-section-title">{{ crm('home.options_title', 'Parking Options to Suit Every Traveller') }}</h2>
-            <p class="js-section-subtitle">We cover <a class="linked" href="{{ url('airport-parking') }}">Top UK Airports</a> including Heathrow, Gatwick, Manchester, Stansted, Birmingham, Luton, Edinburgh, and more.</p>
+            <p class="js-section-subtitle">{{ crm('home.options_lead', 'We cover Top UK Airports including Heathrow, Gatwick, Manchester, Stansted, Birmingham, Luton, Edinburgh, and more.') }}</p>
         </div>
 
         <div class="js-parking-gates">
@@ -1680,8 +1680,8 @@
                     <img src="{{ asset('assets/images/Meet & Greet.png') }}" alt="" loading="lazy" width="64" height="64">
                 </div>
                 <div class="js-parking-gate__body">
-                    <h3>Meet &amp; Greet</h3>
-                    <p>A seamless start to your journey. Drive to the terminal, hand over your keys, and let a professional park your vehicle while you head straight to departures.</p>
+                    <h3>{{ crm('home.option_1_title', 'Meet & Greet') }}</h3>
+                    <p>{{ crm('home.option_1_text', 'A seamless start to your journey. Drive to the terminal, hand over your keys, and let a professional park your vehicle while you head straight to departures.') }}</p>
                 </div>
                 <div class="js-parking-gate__footer">
                     <span><i class="fa fa-clock-o" aria-hidden="true"></i> Fastest check-in</span>
@@ -1698,8 +1698,8 @@
                     <img src="{{ asset('assets/images/On Site.png') }}" alt="" loading="lazy" width="64" height="64">
                 </div>
                 <div class="js-parking-gate__body">
-                    <h3>On-Site Airport Parking</h3>
-                    <p>Park close to the terminal within walking distance. Direct access, high security, and maximum convenience for short or busy trips.</p>
+                    <h3>{{ crm('home.option_2_title', 'On-Site Airport Parking') }}</h3>
+                    <p>{{ crm('home.option_2_text', 'Park close to the terminal within walking distance. Direct access, high security, and maximum convenience for short or busy trips.') }}</p>
                 </div>
                 <div class="js-parking-gate__footer">
                     <span><i class="fa fa-map-marker" aria-hidden="true"></i> Walk to terminal</span>
@@ -1716,8 +1716,8 @@
                     <img src="{{ asset('assets/images/Park & Ride.png') }}" alt="" loading="lazy" width="64" height="64">
                 </div>
                 <div class="js-parking-gate__body">
-                    <h3>Park &amp; Ride</h3>
-                    <p>Great value for longer stays. Park securely and take a complimentary shuttle straight to your terminal without delays.</p>
+                    <h3>{{ crm('home.option_3_title', 'Park & Ride') }}</h3>
+                    <p>{{ crm('home.option_3_text', 'Great value for longer stays. Park securely and take a complimentary shuttle straight to your terminal without delays.') }}</p>
                 </div>
                 <div class="js-parking-gate__footer">
                     <span><i class="fa fa-bus" aria-hidden="true"></i> Free shuttle included</span>
@@ -1736,19 +1736,18 @@
     <div class="container">
         <div class="js-compare-layout">
             <div class="js-compare-copy js-reveal">
-                <span class="js-compare-eyebrow"><i class="fa fa-shield" aria-hidden="true"></i> Park Mark accredited</span>
+                <span class="js-compare-eyebrow"><i class="fa fa-shield" aria-hidden="true"></i> {{ crm('home.choose_eyebrow', 'Park Mark accredited') }}</span>
                 <h2 class="js-compare-title">
-                    <span class="js-compare-title__line">Compare <span class="js-compare-title__highlight">Airport</span></span>
-                    <span class="js-compare-title__line">Parking</span>
+                    <span class="js-compare-title__line">{{ crm('home.choose_title', 'Compare Airport Parking') }}</span>
                 </h2>
-                <p class="js-compare-lead">We prioritise delivering peace of mind and aim to provide you with the best price available to meet your travel and parking needs — whether you choose UK <strong>Meet &amp; Greet</strong>, <strong>Park &amp; Ride</strong>, or <strong>on-airport parking</strong>.</p>
+                <p class="js-compare-lead">{{ crm('home.choose_p1', 'We prioritise delivering peace of mind and aim to provide you with the best price available to meet your travel and parking needs — whether you choose UK Meet & Greet, Park & Ride, or on-airport parking.') }}</p>
                 <ul class="js-compare-checklist">
-                    <li><span class="js-compare-checklist__icon"><i class="fa fa-check" aria-hidden="true"></i></span>Regular security patrols</li>
-                    <li><span class="js-compare-checklist__icon"><i class="fa fa-check" aria-hidden="true"></i></span>CCTV operation 24/7</li>
-                    <li><span class="js-compare-checklist__icon"><i class="fa fa-check" aria-hidden="true"></i></span>Bright and well-maintained environment</li>
-                    <li><span class="js-compare-checklist__icon"><i class="fa fa-check" aria-hidden="true"></i></span>Insurance cover validation</li>
+                    <li><span class="js-compare-checklist__icon"><i class="fa fa-check" aria-hidden="true"></i></span>{{ crm('home.choose_perk_1', 'Regular security patrols') }}</li>
+                    <li><span class="js-compare-checklist__icon"><i class="fa fa-check" aria-hidden="true"></i></span>{{ crm('home.choose_perk_2', 'CCTV operation 24/7') }}</li>
+                    <li><span class="js-compare-checklist__icon"><i class="fa fa-check" aria-hidden="true"></i></span>{{ crm('home.choose_perk_3', 'Bright and well-maintained environment') }}</li>
+                    <li><span class="js-compare-checklist__icon"><i class="fa fa-check" aria-hidden="true"></i></span>{{ crm('home.choose_perk_4', 'Insurance cover validation') }}</li>
                 </ul>
-                <p class="js-compare-footnote">At Total Travel Solutions you park with professionals.</p>
+                <p class="js-compare-footnote">{{ crm('home.choose_footnote', 'At Total Travel Solutions you park with professionals.') }}</p>
             </div>
             <div class="js-compare-visual js-reveal" style="--reveal-delay: 120ms">
                 <div class="js-compare-visual__frame">
@@ -1756,16 +1755,16 @@
                 </div>
                 <div class="js-compare-metrics">
                     <div class="js-compare-metric">
-                        <strong>28+</strong>
-                        <span>UK airports</span>
+                        <strong>{{ crm('home.stat_1_value', '28+') }}</strong>
+                        <span>{{ crm('home.stat_1_label', 'UK airports') }}</span>
                     </div>
                     <div class="js-compare-metric">
-                        <strong>24/7</strong>
-                        <span>Secure parking</span>
+                        <strong>{{ crm('home.stat_2_value', '24/7') }}</strong>
+                        <span>{{ crm('home.stat_2_label', 'Secure parking') }}</span>
                     </div>
                     <div class="js-compare-metric">
-                        <strong>100%</strong>
-                        <span>Park Mark listed</span>
+                        <strong>{{ crm('home.stat_3_value', '100%') }}</strong>
+                        <span>{{ crm('home.stat_3_label', 'Park Mark listed') }}</span>
                     </div>
                 </div>
             </div>
@@ -1784,7 +1783,7 @@
         <div class="js-section-head js-reveal">
             <span class="js-section-head__badge js-section-head__badge--light">Nationwide coverage</span>
             <h2 class="js-section-title">{{ crm('home.airports_section_title', 'We Are Operating at the Following Airports') }}</h2>
-            <p class="js-section-subtitle">Compare and book airport parking at all major UK airports</p>
+            <p class="js-section-subtitle">{{ crm('home.airports_section_lead', 'Compare and book airport parking at all major UK airports') }}</p>
         </div>
 
 
@@ -1891,7 +1890,7 @@
 
                                         <div class="col-sm-6 text-right">
 
-                                            <div class="offers_price"> <span>Starting from</span></div>
+                                            <div class="offers_price"> <span>{{ crm('home.airport_card_price_prefix', 'Starting from') }}</span></div>
 
                                             <div class="offers_price1"><span>£ {{$p}}</span></div>
 
@@ -1935,7 +1934,7 @@
 
                                             <div class="offers_link"><a
 
-                                                    href="{{ route('page', ['slug' => $url]) }}">read more</a></div>
+                                                    href="{{ route('page', ['slug' => $url]) }}">{{ crm('home.airport_card_cta', 'Read More') }}</a></div>
 
                                         </div>
 
@@ -1990,9 +1989,9 @@
     <div class="container">
 
         <div class="js-section-head js-reveal">
-            <span class="js-section-head__badge js-section-head__badge--light">Trusted reviews</span>
+            <span class="js-section-head__badge js-section-head__badge--light">{{ crm('home.testimonials_badge', 'Trusted reviews') }}</span>
             <h2 class="js-section-title cap-text">{{ crm('home.testimonials_title', 'What Do Our Customers Say') }}</h2>
-            <p class="js-section-subtitle">Trusted travel park for thousands of customer reviews</p>
+            <p class="js-section-subtitle">{{ crm('home.testimonials_lead', 'Trusted travel park for thousands of customer reviews') }}</p>
         </div>
     </div>
 
@@ -2011,9 +2010,9 @@
     <div class="container">
 
         <div class="js-section-head js-reveal">
-            <span class="js-section-head__badge js-section-head__badge--light">Expert advice</span>
-            <h2 class="js-section-title"><span class="orangeClr">Top Tips</span> By Experts</h2>
-            <p class="js-section-subtitle">Expert advice to make your airport parking experience seamless</p>
+            <span class="js-section-head__badge js-section-head__badge--light">{{ crm('home.tips_badge', 'Expert advice') }}</span>
+            <h2 class="js-section-title">{{ crm('home.tips_title', 'Top Tips By Experts') }}</h2>
+            <p class="js-section-subtitle">{{ crm('home.tips_lead', 'Expert advice to make your airport parking experience seamless') }}</p>
         </div>
 
         <div class="js-tips-grid js-reveal">
@@ -2021,24 +2020,24 @@
                 <div class="js-tip-card__icon">
                     <img src="{{ asset('assets/images/Book in Advance.png') }}" alt="" loading="lazy" width="40" height="40">
                 </div>
-                <h3 class="js-tip-card__title">Book in Advance</h3>
-                <p class="js-tip-card__text">Reserving your parking spot in advance often means lower rates. Take advantage of pre-booking discounts offered by parking facilities.</p>
+                <h3 class="js-tip-card__title">{{ crm('home.tip_1_title', 'Book in Advance') }}</h3>
+                <p class="js-tip-card__text">{{ crm('home.tip_1_text', 'Reserving your parking spot in advance often means lower rates and guaranteed availability for your travel dates.') }}</p>
             </article>
 
             <article class="js-tip-card">
                 <div class="js-tip-card__icon">
                     <img src="{{ asset('assets/images/Compare Price.png') }}" alt="" loading="lazy" width="40" height="40">
                 </div>
-                <h3 class="js-tip-card__title">Compare Prices</h3>
-                <p class="js-tip-card__text">Don't rush your decision. Compare prices across providers and find the best deal that fits your budget and travel plans.</p>
+                <h3 class="js-tip-card__title">{{ crm('home.tip_2_title', 'Compare Prices') }}</h3>
+                <p class="js-tip-card__text">{{ crm('home.tip_2_text', 'Don\'t rush your decision. Compare prices across providers to find the best value for your trip.') }}</p>
             </article>
 
             <article class="js-tip-card">
                 <div class="js-tip-card__icon">
                     <img src="{{ asset('assets/images/Of side Parking.png') }}" alt="" loading="lazy" width="40" height="40">
                 </div>
-                <h3 class="js-tip-card__title">Off-Site Parking</h3>
-                <p class="js-tip-card__text">Consider off-site parking near the airport. These facilities often offer lower rates compared to on-site airport parking.</p>
+                <h3 class="js-tip-card__title">{{ crm('home.tip_3_title', 'Off-Site Parking') }}</h3>
+                <p class="js-tip-card__text">{{ crm('home.tip_3_text', 'Consider off-site parking near the airport for strong value with reliable shuttle transfers to the terminal.') }}</p>
             </article>
         </div>
 

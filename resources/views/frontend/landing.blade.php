@@ -1,3 +1,4 @@
+@php $meta = function_exists('crm_page_meta') ? crm_page_meta('landing') : null; @endphp
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -301,9 +302,9 @@ h1, h2, h3, h4, h5, h6,p,label,b,li,span,a,button{
                     
                     
                     <h1 class="landing-h1-tag">
-                        Airport Parking <br> Across UK <span>Enjoy savings of up to 60% Off</span>
+                        {{ crm('landing.hero_title', 'Airport Parking Across UK') }} <span>{{ crm('landing.hero_subtitle', 'Enjoy savings of up to 60% Off') }}</span>
                     </h1>
-                    <p style="color: black;color: black;font-size: 16px;margin-top: 26px;margin-bottom: 17px;">JET SEEKER provides its clients with a seamless end-to-end airport experience. From the car parking, including cheap Stansted short stay airport parking, to the transfer, we have covered everything for our customers.<b> Don't forget to use your Stansted parking discount code for extra savings.</b></p>
+                    <p style="color: black;color: black;font-size: 16px;margin-top: 26px;margin-bottom: 17px;">{{ crm('landing.hero_lead', 'JET SEEKER provides its clients with a seamless end-to-end airport experience. From the car parking, including cheap Stansted short stay airport parking, to the transfer, we have covered everything for our customers.') }}<b> Don't forget to use your Stansted parking discount code for extra savings.</b></p>
 	                <!--<div class="row">-->
 	                <!--    <div class="col-lg-12">-->
                  <!--           <form id="subscribe_user" action='javascript:;' method="post">-->
@@ -321,14 +322,14 @@ h1, h2, h3, h4, h5, h6,p,label,b,li,span,a,button{
 	                            
                                 <img alt="" src="{{ asset('theme/images/Frame.png') }}">
                                 <br>
-                                <span class="service-span-landing">Cheap Airport <br> Parking</span>
+                                <span class="service-span-landing">{{ crm('landing.hero_perk_1', 'Cheap Airport Parking') }}</span>
                             </div>
 	                    </div>
 	                    <div class="col-md-4" style="margin-top: 17px;margin-bottom: 17px;">
 	                        <div class="row text-center" style="justify-content: center;">
                                 <img alt="" src="{{ asset('theme/images/Frame (1).png') }}">
                                 <br>
-                                <span class="service-span-landing">Never Beaten <br>on Price</span>
+                                <span class="service-span-landing">{{ crm('landing.hero_perk_2', 'Never Beaten on Price') }}</span>
                             </div>
 	                    </div>
 	                    <div class="col-md-4" style="margin-top: 17px;margin-bottom: 17px;">
