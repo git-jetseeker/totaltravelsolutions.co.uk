@@ -253,6 +253,13 @@ if (!function_exists('ttss_dashboard_asset_url')) {
         }
 
         if (str_starts_with($path, 'companies/') || str_starts_with($path, 'pagebanners/')) {
+            $file = basename($path);
+            if ($file !== '' && str_starts_with($path, 'pagebanners/')) {
+                $local = public_path('assets/images/airports/' . $file);
+                if (is_file($local)) {
+                    return asset('assets/images/airports/' . $file);
+                }
+            }
             return $base . 'storage/app/' . $path;
         }
 
