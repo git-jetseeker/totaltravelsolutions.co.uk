@@ -1527,7 +1527,7 @@ class BookingController extends Controller
     private function generateUniqueReferenceNo()
     {
         do {
-            $ref = 'JS-' . strtoupper(Str::random(6));
+            $ref = 'TTS-' . strtoupper(Str::random(6));
             $exists = airports_bookings::where('referenceNo', $ref)->exists();
         } while ($exists);
 
@@ -2073,7 +2073,14 @@ class BookingController extends Controller
         $this->update_booking_payment($request, $resp, 'stripe');
 
         if ($park_api == 'bookfhr') {
-            $this->bookOnBookFhr($request, $reference_no);
+            try {
+                $this->bookOnBookFhr($request, $reference_no);
+            } catch (\Throwable $e) {
+                Log::error('BookFHR confirm after payment failed', [
+                    'reference_no' => $reference_no,
+                    'error' => $e->getMessage(),
+                ]);
+            }
         }
 
         echo json_encode($this->getResponse(1, 'payment successfully charged'));
@@ -2883,17 +2890,25 @@ class BookingController extends Controller
         ->where('id', $companyId)
         ->first(['overview', 'company_email', 'name', 'arival', 'return_proc', 'id']);
 
+    $companyName = $company?->name ?? ($request->input('parking_name') ?: 'Airport Parking');
+    $companyOverview = $company?->overview ?? '';
+    $companyArrival = $company?->arival ?? '';
+    $companyReturn = $company?->return_proc ?? '';
+    $companyEmail = $company?->company_email ?? '';
+    $companyDbId = $company?->id ?? 0;
+    $airportName = $airport?->name ?? '';
+
     // Prepare template data
     $template_data = [
-        'guidence' => $company->overview . '<br><strong>Arrival:</strong><br>' . $company->arival . '<br>' .
-                     '<strong>Return:</strong><br>' . $company->return_proc . '<br>',
+        'guidence' => $companyOverview . '<br><strong>Arrival:</strong><br>' . $companyArrival . '<br>' .
+                     '<strong>Return:</strong><br>' . $companyReturn . '<br>',
         'username' => $request->input('firstname') . ' ' . $request->input('lastname'),
         'email' => $request->input('email'),
         'telephone' => $request->input('contactno'),
         'carpark' => 'Car Park',
-        'c_parent' => $company->name,
+        'c_parent' => $companyName,
         'ptype' => $request->input('parking_type'),
-        'airport' => $airport->name,
+        'airport' => $airportName,
         'days' => $request->input('total_days'),
         'end_date' => date('Y-m-d H:i:s', strtotime($request->input('pickdate') . ' ' . $request->input('picktime'))),
         'start_date' => date('Y-m-d H:i:s', strtotime($request->input('dropdate') . ' ' . $request->input('droptime'))),
@@ -2910,7 +2925,7 @@ class BookingController extends Controller
         'addtionalprice' => 0,
         'ref' => $referenceNo,
         'ext_ref' => $request->input('ext_ref') ?? 'N/A',
-        'company' => $company->name,
+        'company' => $companyName,
         'c_code' => $request->input('product_code')
     ];
 
@@ -2937,11 +2952,15 @@ class BookingController extends Controller
     }
 
     // Email handling - optimized
+    try {
     $email_send = new EmailController();
     $toemails = [$request->input('email'), 'bookings@totaltravelsolutions.co.uk'];
     $emailResults = [];
     
     foreach ($toemails as $email) {
+        if (empty($email)) {
+            continue;
+        }
         $emailcheck = $email_send->sendGmail('Add Booking', $email, $template_data);
         $emailResults[] = $emailcheck === '0' ? '0' : '1';
     }
@@ -2950,9 +2969,9 @@ class BookingController extends Controller
     $updateData = ['email_check' => in_array('0', $emailResults) ? '0' : '1'];
     
     // Handle company email with attachment
-    if ($company->id == 1342134633 || $company->id == 1342134653) {
+    if ($companyDbId == 1342134633 || $companyDbId == 1342134653) {
         $filePath = $this->create_csv_air($booking->id, 'Next');
-        $companyEmails = explode(',', $company->company_email);
+        $companyEmails = explode(',', $companyEmail);
         $companyEmailResults = [];
         
         foreach ($companyEmails as $email) {
@@ -2961,9 +2980,9 @@ class BookingController extends Controller
         }
         
         $updateData['comp_email_check'] = in_array('0', $companyEmailResults) ? '0' : '1';
-    } else {
+    } elseif (!empty($companyEmail)) {
         $filePath = $this->create_csv($booking->id, 'Next');
-        $cmpCheck = $email_send->sendGmailWithAttachment('Add Booking Company', $company->company_email, $template_data, $filePath);
+        $cmpCheck = $email_send->sendGmailWithAttachment('Add Booking Company', $companyEmail, $template_data, $filePath);
         $updateData['comp_email_check'] = $cmpCheck === '0' ? '0' : '1';
     }
     
@@ -2972,6 +2991,12 @@ class BookingController extends Controller
         DB::table('airports_bookings')
             ->where('referenceNo', $referenceNo)
             ->update($updateData);
+    }
+    } catch (\Throwable $e) {
+        Log::error('Booking confirmation email failed', [
+            'reference_no' => $referenceNo,
+            'error' => $e->getMessage(),
+        ]);
     }
 
     // Send SMS if needed

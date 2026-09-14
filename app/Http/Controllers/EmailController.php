@@ -29,7 +29,11 @@ class EmailController extends Controller
 
   public function __construct()
 {
-     $modules_settings = settings::where('agent_id', 1)->get();
+     $query = settings::query();
+     if (\Illuminate\Support\Facades\Schema::hasColumn('settings', 'agent_id')) {
+         $query->where('agent_id', function_exists('current_agent_id') ? current_agent_id() : 1);
+     }
+     $modules_settings = $query->get();
 
     foreach ($modules_settings as $setting) {
         $this->_setting[$setting->field_name] = $setting->field_value;
@@ -99,7 +103,9 @@ class EmailController extends Controller
     {
 
         $template = email_templates::where("title", $template_title)->first();
-        //dd($template);
+        if (!$template) {
+            return ["data" => '', "subject" => $template_title];
+        }
 
         $data = $template["description"];
 
