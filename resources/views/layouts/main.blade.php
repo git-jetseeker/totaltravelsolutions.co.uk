@@ -9,8 +9,10 @@
     <meta http-equiv="Expires" content="0" />
     <meta name="google-site-verification" content="kz0jW8P0ZXYec37awl79cMX367AGpQ_haFp6GB0l7Fc" />
     <meta name="msvalidate.01" content="058CE2BBE3EF9D932E6FA366CAC4120F" />
-    <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon-32x32q.png') }}" sizes="32x32" />
-    <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon-16x16q.png') }}" sizes="16x16" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon-32x32q.png') }}?v=20260915" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon-16x16q.png') }}?v=20260915" sizes="16x16" />
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v=20260915" />
+    <link rel="apple-touch-icon" href="{{ asset('theme/images/logo-black.png') }}?v=20260915" />
     @php
         $site_settings_main = [];
         $settingsAll = App\Models\settings::all()->where('agent_id', (string) current_agent_id());

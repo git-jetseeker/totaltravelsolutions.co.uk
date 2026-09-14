@@ -45,7 +45,7 @@
     <div class="js-navbar js-container">
         <div class="js-navbar__logo">
             <a href="{{ url('/') }}" aria-label="Total Travel Solutions Home">
-                <img src="{{ asset('theme/images/logo-black.png') }}" alt="{{ crm('global.logo_alt', 'Total Travel Solutions logo') }}" width="280" height="80">
+                <img src="{{ asset('theme/images/logo-black.png') }}?v=20260915" alt="{{ crm('global.logo_alt', 'Total Travel Solutions logo') }}" width="280" height="80">
             </a>
         </div>
 
