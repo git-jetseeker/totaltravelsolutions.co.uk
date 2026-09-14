@@ -73,7 +73,12 @@ if($setting->agent_id == (string) current_agent_id())
 $site_settings_main[$setting->field_name] = $setting->field_value;
 }
 
-$sliders = unserialize($site_settings_main['sliders']);
+$site_settings_main = normalize_site_settings($site_settings_main);
+
+$sliders = @unserialize($site_settings_main['sliders'] ?? 'a:0:{}');
+    if (!is_array($sliders)) {
+        $sliders = [];
+    }
 
 @endphp
 

@@ -6,6 +6,7 @@
             $site_settings_main[$setting->field_name] = $setting->field_value;
         }
     }
+    $site_settings_main = normalize_site_settings($site_settings_main);
 
     $navAirports = [
         ['slug' => 'heathrow-airport-parking', 'name' => 'Heathrow', 'icon' => 'fa-plane'],
@@ -29,7 +30,7 @@
 {{-- Top Bar --}}
 <div class="js-topbar">
     <div class="js-topbar__inner js-container">
-        <span class="js-topbar__tagline">Hassle Free Parking!</span>
+        <span class="js-topbar__tagline">{{ crm('global.promo_text', 'Hassle Free Parking!') }}</span>
         @if (!empty($site_settings_main['footer_phone_no']))
             @include('partials.helpline-widget', [
                 'phone' => $site_settings_main['footer_phone_no'],
@@ -44,7 +45,7 @@
     <div class="js-navbar js-container">
         <div class="js-navbar__logo">
             <a href="{{ url('/') }}" aria-label="Total Travel Solutions Home">
-                <img src="{{ asset('theme/images/logo-black.png') }}" alt="Total Travel Solutions logo" width="280" height="80">
+                <img src="{{ asset('theme/images/logo-black.png') }}" alt="{{ crm('global.logo_alt', 'Total Travel Solutions logo') }}" width="280" height="80">
             </a>
         </div>
 
@@ -56,7 +57,7 @@
 
                 <li class="js-nav__item js-nav__item--dropdown">
                     <a href="#" class="js-nav__link" aria-haspopup="true" aria-expanded="false"
-                        onclick="event.preventDefault();">Airport Parking</a>
+                        onclick="event.preventDefault();">{{ crm('global.nav_parking', 'Airport Parking') }}</a>
                     <div class="js-megamenu" role="menu">
                         <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
                             <div>
@@ -85,13 +86,13 @@
                             </div>
                         </div>
                         <div class="js-megamenu__footer">
-                            <a href="{{ route('airports') }}" class="js-btn js-btn--outline js-btn--sm">View All Airports</a>
+                            <a href="{{ route('airports') }}" class="js-btn js-btn--outline js-btn--sm">{{ crm('global.nav_view_all_airports', 'View All Airports') }}</a>
                         </div>
                     </div>
                 </li>
 
                 <li class="js-nav__item">
-                    <a href="{{ url('parking-services') }}" class="js-nav__link">Parking Services</a>
+                    <a href="{{ url('parking-services') }}" class="js-nav__link">{{ crm('global.nav_parking_services', 'Parking Services') }}</a>
                 </li>
                 <li class="js-nav__item">
                     <a href="{{ url('about-us') }}" class="js-nav__link">{{ crm('global.nav_about', 'About Us') }}</a>
@@ -129,16 +130,16 @@
             <li>
                 <button type="button" class="js-mobile-nav__accordion-btn" aria-expanded="false"
                     aria-controls="mobile-airports-menu">
-                    Airport Parking <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    {{ crm('global.nav_parking', 'Airport Parking') }} <i class="fa fa-chevron-down" aria-hidden="true"></i>
                 </button>
                 <div class="js-mobile-nav__submenu" id="mobile-airports-menu">
                     @foreach ($navAirports as $airport)
                         <a href="{{ route('page', ['slug' => $airport['slug']]) }}">{{ $airport['name'] }} Airport Parking</a>
                     @endforeach
-                    <a href="{{ route('airports') }}">View All Airports</a>
+                    <a href="{{ route('airports') }}">{{ crm('global.nav_view_all_airports', 'View All Airports') }}</a>
                 </div>
             </li>
-            <li><a href="{{ url('parking-services') }}" class="js-mobile-nav__link">Parking Services</a></li>
+            <li><a href="{{ url('parking-services') }}" class="js-mobile-nav__link">{{ crm('global.nav_parking_services', 'Parking Services') }}</a></li>
             <li><a href="{{ url('about-us') }}" class="js-mobile-nav__link">{{ crm('global.nav_about', 'About Us') }}</a></li>
             <li><a href="{{ route('faqs') }}" class="js-mobile-nav__link">{{ crm('global.nav_faqs', 'FAQs') }}</a></li>
             <li><a href="{{ route('support') }}" class="js-mobile-nav__link">{{ crm('global.nav_support', 'Customer Support') }}</a></li>

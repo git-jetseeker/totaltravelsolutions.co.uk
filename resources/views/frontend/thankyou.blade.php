@@ -381,6 +381,8 @@ $update = ref_tracking::create($refData);
             $site_settings_main[$setting->field_name] = $setting->field_value;
         }
     }
+        $site_settings_main = normalize_site_settings($site_settings_main);
+
 @endphp
 
 @if (isset($site_settings_main['site_confirm_page_analytics']))

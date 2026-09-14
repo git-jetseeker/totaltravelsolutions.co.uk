@@ -1,3 +1,4 @@
+@php $meta = function_exists('crm_page_meta') ? crm_page_meta('contact-us') : null; @endphp
 @include('layouts.header')
 @include('layouts.nav')
 
@@ -153,7 +154,7 @@ select.form-control:not([size]):not([multiple]) {
             
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <h2 class="h2tag"><span style="color:#F79F02">We are here</span>  to help </h2>
+                    <h2 class="h2tag">{{ crm('contact-us.hero_title', 'We are here to help') }}</h2>
                 </div>
                 
                 <div class="container">

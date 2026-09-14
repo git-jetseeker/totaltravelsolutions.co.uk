@@ -1,3 +1,4 @@
+@php $meta = function_exists('crm_page_meta') ? crm_page_meta('airport-parking-types') : null; @endphp
 @section("title",$page->meta_title)
 @section("meta_keyword",$page->meta_keyword )
 @section("meta_description",$page->meta_description)

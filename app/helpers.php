@@ -134,3 +134,78 @@ if (! function_exists('apply_crm_meta')) {
         return $page;
     }
 }
+
+if (! function_exists('normalize_site_settings')) {
+    /**
+     * Ensure common settings keys exist so PHP 8+ does not throw on missing array keys.
+     */
+    function normalize_site_settings(array $settings = []): array
+    {
+        $defaults = [
+            'site_title' => '',
+            'meta_description' => '',
+            'meta_keyword' => '',
+            'site_twitter_title' => '',
+            'site_og_title' => '',
+            'site_og_type' => 'website',
+            'site_og_image' => '',
+            'site_og_url' => '',
+            'site_author' => '',
+            'site_schema' => '',
+            'site_header_analytics' => '',
+            'site_body_analytics' => '',
+            'site_confirm_page_analytics' => '',
+            'footer_phone_no' => '',
+            'footer_email' => '',
+            'footer_catch_line' => '',
+            'footer_copyright' => '',
+            'footer_company_reg_no' => '',
+            'footer_address' => '',
+            'facebook' => '',
+            'facebook_status' => '',
+            'twitter' => '',
+            'twitter_status' => '',
+            'instagram' => '',
+            'instagram_status' => '',
+            'youtube' => '',
+            'youtube_status' => '',
+            'linkedin' => '',
+            'linkedin_status' => '',
+            'pinterest' => '',
+            'pinterest_status' => '',
+            'google_plus' => '',
+            'google_plus_status' => '',
+            'sliders' => 'a:0:{}',
+            'booking_fee' => '0',
+            'homepage_tagline' => '',
+            'homepage_tagline_heading' => '',
+            'homepage_joinus_heading' => '',
+            'homepage_joinus_subheading' => '',
+            'homepage_joinus_text' => '',
+            'services_page_parking_heading' => '',
+            'services_page_parking_descp' => '',
+            'services_page_parking_sec1_heading' => '',
+            'services_page_parking_sec1_descp' => '',
+            'services_page_parking_sec1_meetandgreet' => '',
+            'services_page_parking_sec1_parkandride' => '',
+            'services_page_parking_sec1_onairport' => '',
+            'services_page_parking_sec2_heading' => '',
+            'services_page_parking_sec2_descp' => '',
+            'services_page_parking_sec2_step1' => '',
+            'services_page_parking_sec2_step2' => '',
+            'services_page_parking_sec2_step3' => '',
+            'services_page_lounges_heading' => '',
+            'services_page_lounges_descp' => '',
+            'services_page_lounges_sec1_heading' => '',
+            'services_page_lounges_sec1_descp' => '',
+            'services_page_lounges_sec1_grid1' => '',
+            'services_page_lounges_sec1_grid2' => '',
+            'services_page_lounges_sec1_grid3' => '',
+            'services_page_lounges_sec1_grid4' => '',
+            'services_page_lounges_sec2_heading' => '',
+            'services_page_lounges_sec2_descp' => '',
+        ];
+
+        return array_merge($defaults, $settings);
+    }
+}

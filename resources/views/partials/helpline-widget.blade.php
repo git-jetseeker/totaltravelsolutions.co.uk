@@ -6,8 +6,8 @@
             <i class="fa fa-phone"></i>
         </span>
         <span class="js-helpline-widget__text">
-            <span class="js-helpline-widget__label">Helpline</span>
-            <span class="js-helpline-widget__hours">Mon–Fri · 9AM–5PM</span>
+            <span class="js-helpline-widget__label">{{ crm('global.help_title', 'Helpline') }}</span>
+            <span class="js-helpline-widget__hours">{{ crm('global.help_hours', 'Mon–Fri · 9AM–5PM') }}</span>
             <span class="js-helpline-widget__number">{{ $phone }}</span>
         </span>
     </a>

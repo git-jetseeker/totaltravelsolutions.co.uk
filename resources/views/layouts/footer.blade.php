@@ -9,6 +9,7 @@
             $site_settings_main[$setting->field_name] = $setting->field_value;
         }
     }
+    $site_settings_main = normalize_site_settings($site_settings_main);
 
 @endphp
 
@@ -56,7 +57,7 @@
 
             {{-- Column 2: Quick Links --}}
             <div>
-                <h3 class="js-footer__title">Quick Links</h3>
+                <h3 class="js-footer__title">{{ crm('global.footer_heading_useful', 'Quick Links') }}</h3>
                 <ul class="js-footer__links">
                     <li><a href="{{ route('main') }}">Home</a></li>
                     <li><a href="{{ route('about-us') }}">About Us</a></li>
@@ -69,7 +70,7 @@
 
             {{-- Column 3: Airport Parking --}}
             <div>
-                <h3 class="js-footer__title">Airport Parking</h3>
+                <h3 class="js-footer__title">{{ crm('global.footer_heading_parking', 'Airport Parking') }}</h3>
                 <ul class="js-footer__links">
                     <li><a href="{{ route('page', ['slug' => 'heathrow-airport-parking']) }}">Heathrow Airport Parking</a></li>
                     <li><a href="{{ route('page', ['slug' => 'gatwick-airport-parking']) }}">Gatwick Airport Parking</a></li>
@@ -82,7 +83,7 @@
 
             {{-- Column 4: Support & Legal --}}
             <div>
-                <h3 class="js-footer__title">Support & Legal</h3>
+                <h3 class="js-footer__title">{{ crm('global.footer_heading_other', 'Support & Legal') }}</h3>
                 <ul class="js-footer__links">
                     <li><a href="{{ route('support') }}">Customer Support</a></li>
                     <li><a href="{{ route('static_page', ['page' => 'terms-and-conditions']) }}">Terms & Conditions</a></li>

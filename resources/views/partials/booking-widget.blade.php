@@ -34,21 +34,21 @@
         <div class="js-product-tabs" role="tablist" aria-label="Search parking, lounges, hotels or car hire">
             <button type="button" class="js-product-tab is-active" role="tab" id="js-tab-btn-parking" aria-controls="js-panel-parking" aria-selected="true" data-product="parking">
                 <i class="fa fa-car" aria-hidden="true"></i>
-                <span>Parking</span>
+                <span>{{ crm('home.tab_parking', 'Parking') }}</span>
             </button>
             <button type="button" class="js-product-tab" role="tab" id="js-tab-btn-lounges" aria-controls="js-panel-lounges" aria-selected="false" data-product="lounges">
                 <i class="fa fa-coffee" aria-hidden="true"></i>
-                <span>Lounges</span>
+                <span>{{ crm('home.tab_lounges', 'Lounges') }}</span>
                 <span class="js-soon-badge">Coming Soon</span>
             </button>
             <button type="button" class="js-product-tab" role="tab" id="js-tab-btn-hotels" aria-controls="js-panel-hotels" aria-selected="false" data-product="hotels">
                 <i class="fa fa-bed" aria-hidden="true"></i>
-                <span>Hotels</span>
+                <span>{{ crm('home.tab_hotels', 'Hotels') }}</span>
                 <span class="js-soon-badge">Coming Soon</span>
             </button>
             <button type="button" class="js-product-tab" role="tab" id="js-tab-btn-carhire" aria-controls="js-panel-carhire" aria-selected="false" data-product="carhire">
                 <i class="fa fa-cab" aria-hidden="true"></i>
-                <span>Car Hire</span>
+                <span>{{ crm('home.tab_carhire', 'Car Hire') }}</span>
                 <span class="js-soon-badge">Coming Soon</span>
             </button>
         </div>
@@ -56,7 +56,7 @@
         <div class="js-booking-widget-body">
             {{-- Parking --}}
             <div class="js-product-panel is-active" id="js-panel-parking" role="tabpanel" aria-labelledby="js-tab-btn-parking" data-panel="parking">
-                <p class="js-panel-hint">Compare meet &amp; greet, park &amp; ride and on-site parking.</p>
+                <p class="js-panel-hint">{{ crm('home.panel_hint_parking', 'Compare meet & greet, park & ride and on-site parking.') }}</p>
                 <form method="get" action="{{ route('searchresult') }}" id="search_form_1" class="js-booking-form">
                     @if (!empty($searchEmail))
                         <input type="hidden" name="email" value="{{ $searchEmail }}">

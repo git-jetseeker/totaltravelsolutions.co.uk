@@ -1,3 +1,4 @@
+@php $meta = function_exists('crm_page_meta') ? crm_page_meta('support') : null; @endphp
 @section('title', $page->meta_title)
 @section('meta_keyword', $page->meta_keyword)
 @section('meta_description', $page->meta_description)
@@ -12,15 +13,17 @@
     foreach ($settingsAll as $setting) {
         $site_settings_main[$setting->field_name] = $setting->field_value;
     }
+    $site_settings_main = normalize_site_settings($site_settings_main);
+
     $supportEmail = $site_settings_main['footer_email'] ?? 'support@totaltravelsolutions.co.uk';
     $supportPhone = $site_settings_main['footer_phone_no'] ?? '';
 @endphp
 
 <section class="js-page-hero js-page-hero--enhanced js-page-hero--support">
     <div class="js-container">
-        <span class="js-page-hero__eyebrow">Need help?</span>
-        <h1 class="js-page-hero__title">Customer Support</h1>
-        <p class="js-page-hero__subtitle">Create a support ticket or search an existing one. Our team is here to help.</p>
+        <span class="js-page-hero__eyebrow">{{ crm('support.hero_eyebrow', 'Need help?') }}</span>
+        <h1 class="js-page-hero__title">{{ crm('support.hero_title', 'Customer Support') }}</h1>
+        <p class="js-page-hero__subtitle">{{ crm('support.hero_lead', 'Create a support ticket or search an existing one. Our team is here to help.') }}</p>
         <p class="js-page-hero__lead">If you prefer not to create a ticket, email <a href="mailto:{{ $supportEmail }}" style="color:#F9A8D4;text-decoration:underline;">{{ $supportEmail }}</a>@if($supportPhone) or call <a href="tel:{{ $supportPhone }}" style="color:#F9A8D4;text-decoration:underline;">{{ $supportPhone }}</a>@endif.</p>
     </div>
 </section>

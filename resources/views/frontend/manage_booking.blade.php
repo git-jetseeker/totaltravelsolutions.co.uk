@@ -1,3 +1,4 @@
+@php $meta = function_exists('crm_page_meta') ? crm_page_meta('manage-booking') : null; @endphp
 @include('layouts.header')
 @include('layouts.nav')
 <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-manage-booking.css?v=20250931') }}">
