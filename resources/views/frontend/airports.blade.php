@@ -47,8 +47,17 @@
                 <div class="pz-airport-item {{ $index < 9 ? 'show' : '' }}">
                     <article class="pz-airport-card">
                         <div class="pz-airport-card__img">
-                            <img src="{{ url('https://www.dashboard.ttssgroup.com/storage/' . str_replace('public/', '', $airport->profile_image)) }}"
-                                alt="{{ $airport->name }}" loading="lazy">
+                            @php
+                                $airportImage = ttss_dashboard_asset_url($airport->profile_image);
+                                $airportImageFile = basename(str_replace('\\', '/', (string) $airport->profile_image));
+                                $localAirportImage = public_path('assets/images/airports/' . $airportImageFile);
+                                if ($airportImageFile !== '' && is_file($localAirportImage)) {
+                                    $airportImage = asset('assets/images/airports/' . $airportImageFile);
+                                }
+                            @endphp
+                            <img src="{{ $airportImage }}"
+                                alt="{{ $airport->name }}" loading="lazy"
+                                onerror="this.onerror=null;this.src='{{ asset('theme/images/logo-black.png') }}';">
                             <span class="pz-airport-card__badge">{{ $airport->name }}</span>
                         </div>
                         <div class="pz-airport-card__body">

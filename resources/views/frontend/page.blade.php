@@ -374,8 +374,9 @@
                     $i++;
                     @endphp
                         <a class="js-airport-others__card" href="{{ route('page', ['slug' => $otherSlug]) }}">
-                            <img src="{{ url('https://dashboard.ttssgroup.com/storage/' . str_replace('public/', '', $airport->profile_image)) }}"
-                                 alt="{{ $airport->name }} airport" loading="lazy">
+                            <img src="{{ ttss_dashboard_asset_url($airport->profile_image) }}"
+                                alt="{{ $airport->name }} airport" loading="lazy"
+                                onerror="this.onerror=null;this.src='{{ asset('theme/images/logo-black.png') }}';">
                             <strong>{{ $airport->name }} Airport</strong>
                         </a>
                         @if($i > 7) @break @endif

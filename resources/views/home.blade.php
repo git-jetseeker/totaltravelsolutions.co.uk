@@ -1860,7 +1860,8 @@
 
                                         height="200" width="340"
 
-                                        src='{{ url('https://www.dashboard.ttssgroup.com/storage/' . str_replace('public/','',$airport->profile_image)) }}'>
+                                        src='{{ ttss_dashboard_asset_url($airport->profile_image) }}'
+                                        onerror="this.onerror=null;this.src='{{ asset('theme/images/logo-black.png') }}';">
 
 
 

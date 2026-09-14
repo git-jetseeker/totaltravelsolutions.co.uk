@@ -12,10 +12,10 @@
     <meta name="msvalidate.01" content="058CE2BBE3EF9D932E6FA366CAC4120F" />
     <!-- <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> -->
     <!--<meta name="facebook-domain-verification" content="ijicroog46un4zpog2phqh297tt92n" />-->
-    <link rel="icon" type="image/png" defer href="{{ asset('assets/images/favicon-32x32q.png') }}?v=20260915" sizes="32x32" />
-    <link rel="icon" type="image/png" defer href="{{ asset('assets/images/favicon-16x16q.png') }}?v=20260915" sizes="16x16" />
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v=20260915" />
-    <link rel="apple-touch-icon" href="{{ asset('theme/images/logo-black.png') }}?v=20260915" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon-32x32q.png') }}?v=20260915b" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon-16x16q.png') }}?v=20260915b" sizes="16x16">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v=20260915b">
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/favicon-32x32q.png') }}?v=20260915b">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="{{asset('theme/styles/font-awesome.min.css')}}"> -->
     <!-- <link rel="stylesheet" href="{{asset('theme/styles/all.css')}}"> -->

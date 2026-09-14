@@ -211,12 +211,12 @@ if (! function_exists('normalize_site_settings')) {
     }
 }
 
-if (!function_exists('ttss_company_logo_url')) {
+if (!function_exists('ttss_dashboard_asset_url')) {
     /**
-     * Magr company logos live at /storage/app/companies on dashboard.ttssgroup.com.
-     * DB values are usually companies/x.jpg or public/companies/x.jpg.
+     * Magr uploads are served from /storage/app/... on dashboard.ttssgroup.com.
+     * DB values are usually public/pagebanners/x, companies/x, or bare filenames.
      */
-    function ttss_company_logo_url($path, $default = '')
+    function ttss_dashboard_asset_url($path, $default = '')
     {
         $base = 'https://www.dashboard.ttssgroup.com/';
         $path = trim((string) $path);
@@ -242,23 +242,33 @@ if (!function_exists('ttss_company_logo_url')) {
             return $base . $path;
         }
 
-        if (str_starts_with($path, 'storage/companies/')) {
-            return $base . 'storage/app/' . substr($path, strlen('storage/'));
+        // Legacy JetSeeker-style /storage/pagebanners → Magr /storage/app/pagebanners
+        if (str_starts_with($path, 'storage/')) {
+            $rest = substr($path, strlen('storage/'));
+            if (str_starts_with($rest, 'app/')) {
+                return $base . $path;
+            }
+
+            return $base . 'storage/app/' . $rest;
         }
 
-        if (str_starts_with($path, 'companies/')) {
+        if (str_starts_with($path, 'companies/') || str_starts_with($path, 'pagebanners/')) {
             return $base . 'storage/app/' . $path;
         }
 
-        if (str_starts_with($path, 'storage/')) {
-            return $base . $path;
-        }
-
-        if (!str_contains($path, '/')) {
+        // Bare filenames historically lived at Magr public root / theme assets.
+        if (! str_contains($path, '/')) {
             return $base . $path;
         }
 
         return $base . 'storage/app/' . $path;
+    }
+}
+
+if (!function_exists('ttss_company_logo_url')) {
+    function ttss_company_logo_url($path, $default = '')
+    {
+        return ttss_dashboard_asset_url($path, $default);
     }
 }
 
