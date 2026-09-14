@@ -130,6 +130,30 @@ class HomeController extends Controller
 
         }
 
+        // Jetseeker Magr parity: booking views use $_setting, but fees live in Magr `settings`.
+        foreach ($this->_settings as $field => $value) {
+            $this->_setting[$field] = $value;
+        }
+
+        $magrFeeDefaults = [
+            'booking_fee' => '1.99',
+            'booking_fee_status' => 'Active',
+            'cancellation_fee' => '1.25',
+            'cancellation_fee_status' => 'Active',
+            'sms_notification_fee' => '1.99',
+            'sms_fee_status' => 'Active',
+            'postal_notification_fee' => '1.99',
+            'postal_status' => 'Active',
+        ];
+        foreach ($magrFeeDefaults as $field => $value) {
+            if (! isset($this->_setting[$field]) || $this->_setting[$field] === '' || $this->_setting[$field] === null) {
+                $this->_setting[$field] = $value;
+            }
+            if (! isset($this->_settings[$field]) || $this->_settings[$field] === '' || $this->_settings[$field] === null) {
+                $this->_settings[$field] = $value;
+            }
+        }
+
     }
 
 

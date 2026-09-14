@@ -118,13 +118,13 @@
 
         <div class="apb-sidebar-extras">
             <label class="select-label text-white">
-                <input class="feeinput" type="checkbox" id="smsfee" name="smsfee" value="{{ $settings['sms_notification_fee'] }}">
-                Add SMS confirmation at only &pound;{{ $settings['sms_notification_fee'] }}
+                <input class="feeinput" type="checkbox" id="smsfee" name="smsfee" value="{{ $settings['sms_notification_fee'] ?? '1.99' }}">
+                Add SMS confirmation at only &pound;{{ $settings['sms_notification_fee'] ?? '1.99' }}
                 <span class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="Why not have your booking details sent direct to your mobile, for a quick and easy check in."></span>
             </label>
             <label class="select-label text-white">
-                <input class="feeinput" type="checkbox" id="cancelfee" name="cancelfee" value="{{ $settings['cancellation_fee'] }}">
-                Add Cancellation Cover at only &pound;{{ $settings['cancellation_fee'] }}
+                <input class="feeinput" type="checkbox" id="cancelfee" name="cancelfee" value="{{ $settings['cancellation_fee'] ?? '1.25' }}">
+                Add Cancellation Cover at only &pound;{{ $settings['cancellation_fee'] ?? '1.25' }}
                 <span class="cls-pointer fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="Our cancellation cover protects you if you do need to cancel or amend your booking."></span>
             </label>
         </div>
