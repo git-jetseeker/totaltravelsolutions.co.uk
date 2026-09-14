@@ -359,6 +359,10 @@ class discounts extends Model
 
         if ($promoCode != '') {
 
+            if (! \Illuminate\Support\Facades\Schema::hasColumn('discounts', 'promo')) {
+                return 'Invalid';
+            }
+
 //            $promoDetails = $db->get_row("SELECT * FROM " . $db->prefix . "discount
 
 //                            WHERE promo = '".$promoCode."' AND status = 'Yes'
