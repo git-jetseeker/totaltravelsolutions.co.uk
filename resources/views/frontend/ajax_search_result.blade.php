@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Log;
 
                 $booking_fee = DB::table('settings')->where('field_name', 'booking_fee')->first();
 
-                $booking_fee = $booking_fee->field_value;
+                $booking_fee = $booking_fee->field_value ?? '1.99';
 
             @endphp
 
