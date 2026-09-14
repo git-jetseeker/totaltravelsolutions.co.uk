@@ -29,7 +29,7 @@
             } elseif ($parkApi === 'Opitech') {
                 $summaryLogoUrl = $logoPath;
             } else {
-                $summaryLogoUrl = 'https://www.dashboard.ttssgroup.com/' . str_replace('public/', 'storage/', $logoPath);
+                $summaryLogoUrl = ttss_company_logo_url($logoPath);
             }
         }
     } elseif ($logoPath === '') {

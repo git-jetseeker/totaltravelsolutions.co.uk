@@ -210,3 +210,55 @@ if (! function_exists('normalize_site_settings')) {
         return array_merge($defaults, $settings);
     }
 }
+
+if (!function_exists('ttss_company_logo_url')) {
+    /**
+     * Magr company logos live at /storage/app/companies on dashboard.ttssgroup.com.
+     * DB values are usually companies/x.jpg or public/companies/x.jpg.
+     */
+    function ttss_company_logo_url($path, $default = '')
+    {
+        $base = 'https://www.dashboard.ttssgroup.com/';
+        $path = trim((string) $path);
+        if ($path === '') {
+            return $default;
+        }
+
+        $path = preg_replace('#^(https?:)+#i', 'https:', $path) ?: $path;
+        if (stripos($path, 'https://') === 0 || stripos($path, 'http://') === 0) {
+            return preg_replace('#^https://https://#i', 'https://', $path);
+        }
+        if (str_starts_with($path, '//')) {
+            return 'https:' . $path;
+        }
+
+        $path = ltrim(str_replace('\\', '/', $path), '/');
+
+        if (str_starts_with($path, 'public/')) {
+            $path = substr($path, strlen('public/'));
+        }
+
+        if (str_starts_with($path, 'storage/app/')) {
+            return $base . $path;
+        }
+
+        if (str_starts_with($path, 'storage/companies/')) {
+            return $base . 'storage/app/' . substr($path, strlen('storage/'));
+        }
+
+        if (str_starts_with($path, 'companies/')) {
+            return $base . 'storage/app/' . $path;
+        }
+
+        if (str_starts_with($path, 'storage/')) {
+            return $base . $path;
+        }
+
+        if (!str_contains($path, '/')) {
+            return $base . $path;
+        }
+
+        return $base . 'storage/app/' . $path;
+    }
+}
+
