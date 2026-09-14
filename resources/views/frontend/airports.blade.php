@@ -7,6 +7,8 @@
 @include('layouts.nav')
 @include('layouts.search_form')
 
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/tts-airports.css') }}?v=20260915fix2">
+
 <section class="pz-page-content">
     <div class="pz-page-wrap pz-page-wrap--wide">
         <div class="pz-airports-intro">
@@ -71,16 +73,16 @@
                             </div>
                             <div class="pz-airport-card__features">
                                 <span class="pz-airport-card__feature" title="24/7 CCTV">
-                                    <img src="{{ asset('theme/images/CCTV.png') }}" alt="CCTV">
+                                    <img src="{{ asset('theme/images/CCTV.png') }}" alt="CCTV" width="40" height="40">
                                 </span>
                                 <span class="pz-airport-card__feature" title="Disability Access">
-                                    <img src="{{ asset('theme/images/disability.png') }}" alt="Disability">
+                                    <img src="{{ asset('theme/images/disability.png') }}" alt="Disability" width="40" height="40">
                                 </span>
                                 <span class="pz-airport-card__feature" title="Security Barriers">
-                                    <img src="{{ asset('theme/images/barrier.png') }}" alt="Barrier">
+                                    <img src="{{ asset('theme/images/barrier.png') }}" alt="Barrier" width="40" height="40">
                                 </span>
                                 <span class="pz-airport-card__feature" title="24 Hour Service">
-                                    <img src="{{ asset('theme/images/24_hours.png') }}" alt="24 Hours">
+                                    <img src="{{ asset('theme/images/24_hours.png') }}" alt="24 Hours" width="40" height="40">
                                 </span>
                             </div>
                             <div class="pz-airport-card__footer">
