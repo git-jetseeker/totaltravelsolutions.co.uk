@@ -1,3 +1,7 @@
+@php $homeMeta = function_exists('crm_page_meta') ? crm_page_meta('home') : null; @endphp
+@section('title', ($homeMeta->meta_title ?? null) ?: 'Total Travel Solutions | Compare UK Airport Parking')
+@section('meta_keyword', ($homeMeta->meta_keyword ?? null) ?: 'airport parking')
+@section('meta_description', ($homeMeta->meta_description ?? null) ?: 'Compare and book airport parking with Total Travel Solutions.')
 @include('layouts.header')
 
 <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-home.css?v=20260907noblue2') }}">
@@ -1501,7 +1505,7 @@
 
     foreach ($settingsAll as $setting) {
 
-        if ($setting->agent_id == '1') {
+        if ($setting->agent_id == (string) current_agent_id()) {
 
             $site_settings_main[$setting->field_name] = $setting->field_value;
 
@@ -1539,8 +1543,8 @@
     <div class="container">
         <div class="js-section-head js-reveal">
             <span class="js-section-head__badge js-section-head__badge--light">Simple process</span>
-            <h2 class="js-section-title">How Total Travel Solutions <span class="orangeClr">Works</span></h2>
-            <p class="js-section-subtitle">Book your airport parking in four simple steps</p>
+            <h2 class="js-section-title">{{ crm('home.steps_title', 'How Total Travel Solutions Works') }}</h2>
+            <p class="js-section-subtitle">{{ crm('home.steps_lead', 'Book your airport parking in four simple steps') }}</p>
         </div>
 
         <ol class="js-works-path">
@@ -1597,7 +1601,7 @@
     <div class="container">
         <div class="js-section-head js-reveal">
             <span class="js-section-head__badge">Why choose us</span>
-            <h2 class="js-section-title">Why Book With <span class="orangeClr">Total Travel Solutions?</span></h2>
+            <h2 class="js-section-title">{{ crm('home.why_title', 'Why Book With Total Travel Solutions?') }}</h2>
             <p class="js-section-subtitle">We offer trusted <a class="linked" href="{{ url('airports') }}">airport parking</a> solutions, guaranteed value and a nation-wide coverage. <strong>Pre-book</strong> now to enjoy great <strong>car park deals!</strong></p>
         </div>
 
@@ -1658,7 +1662,7 @@
     <div class="container">
         <div class="js-section-head js-reveal">
             <span class="js-section-head__badge js-section-head__badge--light">Parking types</span>
-            <h2 class="js-section-title">Parking Options to Suit <span class="orangeClr">Every Traveller</span></h2>
+            <h2 class="js-section-title">{{ crm('home.options_title', 'Parking Options to Suit Every Traveller') }}</h2>
             <p class="js-section-subtitle">We cover <a class="linked" href="{{ url('airport-parking') }}">Top UK Airports</a> including Heathrow, Gatwick, Manchester, Stansted, Birmingham, Luton, Edinburgh, and more.</p>
         </div>
 
@@ -1776,7 +1780,7 @@
 
         <div class="js-section-head js-reveal">
             <span class="js-section-head__badge js-section-head__badge--light">Nationwide coverage</span>
-            <h2 class="js-section-title">We Are Operating at the <span class="orangeClr">Following Airports</span></h2>
+            <h2 class="js-section-title">{{ crm('home.airports_section_title', 'We Are Operating at the Following Airports') }}</h2>
             <p class="js-section-subtitle">Compare and book airport parking at all major UK airports</p>
         </div>
 
@@ -1984,7 +1988,7 @@
 
         <div class="js-section-head js-reveal">
             <span class="js-section-head__badge js-section-head__badge--light">Trusted reviews</span>
-            <h2 class="js-section-title cap-text">What Do Our <span class="orangeClr">Customers Say</span></h2>
+            <h2 class="js-section-title cap-text">{{ crm('home.testimonials_title', 'What Do Our Customers Say') }}</h2>
             <p class="js-section-subtitle">Trusted travel park for thousands of customer reviews</p>
         </div>
     </div>

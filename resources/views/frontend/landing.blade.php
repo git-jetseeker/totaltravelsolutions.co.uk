@@ -12,7 +12,7 @@
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 	    @php
             $site_settings_main=[];
-            $settingsAll = App\Models\settings::all()->where("agent_id","1");
+            $settingsAll = App\Models\settings::all()->where("agent_id", (string) current_agent_id());
             foreach ($settingsAll as $setting) {
                 $site_settings_main[$setting->field_name] = $setting->field_value;
             }
@@ -26,7 +26,7 @@
             $site_settings_main=[];
             $settingsAll = App\Models\settings::all();
             foreach ($settingsAll as $setting) {
-             if($setting->agent_id == '1')
+             if($setting->agent_id == (string) current_agent_id())
                {
                 $site_settings_main[$setting->field_name] = $setting->field_value;
                 }
@@ -36,7 +36,7 @@
                 $site_settings_main = [];
                 $settingsAll = App\Models\settings::all();
                 foreach ($settingsAll as $setting) {
-                    if ($setting->agent_id == '1') {
+                    if ($setting->agent_id == (string) current_agent_id()) {
                         $site_settings_main[$setting->field_name] = $setting->field_value;
                     }
                 }

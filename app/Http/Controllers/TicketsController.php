@@ -324,7 +324,7 @@ class TicketsController extends Controller
 
         $ticket->status = 'open';
 
-        $ticket->agent_id = '9';
+        $ticket->agent_id = (string) current_agent_id();
 
         $ticket->save();
 

@@ -2,7 +2,7 @@
     $site_settings_main = [];
     $settingsAll = App\Models\settings::all();
     foreach ($settingsAll as $setting) {
-        if ($setting->agent_id == '9') {
+        if ($setting->agent_id == (string) current_agent_id()) {
             $site_settings_main[$setting->field_name] = $setting->field_value;
         }
     }
@@ -51,7 +51,7 @@
         <nav class="js-nav__desktop" aria-label="Main navigation">
             <ul class="js-nav">
                 <li class="js-nav__item">
-                    <a href="{{ route('main') }}" class="js-nav__link">Home</a>
+                    <a href="{{ route('main') }}" class="js-nav__link">{{ crm('global.nav_home', 'Home') }}</a>
                 </li>
 
                 <li class="js-nav__item js-nav__item--dropdown">
@@ -94,16 +94,16 @@
                     <a href="{{ url('parking-services') }}" class="js-nav__link">Parking Services</a>
                 </li>
                 <li class="js-nav__item">
-                    <a href="{{ url('about-us') }}" class="js-nav__link">About Us</a>
+                    <a href="{{ url('about-us') }}" class="js-nav__link">{{ crm('global.nav_about', 'About Us') }}</a>
                 </li>
                 <li class="js-nav__item">
-                    <a href="{{ route('faqs') }}" class="js-nav__link">FAQs</a>
+                    <a href="{{ route('faqs') }}" class="js-nav__link">{{ crm('global.nav_faqs', 'FAQs') }}</a>
                 </li>
                 <li class="js-nav__item">
-                    <a href="{{ route('support') }}" class="js-nav__link">Customer Support</a>
+                    <a href="{{ route('support') }}" class="js-nav__link">{{ crm('global.nav_support', 'Customer Support') }}</a>
                 </li>
                 <li class="js-nav__item js-nav__cta">
-                    <a href="{{ url('manage-booking') }}" class="js-btn js-btn--primary js-btn--sm">Manage Booking</a>
+                    <a href="{{ url('manage-booking') }}" class="js-btn js-btn--primary js-btn--sm">{{ crm('global.nav_manage', 'Manage Booking') }}</a>
                 </li>
             </ul>
         </nav>
@@ -125,7 +125,7 @@
     {{-- Mobile / tablet inline navigation (APB-style collapse below header) --}}
     <nav class="js-mobile-nav-inline" id="js-mobile-nav-panel" aria-hidden="true" aria-label="Mobile navigation">
         <ul class="js-mobile-nav__list">
-            <li><a href="{{ route('main') }}" class="js-mobile-nav__link">Home</a></li>
+            <li><a href="{{ route('main') }}" class="js-mobile-nav__link">{{ crm('global.nav_home', 'Home') }}</a></li>
             <li>
                 <button type="button" class="js-mobile-nav__accordion-btn" aria-expanded="false"
                     aria-controls="mobile-airports-menu">
@@ -139,12 +139,12 @@
                 </div>
             </li>
             <li><a href="{{ url('parking-services') }}" class="js-mobile-nav__link">Parking Services</a></li>
-            <li><a href="{{ url('about-us') }}" class="js-mobile-nav__link">About Us</a></li>
-            <li><a href="{{ route('faqs') }}" class="js-mobile-nav__link">FAQs</a></li>
-            <li><a href="{{ route('support') }}" class="js-mobile-nav__link">Customer Support</a></li>
+            <li><a href="{{ url('about-us') }}" class="js-mobile-nav__link">{{ crm('global.nav_about', 'About Us') }}</a></li>
+            <li><a href="{{ route('faqs') }}" class="js-mobile-nav__link">{{ crm('global.nav_faqs', 'FAQs') }}</a></li>
+            <li><a href="{{ route('support') }}" class="js-mobile-nav__link">{{ crm('global.nav_support', 'Customer Support') }}</a></li>
         </ul>
         <div class="js-mobile-nav__cta">
-            <a href="{{ url('manage-booking') }}" class="js-btn js-btn--primary js-btn--block">Manage Booking</a>
+            <a href="{{ url('manage-booking') }}" class="js-btn js-btn--primary js-btn--block">{{ crm('global.nav_manage', 'Manage Booking') }}</a>
         </div>
     </nav>
 </header>

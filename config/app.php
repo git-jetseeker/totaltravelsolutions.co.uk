@@ -18,6 +18,9 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'agent_id' => env('APP_AGENT_ID', 9),
+    'default_agent_id' => env('APP_DEFAULT_AGENT_ID', 9),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

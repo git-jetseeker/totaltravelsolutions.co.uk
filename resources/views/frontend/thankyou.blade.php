@@ -375,9 +375,9 @@ $update = ref_tracking::create($refData);
 
 @php
     $site_settings_main = [];
-    $settingsAll = App\Models\settings::all()->where('agent_id', '9');
+    $settingsAll = App\Models\settings::all()->where('agent_id', (string) current_agent_id());
     foreach ($settingsAll as $setting) {
-        if ($setting->agent_id == '9') {
+        if ($setting->agent_id == (string) current_agent_id()) {
             $site_settings_main[$setting->field_name] = $setting->field_value;
         }
     }

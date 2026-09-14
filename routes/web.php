@@ -47,6 +47,41 @@ Route::get('/cache', function () {
     echo "cache cleared";
 });
 
+/**
+ * Dashboard CRM cache bust.
+ * Auth: X-Crm-Cache-Token header or token query/body vs CRM_CACHE_BUST_TOKEN.
+ */
+Route::match(['get', 'post'], '/internal/crm-cache-forget', function (\Illuminate\Http\Request $request) {
+    $expected = (string) config('crm.cache_bust_token', '');
+    $provided = (string) ($request->header('X-Crm-Cache-Token')
+        ?: $request->input('token', $request->query('token', '')));
+
+    if ($expected !== '' && ! hash_equals($expected, $provided)) {
+        abort(403, 'Invalid cache bust token');
+    }
+
+    $slug = trim((string) $request->input('slug', $request->query('slug', '')));
+    $agentId = (int) $request->input(
+        'agent_id',
+        $request->query('agent_id', function_exists('current_agent_id') ? current_agent_id() : config('crm.default_agent_id', 9))
+    );
+
+    if ($slug !== '' && class_exists(\App\Services\CrmContentService::class)) {
+        app(\App\Services\CrmContentService::class)->forgetPage($slug, $agentId);
+    } else {
+        Artisan::call('cache:clear');
+    }
+
+    Artisan::call('optimize:clear');
+
+    return response()->json([
+        'ok' => true,
+        'slug' => $slug,
+        'agent_id' => $agentId,
+    ]);
+});
+
+
 // ********************************************************************************* Front Routes *********************************************************************************
 Route::get('/', [FrontHomeController::class, 'index'])->name("main");
 Route::post('/store-email', [FrontEmailController::class, 'store'])->name('store.email');

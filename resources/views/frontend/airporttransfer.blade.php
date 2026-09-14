@@ -8,7 +8,7 @@
         $site_settings_main=[];
             $settingsAll = App\settings::all();
                     foreach ($settingsAll as $setting) {
-                         if($setting->agent_id == '1')
+                         if($setting->agent_id == (string) current_agent_id())
                        {
                         $site_settings_main[$setting->field_name] = $setting->field_value;
                         }

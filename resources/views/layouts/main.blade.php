@@ -13,9 +13,9 @@
     <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon-16x16q.png') }}" sizes="16x16" />
     @php
         $site_settings_main = [];
-        $settingsAll = App\Models\settings::all()->where('agent_id', '1');
+        $settingsAll = App\Models\settings::all()->where('agent_id', (string) current_agent_id());
         foreach ($settingsAll as $setting) {
-            if ($setting->agent_id == '1') {
+            if ($setting->agent_id == (string) current_agent_id()) {
                 $site_settings_main[$setting->field_name] = $setting->field_value;
             }
         }

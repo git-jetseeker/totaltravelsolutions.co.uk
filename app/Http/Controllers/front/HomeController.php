@@ -153,7 +153,7 @@ class HomeController extends Controller
 
         $airports = airport::all()->where('status', 'Yes');
 
-        $reviews = reviews::all()->where('status', 'Yes')->where('agent_id', '9')->take(4)->sortByDesc('id');
+        $reviews = reviews::all()->where('status', 'Yes')->where('agent_id', (string) current_agent_id())->take(4)->sortByDesc('id');
 
 
 
@@ -179,7 +179,7 @@ class HomeController extends Controller
 
         $airports = airport::all()->where('status', 'Yes');
 
-        $reviews = reviews::all()->where('status', 'Yes')->where('agent_id', '1')->take(4)->sortByDesc('id');
+        $reviews = reviews::all()->where('status', 'Yes')->where('agent_id', (string) current_agent_id())->take(4)->sortByDesc('id');
 
         return view('frontend.landing', ['airports' => $airports, 'reviews' => $reviews]);
 
@@ -192,7 +192,7 @@ class HomeController extends Controller
 
         $airports = airport::all()->where('status', 'Yes');
 
-        $reviews = reviews::all()->where('status', 'Yes')->where('agent_id', '1')->take(4)->sortByDesc('id');
+        $reviews = reviews::all()->where('status', 'Yes')->where('agent_id', (string) current_agent_id())->take(4)->sortByDesc('id');
 
 
 
@@ -597,13 +597,13 @@ class HomeController extends Controller
         $page = pages::where('slug', $slug)
             ->where('status', 'Yes')
             ->where(function ($q) {
-                $q->where('agent_id', '9')
+                $q->where('agent_id', (string) current_agent_id())
                     ->orWhere('agent_id', '1')
                     ->orWhereNull('agent_id')
                     ->orWhere('agent_id', '')
                     ->orWhere('agent_id', '0');
             })
-            ->orderByRaw("CASE WHEN agent_id = '9' THEN 0 WHEN agent_id = '1' THEN 1 ELSE 2 END")
+            ->orderByRaw("CASE WHEN agent_id = '" . current_agent_id() . "' THEN 0 WHEN agent_id = '" . current_agent_id() . "' THEN 1 ELSE 2 END")
             ->first();
 
         if ($page) {
@@ -764,9 +764,9 @@ class HomeController extends Controller
 
         $airports = airport::all()->where('status', 'Yes');
 
-        $posts = pages::all()->where('status', 'Yes')->where('type', 'post')->where('agent_id', '9');
+        $posts = pages::all()->where('status', 'Yes')->where('type', 'post')->where('agent_id', (string) current_agent_id());
 
-        $recent_posts = pages::all()->where('status', 'Yes')->where('type', 'post')->where('agent_id', '9')->sortByDesc('added_on')->take(6);
+        $recent_posts = pages::all()->where('status', 'Yes')->where('type', 'post')->where('agent_id', (string) current_agent_id())->sortByDesc('added_on')->take(6);
 
 
 
@@ -785,7 +785,7 @@ class HomeController extends Controller
 
         /*$posts = pages::all()->where("status", "Yes")->where("type", "post")->where("slug",'!=', $slug)->take(3)->sortByDesc("id");*/
 
-        $post = pages::where('slug', $slug)->where('status', 'Yes')->where('agent_id', '9')->first();
+        $post = pages::where('slug', $slug)->where('status', 'Yes')->where('agent_id', (string) current_agent_id())->first();
 
         // dd($post);
 
@@ -1075,7 +1075,7 @@ class HomeController extends Controller
 
         $airports = airport::all()->where('status', 'Yes');
 
-        $page = pages::where('slug', $page)->where('status', 'Yes')->where('agent_id', '1')->first();
+        $page = pages::where('slug', $page)->where('status', 'Yes')->where('agent_id', (string) current_agent_id())->first();
 
         //dd($page);
 
@@ -1110,9 +1110,9 @@ class HomeController extends Controller
 
         //WHERE removed='No' group by type order by id asc
 
-        // $faqs = faqs::all()->where('removed', 'No')->where('agent_id', '1')->groupBy('type');
+        // $faqs = faqs::all()->where('removed', 'No')->where('agent_id', (string) current_agent_id())->groupBy('type');
 
-        $faqs = faqs::all()->where('removed', 'No')->where('agent_id', '9')->where('type', 'Parking')->groupBy('type');
+        $faqs = faqs::all()->where('removed', 'No')->where('agent_id', (string) current_agent_id())->where('type', 'Parking')->groupBy('type');
 
 
 
@@ -1149,13 +1149,13 @@ class HomeController extends Controller
         $page = pages::where('slug', $slug)
             ->where('status', 'Yes')
             ->where(function ($q) {
-                $q->where('agent_id', '9')
+                $q->where('agent_id', (string) current_agent_id())
                     ->orWhere('agent_id', '1')
                     ->orWhereNull('agent_id')
                     ->orWhere('agent_id', '')
                     ->orWhere('agent_id', '0');
             })
-            ->orderByRaw("CASE WHEN agent_id = '9' THEN 0 WHEN agent_id = '1' THEN 1 ELSE 2 END")
+            ->orderByRaw("CASE WHEN agent_id = '" . current_agent_id() . "' THEN 0 WHEN agent_id = '" . current_agent_id() . "' THEN 1 ELSE 2 END")
             ->first();
 
 
