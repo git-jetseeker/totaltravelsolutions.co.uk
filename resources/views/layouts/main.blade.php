@@ -19,6 +19,7 @@
                 $site_settings_main[$setting->field_name] = $setting->field_value;
             }
         }
+        $site_settings_main = normalize_site_settings($site_settings_main);
     @endphp
     <title>Total Travel Solutions</title>
     @hasSection('meta_description')
@@ -212,6 +213,7 @@
             foreach ($settingsAll as $setting) {
                 $site_settings_main[$setting->field_name] = $setting->field_value;
             }
+            $site_settings_main = normalize_site_settings($site_settings_main);
         @endphp
 
 

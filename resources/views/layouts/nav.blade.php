@@ -6,6 +6,7 @@
             $site_settings_main[$setting->field_name] = $setting->field_value;
         }
     }
+    $site_settings_main = normalize_site_settings($site_settings_main);
 
     $navAirports = [
         ['slug' => 'heathrow-airport-parking', 'name' => 'Heathrow', 'icon' => 'fa-plane'],

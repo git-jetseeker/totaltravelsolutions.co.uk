@@ -134,3 +134,48 @@ if (! function_exists('apply_crm_meta')) {
         return $page;
     }
 }
+
+if (! function_exists('normalize_site_settings')) {
+    /**
+     * Ensure common settings keys exist so PHP 8+ does not throw on missing array keys.
+     */
+    function normalize_site_settings(array $settings = []): array
+    {
+        $defaults = [
+            'site_title' => '',
+            'meta_description' => '',
+            'meta_keyword' => '',
+            'site_twitter_title' => '',
+            'site_og_title' => '',
+            'site_og_type' => 'website',
+            'site_og_image' => '',
+            'site_og_url' => '',
+            'site_author' => '',
+            'site_schema' => '',
+            'site_header_analytics' => '',
+            'site_body_analytics' => '',
+            'footer_phone_no' => '',
+            'footer_email' => '',
+            'footer_catch_line' => '',
+            'footer_copyright' => '',
+            'footer_company_reg_no' => '',
+            'footer_address' => '',
+            'facebook' => '',
+            'facebook_status' => '',
+            'twitter' => '',
+            'twitter_status' => '',
+            'instagram' => '',
+            'instagram_status' => '',
+            'youtube' => '',
+            'youtube_status' => '',
+            'linkedin' => '',
+            'linkedin_status' => '',
+            'pinterest' => '',
+            'pinterest_status' => '',
+            'google_plus' => '',
+            'google_plus_status' => '',
+        ];
+
+        return array_merge($defaults, $settings);
+    }
+}
