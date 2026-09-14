@@ -13,6 +13,8 @@
                         $site_settings_main[$setting->field_name] = $setting->field_value;
                         }
                     }
+                        $site_settings_main = normalize_site_settings($site_settings_main);
+
     @endphp
     <style>
         .th_class {

@@ -4,6 +4,8 @@
     foreach ($settingsAll as $setting) {
         $site_settings_main[$setting->field_name] = $setting->field_value;
     }
+    $site_settings_main = normalize_site_settings($site_settings_main);
+
 @endphp
 <div class="post_content entry-content">
     <div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true"

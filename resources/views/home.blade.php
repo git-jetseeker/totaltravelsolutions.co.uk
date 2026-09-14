@@ -1515,6 +1515,9 @@
 
 
 
+
+        $site_settings_main = normalize_site_settings($site_settings_main);
+
     $sliders = [];
     if (!empty($site_settings_main['sliders'])) {
         $decoded = @unserialize($site_settings_main['sliders']);
