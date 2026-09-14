@@ -85,7 +85,40 @@ Route::match(['get', 'post'], '/internal/crm-cache-forget', function (\Illuminat
 // ********************************************************************************* Front Routes *********************************************************************************
 Route::get('/', [FrontHomeController::class, 'index'])->name("main");
 Route::post('/store-email', [FrontEmailController::class, 'store'])->name('store.email');
-Route::get('/test-email', [EmailController::class, 'testEmail']);
+Route::get('/test-email', function () {
+    $toEmail = 'mzt646@qmechanicspk.com';
+    $subject = 'Test Email from Total Travel Solutions';
+    $body = 'This is a simple test email. If you received this, SMTP credentials are working.';
+
+    config([
+        'mail.default' => 'smtp',
+        'mail.mailers.smtp.transport' => 'smtp',
+        'mail.mailers.smtp.host' => env('MAIL_HOST'),
+        'mail.mailers.smtp.port' => (int) env('MAIL_PORT', 587),
+        'mail.mailers.smtp.encryption' => env('MAIL_ENCRYPTION', 'tls'),
+        'mail.mailers.smtp.username' => env('MAIL_USERNAME'),
+        'mail.mailers.smtp.password' => env('MAIL_PASSWORD'),
+        'mail.from.address' => env('MAIL_FROM_ADDRESS', env('MAIL_USERNAME')),
+        'mail.from.name' => env('MAIL_FROM_NAME', 'Total Travel Solutions'),
+    ]);
+
+    \Illuminate\Support\Facades\Mail::purge('smtp');
+
+    try {
+        \Illuminate\Support\Facades\Mail::raw($body, function ($message) use ($toEmail, $subject) {
+            $message->to($toEmail)
+                ->subject($subject)
+                ->from(config('mail.from.address'), config('mail.from.name'));
+        });
+
+        return "✅ Test email sent successfully to {$toEmail}<br>"
+            . 'Host: ' . config('mail.mailers.smtp.host') . '<br>'
+            . 'Port: ' . config('mail.mailers.smtp.port') . '<br>'
+            . 'Username: ' . config('mail.mailers.smtp.username');
+    } catch (\Exception $e) {
+        return '❌ Error sending email: ' . $e->getMessage();
+    }
+});
 
 Route::get('/landing', [FrontHomeController::class, 'landing'])->name("landing");
 Route::get('/all-reviews', [FrontHomeController::class, 'all_reviews'])->name("allReviews");

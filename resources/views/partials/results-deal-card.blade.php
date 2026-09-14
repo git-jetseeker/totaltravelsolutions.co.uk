@@ -128,8 +128,8 @@
 
         <div class="js-apb-deal-card__actions">
             <button type="button" class="js-apb-deal-card__btn js-apb-deal-card__btn--info moreinfo"
-                data-toggle="modal" data-target="#exampleModalCenter{{ $company->companyID }}"
-                data-id="{{ $company->companyID }}">
+                data-toggle="modal" data-target="#exampleModalCenter{{ $company->listing_uid ?? $company->companyID }}"
+                data-id="{{ $company->listing_uid ?? $company->companyID }}">
                 <i class="fa fa-info-circle" aria-hidden="true"></i> More Information
             </button>
 

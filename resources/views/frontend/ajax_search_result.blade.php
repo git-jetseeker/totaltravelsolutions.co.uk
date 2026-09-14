@@ -65,10 +65,14 @@ use Illuminate\Support\Facades\Log;
 
                     $discount_amount = 0;
 
-                    if ($company->companyID != null) {
+                    $listingUid = $company->listing_uid ?? $company->companyID;
 
-                        $facilities = \App\Models\Company::find($company->companyID)->facilities->take(4);
-
+                    $facilities = collect();
+                    if (!empty($company->companyID) && is_numeric($company->companyID) && (int) $company->companyID > 0) {
+                        $companyModel = \App\Models\Company::find($company->companyID);
+                        if ($companyModel) {
+                            $facilities = $companyModel->facilities->take(4);
+                        }
                     }
 
                     // dd($facilities); for 30 days .. we add 3000 for own aph
@@ -233,7 +237,7 @@ use Illuminate\Support\Facades\Log;
 
                 @include('partials.results-deal-card', ['index' => $index])
 
-                <div class="modal fade detailEditModal js-deal-info-modal" id="exampleModalCenter{{ $company->companyID }}"
+                <div class="modal fade detailEditModal js-deal-info-modal" id="exampleModalCenter{{ $listingUid }}"
 
                     tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 
@@ -261,37 +265,37 @@ use Illuminate\Support\Facades\Log;
 
                                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
 
-                                            href="#overview{{ $company->companyID }}" role="tab"
+                                            href="#overview{{ $listingUid }}" role="tab"
 
                                             aria-controls="overview" aria-selected="true">Overview</a>
 
                                         <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
 
-                                            href="#arrival{{ $company->companyID }}" role="tab"
+                                            href="#arrival{{ $listingUid }}" role="tab"
 
                                             aria-controls="arrival" aria-selected="false">Arrival</a>
 
                                         <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
 
-                                            href="#return{{ $company->companyID }}" role="tab"
+                                            href="#return{{ $listingUid }}" role="tab"
 
                                             aria-controls="return" aria-selected="false">Return</a>
 
                                         <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
 
-                                            href="#map{{ $company->companyID }}" role="tab" aria-controls="map"
+                                            href="#map{{ $listingUid }}" role="tab" aria-controls="map"
 
                                             aria-selected="false">Map</a>
 
                                         <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
 
-                                            href="#note{{ $company->companyID }}" role="tab"
+                                            href="#note{{ $listingUid }}" role="tab"
 
                                             aria-controls="note" aria-selected="false">Note</a>
 
                                         <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
 
-                                            href="#terms{{ $company->companyID }}" role="tab"
+                                            href="#terms{{ $listingUid }}" role="tab"
 
                                             aria-controls="terms" aria-selected="false">Terms &amp; Conditions</a>
 
@@ -407,7 +411,7 @@ use Illuminate\Support\Facades\Log;
 
                                     <div class="tab-pane fade show active note-editable note-editor mt-0 py-2"
 
-                                        id="overview{{ $company->companyID }}" role="tabpanel"
+                                        id="overview{{ $listingUid }}" role="tabpanel"
 
                                         aria-labelledby="nav-home-tab">
 
@@ -539,7 +543,7 @@ use Illuminate\Support\Facades\Log;
 
                                     ?>
 
-                                    <div class="tab-pane fade py-0" id="arrival{{ $company->companyID }}"
+                                    <div class="tab-pane fade py-0" id="arrival{{ $listingUid }}"
 
                                         role="tabpanel" aria-labelledby="nav-contact-tab">
 
@@ -663,7 +667,7 @@ use Illuminate\Support\Facades\Log;
 
                                     ?>
 
-                                    <div class="tab-pane fade py-0" id="return{{ $company->companyID }}"
+                                    <div class="tab-pane fade py-0" id="return{{ $listingUid }}"
 
                                         role="tabpanel" aria-labelledby="nav-contact-tab">
 
@@ -683,13 +687,13 @@ use Illuminate\Support\Facades\Log;
 
                                     </div>
 
-                                    <div class="tab-pane fade" id="map{{ $company->companyID }}" role="tabpanel"
+                                    <div class="tab-pane fade" id="map{{ $listingUid }}" role="tabpanel"
 
                                         aria-labelledby="nav-contact-tab">
 
                                         @if ($company->parking_type == 'Meet and Greet')
 
-                                            <div class="tab-pane" id="tab_map{{ $company->companyID }}">
+                                            <div class="tab-pane" id="tab_map{{ $listingUid }}">
 
                                                 <iframe width="100%" height="400" frameborder="0"
 
@@ -703,7 +707,7 @@ use Illuminate\Support\Facades\Log;
 
                                         @else
 
-                                            <div class="tab-pane" id="tab_map{{ $company->companyID }}">
+                                            <div class="tab-pane" id="tab_map{{ $listingUid }}">
 
                                                 <iframe width="100%" height="400" frameborder="0"
 
@@ -719,7 +723,7 @@ use Illuminate\Support\Facades\Log;
 
                                     </div>
 
-                                    <div class="tab-pane fade" id="note{{ $company->companyID }}" role="tabpanel"
+                                    <div class="tab-pane fade" id="note{{ $listingUid }}" role="tabpanel"
 
                                         aria-labelledby="nav-contact-tab">
 
@@ -755,7 +759,7 @@ use Illuminate\Support\Facades\Log;
 
                                     </div>
 
-                                    <div class="tab-pane fade" id="terms{{ $company->companyID }}" role="tabpanel"
+                                    <div class="tab-pane fade" id="terms{{ $listingUid }}" role="tabpanel"
 
                                         aria-labelledby="nav-contact-tab">
 

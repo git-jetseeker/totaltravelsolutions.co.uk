@@ -336,6 +336,10 @@ class api
                 ->first();
         }
 
+        if (empty($details)) {
+            return [];
+        }
+
         return json_decode(json_encode((array) $details), true);
     }
 
@@ -699,26 +703,82 @@ class api
                 $company_details = [];
                 foreach ($codesToTry as $code) {
                     $company_details = $this->get_records_by_code($airport_id, $code, $lookupFilter);
-                    if (!empty($company_details)) {
+                    if (!empty($company_details['companyID'])) {
                         break;
                     }
                 }
 
-                if (empty($company_details)) {
+                $api_price = (float) ($option['price']['amount'] ?? 0);
+                $optionId = (string) ($option['id'] ?? '');
+                $listingUid = 'bfhr_' . ($productId !== '' ? $productId : uniqid()) . '_' . ($optionId !== '' ? $optionId : '0');
+
+                if (empty($company_details['companyID'])) {
+                    $parkingDetails = is_array($product['parkingDetails'] ?? null) ? $product['parkingDetails'] : [];
+                    $productName = trim((string) ($product['displayName'] ?? $product['name'] ?? 'Airport Parking'));
+                    $parkingType = $parkingDetails['parkingType']
+                        ?? $parkingDetails['type']
+                        ?? $parkingDetails['category']
+                        ?? ((stripos($productName, 'meet') !== false) ? 'Meet and Greet' : 'Park and Ride');
+                    $transfer = $parkingDetails['transferTime']
+                        ?? $parkingDetails['transfer_time']
+                        ?? $parkingDetails['travelTime']
+                        ?? '';
+
+                    $array = [
+                        'opening_time' => '',
+                        'closing_time' => '',
+                        'id' => 0,
+                        'companyID' => 0,
+                        'listing_uid' => $listingUid,
+                        'aph_id' => '',
+                        'product_code' => 'BOOKFHR_' . $productId,
+                        'name' => $productName,
+                        'processtime' => 0,
+                        'cancelable' => $option['non_refundable'] ?? false ? 'No' : 'Yes',
+                        'awards' => '',
+                        'featured' => 'No',
+                        'recommended' => 'No',
+                        'special_features' => '',
+                        'share_percentage' => 0,
+                        'overview' => $productName,
+                        'return_proc' => '',
+                        'arival' => '',
+                        'terms' => '',
+                        'address' => '',
+                        'town' => '',
+                        'post_code' => '',
+                        'message' => '',
+                        'parking_type' => $parkingType,
+                        'parking_name' => $productName,
+                        'logo' => '',
+                        'travel_time' => $transfer,
+                        'miles_from_airport' => $parkingDetails['distance'] ?? '',
+                        'editable' => 'No',
+                        'bookingspace' => '',
+                        'price' => number_format($api_price, 2, '.', ''),
+                        'new_price' => number_format($api_price, 2, '.', ''),
+                        'park_api' => 'bookfhr',
+                        'price_source' => 'bookfhr',
+                        'searchId' => $bookfhrData['searchId'] ?? '',
+                        'optionId' => $optionId,
+                        'productId' => $productId,
+                    ];
+
+                    $array1[] = $this->array_flatten($array);
                     continue;
                 }
 
-                $api_price = (float) ($option['price']['amount'] ?? 0);
                 $share_percentage = (float) ($company_details['share_percentage'] ?? 0);
                 $temp = $api_price * $share_percentage / 100;
                 $bookfhr_share = $api_price - $temp;
-                $new_price = $bookfhr_share / 65 * 100;
+                $new_price = $share_percentage > 0 ? ($bookfhr_share / 65 * 100) : $api_price;
 
                 $array = [
                     'opening_time' => $company_details['opening_time'],
                     'closing_time' => $company_details['closing_time'],
                     'id' => $company_details['companyID'],
                     'companyID' => $company_details['companyID'],
+                    'listing_uid' => $listingUid,
                     'aph_id' => $company_details['aph_id'],
                     'product_code' => 'BOOKFHR_' . $productId,
                     'name' => $company_details['name'],
@@ -749,7 +809,7 @@ class api
                     'park_api' => 'bookfhr',
                     'price_source' => 'bookfhr',
                     'searchId' => $bookfhrData['searchId'] ?? '',
-                    'optionId' => $option['id'],
+                    'optionId' => $optionId,
                     'productId' => $productId,
                 ];
 

@@ -54,13 +54,35 @@ class EmailController extends Controller
 
  public function testEmail()
 {
-   $toEmail = "fullstackqmechanicspk@gmail.com"; 
-    $subject = "Test Email from Laravel";
-    $body = "This is a test email to check SMTP settings in Laravel.";
+    $toEmail = "mzt646@qmechanicspk.com";
+    $subject = "Test Email from Total Travel Solutions";
+    $body = "This is a simple test email. If you received this, SMTP credentials are working.";
 
-   try { \Mail::raw($body, function ($message) use ($toEmail, $subject) { $message->to($toEmail) ->subject($subject) ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME')); });
+    config([
+        'mail.default' => 'smtp',
+        'mail.mailers.smtp.transport' => 'smtp',
+        'mail.mailers.smtp.host' => env('MAIL_HOST'),
+        'mail.mailers.smtp.port' => (int) env('MAIL_PORT', 587),
+        'mail.mailers.smtp.encryption' => env('MAIL_ENCRYPTION', 'tls'),
+        'mail.mailers.smtp.username' => env('MAIL_USERNAME'),
+        'mail.mailers.smtp.password' => env('MAIL_PASSWORD'),
+        'mail.from.address' => env('MAIL_FROM_ADDRESS', env('MAIL_USERNAME')),
+        'mail.from.name' => env('MAIL_FROM_NAME', 'Total Travel Solutions'),
+    ]);
 
-        return "✅ Test email sent successfully to " . $toEmail;
+    Mail::purge('smtp');
+
+    try {
+        Mail::raw($body, function ($message) use ($toEmail, $subject) {
+            $message->to($toEmail)
+                ->subject($subject)
+                ->from(config('mail.from.address'), config('mail.from.name'));
+        });
+
+        return "✅ Test email sent successfully to {$toEmail}<br>"
+            . "Host: " . config('mail.mailers.smtp.host') . "<br>"
+            . "Port: " . config('mail.mailers.smtp.port') . "<br>"
+            . "Username: " . config('mail.mailers.smtp.username');
     } catch (\Exception $e) {
         return "❌ Error sending email: " . $e->getMessage();
     }

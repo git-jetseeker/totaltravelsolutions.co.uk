@@ -1786,7 +1786,7 @@ class HomeController extends Controller
 
     private function parkingSearchCacheKey(Request $request): string
     {
-        return 'parking_search_v1_' . md5(json_encode([
+        return 'parking_search_v2_' . md5(json_encode([
             (string) $request->input('airport_id'),
             (string) $request->input('dropoffdate'),
             (string) $request->input('departure_date'),
@@ -2129,6 +2129,11 @@ class HomeController extends Controller
         $hours = $interval->h;
 
         $hours = $hours + ($interval->days * 24);
+
+        // Dropoff already passed: processtime filter would hide every DB product.
+        if ($interval->invert) {
+            $hours = 99999;
+        }
 
 
 
@@ -2519,18 +2524,37 @@ class HomeController extends Controller
             try {
                 $api = new api();
                 $bookFhrService = (new BookFhrService())->setRequestTimeout(20);
+                $bookFhrFrom = Carbon::parse($dropofdate . ' ' . $dropoftime);
+                $bookFhrTo = Carbon::parse($pickupdate . ' ' . $pickuptime);
+                if ($bookFhrFrom->lte(now()->addHours(2))) {
+                    $stay = $bookFhrFrom->diff($bookFhrTo);
+                    $bookFhrFrom = now()->addHours(2)->seconds(0);
+                    $bookFhrTo = $bookFhrFrom->copy()->add($stay);
+                }
                 $bookFhrResults = $bookFhrService->search([
                     'location' => $airport_code,
-                    'dateFrom' => $dropofdate,
-                    'timeFrom' => $dropoftime,
-                    'dateTo' => $pickupdate,
-                    'timeTo' => $pickuptime,
+                    'dateFrom' => $bookFhrFrom->format('Y-m-d'),
+                    'timeFrom' => $bookFhrFrom->format('H:i'),
+                    'dateTo' => $bookFhrTo->format('Y-m-d'),
+                    'timeTo' => $bookFhrTo->format('H:i'),
                     'type' => 'Parking',
                     'currency' => 'GBP',
                 ]);
 
-                if ($bookFhrResults['success'] && isset($bookFhrResults['data']['results'])) {
+                $apiResultCount = is_array($bookFhrResults['data']['results'] ?? null)
+                    ? count($bookFhrResults['data']['results'])
+                    : 0;
+
+                if ($bookFhrResults['success'] && $apiResultCount > 0) {
                     $bookFhrProducts = @$api->bookfhr_record($bookFhrResults['data'], $airport_id, $search_filter);
+                    $mappedCount = is_array($bookFhrProducts) ? count($bookFhrProducts) : 0;
+                    \Log::info('BookFHR parking search mapped', [
+                        'airport' => $airport_code,
+                        'dateFrom' => $dropofdate,
+                        'timeFrom' => $dropoftime,
+                        'api_results' => $apiResultCount,
+                        'mapped_results' => $mappedCount,
+                    ]);
                     if (!empty($bookFhrProducts)) {
                         $bookFhrProducts = json_decode(json_encode($bookFhrProducts));
                         $bookFhrCompanyIds = [];
@@ -2558,6 +2582,9 @@ class HomeController extends Controller
                         'success' => $bookFhrResults['success'] ?? false,
                         'error' => $bookFhrResults['error'] ?? null,
                         'airport' => $airport_code,
+                        'dateFrom' => $dropofdate,
+                        'timeFrom' => $dropoftime,
+                        'api_results' => $apiResultCount,
                     ]);
                 }
             } catch (\Exception $e) {
@@ -2696,7 +2723,9 @@ class HomeController extends Controller
 
             if ($request->ajax()) {
                 $html = view('frontend.ajax_search_result', $viewData)->render();
-                Cache::put($this->parkingSearchCacheKey($request), $html, now()->addMinutes(5));
+                if (!empty($companies)) {
+                    Cache::put($this->parkingSearchCacheKey($request), $html, now()->addMinutes(5));
+                }
 
                 return response($html);
             }

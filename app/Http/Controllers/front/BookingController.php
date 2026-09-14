@@ -681,7 +681,12 @@ class BookingController extends Controller
 
         //        } else {
 
-        if ($incomplete == 'yes') {
+        $bookingref = $referenceNo ?: '';
+        $shouldSaveAbandon = strtolower((string) $incomplete) === 'yes'
+            || empty($booking_id)
+            || (string) $booking_id === '0';
+
+        if ($shouldSaveAbandon) {
 
             $pass = $this->randomPassword();
 
@@ -751,7 +756,7 @@ class BookingController extends Controller
 
 
 
-        if ($incomplete == 'yes') {
+        if ($shouldSaveAbandon) {
 
 
 
@@ -895,13 +900,16 @@ class BookingController extends Controller
 
         }
 
-
+        if (empty($bookingref) && !empty($booking_id) && (string) $booking_id !== '0') {
+            $existingBooking = airports_bookings::find($booking_id);
+            $bookingref = $existingBooking->referenceNo ?? '';
+        }
 
         $data = [];
 
-        $data['booking_id'] = $booking_id;
+        $data['booking_id'] = $booking_id ?: 0;
 
-        $data['referenceNo'] = $bookingref;
+        $data['referenceNo'] = $bookingref ?: '';
 
         $data['available'] = 'Yes';
 
