@@ -462,7 +462,7 @@
 
                             <p style="text-align:center">
 
-                                <span><img alt="{{$review->username}}" class="review-img" src='{{ url("https://dashboard.jetseekergroup.com/storage/".str_replace('public/','', $review->logo)) }}'></span>
+                                <span><img alt="{{$review->username}}" class="review-img" src='{{ url("https://dashboard.ttssgroup.com/storage/".str_replace('public/','', $review->logo)) }}'></span>
 
                                 <br>
 

@@ -1181,7 +1181,7 @@ class ApiCusomterController extends Controller
         //Add the full URL to each image path
         $images->transform(function ($image) {
             $image->image = url(
-                "https://dashboard.jetseekergroup.com/storage/app/" . $image->image
+                "https://dashboard.ttssgroup.com/storage/app/" . $image->image
             );
             return $image;
         });

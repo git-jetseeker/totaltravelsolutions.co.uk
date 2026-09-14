@@ -870,7 +870,7 @@
 
                         <div class="blog-image-container">
 
-                            <img src='{{ 'https://dashboard.jetseekergroup.com/storage/' . str_replace('public/','',$recent_post->banner) }}'
+                            <img src='{{ 'https://dashboard.ttssgroup.com/storage/' . str_replace('public/','',$recent_post->banner) }}'
 
                                 alt="{!! $recent_post->page_title !!}" loading="lazy">
 

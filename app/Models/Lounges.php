@@ -137,7 +137,7 @@ class Lounges extends Model
             return asset(ltrim($image, '/'));
         }
 
-        return 'https://dashboard.jetseekergroup.com/storage/app/' . ltrim($image, '/');
+        return 'https://dashboard.ttssgroup.com/storage/app/' . ltrim($image, '/');
     }
 
     public static function normalizeImageList($images): array

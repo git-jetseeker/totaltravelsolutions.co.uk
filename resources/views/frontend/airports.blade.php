@@ -47,7 +47,7 @@
                 <div class="pz-airport-item {{ $index < 9 ? 'show' : '' }}">
                     <article class="pz-airport-card">
                         <div class="pz-airport-card__img">
-                            <img src="{{ url('https://www.dashboard.jetseekergroup.com/storage/' . str_replace('public/', '', $airport->profile_image)) }}"
+                            <img src="{{ url('https://www.dashboard.ttssgroup.com/storage/' . str_replace('public/', '', $airport->profile_image)) }}"
                                 alt="{{ $airport->name }}" loading="lazy">
                             <span class="pz-airport-card__badge">{{ $airport->name }}</span>
                         </div>

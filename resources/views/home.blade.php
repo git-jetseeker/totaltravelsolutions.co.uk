@@ -1860,7 +1860,7 @@
 
                                         height="200" width="340"
 
-                                        src='{{ url('https://www.dashboard.jetseekergroup.com/storage/' . str_replace('public/','',$airport->profile_image)) }}'>
+                                        src='{{ url('https://www.dashboard.ttssgroup.com/storage/' . str_replace('public/','',$airport->profile_image)) }}'>
 
 
 

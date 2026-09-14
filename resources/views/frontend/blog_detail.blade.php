@@ -1036,7 +1036,7 @@
 
                         @if(isset($post->banner))
 
-                            <img src='{{ 'https://dashboard.jetseekergroup.com/storage/' . str_replace('public/','',$post->banner) }}'
+                            <img src='{{ 'https://dashboard.ttssgroup.com/storage/' . str_replace('public/','',$post->banner) }}'
 
                                  alt="{{ $post->page_title }}"
 

@@ -16,7 +16,7 @@
         @elseif (isset($company->park_api) && $company->park_api == 'Opitech')
             <img class="js-apb-deal-card__logo-img" loading="lazy" src="{{ $company->logo }}" alt="{{ $company->name }}">
         @else
-            <img class="js-apb-deal-card__logo-img" loading="lazy" src="{{ 'https://www.dashboard.jetseekergroup.com/' . str_replace('public/', 'storage/', $company->logo) }}" alt="{{ $company->name }}">
+            <img class="js-apb-deal-card__logo-img" loading="lazy" src="{{ 'https://www.dashboard.ttssgroup.com/' . str_replace('public/', 'storage/', $company->logo) }}" alt="{{ $company->name }}">
         @endif
     @endif
 @else

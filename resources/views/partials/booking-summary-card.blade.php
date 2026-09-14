@@ -29,7 +29,7 @@
             } elseif ($parkApi === 'Opitech') {
                 $summaryLogoUrl = $logoPath;
             } else {
-                $summaryLogoUrl = 'https://www.dashboard.jetseekergroup.com/' . str_replace('public/', 'storage/', $logoPath);
+                $summaryLogoUrl = 'https://www.dashboard.ttssgroup.com/' . str_replace('public/', 'storage/', $logoPath);
             }
         }
     } elseif ($logoPath === '') {

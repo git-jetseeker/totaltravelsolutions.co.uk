@@ -2247,7 +2247,7 @@
                                 <div class="offers_image_container" style="height: 200px;">
                                     <!-- Image by https://unsplash.com/@kensuarez -->
                                     <img class="offers_image_background"
-                                        src='{{ url('https://www.dashboard.jetseekergroup.com/storage/app/' . $airport->profile_image) }}'
+                                        src='{{ url('https://www.dashboard.ttssgroup.com/storage/app/' . $airport->profile_image) }}'
                                         style="background-repeat: no-repeat;background-size: cover;border-top-left-radius: 24px;border-top-right-radius: 24px;"
                                         loading="lazy" alt="{{ $airport->name }}">
 
