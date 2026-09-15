@@ -279,3 +279,48 @@ if (!function_exists('ttss_company_logo_url')) {
     }
 }
 
+
+if (! function_exists('setting_agent_matches')) {
+    /**
+     * Magr settings may store partner id in agent_id and/or agentID.
+     */
+    function setting_agent_matches($setting, $agentId = null): bool
+    {
+        $agentId = (string) ($agentId ?? (function_exists('current_agent_id') ? current_agent_id() : ''));
+        $row = (string) (($setting->agent_id ?? null) ?: ($setting->agentID ?? ''));
+
+        return $row !== '' && $row === $agentId;
+    }
+}
+
+if (! function_exists('site_settings')) {
+    /**
+     * Load Magr settings for the current (or given) partner agent.
+     */
+    function site_settings($agentId = null): array
+    {
+        $agentId = (string) ($agentId ?? (function_exists('current_agent_id') ? current_agent_id() : '1'));
+        $out = [];
+
+        try {
+            foreach (\App\Models\settings::all() as $setting) {
+                if (setting_agent_matches($setting, $agentId)) {
+                    $out[$setting->field_name] = $setting->field_value;
+                }
+            }
+        } catch (\Throwable $e) {
+            // keep empty map
+        }
+
+        if (function_exists('normalize_site_settings')) {
+            $out = normalize_site_settings($out);
+        }
+
+        if (function_exists('pz_brand_settings')) {
+            $out = pz_brand_settings($out);
+        }
+
+        return $out;
+    }
+}
+

@@ -25,7 +25,7 @@
 
     @php
         $site_settings_main = [];
-        $settingsAll = App\Models\settings::all()->where('agent_id', (string) current_agent_id());
+        $settingsAll = App\Models\settings::all()->filter(fn ($s) => setting_agent_matches($s));
         foreach ($settingsAll as $setting) {
             $site_settings_main[$setting->field_name] = $setting->field_value;
         }

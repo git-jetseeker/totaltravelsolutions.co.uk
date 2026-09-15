@@ -15,9 +15,9 @@
     <link rel="apple-touch-icon" href="{{ asset('assets/images/favicon-32x32q.png') }}?v=20260915b">
     @php
         $site_settings_main = [];
-        $settingsAll = App\Models\settings::all()->where('agent_id', (string) current_agent_id());
+        $settingsAll = App\Models\settings::all()->filter(fn ($s) => setting_agent_matches($s));
         foreach ($settingsAll as $setting) {
-            if ($setting->agent_id == (string) current_agent_id()) {
+            if (setting_agent_matches($setting)) {
                 $site_settings_main[$setting->field_name] = $setting->field_value;
             }
         }

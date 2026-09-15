@@ -1505,7 +1505,7 @@
 
     foreach ($settingsAll as $setting) {
 
-        if ($setting->agent_id == (string) current_agent_id()) {
+        if (setting_agent_matches($setting)) {
 
             $site_settings_main[$setting->field_name] = $setting->field_value;
 
