@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="pz-about-media pz-about-media--right">
-                        <img src="{{ asset('assets/images/about-mission.jpg') }}" alt="{{ crm('about-us.mission_title', 'Our Mission') }} - Total Travel Solutions" class="img-fluid">
+                        <img src="{{ ttss_dashboard_asset_url('about-mission.jpg', asset('assets/images/about-mission.jpg')) }}" alt="{{ crm('about-us.mission_title', 'Our Mission') }} - Total Travel Solutions" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
             <div class="row align-items-center pz-about-split pz-about-split--reverse">
                 <div class="col-lg-6">
                     <div class="pz-about-media pz-about-media--left">
-                        <img src="{{ asset('assets/images/about-promise.jpg') }}" alt="{{ crm('about-us.promise_title', 'Our Promise') }} - Total Travel Solutions" class="img-fluid">
+                        <img src="{{ ttss_dashboard_asset_url('about-promise.jpg', asset('assets/images/about-promise.jpg')) }}" alt="{{ crm('about-us.promise_title', 'Our Promise') }} - Total Travel Solutions" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-6">
