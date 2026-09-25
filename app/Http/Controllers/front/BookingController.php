@@ -887,33 +887,65 @@ class BookingController extends Controller
 
                         $data['user_ip'] = $ip;
 
-            $agentId = function_exists('current_agent_id') ? current_agent_id() : 9;
+            $agentId = function_exists('current_agent_id') ? (int) current_agent_id() : 9;
+            if ($agentId < 1) {
+                $agentId = 9;
+            }
             $data['agentID'] = $agentId;
 
             // Match JetSeeker: mark incomplete rows as Abandon so cron/recovery can find them
             $data['booking_status'] = 'Abandon';
             $data['booking_action'] = 'Abandon';
+            $data['payment_status'] = $data['payment_status'] ?? 'Pending';
+            $data['status'] = $data['status'] ?? 'Yes';
+            $data['removed'] = $data['removed'] ?? 'No';
+            // Strict MySQL rejects 0000-00-00 defaults — always set real timestamps.
+            $data['created_at'] = $_current_time;
+            $data['updated_at'] = $_current_time;
+            $data['createdate'] = $_current_time;
+            $data['modifydate'] = $_current_time;
 
+            // Reuse rules (never steal another site's incomplete):
+            // 1) Browser already has this checkout's reference_no for THIS agent
+            // 2) Else same email + same agent + THIS site's ref prefix + created in last day
+            // 3) Else insert a new row with TTS-XXXXXX only (not TTS-PZ-/EZT-/etc.)
+            $refPrefix = 'TTS-';
             $existingReferenceNo = '';
-            $abandonBooking = airports_bookings::where('email', $request->input('email'))
-                ->where('booking_action', 'Abandon')
-                ->where('agentID', $agentId)
-                ->where('created_at', '>', $days_ago)
-                ->first();
 
-            if ($abandonBooking && !empty($abandonBooking->referenceNo)) {
-                $existingReferenceNo = $abandonBooking->referenceNo;
-            } elseif (!empty($referenceNo)) {
-                $existingReferenceNo = $referenceNo;
+            if (!empty($referenceNo)) {
+                $byRef = airports_bookings::where('referenceNo', $referenceNo)
+                    ->where('booking_action', 'Abandon')
+                    ->where('agentID', $agentId)
+                    ->first();
+                if ($byRef) {
+                    $existingReferenceNo = (string) $byRef->referenceNo;
+                }
+            }
+
+            if ($existingReferenceNo === '') {
+                $abandonBooking = airports_bookings::where('email', $request->input('email'))
+                    ->where('booking_action', 'Abandon')
+                    ->where('agentID', $agentId)
+                    ->whereRaw("referenceNo REGEXP '^TTS-[A-Z0-9]{6}$'")
+                    ->where('created_at', '>', $days_ago)
+                    ->orderBy('id', 'desc')
+                    ->first();
+                if ($abandonBooking && !empty($abandonBooking->referenceNo)) {
+                    $existingReferenceNo = (string) $abandonBooking->referenceNo;
+                }
             }
 
             try {
                 if ($existingReferenceNo === '') {
                     $booking_id = DB::table('airports_bookings')->insertGetId($data);
                 } else {
-                    $booking = airports_bookings::where('referenceNo', $existingReferenceNo)->first();
+                    $booking = airports_bookings::where('referenceNo', $existingReferenceNo)
+                        ->where('agentID', $agentId)
+                        ->first();
                     if ($booking) {
-                        airports_bookings::where('referenceNo', $existingReferenceNo)->update($data);
+                        // Keep original created_at / createdate / referenceNo on update.
+                        unset($data['created_at'], $data['createdate'], $data['referenceNo']);
+                        airports_bookings::where('id', $booking->id)->update($data);
                         $booking_id = $booking->id;
                     } else {
                         $booking_id = DB::table('airports_bookings')->insertGetId($data);
@@ -923,13 +955,18 @@ class BookingController extends Controller
 
                 if ($existingReferenceNo === '') {
                     $bookingref = $this->generateUniqueReferenceNo();
-                    airports_bookings::where('id', $booking_id)->update(['referenceNo' => $bookingref]);
+                    airports_bookings::where('id', $booking_id)->update([
+                        'referenceNo' => $bookingref,
+                        'updated_at' => $_current_time,
+                        'modifydate' => $_current_time,
+                    ]);
                 } else {
                     $bookingref = $existingReferenceNo;
                 }
             } catch (\Throwable $e) {
                 \Log::error('Incomplete booking save failed', [
                     'email' => $email,
+                    'agentID' => $agentId,
                     'error' => $e->getMessage(),
                 ]);
                 return response()->json([
