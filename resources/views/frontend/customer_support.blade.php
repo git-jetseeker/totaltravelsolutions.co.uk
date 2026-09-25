@@ -42,7 +42,7 @@
 
             <div class="js-support-notices">
                 <div class="js-support-notice js-support-notice--info">
-                    <strong>Important:</strong> JET SEEKER is a booking agent for the advertised car park. We do not collect, store or drive customers vehicle and we do not own a car park.
+                    <strong>Important:</strong> Total Travel Solutions is a booking agent for the advertised car park. We do not collect, store or drive customers’ vehicles and we do not own a car park.
                 </div>
                 <div class="js-support-notice js-support-notice--warn">
                     If you are struggling with this procedure and don't want to create a support ticket, please send your query to <a href="mailto:{{ $supportEmail }}">{{ $supportEmail }}</a> and we will get back to you promptly.
@@ -84,7 +84,7 @@
                         <div class="js-support-form__row">
                             <div class="form-group">
                                 <label for="ref_no">Booking Reference No.<span class="required-field">*</span></label>
-                                <input type="text" class="form-control{{ $ticketHasError('ref_no') ? ' is-invalid' : '' }}" id="ref_no" name="ref_no" placeholder="JSXXXXXXXXX" required value="{{ Request::old('ref_no') }}" autofocus @if($ticketHasError('ref_no')) aria-invalid="true" @endif>
+                                <input type="text" class="form-control{{ $ticketHasError('ref_no') ? ' is-invalid' : '' }}" id="ref_no" name="ref_no" placeholder="TTS-XXXXXX" required value="{{ Request::old('ref_no') }}" autofocus @if($ticketHasError('ref_no')) aria-invalid="true" @endif>
                                 @error('ref_no', 'ticket_store')
                                     <span class="js-support-field-error" role="alert">{{ $message }}</span>
                                 @enderror
