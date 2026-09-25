@@ -332,7 +332,7 @@ class TicketsController extends Controller
 
         $ticketId = DB::getPdo()->lastInsertId();
 
-        $ticketRef = 'JST' . date('dmy') . $ticketId;
+        $ticketRef = 'TTST' . date('dmy') . $ticketId;
 
         $ticket->ticket_id = $ticketRef;
 
@@ -340,26 +340,14 @@ class TicketsController extends Controller
 
 
 
-        // Handle attachment (publicly accessible)
+        // Handle attachment (store absolute public URL, JetSeeker-style)
 
         $attachmentPath = null;
 
-        // if ($request->hasFile('attatchment')) {
-
-        //     $file = $request->file('attatchment');
-
-        //     $filename = time() . '_' . preg_replace('/\s+/', '_', $file->getClientOriginalName());
-
-        //     $file->move(public_path('supports'), $filename);
-
-        //     $attachmentPath = 'supports/' . $filename;
-
-        // }
-        
         if ($request->hasFile('attatchment')) {
-    $file = $request->file('attatchment');
-    $attachmentPath = $file->store('public/supports');
-}
+            $file = $request->file('attatchment');
+            $attachmentPath = $this->storeSupportAttachment($file);
+        }
 
 
 
@@ -389,7 +377,7 @@ class TicketsController extends Controller
 
         $encryptedTicketId = Crypt::encrypt($ticketRef);
 
-        $link = 'https://www.totaltravelsolutions.co.uk/ticket/view/' . $encryptedTicketId;
+        $link = route('view-ticket', ['id' => $encryptedTicketId]);
 
 
 
@@ -553,7 +541,7 @@ class TicketsController extends Controller
 
             'message' => 'required|string',
 
-            'attatchment' => 'mimes:jpg,jpeg,bmp,png|max:2000', //2mb file can be uploaded
+            'attatchment' => 'nullable|file|mimes:jpg,jpeg,bmp,png,pdf,doc,docx|max:2000',
 
         ], $messages);
 
@@ -612,8 +600,13 @@ class TicketsController extends Controller
         // }
 
 if ($request->hasFile('attatchment')) {
-        $path = $request->file('attatchment')->store('public/supports');
-    }
+            $path = $this->storeSupportAttachment($request->file('attatchment'));
+            if ($path === '') {
+                return redirect()->back()
+                    ->withErrors(['attatchment' => 'Attachment could not be uploaded. Please try again.'])
+                    ->withInput();
+            }
+        }
 
         $data = [
 
@@ -655,7 +648,7 @@ if ($request->hasFile('attatchment')) {
 
                 $tickref = Crypt::encrypt($request->input('ticket_ref'));
 
-                $link = 'https://www.totaltravelsolutions.co.uk/ticket/view/'.$tickref;
+                $link = route('view-ticket', ['id' => $tickref]);
 
                 $email = new EmailController();
 
@@ -721,6 +714,36 @@ if ($request->hasFile('attatchment')) {
 
     }
 
+
+
+    
+    /**
+     * Store a ticket attachment and return its absolute public URL.
+     * Example: https://www.totaltravelsolutions.co.uk/storage/app/public/supports/xxx.png
+     */
+    private function storeSupportAttachment($file): string
+    {
+        if (! $file || ! $file->isValid()) {
+            return '';
+        }
+
+        $directory = storage_path('app/public/supports');
+        if (! is_dir($directory)) {
+            @mkdir($directory, 0755, true);
+        }
+
+        $storedPath = $file->store('public/supports');
+        if (! is_string($storedPath) || $storedPath === '') {
+            Log::error('Ticket attachment upload failed', [
+                'original_name' => $file->getClientOriginalName(),
+                'error' => method_exists($file, 'getErrorMessage') ? $file->getErrorMessage() : null,
+            ]);
+
+            return '';
+        }
+
+        return url('storage/app/' . ltrim($storedPath, '/'));
+    }
 
 
     public function view($id)

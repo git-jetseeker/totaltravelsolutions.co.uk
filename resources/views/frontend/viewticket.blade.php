@@ -868,10 +868,16 @@
 
                                                         <p> {!!  $msg->message !!}   </p>
 
-@if($msg->attachment!="")
-                                                        
-                                                        <a target="_blank" href="{{  $msg->reply_by == 'Client' ? url("storage/app/".$msg->attachment) : $msg->attachment  }}"> Attachment</a>
-
+@php
+                                                        $attachmentUrl = '';
+                                                        if (!empty($msg->attachment)) {
+                                                            $attachmentUrl = preg_match('#^https?://#i', (string) $msg->attachment)
+                                                                ? $msg->attachment
+                                                                : url('storage/app/' . ltrim($msg->attachment, '/'));
+                                                        }
+@endphp
+@if($attachmentUrl)
+                                                        <a target="_blank" href="{{ $attachmentUrl }}" rel="noopener"> Attachment</a>
 @endif
 
                                                     </div>
