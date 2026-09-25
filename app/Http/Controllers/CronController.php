@@ -14,11 +14,19 @@ class CronController extends Controller
 
     function index() {
 
-        $bookings = airports_bookings::all()->where("incomplete_email", "0")->whereIn('booking_status', ['Abandon','incompleted'])->where("booking_action","Abandon");
+        $agentId = function_exists('current_agent_id') ? current_agent_id() : null;
+        $bookings = airports_bookings::query()
+            ->where('incomplete_email', '0')
+            ->whereIn('booking_status', ['Abandon', 'incompleted'])
+            ->where('booking_action', 'Abandon');
+        if ($agentId) {
+            $bookings->where('agentID', $agentId);
+        }
+        $bookings = $bookings->get();
 
         foreach($bookings as $booking){
                 $id=$booking->id;
-                $link='https://www.jetseeker.co.uk/booking/incomplete/'.$id;
+                $link = url('/booking/incomplete/' . $id);
                 //send email to customer
                 
                  $template_data["link"] ="<a href=".$link." >Click Here</a>";
@@ -33,13 +41,21 @@ class CronController extends Controller
     
     function sendsms_incomplete() {
 
-        $bookings = airports_bookings::all()->where("incomplete_sms", "0")->whereIn('booking_status', ['Abandon','incompleted'])->where("booking_action","Abandon");
+        $agentId = function_exists('current_agent_id') ? current_agent_id() : null;
+        $bookings = airports_bookings::query()
+            ->where('incomplete_sms', '0')
+            ->whereIn('booking_status', ['Abandon', 'incompleted'])
+            ->where('booking_action', 'Abandon');
+        if ($agentId) {
+            $bookings->where('agentID', $agentId);
+        }
+        $bookings = $bookings->get();
 
         foreach($bookings as $booking){
             
                 $id=$booking->id;
                 $number = $booking->phone_number;
-                $link='https://www.jetseeker.co.uk/booking/incomplete/'.$id;
+                $link = url('/booking/incomplete/' . $id);
                  $template_data["link"] ="<a href=".$link." >Click Here</a>";
                  $template_data["username"] = $booking->first_name.' '.$booking->last_name;
                 echo "<br>".$number."---send sms to customer";

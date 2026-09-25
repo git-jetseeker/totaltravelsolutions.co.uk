@@ -885,42 +885,59 @@ class BookingController extends Controller
 
 
 
-            $data['user_ip'] = $ip;
+                        $data['user_ip'] = $ip;
 
-            $data['agentID'] = 9;
+            $agentId = function_exists('current_agent_id') ? current_agent_id() : 9;
+            $data['agentID'] = $agentId;
 
-            
-
-
+            // Match JetSeeker: mark incomplete rows as Abandon so cron/recovery can find them
+            $data['booking_status'] = 'Abandon';
+            $data['booking_action'] = 'Abandon';
 
             $existingReferenceNo = '';
             $abandonBooking = airports_bookings::where('email', $request->input('email'))
                 ->where('booking_action', 'Abandon')
+                ->where('agentID', $agentId)
                 ->where('created_at', '>', $days_ago)
                 ->first();
 
             if ($abandonBooking && !empty($abandonBooking->referenceNo)) {
                 $existingReferenceNo = $abandonBooking->referenceNo;
+            } elseif (!empty($referenceNo)) {
+                $existingReferenceNo = $referenceNo;
             }
 
-            if ($existingReferenceNo === '') {
-                $booking_id = DB::table('airports_bookings')->insertGetId($data);
-            } else {
-                $booking = airports_bookings::where('referenceNo', $existingReferenceNo)->first();
-                if ($booking) {
-                    airports_bookings::where('referenceNo', $existingReferenceNo)->update($data);
-                    $booking_id = $booking->id;
-                } else {
+            try {
+                if ($existingReferenceNo === '') {
                     $booking_id = DB::table('airports_bookings')->insertGetId($data);
-                    $existingReferenceNo = '';
+                } else {
+                    $booking = airports_bookings::where('referenceNo', $existingReferenceNo)->first();
+                    if ($booking) {
+                        airports_bookings::where('referenceNo', $existingReferenceNo)->update($data);
+                        $booking_id = $booking->id;
+                    } else {
+                        $booking_id = DB::table('airports_bookings')->insertGetId($data);
+                        $existingReferenceNo = '';
+                    }
                 }
-            }
 
-            if ($existingReferenceNo === '') {
-                $bookingref = $this->generateUniqueReferenceNo();
-                airports_bookings::where('id', $booking_id)->update(['referenceNo' => $bookingref]);
-            } else {
-                $bookingref = $existingReferenceNo;
+                if ($existingReferenceNo === '') {
+                    $bookingref = $this->generateUniqueReferenceNo();
+                    airports_bookings::where('id', $booking_id)->update(['referenceNo' => $bookingref]);
+                } else {
+                    $bookingref = $existingReferenceNo;
+                }
+            } catch (\Throwable $e) {
+                \Log::error('Incomplete booking save failed', [
+                    'email' => $email,
+                    'error' => $e->getMessage(),
+                ]);
+                return response()->json([
+                    'booking_id' => 0,
+                    'referenceNo' => '',
+                    'available' => 'No',
+                    'error' => 'save_failed',
+                ], 500);
             }
 
         }
@@ -1549,7 +1566,7 @@ class BookingController extends Controller
     private function generateUniqueReferenceNo()
     {
         do {
-            $ref = 'JS-' . strtoupper(Str::random(6));
+            $ref = 'TTS-' . strtoupper(Str::random(6));
             $exists = airports_bookings::where('referenceNo', $ref)->exists();
         } while ($exists);
 

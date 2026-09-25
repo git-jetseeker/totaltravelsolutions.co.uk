@@ -1542,7 +1542,7 @@
                 }
 
 
-                $.post('/booking/incomplete/booking/checkBooking', data, function(data) {
+                $.post('/checkBooking', data, function(data) {
 
                     console.log("data===", data);
 
@@ -1673,7 +1673,7 @@
 
             //setProcessBar(75);
 
-            $.post('booking/checkout', data, function(data) {
+            $.post('/booking/incomplete/booking/checkout', data, function(data) {
 
                 console.log(data);
 
@@ -2156,7 +2156,7 @@
                                     //
                                     $('#booking_button').button('loading');
 
-                                    $.post('booking/paymentwithPayzone', data, function(data) {
+                                    $.post('/booking/paymentwithPayzone', data, function(data) {
 
                                         console.log("data===", data);
 

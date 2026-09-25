@@ -1620,6 +1620,10 @@ class HomeController extends Controller
 
         $airport_booking = airports_bookings::find($id);
 
+        if (! $airport_booking) {
+            return redirect()->route('main');
+        }
+
         /// dd($airport_booking);
 
         //dd("i m in booking");
@@ -1702,7 +1706,7 @@ class HomeController extends Controller
 
             'phone_number' => $airport_booking->phone_number,
 
-            'parking_type' => 'Maple Parking Meet Greet Flex',
+            'parking_type' => $airport_booking->parking_type ?? (optional(\App\Models\Company::find($company_id))->name ?? ''),
 
             'parking_name' => null,
 
