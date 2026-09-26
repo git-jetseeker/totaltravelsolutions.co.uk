@@ -37,7 +37,7 @@ p{
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                 {!! $page->airport_parking !!}
+                 {!! !empty($page->airport_parking) ? $page->airport_parking : ($page->content ?? '') !!}
             </div>
         </div>
     </div>
