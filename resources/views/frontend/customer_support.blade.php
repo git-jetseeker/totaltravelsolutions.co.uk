@@ -115,7 +115,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="department">Support Department <span class="required-field">*</span></label>
-                                {{ Form::select('department', $departements_list, Request::old('department'), ['class' => 'form-control' . ($ticketHasError('department') ? ' is-invalid' : ''), 'id' => 'department', 'required' => 'required', 'aria-invalid' => $ticketHasError('department') ? 'true' : 'false']) }}
+                                <select name="department" id="department" class="form-control" required>
+                                    @foreach(($departements_list ?? ['' => 'Select Department']) as $value => $label)
+                                        <option value="{{ $value }}" @selected((string) old('department') === (string) $value)>{{ $label }}</option>
+                                    @endforeach
+                                </select>
                                 @error('department', 'ticket_store')
                                     <span class="js-support-field-error" role="alert">{{ $message }}</span>
                                 @enderror

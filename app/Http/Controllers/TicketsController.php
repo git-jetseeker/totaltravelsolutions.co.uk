@@ -138,7 +138,9 @@ class TicketsController extends Controller
 
         $airports = airport::all()->where('status', 'Yes');
 
-        $departementslist = support_departments::all()->toArray();
+        $this->ensureSupportDepartments();
+
+        $departementslist = support_departments::orderBy('id')->get()->toArray();
 
         $departements_list = [];
 
@@ -326,7 +328,11 @@ class TicketsController extends Controller
 
         $ticket->status = 'Open';
 
-        $ticket->agent_id = function_exists('current_agent_id') ? (int) current_agent_id() : null;
+        if (function_exists('set_model_agent_id')) {
+            set_model_agent_id($ticket, function_exists('current_site_agent_id') ? current_site_agent_id() : (string) (function_exists('current_agent_id') ? current_agent_id() : '9'));
+        } else {
+            $ticket->agent_id = function_exists('current_agent_id') ? (int) current_agent_id() : null;
+        }
 
         $ticket->save();
 
@@ -719,6 +725,57 @@ if ($request->hasFile('attatchment')) {
 
 
     
+
+
+
+    /**
+     * JetSeeker-style departments. Magr white-label DBs are often empty — seed defaults.
+     */
+    private function ensureSupportDepartments(): void
+    {
+        try {
+            if (! Schema::hasTable('support_departments')) {
+                Schema::create('support_departments', function ($table) {
+                    $table->increments('id');
+                    $table->string('name', 100)->nullable();
+                    $table->string('email', 191)->nullable();
+                });
+            }
+
+            if (! Schema::hasColumn('support_departments', 'name')) {
+                Schema::table('support_departments', function ($table) {
+                    $table->string('name', 100)->nullable();
+                });
+            }
+            if (! Schema::hasColumn('support_departments', 'email')) {
+                Schema::table('support_departments', function ($table) {
+                    $table->string('email', 191)->nullable();
+                });
+            }
+
+            if (support_departments::query()->count() > 0) {
+                return;
+            }
+
+            $settings = function_exists('site_settings') ? site_settings() : [];
+            $email = $settings['footer_email'] ?? (config('mail.from.address') ?: 'support@example.com');
+
+            $defaults = [
+                ['name' => 'Booking', 'email' => $email],
+                ['name' => 'Complaint', 'email' => $email],
+                ['name' => 'Amendment', 'email' => $email],
+                ['name' => 'Cancellation', 'email' => $email],
+            ];
+
+            foreach ($defaults as $row) {
+                support_departments::query()->create($row);
+            }
+        } catch (\Throwable $e) {
+            Log::error('Unable to ensure support_departments', [
+                'error' => $e->getMessage(),
+            ]);
+        }
+    }
 
 
     /**

@@ -324,3 +324,94 @@ if (! function_exists('site_settings')) {
     }
 }
 
+
+if (! function_exists('agent_column')) {
+    /**
+     * Resolve agent column name per table (live: agent_id, local: agentID).
+     * JetSeeker parity.
+     */
+    function agent_column(string $table = 'settings'): string
+    {
+        static $cache = [];
+
+        if (array_key_exists($table, $cache)) {
+            return $cache[$table];
+        }
+
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasColumn($table, 'agent_id')) {
+                return $cache[$table] = 'agent_id';
+            }
+            if (\Illuminate\Support\Facades\Schema::hasColumn($table, 'agentID')) {
+                return $cache[$table] = 'agentID';
+            }
+        } catch (\Throwable $e) {
+            // Schema may be unavailable during early boot.
+        }
+
+        return $cache[$table] = 'agent_id';
+    }
+}
+
+if (! function_exists('agent_columns')) {
+    /**
+     * @return array<int, string>
+     */
+    function agent_columns(string $table = 'settings'): array
+    {
+        static $cache = [];
+
+        if (array_key_exists($table, $cache)) {
+            return $cache[$table];
+        }
+
+        $columns = [];
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasColumn($table, 'agent_id')) {
+                $columns[] = 'agent_id';
+            }
+            if (\Illuminate\Support\Facades\Schema::hasColumn($table, 'agentID')) {
+                $columns[] = 'agentID';
+            }
+        } catch (\Throwable $e) {
+            // ignore
+        }
+
+        if ($columns === []) {
+            $columns = ['agent_id'];
+        }
+
+        return $cache[$table] = $columns;
+    }
+}
+
+if (! function_exists('current_site_agent_id')) {
+    /**
+     * JetSeeker-compatible site agent id (string).
+     */
+    function current_site_agent_id(): string
+    {
+        if (function_exists('current_agent_id')) {
+            return (string) current_agent_id();
+        }
+
+        return (string) config('app.agent_id', config('app.default_agent_id', '9'));
+    }
+}
+
+if (! function_exists('set_model_agent_id')) {
+    /**
+     * Write agent id onto whichever agent columns exist for the model table.
+     * JetSeeker parity.
+     */
+    function set_model_agent_id($model, $agentId): void
+    {
+        $agentId = (string) $agentId;
+        $table = method_exists($model, 'getTable') ? $model->getTable() : 'settings';
+
+        foreach (agent_columns($table) as $column) {
+            $model->setAttribute($column, $agentId);
+        }
+    }
+}
+
