@@ -1241,16 +1241,24 @@ public function faqs()
 
         $reviews = reviews::all()->where('status', 'Yes')->take(4)->sortByDesc('id');
 
+        // Prefer AP (airport) pages; match agent_id and/or agentID (Magr lean DB).
+        $agentId = (string) (function_exists('current_site_agent_id') ? current_site_agent_id() : current_agent_id());
+        $pagesAgentCol = function_exists('agent_column') ? agent_column('pages') : 'agent_id';
         $page = pages::where('slug', $slug)
             ->where('status', 'Yes')
-            ->where(function ($q) {
-                $q->where('agent_id', (string) current_agent_id())
-                    ->orWhere('agent_id', '1')
-                    ->orWhereNull('agent_id')
-                    ->orWhere('agent_id', '')
-                    ->orWhere('agent_id', '0');
+            ->where(function ($q) use ($pagesAgentCol, $agentId) {
+                $cols = function_exists('agent_columns') ? agent_columns('pages') : [$pagesAgentCol];
+                foreach ($cols as $col) {
+                    $q->orWhere($col, $agentId)
+                        ->orWhere($col, '1')
+                        ->orWhereNull($col)
+                        ->orWhere($col, '')
+                        ->orWhere($col, '0');
+                }
             })
-            ->orderByRaw("CASE WHEN agent_id = '" . current_agent_id() . "' THEN 0 WHEN agent_id = '" . current_agent_id() . "' THEN 1 ELSE 2 END")
+            ->orderByRaw("CASE WHEN type = 'AP' THEN 0 ELSE 1 END")
+            ->orderByRaw("CASE WHEN COALESCE(agent_id, agentID, 0) = ? THEN 0 ELSE 1 END", [$agentId])
+            ->orderByDesc('id')
             ->first();
 
 
