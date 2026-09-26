@@ -611,40 +611,47 @@ class HomeController extends Controller
 
 
 
-    public function getPagebySlug()
+public function getPagebySlug()
     {
-        $slug = trim(request()->path(), '/');
-
+        $slug = trim((string) request()->path(), '/');
         if ($slug === '') {
             $slug = 'main';
         }
 
+        $agentId = function_exists('current_site_agent_id')
+            ? current_site_agent_id()
+            : (string) current_agent_id();
+        $pagesAgentCol = function_exists('agent_column')
+            ? agent_column('pages')
+            : 'agent_id';
+
+        // Prefer current agent row; allow type main OR page (admin text pages).
         $page = pages::where('slug', $slug)
             ->where('status', 'Yes')
-            ->where(function ($q) {
-                $q->where('agent_id', (string) current_agent_id())
-                    ->orWhere('agent_id', '1')
-                    ->orWhereNull('agent_id')
-                    ->orWhere('agent_id', '')
-                    ->orWhere('agent_id', '0');
+            ->where(function ($q) use ($pagesAgentCol, $agentId) {
+                $cols = function_exists('agent_columns') ? agent_columns('pages') : [$pagesAgentCol];
+                foreach ($cols as $col) {
+                    $q->orWhere($col, $agentId);
+                }
             })
-            ->orderByRaw("CASE WHEN agent_id = '" . current_agent_id() . "' THEN 0 WHEN agent_id = '" . current_agent_id() . "' THEN 1 ELSE 2 END")
+            ->orderByRaw("CASE WHEN type = 'main' THEN 0 WHEN type = 'page' THEN 1 ELSE 2 END")
+            ->orderByDesc('id')
             ->first();
 
         if ($page) {
             return $page;
         }
 
-        $page = new \stdClass();
-        $page->meta_title = '';
-        $page->meta_keyword = '';
-        $page->meta_description = '';
-        $page->airport_parking = '';
-
-        return $page;
+        return (object) [
+            'meta_title' => '',
+            'meta_keyword' => '',
+            'meta_description' => '',
+            'page_title' => '',
+            'airport_parking' => '',
+            'content' => '',
+            'slug' => $slug,
+        ];
     }
-
-
 
     public function sitemap()
     {
@@ -665,22 +672,28 @@ class HomeController extends Controller
 
 
 
-    public function about_us()
+public function about_us()
     {
-
         $airports = airport::all()->where('status', 'Yes');
-
         $reviews = reviews::all()->where('status', 'Yes')->take(4)->sortByDesc('id');
+        $page = $this->getPagebySlug();
 
+        if (function_exists('apply_crm_meta')) {
+            $page = apply_crm_meta($page ?: (object) [
+                'meta_title' => '',
+                'meta_keyword' => '',
+                'meta_description' => '',
+                'page_title' => '',
+                'airport_parking' => '',
+            ], 'about-us');
+        }
 
-
-        return view('frontend/about-us', ['airports' => $airports, 'reviews' => $reviews]);
-
+        return view('frontend/about-us', [
+            'airports' => $airports,
+            'reviews' => $reviews,
+            'page' => $page,
+        ]);
     }
-
-
-
-
 
     public function all_reviews()
     {
@@ -1093,67 +1106,124 @@ class HomeController extends Controller
 
 
 
-    public function static_page($page)
+public function static_page($page)
     {
-
-
-
         $airports = airport::all()->where('status', 'Yes');
 
-        $page = pages::where('slug', $page)->where('status', 'Yes')->where('agent_id', (string) current_agent_id())->first();
+        $agentId = function_exists('current_site_agent_id')
+            ? current_site_agent_id()
+            : (string) current_agent_id();
 
-        //dd($page);
+        $query = pages::where('slug', $page)->where('status', 'Yes');
+        $query->where(function ($q) use ($agentId) {
+            $cols = function_exists('agent_columns') ? agent_columns('pages') : ['agent_id', 'agentID'];
+            foreach ($cols as $col) {
+                $q->orWhere($col, $agentId);
+            }
+        });
+        $pageRow = $query->orderByDesc('id')->first();
 
-        if ($page) {
-
-
-
-            $total_airports = airports_bookings::all()->count();
-
-
-
-            return view('frontend.static_page', ['airports' => $airports, 'page' => $page]);
-
-        } else {
-
-            return view('frontend.404', ['airports' => $airports]);
-
+        if ($pageRow) {
+            return view('frontend.static_page', ['airports' => $airports, 'page' => $pageRow]);
         }
 
+        return view('frontend.404', ['airports' => $airports]);
     }
 
-
-
-    public function faqs()
+public function faqs()
     {
-
         $page = $this->getPagebySlug();
 
-        $airports = airport::all()->where('status', 'Yes');
-
-        $total_airports = airports_bookings::all()->count();
-
-        //WHERE removed='No' group by type order by id asc
-
-        // $faqs = faqs::all()->where('removed', 'No')->where('agent_id', (string) current_agent_id())->groupBy('type');
-
-        $faqs = faqs::all()->where('removed', 'No')->where('agent_id', (string) current_agent_id())->where('type', 'Parking')->groupBy('type');
-
-
-
-        if ($page->meta_title == '') {
-
-            return view('frontend.404', ['airports' => $airports]);
-
-        } else {
-
-            return view('frontend.faqs', ['airports' => $airports, 'faqs' => $faqs, 'page' => $page]);
-
+        if (function_exists('apply_crm_meta')) {
+            $page = apply_crm_meta($page ?: (object) [
+                'meta_title' => '',
+                'meta_keyword' => '',
+                'meta_description' => '',
+                'page_title' => '',
+            ], 'faqs');
         }
 
+        $airports = airport::all()->where('status', 'Yes');
+
+        $agentId = function_exists('current_site_agent_id')
+            ? current_site_agent_id()
+            : (string) current_agent_id();
+
+        // JetSeeker-style: this agent + Global airport (null/0), then fallback to all agent FAQs.
+        $faqsQuery = faqs::query()
+            ->where(function ($query) {
+                $query->where('removed', 'No')
+                    ->orWhere('removed', 'no')
+                    ->orWhereNull('removed');
+            })
+            ->where(function ($query) use ($agentId) {
+                $cols = function_exists('agent_columns') ? agent_columns('faqs') : ['agent_id', 'agentID'];
+                foreach ($cols as $col) {
+                    $query->orWhere($col, $agentId);
+                }
+            })
+            ->where(function ($query) {
+                $query->where('status', 'Yes')
+                    ->orWhere('status', 'yes')
+                    ->orWhere('status', 'Active')
+                    ->orWhere('status', 'active')
+                    ->orWhereNull('status');
+            })
+            ->where(function ($query) {
+                $query->whereNull('airport_id')
+                    ->orWhere('airport_id', 0)
+                    ->orWhere('airport_id', '0')
+                    ->orWhere('airport_id', '')
+                    ->orWhereRaw('LOWER(CAST(airport_id AS CHAR)) IN (?, ?)', ['global', 'all']);
+            })
+            ->orderBy('type')
+            ->orderBy('id');
+
+        $faqs = (clone $faqsQuery)->get();
+
+        if ($faqs->isEmpty()) {
+            $faqs = faqs::query()
+                ->where(function ($query) {
+                    $query->where('removed', 'No')
+                        ->orWhere('removed', 'no')
+                        ->orWhereNull('removed');
+                })
+                ->where(function ($query) use ($agentId) {
+                    $cols = function_exists('agent_columns') ? agent_columns('faqs') : ['agent_id', 'agentID'];
+                    foreach ($cols as $col) {
+                        $query->orWhere($col, $agentId);
+                    }
+                })
+                ->where(function ($query) {
+                    $query->where('status', 'Yes')
+                        ->orWhere('status', 'yes')
+                        ->orWhere('status', 'Active')
+                        ->orWhere('status', 'active')
+                        ->orWhereNull('status');
+                })
+                ->orderBy('type')
+                ->orderBy('id')
+                ->get();
+        }
+
+        $faqs = $faqs->groupBy(function ($item) {
+            $type = trim((string) ($item->type ?? ''));
+
+            return $type !== '' ? $type : 'General';
+        });
+
+        if (($page->meta_title ?? '') == '') {
+            // Still show FAQs even if pages meta row missing — build minimal page object.
+            if (! is_object($page)) {
+                $page = (object) [];
+            }
+            if (empty($page->meta_title)) {
+                $page->meta_title = 'FAQs';
+            }
+        }
+
+        return view('frontend.faqs', ['airports' => $airports, 'faqs' => $faqs, 'page' => $page]);
     }
-
-
 
     public function faqs_pages()
     {

@@ -96,7 +96,7 @@ die();
                             @if (Request::is('about-us'))
                                  <h1 class="light-weight">{{ $page->page_title  }}</h1>
                                 <div class="well-body myclass1">
-                                    {!! $page->airport_parking !!}
+                                    {!! !empty($page->airport_parking) ? $page->airport_parking : ($page->content ?? '') !!}
                                 </div>
                             @else
                             <section class="top-offer " style="top:0px; margin-bottom:10px ">

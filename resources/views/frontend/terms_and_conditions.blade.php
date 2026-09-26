@@ -19,7 +19,7 @@
         <div class="js-container">
             <article class="js-legal-card js-legal-card--content">
                 <div class="js-legal-content">
-                    {!! $page->airport_parking ?? '' !!}
+                    {!! !empty($page->airport_parking) ? $page->airport_parking : ($page->content ?? '') !!}
                 </div>
             </article>
         </div>

@@ -105,4 +105,18 @@
     </section>
 </div>
 
+
+    @php
+        $cmsAboutBody = trim((string) (($page->airport_parking ?? '') ?: ($page->content ?? '')));
+    @endphp
+    @if ($cmsAboutBody !== '')
+    <section class="pz-page-content" style="padding: 2rem 0;">
+        <div class="container">
+            <div class="pz-page-wrap">
+                {!! $cmsAboutBody !!}
+            </div>
+        </div>
+    </section>
+    @endif
+
 @include('layouts.footer')
