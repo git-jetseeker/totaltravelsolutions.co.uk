@@ -5,7 +5,7 @@
 @include('layouts.header')
 @include('layouts.nav')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-airport.css?v=20260907tabs4') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-airport.css?v=20260926guide') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20260907noblue2') }}">
 
    @if(request()->get('src') != '')
@@ -99,13 +99,43 @@
     $tabFacilities = $stripLegacyTabMarkup($tabFacilities);
     $tabTopThings = $stripLegacyTabMarkup($tabTopThings);
 
+    // Strip Google Docs / CMS inline styles so content inherits the site design system.
+    $cleanCmsHtml = function (string $html): string {
+        if ($html === '') {
+            return '';
+        }
+
+        $html = preg_replace('/<!--.*?-->/s', '', $html) ?? $html;
+        $html = preg_replace('/\sstyle=("[^"]*"|\'[^\']*\')/i', '', $html) ?? $html;
+        $html = preg_replace('/\s(face|size|color|bgcolor|align|width|height|border|cellpadding|cellspacing)=("[^"]*"|\'[^\']*\')/i', '', $html) ?? $html;
+        $html = preg_replace('/\sdir=("[^"]*"|\'[^\']*\')/i', '', $html) ?? $html;
+        $html = preg_replace('/<\/?font\b[^>]*>/i', '', $html) ?? $html;
+        $html = preg_replace('/<span\b[^>]*>/i', '', $html) ?? $html;
+        $html = preg_replace('/<\/span>/i', '', $html) ?? $html;
+        $html = preg_replace('/<(p|h1|h2|h3|h4|h5|h6|div|li|ul|ol|td|th|tr|table)(\s[^>]*)?>/i', '<$1>', $html) ?? $html;
+        $html = preg_replace('/<(p|div|h1|h2|h3|h4|h5|h6)>\s*<\/\1>/i', '', $html) ?? $html;
+        $html = preg_replace('/(?:<br\s*\/?>\s*){3,}/i', '<br><br>', $html) ?? $html;
+        $html = str_replace('&nbsp;', ' ', $html);
+        $html = preg_replace('/Parkinga\b/i', 'Parking', $html) ?? $html;
+
+        return trim($html);
+    };
+
+    $tabParking = $cleanCmsHtml($tabParking);
+    $tabOverview = $cleanCmsHtml($tabOverview);
+    $tabFacilities = $cleanCmsHtml($tabFacilities);
+    $tabTopThings = $cleanCmsHtml($tabTopThings);
+
     if ($tabOverview === '' && !empty($airports_Detail->description)) {
-        $tabOverview = (string) $airports_Detail->description;
+        $tabOverview = $cleanCmsHtml((string) $airports_Detail->description);
     }
+
+    $guideTitleAirport = preg_replace('/\s+Airport$/i', '', $airportName) ?: $airportName;
+    $guideTitle = trim($guideTitleAirport . ' Airport Parking');
 @endphp
 
 @include('partials.page-hero', [
-    'title' => strip_tags($page->page_title ?? ($airportName . ' Airport Parking')),
+    'title' => preg_replace('/Parkinga\b/i', 'Parking', strip_tags($page->page_title ?? ($airportName . ' Airport Parking'))),
     'subtitle' => 'Compare trusted parking at ' . $airportName,
     'lead' => 'Pre-book Meet & Greet, Park & Ride, and on-airport parking with transparent pricing and Park Mark accredited operators.',
     'heroClass' => 'js-page-hero--enhanced js-page-hero--airport',
@@ -140,7 +170,8 @@
         <div class="js-container">
             <header class="js-airport-guide__head">
                 <span class="js-airport-guide__eyebrow">Airport guide</span>
-                <h2 class="js-airport-guide__title">Best Available <span>{{ strip_tags($page->page_title ?? $airportName) }}</span> Deals</h2>
+                <h2 class="js-airport-guide__title">Best Available <span>{{ $guideTitle }}</span> Deals</h2>
+                <p class="js-airport-guide__lead">Everything you need to know about parking at {{ $airportName }} — options, facilities, and local tips.</p>
             </header>
 
             <div class="js-airport-guide__tabs-wrap" data-js-airport-tabs>

@@ -1137,7 +1137,16 @@ class HomeController extends Controller
 
         // $faqs = faqs::all()->where('removed', 'No')->where('agent_id', (string) current_agent_id())->groupBy('type');
 
-        $faqs = faqs::all()->where('removed', 'No')->where('agent_id', (string) current_agent_id())->where('type', 'Parking')->groupBy('type');
+        $agentId = (string) current_agent_id();
+        $faqs = faqs::all()->where('removed', 'No')->where('agent_id', $agentId)->groupBy('type');
+
+        // Fall back to the shared FAQ library when this agent has very little content.
+        if ($faqs->flatten()->count() < 5) {
+            $fallbackFaqs = faqs::all()->where('removed', 'No')->where('agent_id', '1')->groupBy('type');
+            if ($fallbackFaqs->isNotEmpty()) {
+                $faqs = $fallbackFaqs;
+            }
+        }
 
 
 

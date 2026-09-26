@@ -103,8 +103,8 @@
 }
 
 .js-faqs-page .js-faq-item:has(.js-faq-question[aria-expanded="true"]) {
-    border-color: var(--js-primary);
-    box-shadow: none;
+    border-color: var(--js-accent);
+    box-shadow: var(--js-shadow-sm);
 }
 
 .js-faqs-page .js-faq-question {
@@ -130,12 +130,12 @@
 }
 
 .js-faqs-page .js-faq-question:hover {
-    background: rgba(26, 26, 26, 0.04);
+    background: rgba(194, 24, 91, 0.04);
 }
 
 .js-faqs-page .js-faq-question[aria-expanded="true"] {
-    background: rgba(26, 26, 26, 0.06);
-    color: var(--js-primary-dark);
+    background: rgba(194, 24, 91, 0.06);
+    color: var(--js-heading);
 }
 
 .js-faqs-page .js-faq-question i {
@@ -145,15 +145,17 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: rgba(26, 26, 26, 0.1);
-    color: var(--js-primary);
-    font-size: 14px;
+    background: rgba(194, 24, 91, 0.1);
+    color: var(--js-accent);
+    font-size: 12px;
     margin-left: auto;
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
 }
 
 .js-faqs-page .js-faq-question[aria-expanded="true"] i {
-    background: var(--js-primary);
+    background: var(--js-accent);
     color: #fff;
+    transform: rotate(180deg);
 }
 
 .js-faqs-page .js-faq-answer {
@@ -181,7 +183,7 @@
 }
 
 .js-faqs-page .js-faq-answer a {
-    color: var(--js-primary);
+    color: var(--js-accent);
     text-decoration: underline;
     text-underline-offset: 2px;
 }
@@ -199,6 +201,114 @@
 
 .js-faqs-page .js-faq-answer li {
     margin-bottom: 8px;
+}
+
+/* Category filters */
+.js-faqs-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 0 28px;
+}
+
+.js-faqs-filter {
+    appearance: none;
+    border: 1px solid var(--js-border);
+    background: var(--js-surface);
+    color: var(--js-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 10px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.js-faqs-filter:hover {
+    border-color: rgba(194, 24, 91, 0.35);
+    color: var(--js-accent);
+}
+
+.js-faqs-filter.is-active {
+    background: var(--js-primary);
+    border-color: var(--js-primary);
+    color: #fff;
+}
+
+.js-faqs-hint {
+    margin: 0 0 18px;
+    font-size: 0.9rem;
+    color: var(--js-muted);
+    text-align: center;
+}
+
+.js-faqs-empty {
+    text-align: center;
+    padding: 48px 24px;
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-lg);
+}
+
+.js-faqs-empty p {
+    margin: 0 0 20px;
+    color: var(--js-muted);
+    font-size: 1.05rem;
+}
+
+/* Help CTA */
+.js-faqs-help {
+    margin-top: 40px;
+}
+
+.js-faqs-help__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 32px 36px;
+    border-radius: var(--js-radius-lg);
+    background: linear-gradient(135deg, var(--js-primary-dark) 0%, var(--js-secondary) 100%);
+    color: #fff;
+    box-shadow: var(--js-shadow-md);
+}
+
+.js-faqs-help__title {
+    margin: 0 0 8px;
+    font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+    font-weight: 800;
+    color: #fff;
+}
+
+.js-faqs-help__text {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 540px;
+}
+
+.js-faqs-page .js-btn--accent {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 14px 28px;
+    border-radius: var(--js-radius-md);
+    background: var(--js-accent);
+    color: #fff !important;
+    font-weight: 700;
+    text-decoration: none !important;
+    border: none;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.js-faqs-page .js-btn--accent:hover {
+    background: var(--js-accent-dark);
+    color: #fff !important;
+    transform: translateY(-2px);
 }
 
 /* Sidebar booking widget */
@@ -288,5 +398,24 @@
     .js-faqs-page .js-faq-answer.is-open {
         padding: 0 18px 18px;
         padding-top: 14px;
+    }
+
+    .js-faqs-help__inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 22px;
+    }
+
+    .js-faqs-help__text {
+        max-width: none;
+    }
+
+    .js-faqs-filters {
+        gap: 8px;
+    }
+
+    .js-faqs-filter {
+        padding: 8px 14px;
+        font-size: 0.8rem;
     }
 }

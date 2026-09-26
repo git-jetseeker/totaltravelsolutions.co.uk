@@ -56,45 +56,54 @@
 
 /* ── Tabbed guide ── */
 .js-airport-guide {
-    padding: 56px 0;
+    padding: 64px 0;
 }
 
 .js-airport-guide__head {
-    text-align: left;
-    margin-bottom: 28px;
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 32px;
 }
 
 .js-airport-guide__eyebrow {
     display: inline-block;
     padding: 6px 14px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--js-primary);
-    background: rgba(26, 26, 26, 0.1);
+    color: #fff;
+    background: var(--js-primary);
     border-radius: 999px;
 }
 
 .js-airport-guide__title {
-    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    font-size: clamp(1.55rem, 3vw, 2.15rem);
     font-weight: 800;
     color: var(--js-heading);
-    margin: 0 0 10px;
+    margin: 0 0 12px;
     padding: 0 !important;
-    text-align: left !important;
+    text-align: center !important;
+    line-height: 1.25;
 }
 
 .js-airport-guide__title span {
-    color: var(--js-primary);
+    color: var(--js-accent);
+}
+
+.js-airport-guide__lead {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--js-muted);
 }
 
 .js-airport-guide__tabs-wrap {
     background: var(--js-surface);
     border: 1px solid var(--js-border);
     border-radius: var(--js-radius-lg);
-    box-shadow: var(--js-shadow-sm);
+    box-shadow: var(--js-shadow-md);
     overflow: hidden;
 }
 
@@ -103,8 +112,8 @@
     flex-wrap: wrap;
     gap: 0;
     border-bottom: 1px solid var(--js-border);
-    background: linear-gradient(180deg, #f7f5f6 0%, var(--js-surface) 100%);
-    padding: 0 12px;
+    background: linear-gradient(180deg, #faf7f8 0%, var(--js-surface) 100%);
+    padding: 0 16px;
 }
 
 .js-airport-tab {
@@ -112,23 +121,27 @@
     -webkit-appearance: none;
     color: var(--js-muted);
     font-weight: 600;
-    font-size: 14px;
+    font-size: 0.92rem;
     font-family: inherit;
     border: none;
     border-bottom: 3px solid transparent;
     border-radius: 0;
-    padding: 16px 20px;
+    padding: 18px 18px;
     margin-bottom: -1px;
     background: transparent;
-    transition: color var(--js-transition), border-color var(--js-transition);
+    transition: color var(--js-transition), border-color var(--js-transition), background var(--js-transition);
     cursor: pointer;
     line-height: 1.3;
 }
 
-.js-airport-tab:hover,
+.js-airport-tab:hover {
+    color: var(--js-heading);
+    background: rgba(194, 24, 91, 0.04);
+}
+
 .js-airport-tab.is-active {
-    color: var(--js-primary);
-    border-bottom-color: var(--js-accent, #C2185B);
+    color: var(--js-heading);
+    border-bottom-color: var(--js-accent);
 }
 
 .js-airport-panel {
@@ -156,13 +169,19 @@
 }
 
 .js-airport-guide__panel {
-    padding: 28px 24px 32px;
+    padding: 28px 28px 36px;
+    background: linear-gradient(180deg, #fff 0%, #fcfafb 100%);
 }
 
 .js-airport-content {
-    font-size: 1rem;
+    font-size: 1.02rem;
     line-height: 1.8;
     color: var(--js-text);
+    max-width: 920px;
+}
+
+.js-airport-content > *:first-child {
+    margin-top: 0 !important;
 }
 
 .js-airport-content h1,
@@ -171,16 +190,23 @@
 .js-airport-content h4 {
     color: var(--js-heading);
     text-align: left !important;
-    padding: 0 !important;
+    font-family: var(--js-font) !important;
 }
 
 .js-airport-content h2 {
-    font-size: clamp(1.15rem, 2vw, 1.4rem);
-    font-weight: 700;
-    margin: 28px 0 12px;
-    padding-left: 14px !important;
-    border-left: 4px solid var(--js-primary);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: clamp(1.12rem, 2.2vw, 1.32rem);
+    font-weight: 800;
+    margin: 32px 0 14px;
+    padding: 14px 16px !important;
     line-height: 1.35;
+    background: #fff;
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-md);
+    border-left: 4px solid var(--js-accent) !important;
+    box-shadow: var(--js-shadow-sm);
 }
 
 .js-airport-content h2:first-child {
@@ -189,34 +215,78 @@
 
 .js-airport-content h3 {
     font-size: 1.08rem;
-    font-weight: 600;
+    font-weight: 700;
     margin: 22px 0 10px;
+    color: var(--js-heading);
 }
 
 .js-airport-content p {
-    margin-bottom: 14px;
+    margin: 0 0 14px;
+    color: var(--js-text);
+}
+
+.js-airport-content h2 + p {
+    font-size: 1.05rem;
+    color: var(--js-heading);
 }
 
 .js-airport-content ul,
 .js-airport-content ol {
-    padding-left: 22px;
-    margin: 0 0 16px;
+    padding-left: 1.35rem;
+    margin: 0 0 18px;
 }
 
 .js-airport-content li {
     margin-bottom: 8px;
 }
 
+.js-airport-content li::marker {
+    color: var(--js-accent);
+}
+
 .js-airport-content a {
-    color: var(--js-primary);
+    color: var(--js-accent);
     text-decoration: underline;
     text-underline-offset: 2px;
+    font-weight: 600;
+}
+
+.js-airport-content strong,
+.js-airport-content b {
+    color: var(--js-heading);
+    font-weight: 700;
 }
 
 .js-airport-content img {
     max-width: 100%;
     height: auto;
-    border-radius: var(--js-radius-sm);
+    border-radius: var(--js-radius-md);
+    margin: 12px 0;
+    box-shadow: var(--js-shadow-sm);
+}
+
+.js-airport-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-md);
+    overflow: hidden;
+}
+
+.js-airport-content table th,
+.js-airport-content table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--js-border);
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.js-airport-content table th {
+    background: #f7f5f6;
+    font-weight: 700;
+    color: var(--js-heading);
 }
 
 /* ── Pricing tables ── */
