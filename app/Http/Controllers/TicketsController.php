@@ -720,23 +720,56 @@ if ($request->hasFile('attatchment')) {
 
     
 
+
     /**
-     * Magr / legacy DBs sometimes miss ticket_id. Ensure it exists before ticket ops.
+     * Magr / legacy DBs often miss ticket columns the front support flow needs.
      */
     private function ensureTicketsSchema(): void
     {
         try {
-            if (! \Illuminate\Support\Facades\Schema::hasColumn('tickets', 'ticket_id')) {
-                \Illuminate\Support\Facades\Schema::table('tickets', function ($table) {
-                    $table->string('ticket_id', 64)->nullable()->after('id');
-                });
+            if (! Schema::hasTable('tickets')) {
+                return;
+            }
+
+            $columns = [
+                'ticket_id' => fn ($table) => $table->string('ticket_id', 64)->nullable(),
+                'agent_id' => fn ($table) => $table->integer('agent_id')->nullable(),
+                'title' => fn ($table) => $table->text('title')->nullable(),
+                'booking_ref' => fn ($table) => $table->string('booking_ref', 64)->nullable(),
+                'user_id' => fn ($table) => $table->integer('user_id')->nullable(),
+                'company_admin_id' => fn ($table) => $table->integer('company_admin_id')->nullable(),
+                'name' => fn ($table) => $table->string('name', 255)->nullable(),
+                'email' => fn ($table) => $table->string('email', 191)->nullable(),
+                'contact' => fn ($table) => $table->string('contact', 32)->nullable(),
+                'department' => fn ($table) => $table->integer('department')->nullable(),
+                'urgency' => fn ($table) => $table->string('urgency', 20)->nullable(),
+                'date' => fn ($table) => $table->dateTime('date')->nullable(),
+                'assign_to' => fn ($table) => $table->integer('assign_to')->nullable(),
+                'assign_date' => fn ($table) => $table->dateTime('assign_date')->nullable(),
+                'status' => fn ($table) => $table->string('status', 20)->nullable(),
+            ];
+
+            foreach ($columns as $name => $definition) {
+                if (! Schema::hasColumn('tickets', $name)) {
+                    Schema::table('tickets', function ($table) use ($definition) {
+                        $definition($table);
+                    });
+                }
+            }
+
+            // Widen legacy short ticket_id if present
+            try {
+                DB::statement('ALTER TABLE tickets MODIFY ticket_id VARCHAR(64) NULL');
+            } catch (\Throwable $e) {
+                // ignore if already correct / no ALTER privilege
             }
         } catch (\Throwable $e) {
-            Log::error('Unable to ensure tickets.ticket_id column', [
+            Log::error('Unable to ensure tickets schema', [
                 'error' => $e->getMessage(),
             ]);
         }
     }
+
 
 
     /**
