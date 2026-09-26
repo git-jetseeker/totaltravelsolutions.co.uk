@@ -36,6 +36,8 @@ use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Support\Facades\Log;
 
+use Illuminate\Support\Facades\Schema;
+
 use GuzzleHttp\Client;
 
 
@@ -266,7 +268,7 @@ class TicketsController extends Controller
 
         DB::beginTransaction();
 
-
+        $this->ensureTicketsSchema();
 
         $booking = airports_bookings::where('referenceNo', $request->input('ref_no'))
 
@@ -322,9 +324,9 @@ class TicketsController extends Controller
 
         $ticket->date = date('Y-m-d H:i:s');
 
-        $ticket->status = 'open';
+        $ticket->status = 'Open';
 
-        $ticket->agent_id = (string) current_agent_id();
+        $ticket->agent_id = function_exists('current_agent_id') ? (int) current_agent_id() : null;
 
         $ticket->save();
 
@@ -391,7 +393,7 @@ class TicketsController extends Controller
 
             'urgency' => $request->input('priority'),
 
-            'status' => 'open',
+            'status' => 'Open',
 
             'ticket_ref' => $ticketRef,
 
@@ -717,6 +719,26 @@ if ($request->hasFile('attatchment')) {
 
 
     
+
+    /**
+     * Magr / legacy DBs sometimes miss ticket_id. Ensure it exists before ticket ops.
+     */
+    private function ensureTicketsSchema(): void
+    {
+        try {
+            if (! \Illuminate\Support\Facades\Schema::hasColumn('tickets', 'ticket_id')) {
+                \Illuminate\Support\Facades\Schema::table('tickets', function ($table) {
+                    $table->string('ticket_id', 64)->nullable()->after('id');
+                });
+            }
+        } catch (\Throwable $e) {
+            Log::error('Unable to ensure tickets.ticket_id column', [
+                'error' => $e->getMessage(),
+            ]);
+        }
+    }
+
+
     /**
      * Store a ticket attachment and return its absolute public URL.
      * Example: https://www.totaltravelsolutions.co.uk/storage/app/public/supports/xxx.png
@@ -749,6 +771,8 @@ if ($request->hasFile('attatchment')) {
     public function view($id)
 
     {
+        $this->ensureTicketsSchema();
+
 
 
 
@@ -866,6 +890,8 @@ if ($request->hasFile('attatchment')) {
 
     public function search_ticket(Request $request)
     {
+        $this->ensureTicketsSchema();
+
         $messages = [
             'email.required' => 'Email address is required.',
             'email.email' => 'Enter a valid email address.',
