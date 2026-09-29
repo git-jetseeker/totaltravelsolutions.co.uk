@@ -1782,7 +1782,7 @@
 
         <div class="js-section-head js-reveal">
             <span class="js-section-head__badge js-section-head__badge--light">Nationwide coverage</span>
-            <h2 class="js-section-title">{{ crm('home.airports_section_title', 'We Are Operating at the Following Airports') }}</h2>
+            <h2 class="js-section-title">{!! strip_tags((string) crm_html('home.airports_title', crm_html('home.airports_section_title', 'We Are Operating at the <span class="orangeClr">Following Airports</span>')), '<span>') !!}</h2>
             <p class="js-section-subtitle">{{ crm('home.airports_section_lead', 'Compare and book airport parking at all major UK airports') }}</p>
         </div>
 
@@ -1989,7 +1989,7 @@
 
         <div class="js-section-head js-reveal">
             <span class="js-section-head__badge js-section-head__badge--light">{{ crm('home.testimonials_badge', 'Trusted reviews') }}</span>
-            <h2 class="js-section-title cap-text">{{ crm('home.testimonials_title', 'What Do Our Customers Say') }}</h2>
+            <h2 class="js-section-title cap-text">{!! strip_tags((string) crm_html('home.reviews_title', crm_html('home.testimonials_title', 'What Do Our <span class="orangeClr">Customers Say</span>')), '<span>') !!}</h2>
             <p class="js-section-subtitle">{{ crm('home.testimonials_lead', 'Trusted travel park for thousands of customer reviews') }}</p>
         </div>
     </div>
@@ -2010,7 +2010,7 @@
 
         <div class="js-section-head js-reveal">
             <span class="js-section-head__badge js-section-head__badge--light">{{ crm('home.tips_badge', 'Expert advice') }}</span>
-            <h2 class="js-section-title">{{ crm('home.tips_title', 'Top Tips By Experts') }}</h2>
+            <h2 class="js-section-title">{!! strip_tags((string) crm_html('home.tips_title', '<span class="orangeClr">Top Tips</span> By Experts'), '<span>') !!}</h2>
             <p class="js-section-subtitle">{{ crm('home.tips_lead', 'Expert advice to make your airport parking experience seamless') }}</p>
         </div>
 

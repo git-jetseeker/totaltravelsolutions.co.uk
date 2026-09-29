@@ -116,7 +116,7 @@
 
         overflow: hidden;
 
-        height: 210px;
+        height: 280px;
 
     }
 
@@ -301,17 +301,47 @@
     }
 
     .review-img{
-
         width: 57px;
+        border-radius: 50%;
+        height: 57px;
+        margin-top: -17px;
+        margin-bottom: 14px;
+    }
 
-    border-radius: 50%;
+    .js-review-avatar {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 10px;
+        border-radius: 50%;
+        background: #C2185B;
+        color: #fff;
+        font-size: 1.35rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        line-height: 1;
+        text-transform: uppercase;
+        box-shadow: 0 6px 16px rgba(194, 24, 91, 0.35);
+    }
 
-    height: 57px;
+    .js-review-text {
+        display: block;
+        max-width: 640px;
+        margin: 0 auto 12px;
+        font-size: 1rem;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.92);
+    }
 
-    margin-top: -17px;
-
-    margin-bottom: 14px;
-
+    .js-review-name {
+        display: block;
+        margin: -6px auto 14px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 0.01em;
     }
 
 </style>
@@ -459,21 +489,19 @@
                     <div class="wrapper" id="wrapper">
 
                         @foreach ($reviews as $review)
-
-                            <p style="text-align:center">
-
-                                <span><img alt="{{$review->username}}" class="review-img" src='{{ ttss_company_logo_url($review->logo) }}'></span>
-
+                            @php
+                                $reviewName = trim((string) ($review['username'] ?? $review->username ?? 'Customer'));
+                                $reviewInitial = mb_strtoupper(mb_substr($reviewName !== '' ? $reviewName : 'C', 0, 1));
+                                $reviewText = trim(html_entity_decode(strip_tags((string) ($review['review'] ?? $review->review ?? '')), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+                                $reviewText = preg_replace('/\s+/u', ' ', $reviewText) ?? $reviewText;
+                            @endphp
+                            <p class="js-review-slide" style="text-align:center">
+                                <span class="js-review-avatar" aria-hidden="true">{{ $reviewInitial }}</span>
                                 <br>
-
-                                <span>{{ $review['review'] }} </span>
-
+                                <span class="js-review-name">{{ $reviewName }}</span>
                                 <br>
-
-                                <span style="text-align:center; "><b>{{ $review['username'] }}</b></span>
-
+                                <span class="js-review-text">{{ $reviewText }}</span>
                             </p>
-
                         @endforeach
 
                         <!--<p>My life has completely changed! All of my friends and family are so impressed, and it has brought a certain kind of confidence in my abilities not only as a "techie" but as a mom, and person in general that I could switch careers and understand and-->

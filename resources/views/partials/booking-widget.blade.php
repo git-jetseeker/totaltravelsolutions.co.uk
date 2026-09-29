@@ -114,7 +114,7 @@
                             <div class="js-booking-field js-booking-field--promo">
                                 <label for="promo_code">Promo code</label>
                                 <div class="form-group">
-                                    <input type="text" id="promo_code" name="promo" class="js-booking-input" placeholder="Optional" value="{{ request()->get('promo', 'JS-Og-05') }}">
+                                    <input type="text" id="promo_code" name="promo" class="js-booking-input" placeholder="Optional" value="{{ request()->get('promo') }}">
                                     <input type="hidden" name="submitted" value="Yes">
                                     <input type="hidden" name="booking_for" value="airport_parking">
                                 </div>

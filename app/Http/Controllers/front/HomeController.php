@@ -1583,7 +1583,7 @@ public function faqs()
 
 
 
-        $reviews = DB::select(DB::raw($query));
+        $reviews = DB::select($query);
 
         $reviews = collect($reviews)->map(function ($x) {
 

@@ -5,13 +5,13 @@
 @include('layouts.header')
 @include('layouts.nav')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-legal.css?v=20251005') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-legal.css?v=20260929legal') }}">
 
 @include('partials.page-hero', [
     'title' => 'Terms & Conditions',
     'subtitle' => 'Please read these terms carefully before booking',
     'lead' => 'These terms govern your use of Total Travel Solutions and our airport parking booking services. By placing a booking, you agree to the conditions set out below.',
-    'heroClass' => 'js-page-hero--enhanced',
+    'heroClass' => 'js-page-hero--enhanced js-page-hero--legal',
 ])
 
 <main class="js-legal-page">

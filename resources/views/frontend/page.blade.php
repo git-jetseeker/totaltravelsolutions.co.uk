@@ -5,7 +5,7 @@
 @include('layouts.header')
 @include('layouts.nav')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-airport.css?v=20260926guide') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-airport.css?v=20260929reviews') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20260907noblue2') }}">
 
    @if(request()->get('src') != '')
