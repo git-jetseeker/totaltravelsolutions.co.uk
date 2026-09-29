@@ -1,339 +1,340 @@
-@extends('layouts.main')
-
 @include('layouts.header')
 @include('layouts.nav')
 
-@section('content')
-    <style type="text/css">
-        .booking-result p strong {
-            color: #000 !important;
-        }
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-manage-booking.css?v=20260929detail') }}">
+<style>
+    .js-manage-detail {
+        --js-primary: #111111;
+        --js-primary-dark: #000000;
+        --js-accent: #C2185B;
+        --js-accent-dark: #9c1249;
+    }
+    .js-manage-detail__amount {
+        background: linear-gradient(135deg, #111 0%, #2a2a2a 100%);
+    }
+    .js-manage-detail__section-title {
+        border-bottom-color: #C2185B;
+    }
+    .js-manage-detail__note {
+        background: rgba(194, 24, 91, 0.08);
+        border-left-color: #C2185B;
+    }
+</style>
 
-        .btn-black {
-            background-color: #000;
-            color: white;
-        }
+@php
+    $settings = function_exists('site_settings') ? site_settings() : [];
+    $supportEmail = $settings['footer_email'] ?? 'bookings@totaltravelsolutions.co.uk';
+    $supportPhone = $settings['footer_phone_no'] ?? '020 4511 4171';
+    $brandName = 'Total Travel Solutions';
+    $logoSrc = asset('theme/images/logo-black.png') . '?v=20260915';
+    $pdfName = 'Total_Travel_Solutions_Booking_' . ($booking->referenceNo ?? 'booking') . '.pdf';
+    $companyLine = 'Total Travel Solutions — Registered in England · No. 11502152';
+@endphp
 
-        .btn-black:hover {
-            background-color: #000;
-            color: white;
-        }
+@include('partials.page-hero', [
+    'title' => 'Booking Confirmation',
+    'subtitle' => 'Reference ' . ($booking->referenceNo ?? ''),
+    'lead' => 'Your parking booking details are below. Download a PDF copy for your trip.',
+    'heroClass' => 'js-page-hero--enhanced js-page-hero--compact',
+    'eyebrow' => 'Manage booking',
+])
 
-        div {
-            color: #000;
-        }
-
-        p {
-            color: #000;
-        }
-
-        span {
-            color: #000;
-        }
-
-        /* PDF-specific styles */
-        @media print {
-            body * {
-                visibility: hidden;
-            }
-            #print, #print * {
-                visibility: visible;
-            }
-            #print {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-            }
-            .no-print {
-                display: none !important;
-            }
-        }
-
-        .receipt-header {
-            text-align: center;
-            padding: 20px;
-            border-bottom: 3px solid #000;
-            margin-bottom: 20px;
-        }
-
-        .receipt-section {
-            margin-bottom: 30px;
-            page-break-inside: avoid;
-        }
-
-        .receipt-section h2 {
-            color: #000;
-            border-bottom: 2px solid #C2185B;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .info-table td {
-            padding: 8px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .info-table td:first-child {
-            font-weight: bold;
-            width: 30%;
-        }
-
-        .amount-highlight {
-            background-color: #f0f0f0;
-            padding: 15px;
-            text-align: center;
-            border: 2px solid #000;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .amount-highlight h2 {
-            color: #000;
-            margin: 0;
-        }
-    </style>
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-manage-booking.css?v=20250901') }}">
-
-    <div class="home-container home-background">
-        @include('frontend.header')
-    </div>
-
-    <div class="js-manage-booking-page">
-    <section class="section" style="margin-top: 44px;padding: 40px;">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="booking-result">
-                    <div class="row" style="margin: 20px auto;">
-                        <div class="col-md-9" id="myfont" style="margin:20px auto;">
-                            <div class="row" id="print">
-                                <div class="main-area" style="background: url(//assets/images/banner18.jpg); border: 1px solid #777777; float: left; width: 100%; border-radius: 23px; background-color: #fff; padding: 30px;">
-                                    
-                                    <!-- Receipt Header -->
-                                    <div class="receipt-header">
-                                        <h1 style="color: #000; font-weight: 600; margin: 0;">Total Travel Solutions</h1>
-                                        <h2 style="color: #000; font-weight: 600; margin: 10px 0;">Booking Confirmation</h2>
-                                        <p style="margin: 5px 0;"><strong>Reference:</strong> {{ $booking->referenceNo }}</p>
-                                        <p style="margin: 5px 0; font-size: 14px;">{{ now()->format('d/m/Y H:i') }}</p>
-                                    </div>
-
-                                    <!-- Customer Information -->
-                                    <div class="receipt-section">
-                                        <h2>Customer Information</h2>
-                                        <table class="info-table">
-                                            <tr>
-                                                <td>Name:</td>
-                                                <td>{{ $booking->first_name }} {{ $booking->last_name }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Email:</td>
-                                                <td>{{ $booking->email }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Phone:</td>
-                                                <td>{{ $booking->phone_number }}</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-
-                                    <!-- Booking Details -->
-                                    <div class="receipt-section">
-                                        <h2>Booking Details</h2>
-                                        <table class="info-table">
-                                            @if ($airport_detail)
-                                            <tr>
-                                                <td>Airport:</td>
-                                                <td>{{ $airport_detail->name }}</td>
-                                            </tr>
-                                            @endif
-                                            <tr>
-                                                <td>Booking Start Date:</td>
-                                                <td>{{ $booking->departDate }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Booking End Date:</td>
-                                                <td>{{ $booking->returnDate }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Number of Days:</td>
-                                                <td>{{ $booking->no_of_days }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Company Booked with:</td>
-                                                <td><strong>{{ $booking->name }}</strong></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Parking Type:</td>
-                                                <td>{{ $booking->booked_type }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Outbound Terminal:</td>
-                                                <td>@if ($booking->dterminal) {{ $booking->dterminal->name }} @endif</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Inbound Terminal:</td>
-                                                <td>@if ($booking->rterminal) {{ $booking->rterminal->name }} @endif</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-
-                                    <!-- Vehicle Information -->
-                                    <div class="receipt-section">
-                                        <h2>Vehicle Information</h2>
-                                        <table class="info-table">
-                                            <tr>
-                                                <td>Registration:</td>
-                                                <td>{{ $booking->registration }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Make:</td>
-                                                <td>{{ $booking->make }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Model:</td>
-                                                <td>{{ $booking->model }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Color:</td>
-                                                <td>{{ $booking->color }}</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-
-                                    <!-- Payment Information -->
-                                    <div class="receipt-section">
-                                        <h2>Payment Information</h2>
-                                        <table class="info-table">
-                                            <tr>
-                                                <td>Payment Method:</td>
-                                                <td>{{ $booking->payment_method }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Payment Status:</td>
-                                                <td>{{ $booking->payment_status }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Booking Status:</td>
-                                                <td>{{ $booking->booking_status }}</td>
-                                            </tr>
-                                        </table>
-                                        
-                                        <div class="amount-highlight">
-                                            <h2>Total Amount: {{ $booking->total_amount }}</h2>
-                                        </div>
-                                    </div>
-
-                                    <!-- Arrival Instructions -->
-                                    @if($booking->arival)
-                                    <div class="receipt-section">
-                                        <h2>Arrival Instructions</h2>
-                                        <div style="padding: 10px; background: #f9f9f9; border-radius: 5px;">
-                                            <?php echo $booking->arival; ?>
-                                        </div>
-                                    </div>
-                                    @endif
-
-                                    <!-- Departure Instructions -->
-                                    @if($booking->return_proc)
-                                    <div class="receipt-section">
-                                        <h2>Departure Instructions</h2>
-                                        <div style="padding: 10px; background: #f9f9f9; border-radius: 5px;">
-                                            <?php echo $booking->return_proc; ?>
-                                        </div>
-                                    </div>
-                                    @endif
-
-                                    <!-- Important Note -->
-                                    <div class="receipt-section" style="background: #fff9e6; padding: 15px; border-left: 4px solid #C2185B;">
-                                        <p><strong>Important:</strong> Please bring a printed or digital copy of this booking confirmation when dropping off and collecting your vehicle.</p>
-                                        <p style="margin-top: 10px;"><strong>Contact:</strong> Customer Services: 020 8178 6133 | Email: bookings@totaltravelsolutions.co.uk</p>
-                                    </div>
-
-                                    <!-- Footer -->
-                                    <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #e0e0e0; font-size: 12px; color: #666;">
-                                        <p>Total Travel Solutions - Registered in England Registration Number 11502152</p>
-                                        <p>Thank you for booking with Total Travel Solutions</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 no-print" style="background: #fff; padding-top: 33px;">
-                            <div class="row text-center">
-                                <div class="col-md-12">
-                                    <h3 style="color: #000; font-weight: 600;">Booking Actions</h3>
-                                </div>
-                                <div class="col-md-12">
-                                    <p class="alert alert-info" id="msg" style="display:none;"></p>
-                                    <ul style="padding: 0px; list-style: none;">
-                                        <li style="margin-bottom: 15px;">
-                                            <button type="button" class="btn btn-black" id="downloadPdf" style="width: 88%;">
-                                                <i class="entypo-download"></i> Download PDF
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button type="button" class="btn btn-yellow" id="RButton" style="background: #C2185B; width: 88%;">
-                                                <i class="entypo-mail"></i> Re-send Email
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <form id="RForm">
-                            <input type="hidden" name="id" value="{{ $booking->bookingid }}">
-                            <input type="hidden" name="email" value="{{ $booking->email }}">
-                            <input type="hidden" name="action" value="resend">
-                        </form>
+<div class="js-manage-booking-page js-manage-detail">
+    <div class="js-container">
+        <div class="js-manage-detail__layout">
+            <article class="js-manage-detail__card" id="print">
+                <header class="js-manage-detail__header">
+                    <div class="js-manage-detail__brand">
+                        <img src="{{ $logoSrc }}" alt="{{ $brandName }}" class="js-manage-detail__logo" width="140" height="40">
+                        <p class="js-manage-detail__doc-label">Booking confirmation</p>
                     </div>
+                    <div class="js-manage-detail__ref-block">
+                        <span class="js-manage-detail__ref-label">Reference</span>
+                        <strong class="js-manage-detail__ref">{{ $booking->referenceNo }}</strong>
+                        <span class="js-manage-detail__date">{{ now()->format('d/m/Y H:i') }}</span>
+                    </div>
+                </header>
+
+                <div class="js-manage-detail__amount">
+                    <span>Total paid</span>
+                    <strong>{{ is_numeric($booking->total_amount) ? '£' . number_format((float) $booking->total_amount, 2) : $booking->total_amount }}</strong>
                 </div>
-            </div>
+
+                <section class="js-manage-detail__section">
+                    <h2 class="js-manage-detail__section-title">Customer</h2>
+                    <dl class="js-manage-detail__grid">
+                        <div>
+                            <dt>Name</dt>
+                            <dd>{{ $booking->first_name }} {{ $booking->last_name }}</dd>
+                        </div>
+                        <div>
+                            <dt>Email</dt>
+                            <dd>{{ $booking->email }}</dd>
+                        </div>
+                        <div>
+                            <dt>Phone</dt>
+                            <dd>{{ $booking->phone_number }}</dd>
+                        </div>
+                    </dl>
+                </section>
+
+                <section class="js-manage-detail__section">
+                    <h2 class="js-manage-detail__section-title">Parking details</h2>
+                    <dl class="js-manage-detail__grid">
+                        @if ($airport_detail)
+                            <div>
+                                <dt>Airport</dt>
+                                <dd>{{ $airport_detail->name }}</dd>
+                            </div>
+                        @endif
+                        <div>
+                            <dt>Provider</dt>
+                            <dd>{{ $booking->name ?? $booking->company_name ?? '—' }}</dd>
+                        </div>
+                        <div>
+                            <dt>Parking type</dt>
+                            <dd>{{ $booking->booked_type }}</dd>
+                        </div>
+                        <div>
+                            <dt>Drop-off</dt>
+                            <dd>{{ $booking->departDate }}</dd>
+                        </div>
+                        <div>
+                            <dt>Return</dt>
+                            <dd>{{ $booking->returnDate }}</dd>
+                        </div>
+                        <div>
+                            <dt>Duration</dt>
+                            <dd>{{ $booking->no_of_days }} {{ (int) $booking->no_of_days === 1 ? 'day' : 'days' }}</dd>
+                        </div>
+                        <div>
+                            <dt>Outbound terminal</dt>
+                            <dd>
+                                @php $dTerm = $booking->dterminal ?? null; @endphp
+                                {{ ($dTerm && isset($dTerm->name)) ? $dTerm->name : ($booking->deprTerminal ?: '—') }}
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>Inbound terminal</dt>
+                            <dd>
+                                @php $rTerm = $booking->rterminal ?? null; @endphp
+                                {{ ($rTerm && isset($rTerm->name)) ? $rTerm->name : ($booking->returnTerminal ?: '—') }}
+                            </dd>
+                        </div>
+                    </dl>
+                </section>
+
+                <section class="js-manage-detail__section">
+                    <h2 class="js-manage-detail__section-title">Vehicle</h2>
+                    <dl class="js-manage-detail__grid">
+                        <div>
+                            <dt>Registration</dt>
+                            <dd>{{ $booking->registration ?: '—' }}</dd>
+                        </div>
+                        <div>
+                            <dt>Make</dt>
+                            <dd>{{ $booking->make ?: '—' }}</dd>
+                        </div>
+                        <div>
+                            <dt>Model</dt>
+                            <dd>{{ $booking->model ?: '—' }}</dd>
+                        </div>
+                        <div>
+                            <dt>Colour</dt>
+                            <dd>{{ $booking->color ?: '—' }}</dd>
+                        </div>
+                    </dl>
+                </section>
+
+                <section class="js-manage-detail__section">
+                    <h2 class="js-manage-detail__section-title">Payment &amp; status</h2>
+                    <dl class="js-manage-detail__grid">
+                        <div>
+                            <dt>Payment method</dt>
+                            <dd>{{ $booking->payment_method }}</dd>
+                        </div>
+                        <div>
+                            <dt>Payment status</dt>
+                            <dd><span class="js-manage-detail__badge">{{ $booking->payment_status }}</span></dd>
+                        </div>
+                        <div>
+                            <dt>Booking status</dt>
+                            <dd><span class="js-manage-detail__badge js-manage-detail__badge--navy">{{ $booking->booking_status }}</span></dd>
+                        </div>
+                    </dl>
+                </section>
+
+                @if (!empty($booking->arival))
+                    <section class="js-manage-detail__section">
+                        <h2 class="js-manage-detail__section-title">Arrival instructions</h2>
+                        <div class="js-manage-detail__prose">{!! $booking->arival !!}</div>
+                    </section>
+                @endif
+
+                @if (!empty($booking->return_proc))
+                    <section class="js-manage-detail__section">
+                        <h2 class="js-manage-detail__section-title">Departure instructions</h2>
+                        <div class="js-manage-detail__prose">{!! $booking->return_proc !!}</div>
+                    </section>
+                @endif
+
+                <aside class="js-manage-detail__note">
+                    <p><strong>Important:</strong> Bring a printed or digital copy of this confirmation when dropping off and collecting your vehicle.</p>
+                    <p>Customer Services:
+                        @if ($supportPhone)
+                            <a href="tel:{{ preg_replace('/\s+/', '', $supportPhone) }}">{{ $supportPhone }}</a>
+                        @endif
+                        @if ($supportEmail)
+                            · <a href="mailto:{{ $supportEmail }}">{{ $supportEmail }}</a>
+                        @endif
+                    </p>
+                </aside>
+
+                <footer class="js-manage-detail__footer">
+                    <p>{{ $companyLine }}</p>
+                    <p>Thank you for booking with {{ $brandName }}</p>
+                </footer>
+            </article>
+
+            <aside class="js-manage-detail__actions no-print">
+                <h2 class="js-manage-detail__actions-title">Booking actions</h2>
+                <button type="button" class="js-manage-detail__btn" id="downloadPdf">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                    <span class="js-manage-detail__btn-label">Download PDF</span>
+                </button>
+                @if (\Illuminate\Support\Facades\Route::has('reSendEmailBooking'))
+                    <button type="button" class="js-manage-detail__btn js-manage-detail__btn--accent" id="RButton" style="margin-top:10px;background:var(--js-accent,#C2185B);">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <span class="js-manage-detail__btn-label">Re-send Email</span>
+                    </button>
+                    <form id="RForm" style="display:none;">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $booking->bookingid ?? $booking->id }}">
+                        <input type="hidden" name="email" value="{{ $booking->email }}">
+                        <input type="hidden" name="action" value="resend">
+                    </form>
+                    <p class="alert alert-info" id="msg" style="display:none;margin-top:12px;font-size:13px;"></p>
+                @endif
+                <a href="{{ route('manage_booking') }}" class="js-manage-detail__link">
+                    <i class="fa fa-search" aria-hidden="true"></i> Search another booking
+                </a>
+            </aside>
         </div>
-    </section>
     </div>
-@endsection
+</div>
 
-@section('footer-script')
-    <!-- Include html2pdf.js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    
-    <script>
-        // Download PDF functionality
-        $('#downloadPdf').click(function() {
-            const element = document.getElementById('print');
-            const opt = {
-                margin: 10,
-                filename: 'Total_Travel_Solutions_Booking_{{ $booking->referenceNo }}.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+    (function () {
+        var btn = document.getElementById('downloadPdf');
+        if (!btn || typeof html2pdf === 'undefined') return;
 
-            // Show loading message
-            $(this).html('<i class="entypo-hourglass"></i> Generating PDF...').prop('disabled', true);
-            
-            html2pdf().set(opt).from(element).save().then(() => {
-                $('#downloadPdf').html('<i class="entypo-download"></i> Download PDF').prop('disabled', false);
-            });
-        });
+        btn.addEventListener('click', function () {
+            var source = document.getElementById('print');
+            var label = btn.querySelector('.js-manage-detail__btn-label');
+            if (!source) return;
 
-        // Re-send email functionality
-        $('#RButton').click(function() {
-            $.post('{{ route('reSendEmailBooking') }}', $("#RForm").serialize(), function(data, textStatus, xhr) {
-                if (data == "success") {
-                    alert('Email Sent Successfully!');
-                } else {
-                    alert('Email Not Sent. Please Try Again!');
+            btn.disabled = true;
+            if (label) label.textContent = 'Generating PDF…';
+
+            var host = document.createElement('div');
+            host.setAttribute('aria-hidden', 'true');
+            host.style.cssText = 'position:fixed;left:-10000px;top:0;width:794px;background:#ffffff;z-index:-1;';
+            var clone = source.cloneNode(true);
+            clone.id = 'print-pdf-clone';
+            clone.style.cssText = 'width:100%;max-width:794px;background:#ffffff;color:#0a1f3d;box-shadow:none;border:1px solid #dfe3ea;';
+            host.appendChild(clone);
+            document.body.appendChild(host);
+
+            clone.querySelectorAll('*').forEach(function (el) {
+                var style = window.getComputedStyle(el);
+                if (style.color && style.color.indexOf('rgba(0, 0, 0, 0)') === -1) {
+                    el.style.color = style.color;
+                }
+                if (style.backgroundColor && style.backgroundColor !== 'rgba(0, 0, 0, 0)') {
+                    el.style.backgroundImage = 'none';
+                    el.style.backgroundColor = style.backgroundColor;
                 }
             });
-            $('#msg').hide();
+
+            var amount = clone.querySelector('.js-manage-detail__amount');
+            if (amount) {
+                amount.style.background = '#0A1F3D';
+                amount.style.color = '#ffffff';
+                amount.querySelectorAll('*').forEach(function (el) {
+                    el.style.color = '#ffffff';
+                });
+            }
+
+            clone.querySelectorAll('img').forEach(function (img) {
+                img.crossOrigin = 'anonymous';
+                if (!img.complete || img.naturalWidth === 0) {
+                    img.style.display = 'none';
+                }
+            });
+
+            var opt = {
+                margin: [10, 10, 10, 10],
+                filename: @json($pdfName),
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
+                    allowTaint: true,
+                    backgroundColor: '#ffffff',
+                    logging: false,
+                    scrollX: 0,
+                    scrollY: 0,
+                    windowWidth: clone.scrollWidth,
+                    windowHeight: clone.scrollHeight
+                },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['css', 'legacy'] }
+            };
+
+            html2pdf()
+                .set(opt)
+                .from(clone)
+                .save()
+                .then(function () {
+                    host.remove();
+                    btn.disabled = false;
+                    if (label) label.textContent = 'Download PDF';
+                })
+                .catch(function (err) {
+                    console.error('PDF export failed', err);
+                    host.remove();
+                    btn.disabled = false;
+                    if (label) label.textContent = 'Download PDF';
+                    alert('Unable to generate PDF. Please try again or use Print.');
+                });
         });
-    </script>
-@endsection
+
+        var resendBtn = document.getElementById('RButton');
+        var resendForm = document.getElementById('RForm');
+        if (resendBtn && resendForm && window.jQuery) {
+            resendBtn.addEventListener('click', function () {
+                var label = resendBtn.querySelector('.js-manage-detail__btn-label');
+                resendBtn.disabled = true;
+                if (label) label.textContent = 'Sending…';
+                window.jQuery.post('{{ route('reSendEmailBooking') }}', window.jQuery(resendForm).serialize())
+                    .done(function (data) {
+                        var msg = document.getElementById('msg');
+                        if (msg) {
+                            msg.style.display = 'block';
+                            msg.textContent = (data && data.message) ? data.message : 'Confirmation email re-sent.';
+                        }
+                    })
+                    .fail(function () {
+                        alert('Unable to re-send email. Please try again.');
+                    })
+                    .always(function () {
+                        resendBtn.disabled = false;
+                        if (label) label.textContent = 'Re-send Email';
+                    });
+            });
+        }
+    })();
+</script>
+
+@include('layouts.footer')
