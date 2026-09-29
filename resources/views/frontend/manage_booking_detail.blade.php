@@ -202,19 +202,6 @@
                     <i class="fa fa-download" aria-hidden="true"></i>
                     <span class="js-manage-detail__btn-label">Download PDF</span>
                 </button>
-                @if (\Illuminate\Support\Facades\Route::has('reSendEmailBooking'))
-                    <button type="button" class="js-manage-detail__btn js-manage-detail__btn--accent" id="RButton" style="margin-top:10px;background:var(--js-accent,#C2185B);">
-                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                        <span class="js-manage-detail__btn-label">Re-send Email</span>
-                    </button>
-                    <form id="RForm" style="display:none;">
-                        @csrf
-                        <input type="hidden" name="id" value="{{ $booking->bookingid ?? $booking->id }}">
-                        <input type="hidden" name="email" value="{{ $booking->email }}">
-                        <input type="hidden" name="action" value="resend">
-                    </form>
-                    <p class="alert alert-info" id="msg" style="display:none;margin-top:12px;font-size:13px;"></p>
-                @endif
                 <a href="{{ route('manage_booking') }}" class="js-manage-detail__link">
                     <i class="fa fa-search" aria-hidden="true"></i> Search another booking
                 </a>
@@ -309,31 +296,6 @@
                     alert('Unable to generate PDF. Please try again or use Print.');
                 });
         });
-
-        var resendBtn = document.getElementById('RButton');
-        var resendForm = document.getElementById('RForm');
-        if (resendBtn && resendForm && window.jQuery) {
-            resendBtn.addEventListener('click', function () {
-                var label = resendBtn.querySelector('.js-manage-detail__btn-label');
-                resendBtn.disabled = true;
-                if (label) label.textContent = 'Sending…';
-                window.jQuery.post('{{ route('reSendEmailBooking') }}', window.jQuery(resendForm).serialize())
-                    .done(function (data) {
-                        var msg = document.getElementById('msg');
-                        if (msg) {
-                            msg.style.display = 'block';
-                            msg.textContent = (data && data.message) ? data.message : 'Confirmation email re-sent.';
-                        }
-                    })
-                    .fail(function () {
-                        alert('Unable to re-send email. Please try again.');
-                    })
-                    .always(function () {
-                        resendBtn.disabled = false;
-                        if (label) label.textContent = 'Re-send Email';
-                    });
-            });
-        }
     })();
 </script>
 
