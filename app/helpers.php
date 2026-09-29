@@ -415,3 +415,28 @@ if (! function_exists('set_model_agent_id')) {
     }
 }
 
+if (! function_exists('hard_redirect')) {
+    /**
+     * Proxy-safe redirect (meta refresh + JS + Location header).
+     * Some edge caches strip Laravel 302 Location and leave a blank redirect page.
+     */
+    function hard_redirect(string $url, int $status = 302)
+    {
+        $safeUrl = htmlspecialchars($url, ENT_QUOTES, 'UTF-8');
+        $jsUrl = json_encode($url, JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT);
+
+        $html = '<!DOCTYPE html><html><head><meta charset="utf-8">'
+            . '<meta http-equiv="refresh" content="0;url=' . $safeUrl . '">'
+            . '<script>window.location.replace(' . $jsUrl . ');</script>'
+            . '<title>Redirecting</title></head><body>'
+            . '<p>If you are not redirected automatically, <a href="' . $safeUrl . '">continue here</a>.</p>'
+            . '</body></html>';
+
+        return response($html, $status, [
+            'Location' => $url,
+            'Cache-Control' => 'no-store, no-cache, private, max-age=0',
+            'Pragma' => 'no-cache',
+        ]);
+    }
+}
+

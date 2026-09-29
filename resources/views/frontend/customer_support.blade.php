@@ -257,4 +257,45 @@
     </section>
 </main>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.js-support-form').forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            var valid = true;
+            var firstInvalid = null;
+            form.querySelectorAll('.js-support-field-error--client').forEach(function (el) { el.remove(); });
+            form.querySelectorAll('.is-invalid').forEach(function (el) { el.classList.remove('is-invalid'); });
+
+            form.querySelectorAll('[required]').forEach(function (field) {
+                var message = '';
+                if (field.type === 'checkbox' && !field.checked) {
+                    message = 'This field is required.';
+                } else if (!field.value || !String(field.value).trim()) {
+                    message = 'This field is required.';
+                } else if (field.type === 'email' && field.validity && field.validity.typeMismatch) {
+                    message = 'Enter a valid email address.';
+                }
+                if (message) {
+                    valid = false;
+                    field.classList.add('is-invalid');
+                    if (!firstInvalid) firstInvalid = field;
+                    var span = document.createElement('span');
+                    span.className = 'text-danger js-support-field-error js-support-field-error--client';
+                    span.setAttribute('role', 'alert');
+                    span.textContent = message;
+                    var group = field.closest('.form-group') || field.closest('.pz-support-field') || field.parentElement;
+                    if (group) group.appendChild(span);
+                }
+            });
+
+            if (!valid) {
+                event.preventDefault();
+                if (firstInvalid) firstInvalid.focus();
+            }
+        });
+    });
+});
+</script>
+
 @include('layouts.footer')

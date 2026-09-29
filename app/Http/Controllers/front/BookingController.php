@@ -3220,58 +3220,112 @@ class BookingController extends Controller
         ], $messages);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
+            return $this->manageBookingFormResponse($validator);
         }
 
-        $booking = airports_bookings::select(DB::raw('airports_bookings.*,companies.*,airports_bookings.id as bookingid'))
-            ->leftJoin('companies', 'companies.id', '=', 'airports_bookings.companyId')
-            ->where('airports_bookings.email', $request->input('email'))
-            ->where('airports_bookings.last_name', $request->input('last_name'))
-            ->where('referenceNo', $request->input('ref_no'))
-            ->first();
+        $email = strtolower(trim((string) $request->input('email')));
+        $lastName = strtolower(trim((string) $request->input('last_name')));
+        $ref = trim((string) $request->input('ref_no'));
+        $refNorm = strtoupper(preg_replace('/\s+/', '', $ref));
 
-        if ($booking) {
-            session(['manage_booking_detail_id' => $booking->bookingid]);
+        // Avoid companies.* join here — it overwrites airports_bookings.id.
+        $bookingId = airports_bookings::query()
+            ->whereRaw('LOWER(TRIM(email)) = ?', [$email])
+            ->whereRaw('LOWER(TRIM(last_name)) = ?', [$lastName])
+            ->where(function ($q) use ($ref, $refNorm) {
+                $q->where('referenceNo', $ref)
+                    ->orWhereRaw("REPLACE(UPPER(IFNULL(referenceNo,'')), ' ', '') = ?", [$refNorm]);
+            })
+            ->orderByDesc('id')
+            ->value('id');
 
-            return redirect()->route('manage_booking.show');
+        if (! $bookingId) {
+            $validator->getMessageBag()->add(
+                'ref_no',
+                'No booking found for those details. Please check your reference number, last name, and email.'
+            );
+
+            return $this->manageBookingFormResponse($validator);
         }
 
-        $validator->getMessageBag()->add(
-            'ref_no',
-            'No booking found for those details. Please check your reference number, last name, and email.'
-        );
-
-        return redirect()->back()->withErrors($validator)->withInput();
+        // Return detail directly — session/redirect flash fails behind some proxy caches.
+        return $this->renderManageBookingDetail((int) $bookingId);
     }
 
-    public function showManageBookingDetail(Request $request)
+    protected function manageBookingFormResponse($validator)
     {
-        $bookingId = session('manage_booking_detail_id');
+        $request = request();
+        $page = $this->getPagebySlug();
+        $airports = airport::all()->where('status', 'Yes');
 
-        if (!$bookingId) {
-            return redirect()->route('manage_booking')->with('error', 'Please search for your booking again.');
-        }
+        $view = view('frontend.manage_booking', [
+            'airports' => $airports,
+            'page' => $page,
+            'input' => [
+                'ref_no' => (string) $request->input('ref_no', ''),
+                'last_name' => (string) $request->input('last_name', ''),
+                'email' => (string) $request->input('email', ''),
+            ],
+        ])->withErrors($validator);
 
-        $booking = airports_bookings::select(DB::raw('airports_bookings.*,companies.*,airports_bookings.id as bookingid'))
+        return response($view, 422)
+            ->header('Cache-Control', 'no-store, no-cache, private, max-age=0')
+            ->header('Pragma', 'no-cache');
+    }
+
+    protected function renderManageBookingDetail(int $bookingId)
+    {
+        $booking = airports_bookings::query()
+            ->from('airports_bookings')
             ->leftJoin('companies', 'companies.id', '=', 'airports_bookings.companyId')
             ->where('airports_bookings.id', $bookingId)
+            ->select([
+                'airports_bookings.*',
+                'airports_bookings.id as bookingid',
+                'companies.name as company_name',
+                'companies.arival',
+                'companies.return_proc',
+                'companies.terms',
+                'companies.company_email',
+                'companies.company_code',
+            ])
             ->first();
 
-        if (!$booking) {
-            session()->forget('manage_booking_detail_id');
+        if (! $booking) {
+            $validator = Validator::make([], []);
+            $validator->getMessageBag()->add('ref_no', 'Booking not found. Please search again.');
 
-            return redirect()->route('manage_booking')->with('error', 'Booking not found. Please search again.');
+            return $this->manageBookingFormResponse($validator);
+        }
+
+        if (empty($booking->name) && ! empty($booking->company_name)) {
+            $booking->name = $booking->company_name;
         }
 
         $airports = airport::all()->where('status', 'Yes');
         $airport_detail = airport::where('id', $booking->airportID)->first();
 
-        return view('frontend.manage_booking_detail', [
-            'airports' => $airports,
-            'booking' => $booking,
-            'airport_detail' => $airport_detail,
-        ]);
+        return response()
+            ->view('frontend.manage_booking_detail', [
+                'airports' => $airports,
+                'booking' => $booking,
+                'airport_detail' => $airport_detail,
+            ])
+            ->header('Cache-Control', 'no-store, no-cache, private, max-age=0')
+            ->header('Pragma', 'no-cache');
     }
+
+    public function showManageBookingDetail(Request $request)
+    {
+        $validator = Validator::make([], []);
+        $validator->getMessageBag()->add(
+            'ref_no',
+            'Please enter your booking reference, last name, and email to view your booking.'
+        );
+
+        return $this->manageBookingFormResponse($validator);
+    }
+
 
 
 

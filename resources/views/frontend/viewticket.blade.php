@@ -710,9 +710,12 @@
 
                                                         <textarea name="message" required style="height: 100px"
 
-                                                                  class="col-md-12 form-control"> </textarea>
+                                                                  class="col-md-12 form-control">{{ old('message') }}</textarea>
 
-                                                        @if ($errors->has('message'))
+                                                        @if ($errors->has('attatchment'))
+                                    <p class="text-danger">{{ $errors->first('attatchment') }}</p>
+                                @endif
+                                @if ($errors->has('message'))
 
 
                                                             <div class="alert alert-danger alert alert-danger col-xs-12 col-sm-12" style="clear: both;">

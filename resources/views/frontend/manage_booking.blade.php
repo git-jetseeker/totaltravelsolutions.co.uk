@@ -38,6 +38,7 @@
                     <span class="pz-page-kicker">Booking lookup</span>
                     <h2 id="booking-summary-title">Booking summary</h2>
 
+                    @php $input = $input ?? []; @endphp
                     @if (!$errors->isEmpty())
                         <div class="alert alert-danger pz-form-summary" role="alert">
                             <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
@@ -52,13 +53,13 @@
                         </div>
                     @endif
 
-                    <form id="js-manage-booking-form" action="{{ route('booking_search') }}" method="post" novalidate>
+                    <form id="js-manage-booking-form" action="{{ route('booking_search') }}" class="js-manage-form" method="post" novalidate>
                         @csrf
                         <div class="form-group">
                             <label for="ref_no">Booking reference number <span class="required-field">*</span></label>
                             <div class="pz-input-wrap">
                                 <i class="fa fa-ticket" aria-hidden="true"></i>
-                                <input type="text" class="form-control @error('ref_no') is-invalid @enderror" id="ref_no" name="ref_no" placeholder="TTS-XXXXXX" required value="{{ old('ref_no') }}" autocomplete="off" aria-describedby="ref_no_error" autofocus>
+                                <input type="text" class="form-control @error('ref_no') is-invalid @enderror" id="ref_no" name="ref_no" placeholder="TTS-XXXXXX" required value="{{ old('ref_no', $input['ref_no'] ?? '') }}" autocomplete="off" aria-describedby="ref_no_error" autofocus>
                             </div>
                             <span class="pz-field-error" id="ref_no_error" aria-live="polite">@error('ref_no'){{ $message }}@enderror</span>
                         </div>
@@ -67,7 +68,7 @@
                             <label for="last_name">Last name <span class="required-field">*</span></label>
                             <div class="pz-input-wrap">
                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="last_name" name="last_name" placeholder="Last name" required value="{{ old('last_name') }}" autocomplete="family-name" aria-describedby="last_name_error">
+                                <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="last_name" name="last_name" placeholder="Last name" required value="{{ old('last_name', $input['last_name'] ?? '') }}" autocomplete="family-name" aria-describedby="last_name_error">
                             </div>
                             <span class="pz-field-error" id="last_name_error" aria-live="polite">@error('last_name'){{ $message }}@enderror</span>
                         </div>
@@ -76,7 +77,7 @@
                             <label for="email">Email address <span class="required-field">*</span></label>
                             <div class="pz-input-wrap">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="you@example.com" required value="{{ old('email') }}" autocomplete="email" aria-describedby="email_error">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="you@example.com" required value="{{ old('email', $input['email'] ?? '') }}" autocomplete="email" aria-describedby="email_error">
                             </div>
                             <span class="pz-field-error" id="email_error" aria-live="polite">@error('email'){{ $message }}@enderror</span>
                         </div>

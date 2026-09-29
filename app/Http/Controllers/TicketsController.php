@@ -129,33 +129,45 @@ class TicketsController extends Controller
      */
 
     public function index()
-
     {
+        return $this->supportPageResponse();
+    }
 
-        //
+    /**
+     * Re-render Customer Support with validation errors (no redirect/flash).
+     * JetSeeker parity — keeps old input + named error bags on 422.
+     */
+    protected function supportPageResponse($validator = null, string $errorBag = 'default')
+    {
+        $request = request();
 
-        $page = $this->getPagebySlug();
-
-        $airports = airport::all()->where('status', 'Yes');
-
-        $this->ensureSupportDepartments();
-
-        $departementslist = support_departments::orderBy('id')->get()->toArray();
-
-        $departements_list = [];
-
-        $departements_list[''] = 'Select Department';
-
-        foreach ($departementslist as $u) {
-
-            $departements_list[$u['id']] = $u['name'];
-
+        if ($validator) {
+            session()->now('_old_input', $request->except(['_token', 'attatchment', 'attachment']));
         }
 
+        $page = $this->getPagebySlug();
+        $airports = airport::all()->where('status', 'Yes');
+        $this->ensureSupportDepartments();
+        $departementslist = support_departments::orderBy('id')->get()->toArray();
+        $departements_list = [];
+        $departements_list[''] = 'Select Department';
+        foreach ($departementslist as $u) {
+            $departements_list[$u['id']] = $u['name'];
+        }
 
+        $view = view('frontend.customer_support', [
+            'airports' => $airports,
+            'departements_list' => $departements_list,
+            'page' => $page,
+        ]);
 
-        return view('frontend.customer_support', ['airports' => $airports, 'departements_list' => $departements_list, 'page' => $page]);
+        if ($validator) {
+            $view->withErrors($validator, $errorBag);
+        }
 
+        return response($view, $validator ? 422 : 200)
+            ->header('Cache-Control', 'no-store, no-cache, private, max-age=0')
+            ->header('Pragma', 'no-cache');
     }
 
 
@@ -255,13 +267,7 @@ class TicketsController extends Controller
 
 
     if ($validator->fails()) {
-
-        return redirect()->back()
-
-            ->withErrors($validator, 'ticket_store')
-
-            ->withInput();
-
+        return $this->supportPageResponse($validator, 'ticket_store');
     }
 
 
@@ -272,23 +278,23 @@ class TicketsController extends Controller
 
         $this->ensureTicketsSchema();
 
-        $booking = airports_bookings::where('referenceNo', $request->input('ref_no'))
+        $refInput = trim((string) $request->input('ref_no'));
+        $emailInput = trim((string) $request->input('email'));
 
-            ->where('email', $request->input('email'))
-
+        $booking = airports_bookings::whereRaw('LOWER(referenceNo) = ?', [strtolower($refInput)])
+            ->whereRaw('LOWER(email) = ?', [strtolower($emailInput)])
             ->first();
 
 
 
         if (!$booking) {
 
-            $validator->getMessageBag()->add('ref_no', 'Invalid reference number or email.');
+            $validator->getMessageBag()->add(
+                'ref_no',
+                'Invalid booking reference or email. Please use the details from your confirmation email.'
+            );
 
-            return redirect()->back()
-
-                ->withErrors($validator, 'ticket_store')
-
-                ->withInput();
+            return $this->supportPageResponse($validator, 'ticket_store');
 
         }
 
@@ -435,9 +441,7 @@ class TicketsController extends Controller
 
 
 
-        return redirect(route('view-ticket', ['id' => $encryptedTicketId]))
-
-            ->with('success', 'Ticket created successfully.');
+        return hard_redirect(route('view-ticket', ['id' => $encryptedTicketId]));
 
 
 
@@ -516,98 +520,26 @@ class TicketsController extends Controller
 
 
     public function submit_reply(Request $request)
-
     {
-
-
-
         $messages = [
-
             'required' => 'This field is required.',
-
             'attatchment.max' => 'The document may not be greater than 2 megabytes',
-
         ];
 
-
-
         $validatedData = Validator::make(request()->all(), [
-
             'ticket_id' => 'required|string|max:255',
-
             'replyingadmin' => 'required|string',
-
             'ticket_ref' => 'required|string',
-
-            // 'contact' => 'required',
-
-            //'department' => 'required',
-
-            //'priority' => 'required',
-
-            //'subject' => 'required',
-
             'message' => 'required|string',
-
             'attatchment' => 'nullable|file|mimes:jpg,jpeg,bmp,png,pdf,doc,docx|max:2000',
-
         ], $messages);
 
-
+        if ($validatedData->fails()) {
+            return redirect()->back()->withErrors($validatedData)->withInput();
+        }
 
         $path = '';
-
-        // if ($request->hasFile('attatchment')) {
-
-
-
-        //     // $path = $request->file('attatchment')->store('public/supports');
-
-        //     // $imagePath = $request->file('attatchment');
-
-        //     // $imageName = $imagePath->getClientOriginalName();
-
-        //     // $request->file('attatchment')->storeAs('public/supports', $imageName);
-
-        //     // $path = 'supports/'.$imageName;
-
-        //     // $ticket->file = $path;
-
-        //     $client = new Client();
-
-        //     $file = $request->file('attatchment');
-
-        //     $fileNameOrg = $file->getClientOriginalName();
-
-        //     $extension = $file->getClientOriginalExtension();
-
-        //     $fileName = uniqid().'_'.$fileNameOrg;
-
-        //      $response = $client->post('https://www.totaltravelsolutions.co.uk/api/receive-file', [
-
-        //         'multipart' => [
-
-        //             [
-
-        //                 'name'     => 'attachment',
-
-        //                 'contents' => fopen($request->file('attatchment'), 'r'),
-
-        //                 'filename' => $fileName
-
-        //             ]
-
-        //         ]
-
-        //     ]);
-
-        //     $responseData = json_decode($response->getBody()->getContents(), true);
-
-        //     $path = $responseData['path'];
-
-        // }
-
-if ($request->hasFile('attatchment')) {
+        if ($request->hasFile('attatchment')) {
             $path = $this->storeSupportAttachment($request->file('attatchment'));
             if ($path === '') {
                 return redirect()->back()
@@ -617,110 +549,54 @@ if ($request->hasFile('attatchment')) {
         }
 
         $data = [
-
             'message' => $request->input('message'),
-
             'ticket_id' => $request->input('ticket_id'),
-
             'attachment' => $path,
-
             'clientunread' => 'No',
-
             'adminunread' => 'Yes',
-
             'replyingtime' => date('Y-m-d H:i:s'),
-
             'replyingadmin' => $request->input('replyingadmin'),
-
             'reply_by' => $request->input('reply_by'),
-
         ];
 
-        if (count($validatedData->errors()->messages()) > 0) {
+        $chat_data = ticket_chat::create($data);
 
-            //var_dump($validatedData->errors());
+        if ($chat_data) {
+            $ticket = tickets::where('ticket_id', $request->input('ticket_ref'))->first();
+            $tickref = Crypt::encrypt($request->input('ticket_ref'));
+            $link = route('view-ticket', ['id' => $tickref]);
+            $email = new EmailController();
 
-            return redirect()->back()->withErrors($validatedData)->withInput();
+            $template_data = [];
+            $template_data['username'] = $request->input('name');
+            $template_data['link'] = $link;
+            $template_data['subject'] = $ticket->title;
+            $template_data['ticket_ref'] = $request->input('ticket_ref');
+            $template_data['msg'] = $request->input('message');
 
-        } else {
-
-            $chat_data = ticket_chat::create($data);
-
-            if ($chat_data) {
-
-                $ticket = tickets::where('ticket_id', $request->input('ticket_ref'))->first();
-
-
-
-                // dd($ticket);
-
-                $tickref = Crypt::encrypt($request->input('ticket_ref'));
-
-                $link = route('view-ticket', ['id' => $tickref]);
-
-                $email = new EmailController();
-
-
-
-                $template_data = [];
-
-                $template_data['username'] = $request->input('name');
-
-                $template_data['link'] = $link;
-
-                $template_data['subject'] = $ticket->title;
-
-                $template_data['ticket_ref'] = $request->input('ticket_ref');
-
-                $template_data['msg'] = $request->input('message');
-
-
-
-                if ($request->input('reply_by') == 'Client') {
-
-
-
-                    if ($ticket->assign_to == 0) {
-
-                        $department = support_departments::where('id', $ticket->department)->first();
-
-                        $toEmail = $department->email;
-
-                    } else {
-
-                        $user = User::where('id', $ticket->assign_to)->first();
-
-                        $toEmail = $user->email;
-
-                    }
-
-                    $email->sendGmail('ticket_reply_client', $toEmail, $template_data);
-
-
-
+            if ($request->input('reply_by') == 'Client') {
+                if ($ticket->assign_to == 0) {
+                    $department = support_departments::where('id', $ticket->department)->first();
+                    $toEmail = $department->email;
                 } else {
-
-
-
-                    $toEmail = $ticket->email;
-
-
-
-                    $email->sendGmail('ticket_reply_company', $toEmail, $template_data);
-
+                    $user = User::where('id', $ticket->assign_to)->first();
+                    $toEmail = $user->email;
                 }
-
-
-
-                return redirect()->back();
-
+                $email->sendGmail('ticket_reply_client', $toEmail, $template_data);
+            } else {
+                $toEmail = $ticket->email;
+                $email->sendGmail('ticket_reply_company', $toEmail, $template_data);
             }
 
+            return hard_redirect(route('view-ticket', ['id' => $tickref]));
         }
 
-
-
+        return redirect()->back()->withErrors(['message' => 'Unable to submit reply. Please try again.'])->withInput();
     }
+
+
+
+
 
 
 
@@ -982,45 +858,63 @@ if ($request->hasFile('attatchment')) {
     {
         $this->ensureTicketsSchema();
 
-        $messages = [
+        $ticketRef = trim((string) ($request->input('ref_no') ?: $request->input('ticket_id')));
+        $email = trim((string) $request->input('email'));
+
+        $validator = Validator::make([
+            'email' => $email,
+            'ref_no' => $ticketRef,
+        ], [
+            'email' => 'required|string|email|max:255',
+            'ref_no' => 'required|string',
+        ], [
             'email.required' => 'Email address is required.',
             'email.email' => 'Enter a valid email address.',
-            'email.max' => 'Email address cannot be longer than 255 characters.',
-            'ref_no.required' => 'Ticket reference is required.',
-            'ref_no.string' => 'Ticket reference must be valid text.',
-            'ref_no.max' => 'Ticket reference cannot be longer than 255 characters.',
-        ];
-
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|string|email|max:255',
-            'ref_no' => 'required|string|max:255',
-        ], $messages);
+            'ref_no.required' => 'Ticket or booking reference is required.',
+        ]);
 
         if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator, 'search_ticket')
-                ->withInput();
+            return $this->supportPageResponse($validator, 'search_ticket');
         }
 
-        $booking = tickets::where('ticket_id', $request->input('ref_no'))
-            ->where('email', $request->input('email'))
+        $emailLower = strtolower($email);
+        $refLower = strtolower($ticketRef);
+
+        $ticket = tickets::whereRaw('LOWER(ticket_id) = ?', [$refLower])
+            ->whereRaw('LOWER(email) = ?', [$emailLower])
+            ->orderByDesc('id')
             ->first();
 
-        if ($booking) {
-            $tickref = Crypt::encrypt($booking->ticket_id);
+        if (! $ticket) {
+            $ticket = tickets::whereRaw('LOWER(booking_ref) = ?', [$refLower])
+                ->whereRaw('LOWER(email) = ?', [$emailLower])
+                ->orderByDesc('id')
+                ->first();
+        }
 
-            return redirect(route('view-ticket', ['id' => $tickref]));
+        if (! $ticket) {
+            $refNorm = preg_replace('/\s+/', '', $refLower);
+            $ticket = tickets::whereRaw('LOWER(email) = ?', [$emailLower])
+                ->where(function ($q) use ($refNorm) {
+                    $q->whereRaw("REPLACE(LOWER(IFNULL(ticket_id,'')), ' ', '') = ?", [$refNorm])
+                        ->orWhereRaw("REPLACE(LOWER(IFNULL(booking_ref,'')), ' ', '') = ?", [$refNorm]);
+                })
+                ->orderByDesc('id')
+                ->first();
+        }
+
+        if ($ticket) {
+            $tickref = Crypt::encrypt($ticket->ticket_id);
+
+            return hard_redirect(route('view-ticket', ['id' => $tickref]));
         }
 
         $validator->getMessageBag()->add(
             'ref_no',
-            'No ticket found for that email and ticket reference. Please check your details and try again.'
+            'No ticket matched that email and reference. Use your ticket ID or the booking reference from your confirmation email.'
         );
 
-        return redirect()->back()
-            ->withErrors($validator, 'search_ticket')
-            ->withInput();
+        return $this->supportPageResponse($validator, 'search_ticket');
     }
 
 }
-
