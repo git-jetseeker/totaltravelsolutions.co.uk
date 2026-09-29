@@ -280,8 +280,13 @@
                                     <td>Chauffeur meets you at terminal</td>
                                     <td class="d-none d-md-table-cell">
                                         @if(count($arrangeAwardList) > 0)
-                                            @php $image = str_replace('public/', '', $arrangeAwardList[0]->award->image); @endphp
-                                            <img class="awards-img" src="https://dashboard.ttssgroup.com/storage/{{ $image }}" alt="{{ $company['name'] }}">
+                                            @php
+                                                $image = ltrim(str_replace(['\\', 'public/', 'storage/app/', 'storage/'], ['/', '', '', ''], (string) ($arrangeAwardList[0]->award->image ?? '')), '/');
+                                                if ($image !== '' && !str_starts_with($image, 'awards/')) {
+                                                    $image = 'awards/' . basename($image);
+                                                }
+                                            @endphp
+                                            <img class="awards-img" src="https://dashboard.ttssgroup.com/storage/app/{{ $image }}" alt="{{ $company['name'] }}">
                                                         @endif
                                                     </td>
                                     <td><span class="js-airport-table__price">&pound;{{ $expPrice[0] }}.<sup>{{ $expPrice[1] }}</sup></span></td>
@@ -336,8 +341,13 @@
                                     <td>Shuttle transfer to terminal</td>
                                     <td class="d-none d-md-table-cell">
                                         @if(count($arrangeAwardList) > 0)
-                                            @php $image = str_replace('public/', '', $arrangeAwardList[0]->award->image); @endphp
-                                            <img class="awards-img" src="https://dashboard.ttssgroup.com/storage/{{ $image }}" alt="{{ $company['name'] }}">
+                                            @php
+                                                $image = ltrim(str_replace(['\\', 'public/', 'storage/app/', 'storage/'], ['/', '', '', ''], (string) ($arrangeAwardList[0]->award->image ?? '')), '/');
+                                                if ($image !== '' && !str_starts_with($image, 'awards/')) {
+                                                    $image = 'awards/' . basename($image);
+                                                }
+                                            @endphp
+                                            <img class="awards-img" src="https://dashboard.ttssgroup.com/storage/app/{{ $image }}" alt="{{ $company['name'] }}">
                                                         @endif
                                                     </td>
                                     <td><span class="js-airport-table__price">&pound;{{ $expPrice[0] }}.<sup>{{ $expPrice[1] }}</sup></span></td>
