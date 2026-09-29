@@ -55,7 +55,7 @@
     <meta property="og:type" content="{!! $site_settings_main['site_og_type'] !!}">
     <meta property="og:image" content="{!! $site_settings_main['site_og_image'] !!}">
     <meta property="og:url" content="{!! $site_settings_main['site_og_url'] !!}">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="index, follow">
     <meta name="author" content="{!! $site_settings_main['site_author'] !!}">
 
     {!! $site_settings_main['site_schema'] !!}

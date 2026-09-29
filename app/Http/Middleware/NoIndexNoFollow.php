@@ -6,6 +6,10 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Optional route middleware for private pages only.
+ * Do not register globally — public pages must remain indexable.
+ */
 class NoIndexNoFollow
 {
     public function handle(Request $request, Closure $next): Response

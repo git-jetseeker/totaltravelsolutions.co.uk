@@ -69,7 +69,7 @@
     <meta property="og:type" content="{!! $site_settings_main['site_og_type'] ?? 'website' !!}">
     <meta property="og:image" content="{!! $site_settings_main['site_og_image'] ?? '' !!}">
     <meta property="og:url" content="{!! $site_settings_main['site_og_url'] ?? url('/') !!}">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="index, follow">
     <meta name="author" content="{!! $site_settings_main['site_author'] ?? config('app.name', 'Total Travel Solutions') !!}">
 
     {!! $site_settings_main['site_schema'] ?? '' !!}
