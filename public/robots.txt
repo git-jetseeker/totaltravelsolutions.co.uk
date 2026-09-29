@@ -1,2 +1,114 @@
+# robots.txt for https://totaltravelsolutions.co.uk
+# Goal: maximise crawlability for SEO, AEO, AIO and GEO (Google, Bing, AI answer engines & LLM crawlers)
+# Upload to: https://totaltravelsolutions.co.uk/robots.txt
+
+# --- Search engines ---
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-News
+User-agent: Bingbot
+User-agent: DuckDuckBot
+User-agent: Applebot
+User-agent: YandexBot
+User-agent: Baiduspider
+Allow: /
+Allow: /wp-admin/admin-ajax.php
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /basket/
+Disallow: /checkout/
+Disallow: /payment/
+Disallow: /booking-confirmation/
+Disallow: /thank-you/
+Disallow: /my-account/
+Disallow: /account/
+Disallow: /login/
+Disallow: /register/
+Disallow: /*?s=
+Disallow: /search/
+Disallow: /*?*sessionid=
+Disallow: /*?*utm_
+Disallow: /*?*gclid=
+Disallow: /*?*fbclid=
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+Disallow: /cgi-bin/
+Disallow: /tmp/
+
+# --- AI search / answer engines & LLM crawlers ---
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Amazonbot
+User-agent: Meta-ExternalAgent
+User-agent: cohere-ai
+User-agent: MistralAI-User
+User-agent: DuckAssistBot
+User-agent: Bytespider
+User-agent: CCBot
+Allow: /
+Allow: /wp-admin/admin-ajax.php
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /basket/
+Disallow: /checkout/
+Disallow: /payment/
+Disallow: /booking-confirmation/
+Disallow: /thank-you/
+Disallow: /my-account/
+Disallow: /account/
+Disallow: /login/
+Disallow: /register/
+Disallow: /*?s=
+Disallow: /search/
+Disallow: /*?*sessionid=
+Disallow: /*?*utm_
+Disallow: /*?*gclid=
+Disallow: /*?*fbclid=
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+Disallow: /cgi-bin/
+Disallow: /tmp/
+
+# --- All other bots ---
 User-agent: *
-Disallow: /
+Allow: /
+Allow: /wp-admin/admin-ajax.php
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /basket/
+Disallow: /checkout/
+Disallow: /payment/
+Disallow: /booking-confirmation/
+Disallow: /thank-you/
+Disallow: /my-account/
+Disallow: /account/
+Disallow: /login/
+Disallow: /register/
+Disallow: /*?s=
+Disallow: /search/
+Disallow: /*?*sessionid=
+Disallow: /*?*utm_
+Disallow: /*?*gclid=
+Disallow: /*?*fbclid=
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+Disallow: /cgi-bin/
+Disallow: /tmp/
+
+# --- Sitemaps ---
+Sitemap: https://totaltravelsolutions.co.uk/sitemap.xml
+Sitemap: https://totaltravelsolutions.co.uk/sitemap_index.xml
