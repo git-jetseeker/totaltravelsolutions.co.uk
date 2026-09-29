@@ -1732,6 +1732,18 @@ public function faqs()
             return redirect()->route('main');
         }
 
+        // Shared Magr DB — only resume THIS site's agent bookings (JetSeeker-style isolation).
+        $agentId = function_exists('current_agent_id') ? (int) current_agent_id() : 0;
+        if ($agentId < 1 && function_exists('current_site_agent_id')) {
+            $agentId = (int) current_site_agent_id();
+        }
+        if ($agentId < 1) {
+            $agentId = 9;
+        }
+        if ((int) ($airport_booking->agentID ?? 0) !== $agentId) {
+            return redirect()->route('main');
+        }
+
         /// dd($airport_booking);
 
         //dd("i m in booking");

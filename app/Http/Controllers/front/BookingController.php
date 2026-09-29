@@ -912,10 +912,12 @@ class BookingController extends Controller
             $refPrefix = 'TTS-';
             $existingReferenceNo = '';
 
-            if (!empty($referenceNo)) {
+            // Only accept this site's exact TTS-XXXXXX refs (not TTS-PZ-/EZT-/TZ-/ZAP-).
+            if (!empty($referenceNo) && preg_match('/^TTS-[A-Z0-9]{6}$/', (string) $referenceNo)) {
                 $byRef = airports_bookings::where('referenceNo', $referenceNo)
                     ->where('booking_action', 'Abandon')
                     ->where('agentID', $agentId)
+                    ->whereRaw("referenceNo REGEXP '^TTS-[A-Z0-9]{6}$'")
                     ->first();
                 if ($byRef) {
                     $existingReferenceNo = (string) $byRef->referenceNo;
@@ -945,7 +947,7 @@ class BookingController extends Controller
                     if ($booking) {
                         // Keep original created_at / createdate / referenceNo on update.
                         unset($data['created_at'], $data['createdate'], $data['referenceNo']);
-                        airports_bookings::where('id', $booking->id)->update($data);
+                        airports_bookings::where('id', $booking->id)->where('agentID', $agentId)->update($data);
                         $booking_id = $booking->id;
                     } else {
                         $booking_id = DB::table('airports_bookings')->insertGetId($data);
@@ -955,7 +957,7 @@ class BookingController extends Controller
 
                 if ($existingReferenceNo === '') {
                     $bookingref = $this->generateUniqueReferenceNo();
-                    airports_bookings::where('id', $booking_id)->update([
+                    airports_bookings::where('id', $booking_id)->where('agentID', $agentId)->update([
                         'referenceNo' => $bookingref,
                         'updated_at' => $_current_time,
                         'modifydate' => $_current_time,
