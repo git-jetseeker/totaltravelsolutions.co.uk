@@ -2428,7 +2428,16 @@ header.header:not(.js-header) {
 .btn-info,
 .badge-primary,
 .bg-primary {
-    background-color: #1A1A1A !important;
+    background-color: #C2185B !important;
+    border-color: #C2185B !important;
+    color: #fff !important;
+}
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:not(:disabled):not(.disabled):active {
+    background-color: #9F1248 !important;
+    border-color: #9F1248 !important;
+    color: #fff !important;
 }
 .text-primary {
     color: #C2185B !important;

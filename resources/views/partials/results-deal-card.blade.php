@@ -168,7 +168,7 @@
                 <input type="hidden" name="g_token" value="{{ isset($company->g_token) ? $company->g_token : '' }}">
                 <input type="hidden" name="src" value="{{ isset($request->src) ? $request->src : 'ORG' }}">
                 <input type="hidden" name="logobooking" value="{{ $logo ?? 0 }}">
-                <button type="submit" class="js-apb-deal-card__btn js-apb-deal-card__btn--book select-parking btn btn-info">
+                <button type="submit" class="js-apb-deal-card__btn js-apb-deal-card__btn--book select-parking">
                     <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Book Now
                 </button>
             </form>

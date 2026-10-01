@@ -131,7 +131,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/custom.css?v=3122025') }}">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/responsive.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261001footer2') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261001brandcolors') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-product-results.css?v=20260907noblue2') }}">
 
     @if (isset($site_settings_main['site_header_analytics']))
