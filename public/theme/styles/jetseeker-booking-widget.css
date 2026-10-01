@@ -45,10 +45,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0;
-    background: var(--js-primary-dark);
+    background: #F3EEF0;
     padding: 0;
     margin: 0;
     overflow: hidden;
+    border-bottom: 1px solid #E8E2E5;
 }
 
 .js-product-tab {
@@ -64,13 +65,18 @@
     border-bottom: 3px solid transparent !important;
     border-radius: 0;
     background: transparent;
-    color: rgba(255, 255, 255, 0.78);
+    color: #4b5563;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     box-shadow: none !important;
     outline: none !important;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
 }
 
 .js-product-tab:focus,
@@ -83,33 +89,44 @@
 .js-product-tab i {
     font-size: 16px;
     opacity: 0.9;
+    transition: color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
 }
 
 .js-product-tab:hover {
-    color: #fff;
-    background: rgba(26, 26, 26, 0.35);
+    color: var(--js-accent, #C2185B);
+    background: rgba(194, 24, 91, 0.08);
+}
+
+.js-product-tab:hover i {
+    color: var(--js-accent, #C2185B);
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.js-product-tab:not(.is-active):hover {
+    border-bottom-color: rgba(194, 24, 91, 0.35) !important;
 }
 
 .js-product-tab.is-active:hover {
-    color: var(--js-primary-dark);
-    background: #f0f4ff;
+    color: var(--js-heading);
+    background: #fff;
 }
 
 .js-product-tab.is-active {
     background: #fff;
-    color: var(--js-primary-dark);
+    color: var(--js-heading);
     border: none !important;
-    border-bottom: 3px solid var(--js-primary) !important;
-    box-shadow: inset 0 3px 0 var(--js-primary) !important;
+    border-bottom: 3px solid var(--js-accent) !important;
+    box-shadow: none !important;
 }
 
 .js-product-tab.is-active:focus,
 .js-product-tab.is-active:focus-visible {
-    box-shadow: inset 0 3px 0 var(--js-primary) !important;
+    box-shadow: none !important;
 }
 
 .js-product-tab.is-active i {
-    color: var(--js-primary);
+    color: var(--js-accent);
 }
 
 .js-soon-badge,
@@ -269,22 +286,22 @@
 
 .js-booking-input:hover,
 .js-booking-field select:hover {
-    border-color: var(--js-primary);
-    background: #f8faff;
-    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.12);
+    border-color: var(--js-accent, #C2185B);
+    background: #fff7fb;
+    box-shadow: 0 0 0 3px rgba(194, 24, 91, 0.12);
 }
 
 .js-booking-input:focus,
 .js-booking-field select:focus {
-    border-color: var(--js-primary);
+    border-color: var(--js-accent, #C2185B);
     background: #fff;
-    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.22);
+    box-shadow: 0 0 0 3px rgba(194, 24, 91, 0.2);
     outline: none;
 }
 
 .js-booking-field--date .js-booking-input:hover + .fa-calendar,
 .js-booking-field--date .js-booking-input:focus + .fa-calendar {
-    color: var(--js-primary);
+    color: var(--js-accent, #C2185B);
 }
 
 .js-booking-field--date {
@@ -322,9 +339,9 @@
 }
 
 .js-booking-field .select2-container--default .select2-selection--single:hover {
-    border-color: var(--js-primary) !important;
-    background: #f8faff !important;
-    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.12) !important;
+    border-color: var(--js-accent, #C2185B) !important;
+    background: #fff7fb !important;
+    box-shadow: 0 0 0 3px rgba(194, 24, 91, 0.12) !important;
 }
 
 .js-booking-field .select2-container--default .select2-selection--single .select2-selection__rendered {
@@ -341,8 +358,8 @@
 
 .js-booking-field .select2-container--default.select2-container--open .select2-selection--single,
 .js-booking-field .select2-container--default.select2-container--focus .select2-selection--single {
-    border-color: var(--js-primary) !important;
-    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.18) !important;
+    border-color: var(--js-accent, #C2185B) !important;
+    box-shadow: 0 0 0 3px rgba(194, 24, 91, 0.2) !important;
 }
 
 /* ── Guest picker ── */
@@ -530,13 +547,18 @@
     border-radius: 0;
     cursor: pointer;
     box-shadow: 0 4px 14px rgba(26, 26, 26, 0.4);
-    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .js-booking-submit:hover {
     background: linear-gradient(135deg, var(--js-primary-dark) 0%, var(--js-primary) 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(26, 26, 26, 0.45);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(194, 24, 91, 0.4);
+}
+
+.js-booking-submit:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(194, 24, 91, 0.3);
 }
 
 .js-product-panel[hidden] {
@@ -808,29 +830,72 @@
     }
 
     .js-product-tabs {
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 10px;
+        background: #F3EEF0;
+        border-bottom: 1px solid #E8E2E5;
+        overflow: visible;
     }
 
     .js-product-tab {
-        flex: 1 1 50%;
-        max-width: 50%;
-        min-width: 0;
+        position: relative;
+        flex: unset;
+        max-width: none;
+        width: 100%;
+        min-height: 76px;
+        padding: 14px 8px 12px;
         flex-direction: column;
-        gap: 4px;
-        min-height: 58px;
-        padding: 8px 4px;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
         font-size: 12px;
+        line-height: 1.2;
+        white-space: normal;
+        border: 1px solid transparent !important;
+        border-bottom: none !important;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: none !important;
     }
 
     .js-product-tab i {
-        font-size: 17px;
+        font-size: 18px;
+        line-height: 1;
+    }
+
+    .js-product-tab:hover {
+        background: #fff;
+        border-color: rgba(194, 24, 91, 0.2) !important;
+        border-bottom: none !important;
+    }
+
+    .js-product-tab:not(.is-active):hover {
+        border-bottom-color: transparent !important;
+    }
+
+    .js-product-tab.is-active,
+    .js-product-tab.is-active:hover {
+        background: #fff;
+        color: var(--js-heading);
+        border: 1px solid rgba(194, 24, 91, 0.28) !important;
+        border-bottom: none !important;
+        box-shadow: inset 0 -3px 0 var(--js-accent, #C2185B) !important;
     }
 
     .js-product-tab .js-soon-badge {
-        margin-left: 0;
-        margin-top: 2px;
-        padding: 2px 6px;
-        font-size: 8px;
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        margin: 0 !important;
+        padding: 2px 5px !important;
+        font-size: 7px !important;
+        letter-spacing: 0.03em;
+        line-height: 1.25;
+        max-width: calc(100% - 12px);
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .js-booking-field label {
@@ -922,8 +987,21 @@
         max-width: 100%;
     }
 
+    .js-product-tabs {
+        gap: 6px;
+        padding: 8px;
+    }
+
     .js-product-tab {
+        min-height: 72px;
+        padding: 16px 6px 12px;
         font-size: 11px;
-        min-height: 54px;
+    }
+
+    .js-product-tab .js-soon-badge {
+        top: 4px;
+        right: 4px;
+        font-size: 6.5px !important;
+        padding: 2px 4px !important;
     }
 }

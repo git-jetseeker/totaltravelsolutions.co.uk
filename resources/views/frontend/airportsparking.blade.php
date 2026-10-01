@@ -5,8 +5,8 @@
 @include('layouts.header')
 @include('layouts.nav')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-parking-services.css?v=20260929ps3') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20260907noblue2') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-home.css?v=20261001light') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-parking-services.css?v=20261001ps4') }}">
 
 @php
     $site_settings_main = [];
@@ -66,7 +66,6 @@
         $html = preg_replace('/\?(Get a Quote|Get a quote)/', '"$1"', $html) ?? $html;
 
         // Drop legacy numbered airport list paragraphs (chips cover this).
-        // e.g. "1. Gatwick 2. Stansted 3.Heathrow" — on phones nbsp padding clipped names.
         $html = preg_replace_callback('/<p[^>]*>(.*?)<\/p>/is', function ($m) {
             $text = trim(preg_replace('/\s+/u', ' ', strip_tags($m[1])) ?? '');
             if ($text === '') {
@@ -115,148 +114,92 @@
     $liveAirports = collect($airports ?? [])->where('status', 'Yes')->take(8)->values();
 @endphp
 
-<section class="js-page-hero js-page-hero--enhanced js-page-hero--services">
-    <div class="js-container">
-        <span class="js-page-hero__eyebrow">{{ crm('parking-services.hero_eyebrow', 'Airport parking') }}</span>
-        <h1 class="js-page-hero__title">{{ crm('parking-services.hero_title', 'Parking Services') }}</h1>
-        <p class="js-page-hero__subtitle">{{ crm('parking-services.hero_subtitle', 'Meet & Greet, Park & Ride, and On-Airport options') }}</p>
-        <p class="js-page-hero__lead">{{ crm('parking-services.hero_lead', 'Compare trusted airport parking across the UK, pre-book online for guaranteed spaces, competitive rates, and a stress-free start to every journey.') }}</p>
-    </div>
-</section>
+@include('layouts.search_form', [
+    'heroEyebrow' => crm('parking-services.hero_eyebrow', 'Airport parking'),
+    'heroTitle' => crm('parking-services.hero_title', 'Parking Services'),
+    'heroSubtitle' => crm('parking-services.hero_subtitle', 'Meet & Greet, Park & Ride, and On-Airport options'),
+    'bookingCardId' => 'parking_services_search_form',
+])
 
 <main class="js-parking-services">
 
-    {{-- Intro + booking --}}
-    <section class="js-ps-intro">
-        <div class="js-container">
-            <div class="js-ps-intro__layout">
-                <div class="js-ps-intro__main">
-                    <span class="js-ps-intro__eyebrow">{{ crm('parking-services.intro_badge', 'How it works for you') }}</span>
-                    <h2 class="js-ps-intro__title">{{ crm('parking-services.intro_title', 'Airport Parking Made Simple') }}</h2>
-                    <article class="js-ps-intro__card">
-                        <header class="js-ps-intro__card-head">
-                            <h3>{!! $settingOr('services_page_parking_heading', 'Airports We Serve') !!}</h3>
-                        </header>
-                        <div class="js-ps-intro__card-body">
-                            {!! $settingOr(
-                                'services_page_parking_descp',
-                                '<p>Total Travel Solutions works with trusted airport car parking suppliers around major UK airports to help you compare prices quickly and book with confidence.</p><p>Choose from Meet &amp; Greet, Park &amp; Ride, and On-Airport parking with secure, monitored operators.</p>'
-                            ) !!}
-
-                            @if($liveAirports->isNotEmpty())
-                                <div class="js-ps-airports">
-                                    @foreach($liveAirports as $airport)
-                                        @php
-                                            $slug = strtolower(trim(preg_replace('/\s+/', '-', $airport->name))) . '-airport-parking';
-                                        @endphp
-                                        <a class="js-ps-airports__chip" href="{{ route('page', ['slug' => $slug]) }}">{{ $airport->name }}</a>
-                                    @endforeach
-                                </div>
-                            @endif
-                        </div>
-                    </article>
-                </div>
-
-                <aside class="js-ps-sidebar">
-                    <div class="js-ps-sidebar__card">
-                        <header class="js-ps-sidebar__head">
-                            <span class="js-ps-sidebar__badge">Quick search</span>
-                            <h3>Find parking now</h3>
-                            <p>Compare live rates in minutes.</p>
-                        </header>
-                        @include('partials.booking-widget', [
-                            'selectedAirportId' => null,
-                            'bookingCardId' => 'parking_services_search_form',
-                            'bookingCardClass' => 'js-booking-card--sidebar',
-                            'skipRefTracking' => true,
-                        ])
-                    </div>
-                </aside>
-            </div>
-        </div>
-    </section>
-
-    {{-- Parking types --}}
-    <section class="js-ps-types" id="parking-types">
-        <div class="js-container">
-            <header class="js-ps-section-head">
-                <span class="js-ps-section-head__badge">{{ crm('parking-services.types_badge', 'Service options') }}</span>
-                <h2 class="js-ps-section-head__title">{!! $settingOr('services_page_parking_sec1_heading', crm('parking-services.services_title', 'Airport Parking Services')) !!}</h2>
-                <p>{!! $settingOr(
-                    'services_page_parking_sec1_descp',
-                    'We offer on-site and off-site airport parking depending on what is available at each airport. Typically you can choose from three trusted service types.'
-                ) !!}</p>
+    {{-- Intro --}}
+    <section class="js-ps-intro section-spacing">
+        <div class="container">
+            <header class="js-section-head js-reveal">
+                <span class="js-section-head__badge">{{ crm('parking-services.intro_badge', 'How it works for you') }}</span>
+                <h2 class="js-section-title">{{ crm('parking-services.intro_title', 'Airport Parking Made Simple') }}</h2>
+                <p class="js-section-subtitle">{{ crm('parking-services.hero_lead', 'Compare trusted airport parking across the UK, pre-book online for guaranteed spaces, competitive rates, and a stress-free start to every journey.') }}</p>
             </header>
 
-            <div class="js-ps-types__grid">
-                <article class="js-ps-type-card">
-                    <div class="js-ps-type-card__codebar">
-                        <span class="js-ps-type-card__code">MG</span>
-                        <span class="js-ps-type-card__label">{{ crm('parking-services.park_2_title', 'Meet & Greet') }}</span>
-                    </div>
-                    <div class="js-ps-type-card__icon">
-                        <img src="{{ asset('category-tile-meet-greet.svg') }}" alt="Meet & Greet" loading="lazy" width="88" height="88">
-                    </div>
-                    <h3 class="js-ps-type-card__title">{{ crm('parking-services.park_2_title', 'Meet & Greet') }}</h3>
-                    <div class="js-ps-type-card__body">
-                        {!! $settingOr(
-                            'services_page_parking_sec1_meetandgreet',
-                            crm('parking-services.park_2_text', 'Drive to the terminal, hand over your keys, and let a professional park your vehicle while you head straight to departures.')
-                        ) !!}
-                    </div>
-                </article>
+            <article class="js-ps-intro__card js-reveal">
+                <header class="js-ps-intro__card-head">
+                    <h3>{!! $settingOr('services_page_parking_heading', 'Airports We Serve') !!}</h3>
+                </header>
+                <div class="js-ps-intro__card-body">
+                    {!! $settingOr(
+                        'services_page_parking_descp',
+                        '<p>Total Travel Solutions works with trusted airport car parking suppliers around major UK airports to help you compare prices quickly and book with confidence.</p><p>Choose from Meet &amp; Greet, Park &amp; Ride, and On-Airport parking with secure, monitored operators.</p>'
+                    ) !!}
 
-                <article class="js-ps-type-card">
-                    <div class="js-ps-type-card__codebar">
-                        <span class="js-ps-type-card__code">PR</span>
-                        <span class="js-ps-type-card__label">{{ crm('parking-services.park_1_title', 'Park & Ride') }}</span>
-                    </div>
-                    <div class="js-ps-type-card__icon">
-                        <img src="{{ asset('category-tile-park-ride.svg') }}" alt="Park & Ride" loading="lazy" width="88" height="88">
-                    </div>
-                    <h3 class="js-ps-type-card__title">{{ crm('parking-services.park_1_title', 'Park & Ride') }}</h3>
-                    <div class="js-ps-type-card__body">
-                        {!! $settingOr(
-                            'services_page_parking_sec1_parkandride',
-                            crm('parking-services.park_1_text', 'Park securely and take a complimentary shuttle straight to your terminal — great value for longer stays.')
-                        ) !!}
-                    </div>
-                </article>
-
-                <article class="js-ps-type-card">
-                    <div class="js-ps-type-card__codebar">
-                        <span class="js-ps-type-card__code">OA</span>
-                        <span class="js-ps-type-card__label">{{ crm('parking-services.park_3_title', 'On Airport') }}</span>
-                    </div>
-                    <div class="js-ps-type-card__icon">
-                        <img src="{{ asset('category-tile-park-stroll.svg') }}" alt="On Airport" loading="lazy" width="88" height="88">
-                    </div>
-                    <h3 class="js-ps-type-card__title">{{ crm('parking-services.park_3_title', 'On Airport') }}</h3>
-                    <div class="js-ps-type-card__body">
-                        {!! $settingOr(
-                            'services_page_parking_sec1_onairport',
-                            crm('parking-services.park_3_text', 'Park close to the terminal within walking distance for direct access, high security, and maximum convenience.')
-                        ) !!}
-                    </div>
-                </article>
-            </div>
+                    @if($liveAirports->isNotEmpty())
+                        <div class="js-ps-airports">
+                            @foreach($liveAirports as $airport)
+                                @php
+                                    $slug = strtolower(trim(preg_replace('/\s+/', '-', $airport->name))) . '-airport-parking';
+                                @endphp
+                                <a class="js-ps-airports__chip" href="{{ route('page', ['slug' => $slug]) }}">{{ $airport->name }}</a>
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+            </article>
         </div>
     </section>
+
+    @include('partials.why-choose', ['withReveal' => true])
+
+    {{-- Parking types — same gate cards as home / airport pages --}}
+    @include('partials.parking-gates', [
+        'sectionId' => 'parking-types',
+        'withReveal' => true,
+        'badge' => crm('parking-services.types_badge', 'Service options'),
+        'title' => $settingOr('services_page_parking_sec1_heading', crm('parking-services.services_title', 'Airport Parking Services')),
+        'subtitle' => $settingOr(
+            'services_page_parking_sec1_descp',
+            'We offer on-site and off-site airport parking depending on what is available at each airport. Typically you can choose from three trusted service types.'
+        ),
+        'meetTitle' => crm('parking-services.park_2_title', 'Meet & Greet'),
+        'meetText' => $settingOr(
+            'services_page_parking_sec1_meetandgreet',
+            crm('parking-services.park_2_text', 'A seamless start to your journey. Drive to the terminal, hand over your keys, and let a professional park your vehicle while you head straight to departures.')
+        ),
+        'onsiteTitle' => crm('parking-services.park_3_title', 'On-Site Airport Parking'),
+        'onsiteText' => $settingOr(
+            'services_page_parking_sec1_onairport',
+            crm('parking-services.park_3_text', 'Park close to the terminal within walking distance. Direct access, high security, and maximum convenience for short or busy trips.')
+        ),
+        'parkTitle' => crm('parking-services.park_1_title', 'Park & Ride'),
+        'parkText' => $settingOr(
+            'services_page_parking_sec1_parkandride',
+            crm('parking-services.park_1_text', 'Great value for longer stays. Park securely and take a complimentary shuttle straight to your terminal without delays.')
+        ),
+    ])
 
     {{-- How it works --}}
     <section class="js-ps-steps" id="how-it-works">
-        <div class="js-container">
-            <header class="js-ps-section-head">
-                <span class="js-ps-section-head__badge">{{ crm('parking-services.steps_badge', 'Simple process') }}</span>
-                <h2 class="js-ps-section-head__title">{!! $settingOr('services_page_parking_sec2_heading', 'Airport Parking in 3 Simple Steps') !!}</h2>
-                <p>{!! $settingOr(
+        <div class="container">
+            <header class="js-section-head js-reveal">
+                <span class="js-section-head__badge">{{ crm('parking-services.steps_badge', 'Simple process') }}</span>
+                <h2 class="js-section-title">{!! $settingOr('services_page_parking_sec2_heading', 'Airport Parking in 3 Simple Steps') !!}</h2>
+                <div class="js-section-subtitle">{!! $settingOr(
                     'services_page_parking_sec2_descp',
                     'Airport parking offers are just a few clicks away. Follow these simple steps to compare the latest prices and book.'
-                ) !!}</p>
+                ) !!}</div>
             </header>
 
             <ol class="js-ps-steps__grid">
-                <li class="js-ps-step-card">
+                <li class="js-ps-step-card js-reveal">
                     <div class="js-ps-step-card__image">
                         <img src="{{ asset('assets/images/1.png') }}" alt="" loading="lazy" width="140" height="140">
                     </div>
@@ -268,7 +211,7 @@
                         ) !!}
                     </div>
                 </li>
-                <li class="js-ps-step-card">
+                <li class="js-ps-step-card js-reveal" style="--reveal-delay: 80ms">
                     <div class="js-ps-step-card__image">
                         <img src="{{ asset('assets/images/2.png') }}" alt="" loading="lazy" width="140" height="140">
                     </div>
@@ -280,7 +223,7 @@
                         ) !!}
                     </div>
                 </li>
-                <li class="js-ps-step-card">
+                <li class="js-ps-step-card js-reveal" style="--reveal-delay: 160ms">
                     <div class="js-ps-step-card__image">
                         <img src="{{ asset('assets/images/3.png') }}" alt="" loading="lazy" width="140" height="140">
                     </div>
@@ -298,8 +241,8 @@
 
     {{-- Bottom CTA --}}
     <section class="js-ps-banner">
-        <div class="js-container">
-            <div class="js-ps-banner__inner">
+        <div class="container">
+            <div class="js-ps-banner__inner js-reveal">
                 <div class="js-ps-banner__copy">
                     <h2 class="js-ps-banner__title">{{ crm('parking-services.cta_title', 'Ready to compare airport parking?') }}</h2>
                     <p class="js-ps-banner__text">{{ crm('parking-services.cta_text', 'Search major UK airports and reserve your space in minutes with transparent pricing.') }}</p>

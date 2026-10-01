@@ -159,12 +159,12 @@
     color: var(--js-accent) !important;
 }
 
-/* ── Why Book With Jetseeker ── */
+/* ── Why Book With Us (light theme) ── */
 .js-why-section {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(160deg, #0D0D0D 0%, #1A1A1A 45%, #2E2E2E 100%);
-    color: #fff;
+    background: linear-gradient(165deg, #ffffff 0%, #FDF2F8 48%, #FAF7F8 100%);
+    color: var(--js-text);
 }
 
 .js-why-section .container {
@@ -173,15 +173,22 @@
 }
 
 .js-why-section .js-section-title {
-    color: #fff;
+    color: var(--js-heading);
 }
 
 .js-why-section .js-section-subtitle {
-    color: rgba(255, 255, 255, 0.82);
+    color: var(--js-muted);
 }
 
 .js-why-section .js-section-subtitle a.linked {
-    color: #F9A8D4;
+    color: var(--js-accent);
+}
+
+.js-why-section .js-section-head__badge {
+    color: var(--js-accent);
+    background: rgba(194, 24, 91, 0.1);
+    border: 1px solid rgba(194, 24, 91, 0.16);
+    box-shadow: none;
 }
 
 .js-why-section__mesh {
@@ -189,9 +196,8 @@
     inset: 0;
     pointer-events: none;
     background:
-        radial-gradient(circle at 15% 20%, rgba(26, 26, 26, 0.45) 0%, transparent 42%),
-        radial-gradient(circle at 85% 75%, rgba(250, 158, 27, 0.18) 0%, transparent 38%),
-        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 55%);
+        radial-gradient(circle at 12% 18%, rgba(194, 24, 91, 0.08) 0%, transparent 42%),
+        radial-gradient(circle at 88% 72%, rgba(26, 26, 26, 0.04) 0%, transparent 40%);
     animation: js-mesh-drift 14s ease-in-out infinite alternate;
 }
 
@@ -206,7 +212,11 @@
     gap: 0;
     position: relative;
     z-index: 1;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid var(--js-border);
+    border-radius: var(--js-radius-lg);
+    overflow: hidden;
+    background: var(--js-surface);
+    box-shadow: 0 8px 32px rgba(26, 26, 26, 0.05);
 }
 
 .js-why-item {
@@ -214,8 +224,8 @@
     flex-direction: column;
     gap: 20px;
     padding: 36px 28px 40px;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid var(--js-border);
+    border-bottom: 1px solid var(--js-border);
     transition: background 0.35s ease;
 }
 
@@ -224,7 +234,7 @@
 }
 
 .js-why-item:hover {
-    background: rgba(255, 255, 255, 0.06);
+    background: #FDF2F8;
 }
 
 .js-why-item__icon-wrap {
@@ -235,23 +245,27 @@
     justify-content: center;
     border-radius: 16px;
     background: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+    border: 1px solid var(--js-border);
+    box-shadow: 0 4px 16px rgba(26, 26, 26, 0.06);
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.35s ease;
 }
 
 .js-why-item:hover .js-why-item__icon-wrap {
     transform: translateY(-4px) scale(1.04);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
-    border-color: var(--js-accent);
+    box-shadow: 0 10px 24px rgba(194, 24, 91, 0.14);
+    border-color: rgba(194, 24, 91, 0.35);
 }
 
 .js-why-item__icon-wrap img {
     width: 48px;
     height: 48px;
     object-fit: contain;
-    /* Shift baked-in blue icon accents toward magenta */
     filter: hue-rotate(115deg) saturate(1.35);
+}
+
+.js-why-item__icon-wrap i {
+    font-size: 1.5rem;
+    color: var(--js-accent);
 }
 
 .js-why-item__index {
@@ -266,7 +280,7 @@
 .js-why-item__content h3 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--js-heading);
     margin: 0 0 12px;
     line-height: 1.3;
     text-transform: capitalize;
@@ -275,12 +289,12 @@
 .js-why-item__content p {
     font-size: 0.95rem;
     line-height: 1.65;
-    color: rgba(255, 255, 255, 0.78);
+    color: var(--js-muted);
     margin: 0;
 }
 
 .js-why-item__content a.linked {
-    color: #F9A8D4;
+    color: var(--js-accent);
 }
 
 /* ── How Jetseeker Works (timeline, no cards) ── */
@@ -413,7 +427,7 @@
 .js-parking-section {
     position: relative;
     overflow: hidden;
-    background: #f0f4fa;
+    background: linear-gradient(180deg, #FAF7F8 0%, #F3EEF0 100%);
 }
 
 .js-parking-section__runway {
@@ -434,6 +448,13 @@
 .js-parking-section .container {
     position: relative;
     z-index: 1;
+}
+
+.js-parking-section .js-section-subtitle p {
+    margin: 0;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
 }
 
 .js-parking-gates {
@@ -499,7 +520,7 @@
     align-items: center;
     gap: 10px;
     padding: 14px 18px;
-    background: linear-gradient(90deg, var(--js-primary-dark) 0%, var(--js-primary) 100%);
+    background: linear-gradient(90deg, #2A2A2A 0%, #C2185B 140%);
     color: #fff;
 }
 
@@ -606,7 +627,8 @@
     margin: 0 0 12px;
 }
 
-.js-parking-gate__body p {
+.js-parking-gate__body p,
+.js-parking-gate__body div {
     font-size: 0.95rem;
     line-height: 1.65;
     color: var(--js-muted);
@@ -1019,7 +1041,7 @@
 .js-reviews-section__slider {
     max-width: 880px;
     margin: 0 auto;
-    padding: 0 56px 8px;
+    padding: 0 40px 0;
 }
 
 .js-reviews-section .premium-testimonial-slider,
@@ -1050,7 +1072,7 @@
     border: 1px solid var(--js-border) !important;
     border-radius: var(--js-radius-md) !important;
     box-shadow: none !important;
-    padding: 44px 40px 36px !important;
+    padding: 14px 20px 12px !important;
     margin: 0 !important;
     position: relative;
     text-align: center;
@@ -1058,10 +1080,11 @@
 
 .js-reviews-section .premium-testimonial-card::before {
     content: '\201C';
-    top: 16px;
+    position: absolute;
+    top: 2px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 4.5rem;
+    font-size: 2.25rem;
     font-family: Georgia, 'Times New Roman', serif;
     color: var(--js-primary);
     opacity: 0.15;
@@ -1069,13 +1092,13 @@
 }
 
 .js-reviews-section .testimonial-content {
-    font-size: clamp(1.125rem, 2.2vw, 1.375rem) !important;
+    font-size: clamp(1rem, 2vw, 1.2rem) !important;
     font-style: normal !important;
     font-weight: 400 !important;
     color: var(--js-heading) !important;
-    line-height: 1.8 !important;
+    line-height: 1.45 !important;
     max-width: 640px;
-    margin: 0 auto 28px !important;
+    margin: 4px auto 10px !important;
     letter-spacing: 0.01em;
     border: none;
     padding: 0;
@@ -1095,13 +1118,13 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 14px !important;
-    margin: 0 0 16px !important;
+    gap: 10px !important;
+    margin: 0 0 8px !important;
 }
 
 .js-reviews-section .author-avatar {
-    width: 48px !important;
-    height: 48px !important;
+    width: 40px !important;
+    height: 40px !important;
     flex-shrink: 0;
     background: linear-gradient(135deg, var(--js-primary), var(--js-primary-dark)) !important;
     box-shadow: none !important;
@@ -1165,27 +1188,27 @@
 }
 
 .js-reviews-section .owl-nav .owl-prev {
-    transform: translateX(-48px);
+    transform: translateX(-28px);
 }
 
 .js-reviews-section .owl-nav .owl-next {
-    transform: translateX(48px);
+    transform: translateX(28px);
 }
 
 .js-reviews-section .owl-nav .owl-prev:hover,
 .js-reviews-section .owl-nav .owl-next:hover {
     background: var(--js-primary) !important;
     color: #fff !important;
-    transform: translateX(-48px) scale(1.05);
+    transform: translateX(-28px) scale(1.05);
     box-shadow: none !important;
 }
 
 .js-reviews-section .owl-nav .owl-next:hover {
-    transform: translateX(48px) scale(1.05);
+    transform: translateX(28px) scale(1.05);
 }
 
 .js-reviews-section .owl-dots {
-    margin-top: 28px !important;
+    margin-top: 8px !important;
 }
 
 .js-reviews-section .owl-dot span {
@@ -1201,11 +1224,11 @@
 
 @media (max-width: 767px) {
     .js-reviews-section__slider {
-        padding: 0 16px 8px;
+        padding: 0 12px 0;
     }
 
     .js-reviews-section .premium-testimonial-card {
-        padding: 36px 24px 28px !important;
+        padding: 12px 14px 10px !important;
     }
 
     .js-reviews-section .owl-nav .owl-prev {
@@ -1412,4 +1435,1150 @@
 
 @media (min-width: 768px) {
     .displayBlockMobile { display: none !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Light homepage redesign — soft surfaces, brand magenta accent
+   ═══════════════════════════════════════════════════════════ */
+
+.home {
+    --js-background: #FAF7F8;
+    --js-surface: #ffffff;
+    --js-border: #E8E2E5;
+    background: var(--js-background);
+}
+
+/* Hero brand + light wash */
+.search1.js-hero.js-hero--light {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.js-hero__wash {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, rgba(255, 252, 253, 0.94) 0%, rgba(255, 245, 248, 0.82) 42%, rgba(250, 247, 248, 0.96) 100%),
+        radial-gradient(ellipse 80% 55% at 50% 0%, rgba(194, 24, 91, 0.08) 0%, transparent 65%);
+}
+
+.search1.js-hero.js-hero--light > .container {
+    position: relative;
+    z-index: 1;
+}
+
+.js-hero__brand {
+    display: block;
+    text-align: center;
+    margin: clamp(28px, 6vw, 64px) auto 10px;
+    font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--js-heading);
+    line-height: 1.15;
+}
+
+.js-hero__brand::after {
+    content: '';
+    display: block;
+    width: 56px;
+    height: 3px;
+    margin: 12px auto 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--js-accent), rgba(194, 24, 91, 0.2));
+}
+
+.search1.js-hero.js-hero--light .main-heading,
+.search1.js-hero.js-hero--light .js-hero__title {
+    margin-top: 8px;
+    color: var(--js-heading);
+    font-weight: 700;
+}
+
+.search1.js-hero.js-hero--light .main-paragraph,
+.search1.js-hero.js-hero--light .js-hero__subtitle {
+    color: var(--js-muted);
+    margin-bottom: 8px;
+}
+
+.search1.js-hero.js-hero--light .js-booking-card {
+    box-shadow: 0 18px 48px rgba(26, 26, 26, 0.08);
+    border: 1px solid rgba(232, 226, 229, 0.95);
+}
+
+/* Section badges — soft magenta tint */
+.home .js-section-head__badge {
+    color: var(--js-accent);
+    background: rgba(194, 24, 91, 0.1);
+    box-shadow: none;
+}
+
+.home .js-section-head__badge--light {
+    color: var(--js-accent);
+    background: rgba(194, 24, 91, 0.08);
+}
+
+/* Why section uses shared light theme */
+
+/* Works — softer nodes */
+.home .js-works-section {
+    background: #ffffff;
+}
+
+.home .js-works-step__node {
+    border-color: rgba(194, 24, 91, 0.35);
+    box-shadow: 0 8px 24px rgba(194, 24, 91, 0.1);
+}
+
+.home .js-works-path::before {
+    background: linear-gradient(90deg, rgba(194, 24, 91, 0.25), var(--js-accent), rgba(194, 24, 91, 0.25));
+}
+
+/* Parking options */
+.home .js-parking-gate:hover {
+    box-shadow: 0 18px 40px rgba(194, 24, 91, 0.12);
+}
+
+/* Compare — light panel */
+.home .js-compare-section {
+    background: linear-gradient(135deg, #ffffff 0%, #FDF2F8 55%, #FCE7F3 100%);
+    color: var(--js-heading);
+}
+
+.home .js-compare-section__glow {
+    background: radial-gradient(circle, rgba(194, 24, 91, 0.14) 0%, transparent 68%);
+}
+
+.home .js-compare-eyebrow {
+    color: var(--js-accent);
+    background: rgba(194, 24, 91, 0.08);
+    border: 1px solid rgba(194, 24, 91, 0.18);
+}
+
+.home .js-compare-title {
+    color: var(--js-heading);
+}
+
+.home .js-compare-lead {
+    color: var(--js-muted);
+}
+
+.home .js-compare-lead strong {
+    color: var(--js-heading);
+}
+
+.home .js-compare-checklist li {
+    color: var(--js-text);
+}
+
+.home .js-compare-footnote {
+    color: var(--js-heading);
+    border-top: 1px solid var(--js-border);
+}
+
+.home .js-compare-visual__frame {
+    background: #fff;
+    border: 1px solid var(--js-border);
+    box-shadow: 0 20px 48px rgba(26, 26, 26, 0.08);
+    backdrop-filter: none;
+}
+
+.home .js-compare-metric {
+    background: #fff;
+    border: 1px solid var(--js-border);
+}
+
+.home .js-compare-metric span {
+    color: var(--js-muted);
+}
+
+/* Reviews / tips / airports already light — refine */
+.home .js-reviews-section {
+    background: linear-gradient(180deg, #ffffff 0%, #FDF2F8 100%);
+}
+
+.home .js-reviews-section.section-spacing {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+}
+
+.home .js-reviews-section .js-section-head {
+    margin: 0 auto 6px;
+}
+
+.home .js-reviews-section .js-section-head__badge {
+    margin-bottom: 4px;
+    padding: 4px 10px;
+}
+
+.home .js-reviews-section .js-section-title {
+    margin: 0 0 2px;
+    font-size: clamp(1.5rem, 3.2vw, 2.15rem);
+}
+
+.home .js-reviews-section .js-section-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.home .js-reviews-section .owl-stage-outer {
+    height: auto !important;
+}
+
+.home .js-reviews-section .owl-dots {
+    display: none !important;
+}
+
+.home .js-tips-section {
+    background: #FAF7F8;
+}
+
+.home .section-spacing {
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+@media (max-width: 767px) {
+    .js-hero__brand {
+        margin-top: 24px;
+        font-size: 1.15rem;
+    }
+
+    .home .section-spacing {
+        padding-top: 36px;
+        padding-bottom: 36px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Homepage hero — exact mockup layout
+   ═══════════════════════════════════════════════════════════ */
+
+.home .js-topbar {
+    display: none;
+}
+
+.home .js-header {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    box-shadow: none;
+}
+
+.home .js-nav__link {
+    background: transparent;
+    border-radius: 0;
+    position: relative;
+}
+
+.home .js-nav__item:first-child .js-nav__link,
+.home .js-nav__link.is-active {
+    color: #1a1a2e;
+    background: transparent;
+    box-shadow: none;
+}
+
+.home .js-nav__item:first-child .js-nav__link::after,
+.home .js-nav__link.is-active::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 6px;
+    height: 2px;
+    background: #C2185B;
+    border-radius: 999px;
+}
+
+.home .js-nav__link:hover {
+    color: #C2185B;
+    background: transparent;
+}
+
+.home .js-helpline-widget--header {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    gap: 10px;
+}
+
+.home .js-helpline-widget--header .js-helpline-widget__icon {
+    width: 36px;
+    height: 36px;
+}
+
+.home .js-nav__cta .js-btn--primary {
+    background: #C2185B;
+    border-color: #C2185B;
+}
+
+.search1.js-hero.js-hero--mock {
+    --hero-magenta: #C2185B;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 620px;
+    padding: 56px 0 0;
+    margin: 0;
+    background: #fff;
+    color: #1a1a2e;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(100deg,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(255, 255, 255, 0.95) 34%,
+        rgba(255, 255, 255, 0.55) 52%,
+        rgba(255, 255, 255, 0.12) 72%,
+        rgba(255, 255, 255, 0) 100%);
+}
+
+.search1.js-hero.js-hero--mock .js-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+        url('/assets/images/hero-airport-parking.jpg') 70% center / cover no-repeat,
+        url('/assets/images/top%20banner%201.png') 70% center / cover no-repeat;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__blob {
+    position: absolute;
+    left: -80px;
+    bottom: -120px;
+    width: 340px;
+    height: 340px;
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, rgba(194, 24, 91, 0.55) 0%, rgba(194, 24, 91, 0.18) 48%, transparent 72%);
+    filter: blur(2px);
+}
+
+.search1.js-hero.js-hero--mock .js-hero__flight {
+    position: absolute;
+    right: 4%;
+    bottom: 18%;
+    width: min(220px, 28vw);
+    z-index: 2;
+    pointer-events: none;
+    color: var(--hero-magenta);
+    opacity: 0.85;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__flight svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__inner {
+    position: relative;
+    z-index: 3;
+    max-width: 1200px;
+    padding-bottom: 0;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__copy {
+    max-width: 640px;
+    text-align: left;
+    padding: 24px 0 16px;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 18px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--hero-magenta);
+}
+
+.search1.js-hero.js-hero--mock .js-hero__eyebrow-line {
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: var(--hero-magenta);
+    border-radius: 999px;
+}
+
+.search1.js-hero.js-hero--mock .main-heading,
+.search1.js-hero.js-hero--mock .js-hero__title {
+    margin: 0 0 16px !important;
+    text-align: left !important;
+    font-size: clamp(2rem, 4.2vw, 3.15rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.12 !important;
+    color: #1a1a2e !important;
+    letter-spacing: -0.02em;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__accent {
+    color: #C2185B !important;
+}
+
+.search1.js-hero.js-hero--mock .main-paragraph,
+.search1.js-hero.js-hero--mock .js-hero__subtitle {
+    margin: 0 0 20px !important;
+    max-width: 520px;
+    text-align: left !important;
+    font-size: clamp(1rem, 1.6vw, 1.125rem) !important;
+    line-height: 1.6 !important;
+    color: #5b6170 !important;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px 18px;
+    max-width: 640px;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    min-width: 0;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__feature-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(194, 24, 91, 0.12);
+    color: var(--hero-magenta);
+    font-size: 15px;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__feature-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__feature-text strong {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.25;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__feature {
+    align-items: center;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__widget {
+    position: relative;
+    z-index: 4;
+    margin-top: -12px;
+    padding-bottom: 36px;
+    transform: translateY(0);
+}
+
+.search1.js-hero.js-hero--mock .js-booking-card {
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 18px !important;
+    overflow: hidden;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    box-shadow: 0 22px 50px rgba(26, 26, 46, 0.14);
+    background: #fff;
+}
+
+.search1.js-hero.js-hero--mock .js-product-tabs {
+    background: #fff;
+    border-bottom: 1px solid #eef0f3;
+    gap: 4px;
+    padding: 6px 12px 0;
+}
+
+.search1.js-hero.js-hero--mock .js-product-tab {
+    flex: 0 1 auto;
+    min-height: 48px;
+    padding: 12px 18px;
+    color: #64748b;
+    border-bottom: 3px solid transparent !important;
+    border-radius: 8px 8px 0 0;
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.search1.js-hero.js-hero--mock .js-product-tab i {
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.search1.js-hero.js-hero--mock .js-product-tab .js-soon-badge {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search1.js-hero.js-hero--mock .js-product-tab.is-active {
+    color: #1a1a2e;
+    background: transparent;
+    border-bottom: 3px solid var(--hero-magenta) !important;
+    box-shadow: none !important;
+}
+
+.search1.js-hero.js-hero--mock .js-product-tab.is-active i {
+    color: var(--hero-magenta);
+}
+
+.search1.js-hero.js-hero--mock .js-product-tab:hover {
+    background: rgba(194, 24, 91, 0.08);
+    color: var(--hero-magenta);
+}
+
+.search1.js-hero.js-hero--mock .js-product-tab:hover i {
+    color: var(--hero-magenta);
+    transform: translateY(-1px);
+}
+
+.search1.js-hero.js-hero--mock .js-product-tab:not(.is-active):hover {
+    border-bottom-color: rgba(194, 24, 91, 0.35) !important;
+}
+
+.search1.js-hero.js-hero--mock .js-product-tab:hover .js-soon-badge {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(194, 24, 91, 0.35);
+}
+
+.search1.js-hero.js-hero--mock .js-product-tab.is-active:hover {
+    background: rgba(194, 24, 91, 0.05);
+    color: #1a1a2e;
+}
+
+.search1.js-hero.js-hero--mock .js-booking-card .js-soon-badge,
+.search1.js-hero.js-hero--mock .js-soon-badge {
+    border-radius: 4px !important;
+    background: var(--hero-magenta) !important;
+}
+
+.search1.js-hero.js-hero--mock .js-booking-widget-body {
+    padding: 18px 22px 22px;
+}
+
+.search1.js-hero.js-hero--mock .js-panel-hint {
+    text-align: left;
+    color: #64748b;
+    margin: 0 0 14px;
+}
+
+.search1.js-hero.js-hero--mock .js-booking-card .js-booking-input,
+.search1.js-hero.js-hero--mock .js-booking-card .js-booking-field select,
+.search1.js-hero.js-hero--mock .js-booking-card .select2-container--default .select2-selection--single {
+    border-radius: 10px !important;
+    border-color: #e2e8f0;
+    background: #fff;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.15s ease;
+}
+
+.search1.js-hero.js-hero--mock .js-booking-card .js-booking-input:hover,
+.search1.js-hero.js-hero--mock .js-booking-card .js-booking-field select:hover,
+.search1.js-hero.js-hero--mock .js-booking-card .select2-container--default .select2-selection--single:hover {
+    border-color: var(--hero-magenta) !important;
+    background: #fff7fb !important;
+    box-shadow: 0 0 0 3px rgba(194, 24, 91, 0.12) !important;
+}
+
+.search1.js-hero.js-hero--mock .js-booking-card .js-booking-input:focus,
+.search1.js-hero.js-hero--mock .js-booking-card .js-booking-field select:focus,
+.search1.js-hero.js-hero--mock .js-booking-card .select2-container--default.select2-container--open .select2-selection--single,
+.search1.js-hero.js-hero--mock .js-booking-card .select2-container--default.select2-container--focus .select2-selection--single {
+    border-color: var(--hero-magenta) !important;
+    background: #fff !important;
+    box-shadow: 0 0 0 3px rgba(194, 24, 91, 0.2) !important;
+}
+
+.search1.js-hero.js-hero--mock .js-booking-field--date .js-booking-input:hover + .fa-calendar,
+.search1.js-hero.js-hero--mock .js-booking-field--date .js-booking-input:focus + .fa-calendar,
+.search1.js-hero.js-hero--mock .js-booking-field .form-group-calender:hover .fa-calendar {
+    color: var(--hero-magenta);
+}
+
+.search1.js-hero.js-hero--mock .js-booking-submit {
+    border-radius: 10px !important;
+    background: var(--hero-magenta) !important;
+    box-shadow: 0 10px 24px rgba(194, 24, 91, 0.35);
+    max-width: 280px;
+    letter-spacing: 0.06em;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.search1.js-hero.js-hero--mock .js-booking-submit:hover {
+    background: #9F1248 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 16px 32px rgba(194, 24, 91, 0.48);
+}
+
+.search1.js-hero.js-hero--mock .js-booking-submit:active {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(194, 24, 91, 0.35);
+}
+
+.search1.js-hero.js-hero--mock .js-booking-submit::after {
+    content: ' →';
+    font-weight: 700;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.search1.js-hero.js-hero--mock .js-booking-submit:hover::after {
+    transform: translateX(4px);
+}
+
+@media (max-width: 991px) {
+    .search1.js-hero.js-hero--mock .js-hero__features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__scrim {
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.88) 55%, rgba(255, 255, 255, 0.96) 100%);
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__flight {
+        opacity: 0.45;
+        bottom: 8%;
+    }
+}
+
+@media (max-width: 767px) {
+    .search1.js-hero.js-hero--mock {
+        padding: 16px 0 0;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__copy {
+        padding: 8px 0 12px;
+        max-width: 100%;
+    }
+
+    .search1.js-hero.js-hero--mock .main-heading,
+    .search1.js-hero.js-hero--mock .js-hero__title {
+        font-size: clamp(1.55rem, 7.2vw, 1.9rem) !important;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__features {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 10px;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__widget {
+        transform: none;
+        margin-top: 4px;
+        padding-bottom: 20px;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__blob {
+        display: none;
+    }
+
+    .search1.js-hero.js-hero--mock .js-product-tabs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 10px;
+        overflow: visible;
+        flex-wrap: unset;
+        background: #f7f5f6;
+        border-bottom: 1px solid #eef0f3;
+    }
+
+    .search1.js-hero.js-hero--mock .js-product-tab {
+        position: relative;
+        flex: unset;
+        max-width: none;
+        width: 100%;
+        min-height: 76px;
+        padding: 14px 8px 12px;
+        white-space: normal;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        border: 1px solid transparent !important;
+        border-bottom: none !important;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.85);
+        box-shadow: none !important;
+    }
+
+    .search1.js-hero.js-hero--mock .js-product-tab.is-active,
+    .search1.js-hero.js-hero--mock .js-product-tab.is-active:hover {
+        background: #fff;
+        border: 1px solid rgba(194, 24, 91, 0.28) !important;
+        border-bottom: none !important;
+        box-shadow: inset 0 -3px 0 var(--hero-magenta, #C2185B) !important;
+    }
+
+    .search1.js-hero.js-hero--mock .js-product-tab:not(.is-active):hover {
+        border-bottom: none !important;
+        border-color: rgba(194, 24, 91, 0.2) !important;
+    }
+
+    .search1.js-hero.js-hero--mock .js-product-tab .js-soon-badge,
+    .search1.js-hero.js-hero--mock .js-soon-badge {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        margin: 0 !important;
+        padding: 2px 5px !important;
+        font-size: 7px !important;
+        line-height: 1.25;
+        white-space: nowrap;
+    }
+}
+
+/* Space below overlapping booking card */
+.home .js-works-section {
+    padding-top: 40px;
+}
+
+/* ── Compact homepage spacing ── */
+.home .js-section-head {
+    margin: 0 auto 28px;
+}
+
+.home .js-section-head__badge {
+    margin-bottom: 10px;
+}
+
+.home .js-section-title {
+    margin: 0 0 10px;
+}
+
+.home .js-section-subtitle {
+    margin: 0;
+}
+
+.home .js-works-path {
+    margin: 28px 0 0;
+    gap: 20px;
+}
+
+.home .js-works-step__node {
+    margin: 0 auto 14px;
+}
+
+.home .js-why-item {
+    padding: 24px 20px 28px;
+    gap: 14px;
+}
+
+.home .js-parking-gates {
+    gap: 18px;
+    margin-top: 0;
+}
+
+.home .js-parking-gate__icon {
+    padding: 18px 16px 8px;
+}
+
+.home .js-compare-section {
+    padding: 48px 0;
+}
+
+.home .js-compare-layout {
+    gap: 36px;
+}
+
+.home .js-compare-lead {
+    margin: 0 0 18px;
+}
+
+.home .js-compare-checklist {
+    margin: 0 0 16px;
+    gap: 10px 16px;
+}
+
+.home .js-airports-load-more,
+.home .js-airports-actions {
+    margin-top: 24px;
+}
+
+.home .js-reviews-section__slider {
+    padding: 0 32px 0;
+}
+
+.home .js-reviews-section .premium-testimonial-slider,
+.home .js-reviews-section .js-reviews-slider {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.home .js-reviews-section .premium-testimonial-card {
+    padding: 8px 16px 8px !important;
+    margin: 0 !important;
+}
+
+.home .js-reviews-section .premium-testimonial-card::before {
+    top: 0;
+    font-size: 1.75rem;
+}
+
+.home .js-reviews-section .testimonial-content {
+    margin: 2px auto 6px !important;
+    line-height: 1.4 !important;
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem) !important;
+}
+
+.home .js-reviews-section .testimonial-author {
+    margin: 0 0 4px !important;
+    gap: 8px !important;
+}
+
+.home .js-reviews-section .author-avatar {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.home .js-reviews-section .author-avatar i {
+    font-size: 14px !important;
+}
+
+.home .js-reviews-section .author-name {
+    font-size: 0.9rem !important;
+}
+
+.home .js-reviews-section .author-role {
+    font-size: 0.8rem !important;
+}
+
+.home .js-reviews-section .star-checked {
+    font-size: 0.85rem !important;
+}
+
+.home .js-reviews-section .owl-nav .owl-prev,
+.home .js-reviews-section .owl-nav .owl-next {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 13px !important;
+}
+
+.home .js-reviews-section .owl-nav .owl-prev {
+    transform: translateX(-20px);
+}
+
+.home .js-reviews-section .owl-nav .owl-next {
+    transform: translateX(20px);
+}
+
+.home .js-reviews-section .owl-nav .owl-prev:hover {
+    transform: translateX(-20px) scale(1.05);
+}
+
+.home .js-reviews-section .owl-nav .owl-next:hover {
+    transform: translateX(20px) scale(1.05);
+}
+
+.home .js-tips-grid {
+    gap: 18px;
+}
+
+.home .section-spacing {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+}
+
+.search1.js-hero.js-hero--mock {
+    min-height: 0;
+    padding: 32px 0 0;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__copy {
+    padding: 12px 0 10px;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__eyebrow {
+    margin: 0 0 12px;
+}
+
+.search1.js-hero.js-hero--mock .main-heading,
+.search1.js-hero.js-hero--mock .js-hero__title {
+    margin: 0 0 10px !important;
+}
+
+.search1.js-hero.js-hero--mock .main-paragraph,
+.search1.js-hero.js-hero--mock .js-hero__subtitle {
+    margin: 0 0 14px !important;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__features {
+    gap: 12px 14px;
+}
+
+.search1.js-hero.js-hero--mock .js-hero__widget {
+    margin-top: -8px;
+    padding-bottom: 20px;
+}
+
+.search1.js-hero.js-hero--mock .js-booking-widget-body {
+    padding: 14px 18px 16px;
+}
+
+.home .js-works-section.section-spacing {
+    padding-top: 36px !important;
+}
+
+@media (max-width: 767px) {
+    .home .section-spacing {
+        padding-top: 36px !important;
+        padding-bottom: 36px !important;
+    }
+
+    .home .js-reviews-section.section-spacing {
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
+    }
+
+    .home .js-section-head {
+        margin-bottom: 20px;
+    }
+
+    .home .js-compare-section {
+        padding: 36px 0;
+    }
+
+    .search1.js-hero.js-hero--mock {
+        padding: 16px 0 0;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__inner {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__copy {
+        max-width: 100%;
+        padding: 8px 0 12px;
+        box-sizing: border-box;
+    }
+
+    .search1.js-hero.js-hero--mock .js-booking-card {
+        margin: 0 !important;
+        max-width: 100% !important;
+        width: 100%;
+        border-radius: 14px !important;
+        overflow: visible;
+        box-sizing: border-box;
+    }
+
+    .home .js-navbar,
+    .home .js-header .js-container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__eyebrow {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        margin-bottom: 10px;
+    }
+
+    .search1.js-hero.js-hero--mock .main-heading,
+    .search1.js-hero.js-hero--mock .js-hero__title {
+        font-size: clamp(1.55rem, 7.2vw, 1.9rem) !important;
+        line-height: 1.2 !important;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        max-width: 100%;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__accent,
+    .search1.js-hero.js-hero--mock .main-heading .js-hero__accent,
+    .search1.js-hero.js-hero--mock .main-heading span.js-hero__accent {
+        color: #C2185B !important;
+        display: inline;
+    }
+
+    .search1.js-hero.js-hero--mock .main-paragraph,
+    .search1.js-hero.js-hero--mock .js-hero__subtitle {
+        font-size: 0.95rem !important;
+        margin: 0 0 14px !important;
+        max-width: 100%;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__features {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 10px;
+        max-width: 100%;
+        align-items: start;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__feature {
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__feature-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 13px;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__feature-text strong {
+        font-size: 12px;
+        line-height: 1.3;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__feature-text small {
+        display: none !important;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__widget {
+        margin-top: 4px;
+        padding-bottom: 20px;
+        transform: none;
+        width: 100%;
+    }
+
+    .search1.js-hero.js-hero--mock .js-booking-card {
+        margin: 0 !important;
+        max-width: 100% !important;
+        width: 100%;
+        border-radius: 14px !important;
+        overflow: visible;
+    }
+
+    .search1.js-hero.js-hero--mock .js-product-tabs {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 10px;
+        overflow: visible;
+        flex-wrap: unset;
+        background: #f7f5f6;
+        border-bottom: 1px solid #eef0f3;
+    }
+
+    .search1.js-hero.js-hero--mock .js-product-tab {
+        position: relative;
+        flex: unset;
+        max-width: none;
+        width: 100%;
+        min-height: 76px;
+        padding: 14px 8px 12px;
+        font-size: 12px;
+        white-space: normal;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        border: 1px solid transparent !important;
+        border-bottom: none !important;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.85);
+        box-shadow: none !important;
+    }
+
+    .search1.js-hero.js-hero--mock .js-product-tab.is-active,
+    .search1.js-hero.js-hero--mock .js-product-tab.is-active:hover {
+        background: #fff;
+        border: 1px solid rgba(194, 24, 91, 0.28) !important;
+        border-bottom: none !important;
+        box-shadow: inset 0 -3px 0 #C2185B !important;
+    }
+
+    .search1.js-hero.js-hero--mock .js-product-tab:not(.is-active):hover {
+        border-bottom: none !important;
+        border-color: rgba(194, 24, 91, 0.2) !important;
+    }
+
+    .search1.js-hero.js-hero--mock .js-product-tab .js-soon-badge,
+    .search1.js-hero.js-hero--mock .js-soon-badge {
+        position: absolute !important;
+        top: 6px;
+        right: 6px;
+        margin: 0 !important;
+        padding: 2px 5px !important;
+        font-size: 7px !important;
+        line-height: 1.25;
+        white-space: nowrap;
+    }
+
+    .search1.js-hero.js-hero--mock .js-booking-widget-body {
+        padding: 14px 12px 16px;
+    }
+
+    .search1.js-hero.js-hero--mock .js-booking-submit {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__blob,
+    .search1.js-hero.js-hero--mock .js-hero__flight {
+        display: none;
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__scrim {
+        background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.92) 70%, rgba(255,255,255,0.98) 100%);
+    }
+
+    .search1.js-hero.js-hero--mock .js-hero__bg {
+        background-position: center top;
+        opacity: 0.35;
+    }
+
+    .home .js-works-step {
+        padding: 18px 0;
+        gap: 14px;
+    }
+
+    .home .js-why-item {
+        padding: 20px 16px;
+    }
+
+    .home .js-reviews-section__slider {
+        padding: 0 12px;
+    }
+
+    .home .js-navbar__logo img {
+        max-width: 160px;
+        height: auto;
+    }
+}
+
+/* Force magenta accent (legacy .main-heading span { color:#fff!important } ) */
+.search1.js-hero.js-hero--mock .js-hero__accent,
+.search1.js-hero.js-hero--mock h1 .js-hero__accent,
+.search1.js-hero.js-hero--mock .main-heading span.js-hero__accent,
+.search1.js-hero.js-hero--mock .main-heading span {
+    color: #C2185B !important;
 }

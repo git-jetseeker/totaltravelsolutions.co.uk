@@ -1,6 +1,27 @@
 /**
- * Jetseeker — FAQs page (AVPS-inspired support center layout)
+ * Total Travel Solutions — FAQs page
+ * Aligns with homepage design system (light hero, section heads, CTA banner)
  */
+
+/* Hero without booking widget */
+.search1.js-hero.js-hero--mock.js-hero--no-widget {
+    min-height: auto;
+    padding: 48px 0 56px;
+}
+
+.search1.js-hero.js-hero--mock.js-hero--no-widget .js-hero__inner {
+    padding-bottom: 0;
+}
+
+.search1.js-hero.js-hero--mock.js-hero--no-widget .js-hero__copy {
+    max-width: 720px;
+    text-align: left;
+    padding: 12px 0 0;
+}
+
+.search1.js-hero.js-hero--mock.js-hero--no-widget .js-hero__features {
+    margin-bottom: 0;
+}
 
 .js-faqs-page {
     background: var(--js-background);
@@ -8,7 +29,12 @@
 
 /* ── Main layout ── */
 .js-faqs-body {
-    padding: 48px 0 80px;
+    padding: 72px 0 48px;
+}
+
+.js-faqs-page .section-spacing {
+    padding-top: 72px;
+    padding-bottom: 48px;
 }
 
 .js-faqs-main {
@@ -17,39 +43,8 @@
     margin: 0 auto;
 }
 
-/* Intro block (How Can We Help You?) */
-.js-faqs-intro {
-    text-align: center;
-    max-width: 640px;
-    margin: 0 auto 40px;
-}
-
-.js-faqs-intro__badge {
-    display: inline-block;
-    padding: 6px 14px;
-    margin-bottom: 14px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--js-primary);
-    background: rgba(26, 26, 26, 0.1);
-    border-radius: 999px;
-}
-
-.js-faqs-intro h2 {
-    font-size: clamp(1.5rem, 2.8vw, 1.85rem);
-    font-weight: 800;
-    color: var(--js-heading);
-    margin: 0 0 12px;
-    text-align: center;
-}
-
-.js-faqs-intro p {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: var(--js-muted);
-    margin: 0;
+.js-faqs-page .js-section-head {
+    margin-bottom: 36px;
 }
 
 /* FAQ list container */
@@ -76,10 +71,11 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #fff;
-    background: linear-gradient(90deg, var(--js-primary-dark), var(--js-primary));
+    background: var(--js-primary);
     padding: 8px 16px;
     border-radius: 999px;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
+    box-shadow: 0 4px 14px rgba(26, 26, 26, 0.2);
 }
 
 .js-faqs-list {
@@ -88,14 +84,15 @@
     gap: 12px;
 }
 
-/* AVPS-style accordion items */
+/* Accordion items */
 .js-faqs-page .js-faq-item {
     border: 1px solid var(--js-border);
     border-radius: var(--js-radius-md);
     margin-bottom: 0;
     background: var(--js-surface);
     box-shadow: none;
-    transition: border-color 0.25s ease;
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .js-faqs-page .js-faq-item:hover {
@@ -117,6 +114,10 @@
     outline: none !important;
     box-shadow: none !important;
     background: transparent;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .js-faqs-page .js-faq-question__text {
@@ -149,6 +150,7 @@
     color: var(--js-accent);
     font-size: 12px;
     margin-left: auto;
+    flex-shrink: 0;
     transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
 }
 
@@ -223,7 +225,7 @@
     padding: 10px 16px;
     border-radius: 999px;
     cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .js-faqs-filter:hover {
@@ -250,6 +252,7 @@
     background: var(--js-surface);
     border: 1px solid var(--js-border);
     border-radius: var(--js-radius-lg);
+    box-shadow: var(--js-shadow-sm);
 }
 
 .js-faqs-empty p {
@@ -258,31 +261,31 @@
     font-size: 1.05rem;
 }
 
-/* Help CTA */
-.js-faqs-help {
-    margin-top: 40px;
+/* Bottom CTA banner (home / about pattern) */
+.js-faqs-banner {
+    padding: 0 0 80px;
 }
 
-.js-faqs-help__inner {
+.js-faqs-banner__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 28px;
-    padding: 32px 36px;
+    padding: 36px 40px;
     border-radius: var(--js-radius-lg);
     background: linear-gradient(135deg, var(--js-primary-dark) 0%, var(--js-secondary) 100%);
     color: #fff;
     box-shadow: var(--js-shadow-md);
 }
 
-.js-faqs-help__title {
+.js-faqs-banner__title {
     margin: 0 0 8px;
-    font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
     font-weight: 800;
     color: #fff;
 }
 
-.js-faqs-help__text {
+.js-faqs-banner__text {
     margin: 0;
     color: rgba(255, 255, 255, 0.85);
     font-size: 1rem;
@@ -311,73 +314,24 @@
     transform: translateY(-2px);
 }
 
-/* Sidebar booking widget */
-.js-faqs-sidebar {
-    position: sticky;
-    top: calc(var(--js-nav-height) + var(--js-topbar-height) + 16px);
-}
-
-.js-faqs-sidebar .sub-serc {
-    background: var(--js-surface);
-    border: 1px solid var(--js-border);
-    border-radius: var(--js-radius-lg);
-    overflow: hidden;
-    box-shadow: var(--js-shadow-md);
-}
-
-.js-faqs-sidebar .passenger-detail,
-.js-faqs-sidebar .accordion-style {
-    background: transparent !important;
-    border: none !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-}
-
-.js-faqs-sidebar .passenger-detail h3,
-.js-faqs-sidebar h3.text-center {
-    margin: 0 !important;
-    padding: 18px 20px !important;
-    font-size: 1rem !important;
-    font-weight: 700 !important;
+.js-faqs-page .js-btn--primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: var(--js-radius-md);
+    background: var(--js-primary);
     color: #fff !important;
-    background: linear-gradient(135deg, var(--js-primary-dark), var(--js-primary)) !important;
-    border-radius: 0 !important;
+    font-weight: 700;
+    text-decoration: none !important;
+    border: none;
+    transition: background 0.25s ease, transform 0.25s ease;
 }
 
-.js-faqs-sidebar .panel-body {
-    padding: 20px !important;
-}
-
-.js-faqs-sidebar .form-control {
-    border: 1px solid var(--js-border);
-    border-radius: var(--js-radius-sm);
-    min-height: 42px;
-}
-
-.js-faqs-sidebar .btn,
-.js-faqs-sidebar button[type="submit"],
-.js-faqs-sidebar .form-button {
-    background: var(--js-primary) !important;
+.js-faqs-page .js-btn--primary:hover {
+    background: var(--js-primary-dark);
     color: #fff !important;
-    border: none !important;
-    border-radius: var(--js-radius-sm) !important;
-    font-weight: 700;
-    width: 100%;
-}
-
-/* Hero support-center badge */
-.js-page-hero--faqs .js-page-hero__eyebrow {
-    display: inline-block;
-    padding: 6px 16px;
-    margin-bottom: 18px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #F9A8D4;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 999px;
+    transform: translateY(-2px);
 }
 
 @media (max-width: 991px) {
@@ -387,8 +341,9 @@
 }
 
 @media (max-width: 767px) {
-    .js-faqs-body {
-        padding: 32px 0 56px;
+    .js-faqs-body,
+    .js-faqs-page .section-spacing {
+        padding: 48px 0 32px;
     }
 
     .js-faqs-page .js-faq-question {
@@ -400,13 +355,17 @@
         padding-top: 14px;
     }
 
-    .js-faqs-help__inner {
+    .js-faqs-banner {
+        padding: 0 0 56px;
+    }
+
+    .js-faqs-banner__inner {
         flex-direction: column;
         text-align: center;
         padding: 28px 22px;
     }
 
-    .js-faqs-help__text {
+    .js-faqs-banner__text {
         max-width: none;
     }
 

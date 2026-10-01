@@ -4,7 +4,7 @@
 @section('meta_description', ($homeMeta->meta_description ?? null) ?: 'Compare and book airport parking with Total Travel Solutions.')
 @include('layouts.header')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-home.css?v=20260926cardh') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-home.css?v=20261001light') }}">
 
 @include('layouts.nav')
 
@@ -634,7 +634,7 @@
 
     .section-spacing {
 
-        padding: 80px 0;
+        padding: 48px 0;
 
     }
 
@@ -1326,7 +1326,7 @@
 
         .section-spacing {
 
-            padding: 60px 0;
+            padding: 40px 0;
 
         }
 
@@ -1400,7 +1400,7 @@
 
         .section-spacing {
 
-            padding: 50px 0;
+            padding: 36px 0;
 
         }
 
@@ -1598,134 +1598,50 @@
 
 
 <!-- Benefits Section -->
-
-<section class="js-why-section section-spacing">
-    <div class="js-why-section__mesh" aria-hidden="true"></div>
-    <div class="container">
-        <div class="js-section-head js-reveal">
-            <span class="js-section-head__badge">{{ crm('home.why_badge', 'Why choose us') }}</span>
-            <h2 class="js-section-title">{{ crm('home.why_title', 'Why Book With Total Travel Solutions?') }}</h2>
-            <p class="js-section-subtitle">{{ crm('home.why_lead', 'We offer trusted airport parking solutions, guaranteed value and a nation-wide coverage. Pre-book now to enjoy great car park deals!') }}</p>
-        </div>
-
-        <div class="js-why-grid">
-            <article class="js-why-item js-reveal" style="--reveal-delay: 0ms">
-                <div class="js-why-item__icon-wrap">
-                    <img src="{{ asset('assets/images/Customer Satisfaction.png') }}" alt="" loading="lazy" width="56" height="56">
-                </div>
-                <div class="js-why-item__content">
-                    <span class="js-why-item__index">01</span>
-                    <h3 class="cap-text">{{ crm('home.why_1_title', 'Park Mark Certified Operators') }}</h3>
-                    <p>{{ crm('home.why_1_text', 'Every parking partner meets strict safety and security standards, ensuring your vehicle is in safe 24/7 monitored car parks.') }}</p>
-                </div>
-            </article>
-
-            <article class="js-why-item js-reveal" style="--reveal-delay: 80ms">
-                <div class="js-why-item__icon-wrap">
-                    <img src="{{ asset('assets/images/Easy Cancellation & Amendments.png') }}" alt="" loading="lazy" width="56" height="56">
-                </div>
-                <div class="js-why-item__content">
-                    <span class="js-why-item__index">02</span>
-                    <h3 class="cap-text">{{ crm('home.why_2_title', 'Best Price Promise') }}</h3>
-                    <p>{{ crm('home.why_2_text', 'We monitor market rates daily so you get the best price on all airport car park deals — fair, transparent, and free from hidden charges.') }}</p>
-                </div>
-            </article>
-
-            <article class="js-why-item js-reveal" style="--reveal-delay: 160ms">
-                <div class="js-why-item__icon-wrap">
-                    <img src="{{ asset('assets/images/Years of Experience.png') }}" alt="" loading="lazy" width="56" height="56">
-                </div>
-                <div class="js-why-item__content">
-                    <span class="js-why-item__index">03</span>
-                    <h3 class="cap-text">{{ crm('home.why_3_title', 'Seamless Booking Experience') }}</h3>
-                    <p>{{ crm('home.why_3_text', 'Real-time booking and availability with instant confirmation. Easy amendments and cancellation — no guesswork.') }}</p>
-                </div>
-            </article>
-
-            <article class="js-why-item js-reveal" style="--reveal-delay: 240ms">
-                <div class="js-why-item__icon-wrap">
-                    <img src="{{ asset('assets/images/Best Price Guaranteed.png') }}" alt="" loading="lazy" width="56" height="56">
-                </div>
-                <div class="js-why-item__content">
-                    <span class="js-why-item__index">04</span>
-                    <h3 class="cap-text">{{ crm('home.why_4_title', 'Experience Quality Services') }}</h3>
-                    <p>{{ crm('home.why_4_text', 'Years of industry experience across 28+ UK airports, with professionalism and quality service you can rely on.') }}</p>
-                </div>
-            </article>
-        </div>
-    </div>
-</section>
+@include('partials.why-choose', [
+    'withReveal' => true,
+    'badge' => crm('about-us.why_eyebrow', 'Why book with us'),
+    'title' => crm('about-us.why_title', 'Why Customers Choose Us'),
+    'subtitle' => crm('about-us.why_lead', 'Trusted airport parking solutions, competitive prices, and support when you need it.'),
+    'items' => [
+        [
+            'icon' => 'fa-tags',
+            'title' => crm('about-us.why_1_title', 'Best prices'),
+            'text' => crm('about-us.why_1_text', 'We compare parking lots near airports and show you a clear comparison list so you can book with confidence.'),
+        ],
+        [
+            'icon' => 'fa-shield',
+            'title' => crm('about-us.why_2_title', 'Trusted partners'),
+            'text' => crm('about-us.why_2_text', 'The car parking providers we work with are secure, established operators you can rely on before you travel.'),
+        ],
+        [
+            'icon' => 'fa-gbp',
+            'title' => crm('about-us.why_3_title', 'Low price promise'),
+            'text' => crm('about-us.why_3_text', 'We help you find competitive airport parking rates and great value across Meet & Greet, Park & Ride, and onsite options.'),
+        ],
+        [
+            'icon' => 'fa-headphones',
+            'title' => crm('about-us.why_4_title', 'Support'),
+            'text' => crm('about-us.why_4_text', 'Our team is only a phone call or email away whenever you need help with a booking or a change to your trip.'),
+        ],
+    ],
+])
 
 
 
 <!-- Parking Types Section -->
-
-<section class="js-parking-section section-spacing">
-    <div class="js-parking-section__runway" aria-hidden="true"></div>
-    <div class="container">
-        <div class="js-section-head js-reveal">
-            <span class="js-section-head__badge js-section-head__badge--light">{{ crm('home.options_badge', 'Parking types') }}</span>
-            <h2 class="js-section-title">{{ crm('home.options_title', 'Parking Options to Suit Every Traveller') }}</h2>
-            <p class="js-section-subtitle">{{ crm('home.options_lead', 'We cover Top UK Airports including Heathrow, Gatwick, Manchester, Stansted, Birmingham, Luton, Edinburgh, and more.') }}</p>
-        </div>
-
-        <div class="js-parking-gates">
-            <article class="js-parking-gate js-reveal" style="--reveal-delay: 0ms">
-                <header class="js-parking-gate__header">
-                    <span class="js-parking-gate__code">MG</span>
-                    <span class="js-parking-gate__lane">Lane 01</span>
-                    <span class="js-parking-gate__tag js-parking-gate__tag--premium">Premium</span>
-                </header>
-                <div class="js-parking-gate__icon">
-                    <img src="{{ asset('assets/images/Meet & Greet.png') }}" alt="" loading="lazy" width="64" height="64">
-                </div>
-                <div class="js-parking-gate__body">
-                    <h3>{{ crm('home.option_1_title', 'Meet & Greet') }}</h3>
-                    <p>{{ crm('home.option_1_text', 'A seamless start to your journey. Drive to the terminal, hand over your keys, and let a professional park your vehicle while you head straight to departures.') }}</p>
-                </div>
-                <div class="js-parking-gate__footer">
-                    <span><i class="fa fa-clock-o" aria-hidden="true"></i> Fastest check-in</span>
-                </div>
-            </article>
-
-            <article class="js-parking-gate js-parking-gate--featured js-reveal" style="--reveal-delay: 100ms">
-                <header class="js-parking-gate__header">
-                    <span class="js-parking-gate__code">OS</span>
-                    <span class="js-parking-gate__lane">Lane 02</span>
-                    <span class="js-parking-gate__tag js-parking-gate__tag--convenient">Most popular</span>
-                </header>
-                <div class="js-parking-gate__icon">
-                    <img src="{{ asset('assets/images/On Site.png') }}" alt="" loading="lazy" width="64" height="64">
-                </div>
-                <div class="js-parking-gate__body">
-                    <h3>{{ crm('home.option_2_title', 'On-Site Airport Parking') }}</h3>
-                    <p>{{ crm('home.option_2_text', 'Park close to the terminal within walking distance. Direct access, high security, and maximum convenience for short or busy trips.') }}</p>
-                </div>
-                <div class="js-parking-gate__footer">
-                    <span><i class="fa fa-map-marker" aria-hidden="true"></i> Walk to terminal</span>
-                </div>
-            </article>
-
-            <article class="js-parking-gate js-reveal" style="--reveal-delay: 200ms">
-                <header class="js-parking-gate__header">
-                    <span class="js-parking-gate__code">PR</span>
-                    <span class="js-parking-gate__lane">Lane 03</span>
-                    <span class="js-parking-gate__tag js-parking-gate__tag--value">Best value</span>
-                </header>
-                <div class="js-parking-gate__icon">
-                    <img src="{{ asset('assets/images/Park & Ride.png') }}" alt="" loading="lazy" width="64" height="64">
-                </div>
-                <div class="js-parking-gate__body">
-                    <h3>{{ crm('home.option_3_title', 'Park & Ride') }}</h3>
-                    <p>{{ crm('home.option_3_text', 'Great value for longer stays. Park securely and take a complimentary shuttle straight to your terminal without delays.') }}</p>
-                </div>
-                <div class="js-parking-gate__footer">
-                    <span><i class="fa fa-bus" aria-hidden="true"></i> Free shuttle included</span>
-                </div>
-            </article>
-        </div>
-    </div>
-</section>
+@include('partials.parking-gates', [
+    'withReveal' => true,
+    'badge' => crm('home.options_badge', 'Parking types'),
+    'title' => crm('home.options_title', 'Parking Options to Suit Every Traveller'),
+    'subtitle' => crm('home.options_lead', 'We cover Top UK Airports including Heathrow, Gatwick, Manchester, Stansted, Birmingham, Luton, Edinburgh, and more.'),
+    'meetTitle' => crm('home.option_1_title', 'Meet & Greet'),
+    'meetText' => crm('home.option_1_text', 'A seamless start to your journey. Drive to the terminal, hand over your keys, and let a professional park your vehicle while you head straight to departures.'),
+    'onsiteTitle' => crm('home.option_2_title', 'On-Site Airport Parking'),
+    'onsiteText' => crm('home.option_2_text', 'Park close to the terminal within walking distance. Direct access, high security, and maximum convenience for short or busy trips.'),
+    'parkTitle' => crm('home.option_3_title', 'Park & Ride'),
+    'parkText' => crm('home.option_3_text', 'Great value for longer stays. Park securely and take a complimentary shuttle straight to your terminal without delays.'),
+])
 
 
 

@@ -1,44 +1,90 @@
 /**
  * Jetseeker — Customer Support page
+ * Aligns with homepage design system (light hero, accent CTAs, reveal motion)
  */
+
+/* Hero without booking widget */
+.search1.js-hero.js-hero--mock.js-hero--no-widget {
+    min-height: 0;
+    padding: 48px 0 40px;
+}
+
+.search1.js-hero.js-hero--mock.js-hero--no-widget .js-hero__inner {
+    padding-bottom: 0;
+}
+
+.search1.js-hero.js-hero--mock.js-hero--no-widget .js-hero__copy {
+    max-width: 720px;
+    padding-bottom: 0;
+}
+
+.search1.js-hero.js-hero--mock.js-hero--no-widget .js-hero__features {
+    margin-bottom: 0;
+}
 
 .js-support-page {
     background: var(--js-background);
 }
 
-.js-support-body {
-    padding: 48px 0 80px;
+/* Contact strip sits fully below the hero image */
+.js-support-contact-strip {
+    margin-top: 0;
+    position: relative;
+    z-index: 4;
+    padding: 24px 0 8px;
 }
 
-/* Contact strip */
 .js-support-contact {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 12px 28px;
-    padding: 18px 24px;
-    margin-bottom: 32px;
+    padding: 18px 28px;
     background: var(--js-surface);
     border: 1px solid var(--js-border);
-    border-radius: var(--js-radius-md);
+    border-radius: var(--js-radius-lg);
+    box-shadow: var(--js-shadow-md);
     font-size: 0.98rem;
     color: var(--js-muted);
     text-align: center;
 }
 
-.js-support-contact a {
-    color: var(--js-primary);
+.js-support-contact__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--js-heading);
     font-weight: 600;
+    text-decoration: none;
+    transition: color var(--js-transition);
+}
+
+.js-support-contact__item i {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(194, 24, 91, 0.1);
+    color: var(--js-accent);
+    font-size: 14px;
+}
+
+.js-support-contact__item:hover {
+    color: var(--js-accent);
     text-decoration: none;
 }
 
-.js-support-contact a:hover {
-    text-decoration: underline;
+.js-support-contact__divider {
+    width: 1px;
+    height: 28px;
+    background: var(--js-border);
 }
 
-.js-support-contact__divider {
-    color: var(--js-border);
+.js-support-body {
+    padding: 40px 0 56px;
 }
 
 /* Notices */
@@ -46,7 +92,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
 }
 
 .js-support-notice {
@@ -57,19 +103,19 @@
 }
 
 .js-support-notice--info {
-    background: rgba(26, 26, 26, 0.08);
-    border: 1px solid rgba(26, 26, 26, 0.2);
+    background: rgba(26, 26, 26, 0.06);
+    border: 1px solid rgba(26, 26, 26, 0.12);
     color: var(--js-heading);
 }
 
 .js-support-notice--warn {
-    background: rgba(250, 158, 27, 0.1);
-    border: 1px solid rgba(250, 158, 27, 0.25);
+    background: rgba(194, 24, 91, 0.06);
+    border: 1px solid rgba(194, 24, 91, 0.18);
     color: var(--js-heading);
 }
 
 .js-support-notice a {
-    color: var(--js-primary);
+    color: var(--js-accent);
     font-weight: 600;
 }
 
@@ -92,20 +138,24 @@
 
 .js-support-intro li {
     position: relative;
-    padding-left: 28px;
+    padding: 14px 16px 14px 44px;
     font-size: 0.95rem;
     line-height: 1.65;
     color: var(--js-text);
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-md);
 }
 
 .js-support-intro li::before {
     content: '\f058';
     font-family: FontAwesome;
     position: absolute;
-    left: 0;
-    top: 2px;
-    color: var(--js-primary);
-    font-size: 14px;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--js-accent);
+    font-size: 15px;
 }
 
 /* Forms grid */
@@ -119,7 +169,7 @@
 .js-support-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 24px;
     min-width: 0;
 }
 
@@ -127,14 +177,16 @@
     background: var(--js-surface);
     border: 1px solid var(--js-border);
     border-radius: var(--js-radius-lg);
-    padding: 32px 28px 28px;
+    padding: 0;
     box-shadow: var(--js-shadow-sm);
+    overflow: hidden;
 }
 
 .js-support-card__head {
-    margin-bottom: 24px;
-    padding-bottom: 20px;
+    margin: 0;
+    padding: 28px 28px 20px;
     border-bottom: 1px solid var(--js-border);
+    background: linear-gradient(180deg, #fff 0%, #faf9fa 100%);
     text-align: left;
 }
 
@@ -155,37 +207,44 @@
     text-align: left;
 }
 
+.js-support-form {
+    padding: 28px;
+}
+
 .js-support-form .form-group {
     margin-bottom: 18px;
 }
 
 .js-support-form label {
     display: block;
-    font-size: 13px;
+    font-size: 0.88rem;
     font-weight: 600;
     color: var(--js-heading);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .js-support-form .required-field {
-    color: var(--js-danger);
+    color: var(--js-accent);
+    margin-left: 2px;
 }
 
 .js-support-form .form-control {
     width: 100%;
-    min-height: 44px;
+    min-height: 48px;
     padding: 10px 14px;
-    font-size: 14px;
+    font-size: 0.95rem;
     color: var(--js-text);
+    font-family: var(--js-font);
     background: var(--js-background);
     border: 1px solid var(--js-border);
     border-radius: var(--js-radius-sm);
+    box-shadow: none;
     transition: border-color var(--js-transition), box-shadow var(--js-transition);
 }
 
 .js-support-form .form-control:focus {
-    border-color: var(--js-primary);
-    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.12);
+    border-color: var(--js-accent);
+    box-shadow: 0 0 0 3px rgba(194, 24, 91, 0.12);
     outline: none;
 }
 
@@ -269,7 +328,7 @@
     font-size: 0.9rem;
     line-height: 1.55;
     color: var(--js-text);
-    margin: 20px 0 0;
+    margin: 8px 0 0;
 }
 
 .js-support-form__checkbox input {
@@ -278,14 +337,14 @@
 }
 
 .js-support-form__checkbox a {
-    color: var(--js-primary);
+    color: var(--js-accent);
     text-decoration: underline;
 }
 
 .js-support-form__actions {
     display: flex;
     justify-content: flex-start;
-    margin-top: 16px;
+    margin-top: 20px;
 }
 
 .js-support-btn {
@@ -293,20 +352,22 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 12px 24px;
+    padding: 14px 28px;
     font-size: 14px;
     font-weight: 700;
     color: #fff;
-    background: var(--js-primary);
+    background: var(--js-accent);
     border: none;
-    border-radius: var(--js-radius-sm);
+    border-radius: var(--js-radius-md);
     cursor: pointer;
-    transition: background var(--js-transition), transform 0.15s ease;
+    transition: background var(--js-transition), transform 0.15s ease, box-shadow var(--js-transition);
 }
 
 .js-support-btn:hover {
-    background: var(--js-primary-dark);
+    background: var(--js-accent-dark);
     color: #fff;
+    transform: translateY(-1px);
+    box-shadow: var(--js-shadow-md);
 }
 
 .js-support-btn:active {
@@ -319,7 +380,59 @@
 
 /* Search ticket card */
 .js-support-search .js-support-btn {
-    margin-top: 24px;
+    margin-top: 8px;
+}
+
+/* Dark contact info panel */
+.js-support-info {
+    background: var(--js-primary-dark);
+    color: #fff;
+    border-radius: var(--js-radius-lg);
+    padding: 28px;
+    box-shadow: var(--js-shadow-md);
+}
+
+.js-support-info h3 {
+    margin: 0 0 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.js-support-info > p {
+    margin: 0 0 20px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.js-support-info__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+}
+
+.js-support-info__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.js-support-info__list i {
+    margin-top: 3px;
+    color: #F9A8D4;
+    width: 18px;
+    text-align: center;
+}
+
+.js-support-info__list a {
+    color: #F9A8D4;
+    text-decoration: underline;
 }
 
 /* Knowledge base */
@@ -327,17 +440,19 @@
     background: var(--js-surface);
     border: 1px solid var(--js-border);
     border-radius: var(--js-radius-lg);
-    padding: 32px 28px 36px;
+    padding: 28px 24px 28px;
     box-shadow: var(--js-shadow-sm);
 }
 
 .js-support-kb__head {
-    text-align: center;
-    margin-bottom: 28px;
+    text-align: left;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--js-border);
 }
 
 .js-support-kb__head h2 {
-    font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+    font-size: clamp(1.2rem, 2.2vw, 1.4rem);
     font-weight: 800;
     color: var(--js-heading);
     margin: 0 0 8px;
@@ -368,11 +483,11 @@
     align-items: center;
     justify-content: space-between;
     gap: 14px;
-    padding: 18px 20px;
-    font-size: 0.98rem;
+    padding: 16px 18px;
+    font-size: 0.95rem;
     font-weight: 600;
     line-height: 1.45;
-    min-height: 56px;
+    min-height: 52px;
 }
 
 .js-support-page .js-faq-question__text {
@@ -400,46 +515,93 @@
     align-self: center;
     margin: 0;
     border-radius: 50%;
-    background: rgba(26, 26, 26, 0.1);
-    color: var(--js-primary);
+    background: rgba(194, 24, 91, 0.1);
+    color: var(--js-accent);
     font-size: 12px;
     line-height: 1;
 }
 
 .js-support-page .js-faq-question[aria-expanded="true"] i {
-    background: var(--js-primary);
+    background: var(--js-accent);
     color: #fff;
 }
 
 .js-support-page .js-faq-answer {
-    padding: 0 20px;
+    padding: 0 18px;
     font-size: 0.95rem;
     color: var(--js-text);
     line-height: 1.75;
 }
 
 .js-support-page .js-faq-answer.is-open {
-    padding: 0 20px 18px;
-    padding-top: 14px;
+    padding: 0 18px 16px;
+    padding-top: 12px;
     border-top: 1px solid var(--js-border);
 }
 
-/* Hero */
-.js-page-hero--support .js-page-hero__eyebrow {
-    display: inline-block;
-    padding: 6px 16px;
-    margin-bottom: 18px;
-    font-size: 11px;
+/* Bottom CTA banner */
+.js-support-banner {
+    padding: 0 0 80px;
+}
+
+.js-support-banner__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 36px 40px;
+    border-radius: var(--js-radius-lg);
+    background: linear-gradient(135deg, var(--js-primary-dark) 0%, var(--js-secondary) 100%);
+    color: #fff;
+    box-shadow: var(--js-shadow-md);
+}
+
+.js-support-banner__title {
+    margin: 0 0 8px;
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    font-weight: 800;
+    color: #fff;
+}
+
+.js-support-banner__text {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 520px;
+}
+
+.js-support-page .js-btn--accent {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 14px 28px;
+    border-radius: var(--js-radius-md);
+    background: var(--js-accent);
+    color: #fff !important;
     font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #F9A8D4;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 999px;
+    text-decoration: none !important;
+    border: none;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.js-support-page .js-btn--accent:hover {
+    background: var(--js-accent-dark);
+    color: #fff !important;
+    transform: translateY(-2px);
 }
 
 @media (max-width: 991px) {
+    .search1.js-hero.js-hero--mock.js-hero--no-widget {
+        padding: 40px 0 32px;
+    }
+
+    .js-support-contact-strip {
+        margin-top: 0;
+        padding: 20px 0 8px;
+    }
+
     .js-support-grid {
         grid-template-columns: 1fr;
     }
@@ -451,19 +613,67 @@
     .js-support-form__row {
         grid-template-columns: 1fr;
     }
+
+    .js-support-banner__inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
+    }
+
+    .js-support-banner__text {
+        max-width: none;
+    }
 }
 
 @media (max-width: 767px) {
-    .js-support-body {
-        padding: 32px 0 56px;
+    .search1.js-hero.js-hero--mock.js-hero--no-widget {
+        padding: 32px 0 28px;
     }
 
-    .js-support-card,
+    .js-support-contact-strip {
+        margin-top: 0;
+        padding: 16px 0 16px;
+    }
+
+    .js-support-contact {
+        flex-direction: column;
+        gap: 14px;
+        padding: 18px 20px;
+    }
+
+    .js-support-contact__divider {
+        width: 48px;
+        height: 1px;
+    }
+
+    .js-support-body {
+        padding: 24px 0 40px;
+    }
+
+    .js-support-form,
+    .js-support-card__head {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .js-support-card__head {
+        padding-top: 22px;
+        padding-bottom: 16px;
+    }
+
     .js-support-kb {
-        padding: 24px 18px 22px;
+        padding: 22px 18px;
+    }
+
+    .js-support-banner {
+        padding-bottom: 56px;
     }
 
     .js-support-form__actions {
-        justify-content: flex-start;
+        justify-content: stretch;
+    }
+
+    .js-support-form__actions .js-support-btn {
+        width: 100%;
     }
 }

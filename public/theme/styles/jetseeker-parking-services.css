@@ -1,82 +1,55 @@
 /**
  * Total Travel Solutions — Parking Services page
- * Matches About Us / FAQs design system (charcoal + magenta)
+ * Aligns with homepage design system (photo hero, section heads, CTA banner)
  */
 
 .js-parking-services {
     background: var(--js-background);
 }
 
-.js-page-hero--services .js-page-hero__eyebrow {
-    display: inline-block;
-    padding: 6px 14px;
-    margin-bottom: 16px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #F9A8D4;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(249, 168, 212, 0.35);
-    border-radius: 999px;
+/* Match homepage section-head colour language */
+.js-parking-services .js-section-head__badge {
+    color: var(--js-accent);
+    background: rgba(194, 24, 91, 0.1);
+    box-shadow: none;
 }
 
-/* ── Intro (content + sidebar) ── */
-.js-ps-intro {
-    padding: 56px 0 64px;
-}
-
-.js-ps-intro__layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 360px;
-    gap: 32px;
-    align-items: start;
-}
-
-.js-ps-intro__main {
-    min-width: 0;
-}
-
-.js-ps-intro__eyebrow {
-    display: inline-block;
-    padding: 6px 14px;
-    margin-bottom: 14px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #fff;
-    background: var(--js-primary);
-    border-radius: 999px;
-}
-
-.js-ps-intro__title {
-    font-size: clamp(1.65rem, 3.2vw, 2.2rem);
-    font-weight: 800;
+.js-parking-services .js-section-title {
     color: var(--js-heading);
-    margin: 0 0 22px;
-    line-height: 1.2;
-    text-align: left;
+}
+
+.js-parking-services .js-section-subtitle {
+    color: var(--js-muted);
+}
+
+/* ── Intro ── */
+.js-ps-intro {
+    padding-top: 0;
+    background: linear-gradient(180deg, #ffffff 0%, #FDF2F8 52%, var(--js-background) 100%);
+}
+
+.js-ps-intro .js-section-head {
+    margin-bottom: 36px;
 }
 
 .js-ps-intro__card {
     background: var(--js-surface);
-    border: 1px solid var(--js-border);
+    border: 1px solid rgba(194, 24, 91, 0.14);
     border-radius: var(--js-radius-lg);
     overflow: hidden;
     box-shadow: var(--js-shadow-sm);
 }
 
 .js-ps-intro__card-head {
-    padding: 18px 24px;
-    background: linear-gradient(135deg, var(--js-primary-dark) 0%, var(--js-secondary) 100%);
+    padding: 20px 28px;
+    background: linear-gradient(135deg, var(--js-primary) 0%, var(--js-accent) 100%);
     color: #fff;
 }
 
 .js-ps-intro__card-head h2,
 .js-ps-intro__card-head h3 {
     margin: 0;
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
     font-weight: 700;
     line-height: 1.4;
     color: #fff !important;
@@ -85,7 +58,7 @@
 }
 
 .js-ps-intro__card-body {
-    padding: 24px;
+    padding: 28px;
     font-size: 1.02rem;
     line-height: 1.8;
     color: var(--js-text);
@@ -113,13 +86,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 18px;
+    margin-top: 20px;
 }
 
 .js-ps-airports__chip {
     display: inline-flex;
     align-items: center;
-    padding: 8px 12px;
+    padding: 8px 14px;
     border-radius: 999px;
     border: 1px solid var(--js-border);
     background: var(--js-background);
@@ -136,180 +109,9 @@
     background: #fff;
 }
 
-/* Sidebar search */
-.js-ps-sidebar {
-    position: sticky;
-    top: calc(var(--js-nav-height) + var(--js-topbar-height) + 16px);
-}
-
-.js-ps-sidebar__card {
-    background: var(--js-surface);
-    border: 1px solid var(--js-border);
-    border-radius: var(--js-radius-lg);
-    overflow: hidden;
-    box-shadow: var(--js-shadow-md);
-}
-
-.js-ps-sidebar__head {
-    padding: 20px 20px 8px;
-    background: linear-gradient(135deg, var(--js-primary-dark), var(--js-secondary));
-    color: #fff;
-}
-
-.js-ps-sidebar__badge {
-    display: inline-block;
-    margin-bottom: 10px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #F9A8D4;
-    border: 1px solid rgba(249, 168, 212, 0.35);
-}
-
-.js-ps-sidebar__head h3 {
-    margin: 0 0 6px;
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: #fff;
-}
-
-.js-ps-sidebar__head p {
-    margin: 0 0 8px;
-    color: rgba(255, 255, 255, 0.82);
-    font-size: 0.92rem;
-}
-
-.js-ps-sidebar .js-booking-card--sidebar,
-.js-ps-sidebar .js-booking-card {
-    margin: 0 !important;
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-}
-
-/* Parking-only search in sidebar — hide multi-product tabs */
-.js-ps-sidebar .js-product-tabs,
-.js-ps-sidebar .js-product-panel:not([data-panel="parking"]),
-.js-ps-sidebar .js-panel-hint {
-    display: none !important;
-}
-
-.js-ps-sidebar .js-product-panel[data-panel="parking"] {
-    display: block !important;
-}
-
-.js-ps-sidebar .js-booking-widget-body {
-    padding-top: 4px;
-}
-
-.js-ps-sidebar .js-booking-card__body,
-.js-ps-sidebar .js-booking-form {
-    padding: 16px 18px 20px;
-}
-
-/* Legacy sidebar fallbacks */
-.js-ps-sidebar .sub-serc {
-    background: var(--js-surface);
-    border: 1px solid var(--js-border);
-    border-radius: var(--js-radius-lg);
-    overflow: hidden;
-    box-shadow: var(--js-shadow-md);
-}
-
-.js-ps-sidebar .passenger-detail,
-.js-ps-sidebar .accordion-style {
-    background: transparent !important;
-    border: none !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-}
-
-.js-ps-sidebar .passenger-detail h3,
-.js-ps-sidebar h3.text-center {
-    margin: 0 !important;
-    padding: 18px 20px !important;
-    font-size: 1rem !important;
-    font-weight: 700 !important;
-    color: #fff !important;
-    background: linear-gradient(135deg, var(--js-primary-dark), var(--js-primary)) !important;
-    border-radius: 0 !important;
-    line-height: 1.35 !important;
-}
-
-.js-ps-sidebar .panel-body {
-    padding: 20px !important;
-}
-
-.js-ps-sidebar .form-control {
-    border: 1px solid var(--js-border);
-    border-radius: var(--js-radius-sm);
-    font-size: 14px;
-    min-height: 42px;
-}
-
-.js-ps-sidebar .btn,
-.js-ps-sidebar button[type="submit"],
-.js-ps-sidebar .form-button {
-    background: var(--js-accent) !important;
-    color: #fff !important;
-    border: none !important;
-    border-radius: var(--js-radius-sm) !important;
-    font-weight: 700;
-    padding: 12px 20px;
-    width: 100%;
-}
-
-/* ── Section headers ── */
-.js-ps-section-head {
-    text-align: center;
-    max-width: 760px;
-    margin: 0 auto 40px;
-}
-
-.js-ps-section-head__badge {
-    display: inline-block;
-    padding: 6px 14px;
-    margin-bottom: 14px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #fff;
-    background: var(--js-primary);
-    border-radius: 999px;
-}
-
-.js-ps-section-head h2,
-.js-ps-section-head__title,
-.js-ps-section-head__title h2,
-.js-ps-section-head__title h3 {
-    font-size: clamp(1.55rem, 3vw, 2.1rem);
-    font-weight: 800;
-    color: var(--js-heading);
-    margin: 0 0 14px;
-    line-height: 1.25;
-    text-align: center;
-    padding: 0;
-    background: none;
-}
-
-.js-ps-section-head p {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: var(--js-muted);
-    margin: 0;
-}
-
-.js-ps-section-head p a {
-    color: var(--js-accent);
-}
-
 /* ── Parking types ── */
 .js-ps-types {
-    padding: 64px 0;
+    padding: 72px 0;
     background: var(--js-surface);
     border-top: 1px solid var(--js-border);
     border-bottom: 1px solid var(--js-border);
@@ -318,80 +120,53 @@
 .js-ps-types__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 24px;
     align-items: stretch;
 }
 
 .js-ps-type-card {
-    position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
-    min-height: 360px;
+    min-height: 300px;
+    padding: 32px 24px 28px;
     background: var(--js-background);
     border: 1px solid var(--js-border);
     border-radius: var(--js-radius-lg);
-    overflow: hidden;
     transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 .js-ps-type-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     box-shadow: var(--js-shadow-md);
     border-color: rgba(194, 24, 91, 0.25);
 }
 
-.js-ps-type-card__codebar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 18px;
-    background: linear-gradient(90deg, var(--js-primary-dark), var(--js-primary));
-    color: #fff;
-}
-
-.js-ps-type-card__code {
-    font-size: 1.2rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-}
-
-.js-ps-type-card__label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    opacity: 0.92;
-}
-
 .js-ps-type-card__icon {
-    padding: 28px 24px 16px;
-    text-align: center;
-    background: rgba(194, 24, 91, 0.05);
+    margin-bottom: 20px;
+    text-align: left;
 }
 
 .js-ps-type-card__icon img {
-    width: 88px;
-    height: 88px;
+    width: 72px;
+    height: 72px;
     object-fit: contain;
 }
 
 .js-ps-type-card__title {
-    margin: 0;
-    padding: 0 22px 12px;
-    font-size: 1.2rem;
-    font-weight: 700;
+    margin: 0 0 12px;
+    font-size: 1.25rem;
+    font-weight: 800;
     color: var(--js-heading);
-    text-align: center;
+    text-align: left;
 }
 
 .js-ps-type-card__body {
     flex: 1;
-    padding: 0 22px 26px;
-    font-size: 0.96rem;
+    font-size: 0.98rem;
     line-height: 1.75;
     color: var(--js-muted);
-    text-align: center;
+    text-align: left;
 }
 
 .js-ps-type-card__body p {
@@ -400,7 +175,7 @@
 
 /* ── Steps ── */
 .js-ps-steps {
-    padding: 64px 0 40px;
+    padding: 72px 0 48px;
     background: linear-gradient(180deg, #FDF2F8 0%, var(--js-background) 100%);
 }
 
@@ -410,7 +185,7 @@
     padding: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 24px;
     counter-reset: ps-step;
 }
 
@@ -421,8 +196,8 @@
     background: var(--js-surface);
     border: 1px solid var(--js-border);
     border-radius: var(--js-radius-lg);
-    padding: 28px 22px 28px;
-    text-align: center;
+    padding: 28px 24px;
+    text-align: left;
     box-shadow: var(--js-shadow-sm);
     transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -436,8 +211,8 @@
     counter-increment: ps-step;
     content: counter(ps-step, decimal-leading-zero);
     position: absolute;
-    top: 16px;
-    right: 16px;
+    top: 20px;
+    right: 20px;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -445,9 +220,9 @@
 }
 
 .js-ps-step-card__image {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 18px;
+    width: 96px;
+    height: 96px;
+    margin: 0 0 18px;
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid rgba(194, 24, 91, 0.18);
@@ -471,7 +246,6 @@
     font-size: 0.96rem;
     line-height: 1.75;
     color: var(--js-muted);
-    text-align: left;
 }
 
 .js-ps-step-card__body p {
@@ -494,7 +268,7 @@
     gap: 28px;
     padding: 34px 36px;
     border-radius: var(--js-radius-lg);
-    background: linear-gradient(135deg, var(--js-primary-dark) 0%, var(--js-secondary) 100%);
+    background: linear-gradient(135deg, var(--js-primary) 0%, var(--js-accent-dark) 55%, var(--js-accent) 100%);
     color: #fff;
     box-shadow: var(--js-shadow-md);
 }
@@ -537,16 +311,6 @@
 
 /* ── Responsive ── */
 @media (max-width: 991px) {
-    .js-ps-intro__layout {
-        grid-template-columns: 1fr;
-        gap: 28px;
-    }
-
-    .js-ps-sidebar {
-        position: static;
-        order: -1;
-    }
-
     .js-ps-types__grid,
     .js-ps-steps__grid {
         grid-template-columns: 1fr;
@@ -563,13 +327,21 @@
     .js-ps-banner__text {
         max-width: none;
     }
+
+    .js-ps-type-card__icon,
+    .js-ps-type-card__title,
+    .js-ps-type-card__body,
+    .js-ps-step-card {
+        text-align: center;
+    }
+
+    .js-ps-step-card__image {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media (max-width: 767px) {
-    .js-ps-intro {
-        padding: 40px 0 48px;
-    }
-
     .js-ps-intro__card-head {
         padding: 16px 18px;
     }
@@ -588,14 +360,7 @@
     }
 
     .js-ps-step-card__image {
-        width: 110px;
-        height: 110px;
-    }
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-    .js-ps-intro__layout {
-        grid-template-columns: minmax(0, 1fr) 320px;
-        gap: 24px;
+        width: 88px;
+        height: 88px;
     }
 }

@@ -1,0 +1,319 @@
+/**
+ * Jetseeker — Product landing pages (Lounges, Hotels, Transfer)
+ */
+
+.js-product-page {
+    background: var(--js-background);
+}
+
+.js-product-intro {
+    padding: 48px 0 24px;
+    text-align: center;
+}
+
+.js-product-intro__badge {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--js-primary);
+    background: rgba(26, 26, 26, 0.08);
+}
+
+.js-product-intro h2 {
+    margin: 0 0 12px;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--js-heading);
+}
+
+.js-product-intro p {
+    margin: 0 auto;
+    max-width: 720px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--js-muted);
+}
+
+.js-product-section {
+    padding: 40px 0 56px;
+}
+
+.js-product-section--alt {
+    background: var(--js-surface);
+}
+
+.js-product-section__head {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.js-product-section__head h2 {
+    margin: 0 0 10px;
+    font-size: clamp(1.45rem, 2.8vw, 1.9rem);
+    font-weight: 700;
+    color: var(--js-heading);
+}
+
+.js-product-section__head p {
+    margin: 0 auto;
+    max-width: 640px;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--js-muted);
+}
+
+.js-product-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.js-product-feature {
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-md);
+    overflow: hidden;
+    box-shadow: var(--js-shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    height: 100%;
+}
+
+.js-product-section--alt .js-product-feature {
+    background: var(--js-background);
+}
+
+.js-product-feature:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--js-shadow-md);
+}
+
+.js-product-feature img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.js-product-feature__body {
+    padding: 20px 18px 22px;
+}
+
+.js-product-feature h3 {
+    margin: 0 0 10px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--js-heading);
+}
+
+.js-product-feature p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--js-muted);
+}
+
+.js-product-perks {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+
+.js-product-perk {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 22px 12px;
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-md);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.js-product-section--alt .js-product-perk {
+    background: var(--js-background);
+}
+
+.js-product-perk:hover {
+    border-color: rgba(194, 24, 91, 0.35);
+    transform: translateY(-3px);
+}
+
+.js-product-perk img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.js-product-perk__icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(26, 26, 26, 0.08);
+    color: var(--js-primary);
+    font-size: 22px;
+}
+
+.js-product-perk h3 {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--js-heading);
+    line-height: 1.35;
+}
+
+.js-product-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.js-product-step {
+    position: relative;
+    padding: 28px 22px 24px;
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-md);
+    box-shadow: var(--js-shadow-sm);
+}
+
+.js-product-section--alt .js-product-step {
+    background: var(--js-background);
+}
+
+.js-product-step__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 14px;
+    border-radius: 50%;
+    background: var(--js-primary);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+.js-product-step h3 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--js-heading);
+}
+
+.js-product-step p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--js-muted);
+}
+
+.js-product-tips {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.js-product-tips--4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.js-product-tip {
+    padding: 28px 22px;
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-md);
+    box-shadow: var(--js-shadow-sm);
+}
+
+.js-product-section--alt .js-product-tip {
+    background: var(--js-background);
+}
+
+.js-product-tip__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 14px;
+    border-radius: var(--js-radius-sm);
+    background: rgba(194, 24, 91, 0.1);
+    color: var(--js-accent);
+    font-size: 20px;
+}
+
+.js-product-tip h3 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--js-heading);
+}
+
+.js-product-tip p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--js-muted);
+}
+
+.js-product-cta {
+    margin: 8px 0 72px;
+    padding: 48px 32px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--js-primary-dark) 0%, var(--js-secondary) 100%);
+    border-radius: var(--js-radius-lg);
+    color: #fff;
+}
+
+.js-product-cta h2 {
+    margin: 0 0 12px;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 700;
+    color: #fff;
+}
+
+.js-product-cta p {
+    margin: 0 auto 24px;
+    max-width: 560px;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.js-product-cta .js-btn {
+    min-width: 180px;
+}
+
+@media (max-width: 991px) {
+    .js-product-features,
+    .js-product-steps,
+    .js-product-tips,
+    .js-product-tips--4 {
+        grid-template-columns: 1fr;
+    }
+
+    .js-product-perks {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 575px) {
+    .js-product-perks {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .js-product-cta {
+        padding: 36px 20px;
+        margin-bottom: 56px;
+    }
+}

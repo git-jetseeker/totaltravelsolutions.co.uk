@@ -10,9 +10,9 @@
     .premium-testimonial-slider {
         background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
         border-radius: 24px;
-        padding: 60px 40px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-        border: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 0;
+        box-shadow: none;
+        border: none;
         position: relative;
         overflow: hidden;
     }
@@ -55,14 +55,14 @@
 
     .premium-testimonial-card {
         background: white;
-        padding: 50px 40px;
-        border-radius: 20px;
+        padding: 8px 16px;
+        border-radius: 16px;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
         border: 1px solid rgba(0, 0, 0, 0.08);
         text-align: center;
         position: relative;
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        margin: 20px;
+        margin: 0;
     }
 
     .premium-testimonial-card:hover {
@@ -74,9 +74,10 @@
     .premium-testimonial-card::before {
         content: '"';
         position: absolute;
-        top: 30px;
-        left: 40px;
-        font-size: 5rem;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.75rem;
         color: #C2185B;
         opacity: 0.2;
         font-family: serif;
@@ -84,11 +85,11 @@
     }
 
     .testimonial-content {
-        font-size: 1.2rem;
-        line-height: 1.8;
+        font-size: 1rem;
+        line-height: 1.4;
         color: #555;
         font-style: italic;
-        margin-bottom: 30px;
+        margin: 2px 0 6px;
         position: relative;
         z-index: 1;
     }
@@ -97,8 +98,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 15px;
-        margin-bottom: 20px;
+        gap: 8px;
+        margin-bottom: 4px;
     }
 
     .author-avatar {
@@ -136,7 +137,7 @@
     }
 
     .premium-rating {
-        margin: 15px 0;
+        margin: 0;
     }
 
     .star-checked {
@@ -187,7 +188,8 @@
     }
 
     .owl-dots {
-        margin-top: 40px !important;
+        display: none !important;
+        margin-top: 0 !important;
         text-align: center;
     }
 
@@ -237,12 +239,12 @@
     /* Responsive Design */
     @media (max-width: 991px) {
         .premium-testimonial-slider {
-            padding: 40px 20px;
+            padding: 0;
         }
 
         .premium-testimonial-card {
-            padding: 40px 30px;
-            margin: 15px;
+            padding: 8px 12px;
+            margin: 0;
         }
 
         .testimonialTitle {
@@ -260,13 +262,13 @@
 
     @media (max-width: 767px) {
         .premium-testimonial-slider {
-            padding: 30px 15px;
+            padding: 0;
             border-radius: 16px;
         }
 
         .premium-testimonial-card {
-            padding: 30px 20px;
-            margin: 10px;
+            padding: 8px 12px;
+            margin: 0;
         }
 
         .testimonial-content {
@@ -314,7 +316,7 @@
 
         <div class="owl-carousel premium-owl-theme">
             @foreach ($reviews as $review)
-                <div class="owl-item">
+                <div class="premium-testimonial-slide">
                     <div class="premium-testimonial-card">
                         <blockquote class="testimonial-content">
                             {!! $review['review'] !!}
@@ -348,9 +350,10 @@
     $(document).ready(function() {
         $(".owl-carousel.premium-owl-theme").owlCarousel({
             loop: true,
-            margin: 30,
+            margin: 0,
             nav: true,
-            dots: true,
+            dots: false,
+            autoHeight: true,
             autoplay: true,
             autoplayTimeout: 5000,
             autoplayHoverPause: true,

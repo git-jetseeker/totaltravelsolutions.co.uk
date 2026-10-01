@@ -5,8 +5,9 @@
 @include('layouts.header')
 @include('layouts.nav')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-airport.css?v=20260929reviews') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20260907noblue2') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-home.css?v=20261001light') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-airport.css?v=20261001airport5') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20261001mock') }}">
 
    @if(request()->get('src') != '')
     {{ session()->put('bk_src', request()->get('src')) }}
@@ -117,6 +118,7 @@
         $html = preg_replace('/(?:<br\s*\/?>\s*){3,}/i', '<br><br>', $html) ?? $html;
         $html = str_replace('&nbsp;', ' ', $html);
         $html = preg_replace('/Parkinga\b/i', 'Parking', $html) ?? $html;
+        $html = preg_replace('/\b(JETSEEKER|JET SEEKER|JetSeeker|Jetseeker|ParkingZone)\b/i', 'Total Travel Solutions', $html) ?? $html;
 
         return trim($html);
     };
@@ -132,38 +134,20 @@
 
     $guideTitleAirport = preg_replace('/\s+Airport$/i', '', $airportName) ?: $airportName;
     $guideTitle = trim($guideTitleAirport . ' Airport Parking');
+
+    $heroTitle = preg_replace('/Parkinga\b/i', 'Parking', strip_tags($page->page_title ?? ($airportName . ' Airport Parking')));
+    $heroSubtitle = 'Compare trusted Meet & Greet, Park & Ride, and on-site parking at ' . $airportName . '.';
+    $heroEyebrow = $airportName . ' Parking';
+    $selectedAirportId = $id ?? ($airports_Detail->id ?? null);
+    $bookingCardId = 'airport_search_form';
 @endphp
 
-@include('partials.page-hero', [
-    'title' => preg_replace('/Parkinga\b/i', 'Parking', strip_tags($page->page_title ?? ($airportName . ' Airport Parking'))),
-    'subtitle' => 'Compare trusted parking at ' . $airportName,
-    'lead' => 'Pre-book Meet & Greet, Park & Ride, and on-airport parking with transparent pricing and Park Mark accredited operators.',
-    'heroClass' => 'js-page-hero--enhanced js-page-hero--airport',
-    'withBookingWidget' => true,
-    'selectedAirportId' => $id ?? ($airports_Detail->id ?? null),
-])
+@include('layouts.search_form')
 
 <main class="js-airport-page">
 
-    {{-- Trust strip --}}
-    <section class="js-airport-trust">
-        <div class="js-container">
-            <div class="js-airport-trust__grid">
-                <div class="js-airport-trust__item">
-                    <span class="js-airport-trust__icon"><img src="{{ asset('assets/images/serviceicon3.webp') }}" alt="" loading="lazy"></span>
-                    <p class="js-airport-trust__label">Years of Experience</p>
-                             </div>
-                <div class="js-airport-trust__item">
-                    <span class="js-airport-trust__icon"><img src="{{ asset('assets/images/serviceicon1.webp') }}" alt="" loading="lazy"></span>
-                    <p class="js-airport-trust__label">Free Cancellation</p>
-                                </div>
-                <div class="js-airport-trust__item">
-                    <span class="js-airport-trust__icon"><img src="{{ asset('assets/images/serviceicon2.webp') }}" alt="" loading="lazy"></span>
-                    <p class="js-airport-trust__label">Never Beaten on Price</p>
-                                        </div>
-                            </div>
-                                        </div>
-</section>
+    {{-- Trust / why choose us --}}
+    @include('partials.why-choose')
 
     {{-- Tabbed airport guide --}}
     <section class="js-airport-guide">
@@ -233,31 +217,30 @@
         </div>
     </section>
 
-    {{-- Pricing tables --}}
+    {{-- Pricing — JetSeeker comparison table --}}
     @if(count($all_records_md) > 0 || count($all_records_pd) > 0)
-    <section class="js-airport-pricing">
-        <div class="js-container">
-
+    <section class="js-airport-pricing section-spacing">
+        <div class="container">
             @if(count($all_records_md) > 0)
-            <div class="js-airport-pricing__block">
-                <header class="js-airport-pricing__head">
-                    <span class="js-airport-pricing__badge">Meet &amp; Greet</span>
-                    <h2 class="js-airport-pricing__title">{{ ucwords($airportName) }} Meet &amp; Greet Parking</h2>
-                    <p class="js-airport-pricing__intro">{!! $page->meet_and_greet !!}</p>
-                </header>
+            <div class="js-airport-pricing__block" id="meet-greet-pricing">
+                <div class="js-section-head">
+                    <span class="js-section-head__badge js-section-head__badge--light">Meet &amp; Greet</span>
+                    <h2 class="js-section-title">{{ ucwords($airportName) }} Meet &amp; Greet Parking</h2>
+                    <p class="js-section-subtitle">Compare Meet &amp; Greet deals at {{ $airportName }} — chauffeur service to the terminal.</p>
+                </div>
                 <div class="js-airport-table-wrap">
                     <table class="js-airport-table">
-                                            <thead>
+                        <thead>
                             <tr>
-                                <th>Car Park</th>
-                                <th class="d-none d-md-table-cell">Customer Rating</th>
-                                <th>Transfer Time</th>
-                                <th class="d-none d-md-table-cell">Awards</th>
-                                <th>Price <small>(per day)</small></th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($all_records_md as $company)
+                                <th class="js-airport-table__name">Car park</th>
+                                <th class="js-airport-table__rating">Rating</th>
+                                <th class="js-airport-table__transfer">Transfer</th>
+                                <th class="js-airport-table__awards">Awards</th>
+                                <th class="js-airport-table__price-col">From / day</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($all_records_md as $company)
                                 @if($company['price'] != '0.00')
                                 @php
                                     $modules = \App\Models\reviews::where('type_id', $company['companyID'])->where('status', 'Yes');
@@ -267,58 +250,58 @@
                                     $expPrice = explode('.', $companyPrice);
                                     $arrangeAwardList = [];
                                     $awards = \App\Models\companies_assign_awards::all()->where('cid', $company['companyID']);
-                                    foreach ($awards as $award) { $arrangeAwardList[] = $award; }
-                                                            @endphp
+                                    foreach ($awards as $award) {
+                                        $arrangeAwardList[] = $award;
+                                    }
+                                @endphp
                                 <tr>
-                                    <td>{{ $company['name'] }}</td>
-                                    <td class="d-none d-md-table-cell">
-                                        @if($avgRating > 0)
-                                            <span class="js-airport-table__score">{{ $avgRating }}</span>
-                                                            @endif
-                                        @for($s = 0; $s < 5; $s++)<i class="fa fa-star reviews-stars" aria-hidden="true"></i>@endfor
-                                                    </td>
-                                    <td>Chauffeur meets you at terminal</td>
-                                    <td class="d-none d-md-table-cell">
+                                    <td class="js-airport-table__name" data-label="Car park">{{ $company['name'] }}</td>
+                                    <td class="js-airport-table__rating" data-label="Rating">
+                                        <span class="js-airport-table__stars" aria-label="{{ $avgRating > 0 ? $avgRating . ' out of 10' : 'Rated' }}">
+                                            @for($s = 0; $s < 5; $s++)<i class="fa fa-star" aria-hidden="true"></i>@endfor
+                                            @if($avgRating > 0)<em>{{ $avgRating }}</em>@endif
+                                        </span>
+                                    </td>
+                                    <td class="js-airport-table__transfer" data-label="Transfer">Chauffeur at terminal</td>
+                                    <td class="js-airport-table__awards" data-label="Awards">
                                         @if(count($arrangeAwardList) > 0)
-                                            @php
-                                                $image = ltrim(str_replace(['\\', 'public/', 'storage/app/', 'storage/'], ['/', '', '', ''], (string) ($arrangeAwardList[0]->award->image ?? '')), '/');
-                                                if ($image !== '' && !str_starts_with($image, 'awards/')) {
-                                                    $image = 'awards/' . basename($image);
-                                                }
-                                            @endphp
-                                            <img class="awards-img" src="https://dashboard.ttssgroup.com/storage/app/{{ $image }}" alt="{{ $company['name'] }}">
-                                                        @endif
-                                                    </td>
-                                    <td><span class="js-airport-table__price">&pound;{{ $expPrice[0] }}.<sup>{{ $expPrice[1] }}</sup></span></td>
-                                                </tr>
+                                            <img class="awards-img" src="{{ asset('storage/' . $arrangeAwardList[0]->award->image) }}" alt="" loading="lazy" width="40" height="40">
+                                        @else
+                                            <span class="js-airport-table__dash">—</span>
+                                        @endif
+                                    </td>
+                                    <td class="js-airport-table__price-col" data-label="From / day">
+                                        <span class="js-airport-table__price">&pound;{{ $expPrice[0] }}.<sup>{{ $expPrice[1] }}</sup></span>
+                                    </td>
+                                </tr>
                                 @endif
-                                            @endforeach
-                                            </tbody>
-                                        </table>
-                        </div>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
-                        @endif
+            @endif
 
             @if(count($all_records_pd) > 0)
             <div class="js-airport-pricing__block">
-                <header class="js-airport-pricing__head">
-                    <span class="js-airport-pricing__badge">Park &amp; Ride</span>
-                    <h2 class="js-airport-pricing__title">{{ ucwords($airportName) }} Park &amp; Ride Parking</h2>
-                    <p class="js-airport-pricing__intro">{!! $page->park_and_ride !!}</p>
-                </header>
+                <div class="js-section-head">
+                    <span class="js-section-head__badge js-section-head__badge--light">Park &amp; Ride</span>
+                    <h2 class="js-section-title">{{ ucwords($airportName) }} Park &amp; Ride Parking</h2>
+                    <p class="js-section-subtitle">Compare Park &amp; Ride deals at {{ $airportName }} with free shuttle to the terminal.</p>
+                </div>
                 <div class="js-airport-table-wrap">
                     <table class="js-airport-table">
-                                            <thead>
+                        <thead>
                             <tr>
-                                <th>Car Park</th>
-                                <th class="d-none d-md-table-cell">Customer Rating</th>
-                                <th>Transfer Time</th>
-                                <th class="d-none d-md-table-cell">Awards</th>
-                                <th>Price <small>(per day)</small></th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($all_records_pd as $company)
+                                <th class="js-airport-table__name">Car park</th>
+                                <th class="js-airport-table__rating">Rating</th>
+                                <th class="js-airport-table__transfer">Transfer</th>
+                                <th class="js-airport-table__awards">Awards</th>
+                                <th class="js-airport-table__price-col">From / day</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($all_records_pd as $company)
                                 @if($company['price'] != '0.00')
                                 @php
                                     $modules = \App\Models\reviews::where('type_id', $company['companyID'])->where('status', 'Yes');
@@ -328,81 +311,56 @@
                                     $expPrice = explode('.', $companyPrice);
                                     $arrangeAwardList = [];
                                     $awards = \App\Models\companies_assign_awards::all()->where('cid', $company['companyID']);
-                                    foreach ($awards as $award) { $arrangeAwardList[] = $award; }
-                                                            @endphp
+                                    foreach ($awards as $award) {
+                                        $arrangeAwardList[] = $award;
+                                    }
+                                @endphp
                                 <tr>
-                                    <td>{{ $company['name'] }}</td>
-                                    <td class="d-none d-md-table-cell">
-                                        @if($avgRating > 0)
-                                            <span class="js-airport-table__score">{{ $avgRating }}</span>
-                                                            @endif
-                                        @for($s = 0; $s < 5; $s++)<i class="fa fa-star reviews-stars" aria-hidden="true"></i>@endfor
-                                                    </td>
-                                    <td>Shuttle transfer to terminal</td>
-                                    <td class="d-none d-md-table-cell">
+                                    <td class="js-airport-table__name" data-label="Car park">{{ $company['name'] }}</td>
+                                    <td class="js-airport-table__rating" data-label="Rating">
+                                        <span class="js-airport-table__stars" aria-label="{{ $avgRating > 0 ? $avgRating . ' out of 10' : 'Rated' }}">
+                                            @for($s = 0; $s < 5; $s++)<i class="fa fa-star" aria-hidden="true"></i>@endfor
+                                            @if($avgRating > 0)<em>{{ $avgRating }}</em>@endif
+                                        </span>
+                                    </td>
+                                    <td class="js-airport-table__transfer" data-label="Transfer">Shuttle to terminal</td>
+                                    <td class="js-airport-table__awards" data-label="Awards">
                                         @if(count($arrangeAwardList) > 0)
-                                            @php
-                                                $image = ltrim(str_replace(['\\', 'public/', 'storage/app/', 'storage/'], ['/', '', '', ''], (string) ($arrangeAwardList[0]->award->image ?? '')), '/');
-                                                if ($image !== '' && !str_starts_with($image, 'awards/')) {
-                                                    $image = 'awards/' . basename($image);
-                                                }
-                                            @endphp
-                                            <img class="awards-img" src="https://dashboard.ttssgroup.com/storage/app/{{ $image }}" alt="{{ $company['name'] }}">
-                                                        @endif
-                                                    </td>
-                                    <td><span class="js-airport-table__price">&pound;{{ $expPrice[0] }}.<sup>{{ $expPrice[1] }}</sup></span></td>
-                                                </tr>
+                                            <img class="awards-img" src="{{ asset('storage/' . $arrangeAwardList[0]->award->image) }}" alt="" loading="lazy" width="40" height="40">
+                                        @else
+                                            <span class="js-airport-table__dash">—</span>
+                                        @endif
+                                    </td>
+                                    <td class="js-airport-table__price-col" data-label="From / day">
+                                        <span class="js-airport-table__price">&pound;{{ $expPrice[0] }}.<sup>{{ $expPrice[1] }}</sup></span>
+                                    </td>
+                                </tr>
                                 @endif
-                                            @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                    @endif
-
-                    </div>
-                            </section>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            @endif
+        </div>
+    </section>
     @endif
 
-    {{-- Parking service types --}}
-    <section class="js-airport-services">
-        <div class="js-container">
-            <header class="js-airport-services__head">
-                <h2 class="js-airport-services__title">Our Parking Services</h2>
-                @if(!empty($page->alluring))
-                    <p class="js-airport-services__intro">{!! $page->alluring !!}</p>
-                @endif
-            </header>
-            <div class="js-airport-services__grid">
-                <article class="js-airport-service-card js-airport-service-card--mg">
-                    <div class="js-airport-service-card__icon">
-                        <img src="{{ asset('assets/images/customer-loyalty-_1_ 1.webp') }}" alt="Meet and Greet" loading="lazy" width="64" height="64">
-                        </div>
-                    <h3 class="js-airport-service-card__title">Meet and Greet</h3>
-                    <div class="js-airport-service-card__body">{!! $page->alluring_meetandgreet !!}</div>
-                </article>
-                <article class="js-airport-service-card js-airport-service-card--pr">
-                    <div class="js-airport-service-card__icon">
-                        <img src="{{ asset('assets/images/car-parking-_1_ 1.webp') }}" alt="Park and Ride" loading="lazy" width="64" height="64">
-                    </div>
-                    <h3 class="js-airport-service-card__title">Park and Ride</h3>
-                    <div class="js-airport-service-card__body">{!! $page->alluring_parkandride !!}</div>
-                </article>
-                <article class="js-airport-service-card js-airport-service-card--oa">
-                    <div class="js-airport-service-card__icon">
-                        <img src="{{ asset('assets/images/Group.webp') }}" alt="On-Site parking" loading="lazy" width="64" height="64">
-        </div>
-                    <h3 class="js-airport-service-card__title">On-Site</h3>
-                    <div class="js-airport-service-card__body">{!! $page->alluring_onairport !!}</div>
-                </article>
-        </div>
-    </div>
-                     </section>
+    {{-- Parking types — identical to home gates --}}
+    @include('partials.parking-gates', [
+        'badge' => 'Parking types',
+        'title' => 'Parking Options at ' . $airportName,
+        'subtitle' => 'Choose Meet & Greet, on-site, or Park & Ride to suit your trip.',
+    ])
 
     {{-- Other airports --}}
     <section class="js-airport-others">
         <div class="js-container">
-            <h2 class="js-airport-others__title">Other Airport Options</h2>
+            <header class="js-section-head">
+                <span class="js-section-head__badge js-section-head__badge--light">More airports</span>
+                <h2 class="js-section-title">Other Airport Options</h2>
+                <p class="js-section-subtitle">Compare parking at more major UK airports.</p>
+            </header>
             <div class="js-airport-others__grid">
                 @php $i = 0; @endphp
                 @foreach($airports as $airport)
@@ -412,8 +370,8 @@
                                 ? str_replace(' ', '-', strtolower($airport->name))
                                 : trim(strtolower($airport->name));
                             $otherSlug = $name . '-airport-parking';
-                    $i++;
-                    @endphp
+                            $i++;
+                        @endphp
                         <a class="js-airport-others__card" href="{{ route('page', ['slug' => $otherSlug]) }}">
                             <img src="{{ ttss_dashboard_asset_url($airport->profile_image) }}"
                                 alt="{{ $airport->name }} airport" loading="lazy"
@@ -422,15 +380,12 @@
                         </a>
                         @if($i > 7) @break @endif
                     @endif
-                     @endforeach
-                </div>
+                @endforeach
             </div>
-        </section>
-
-    {{-- Reviews --}}
-    <section class="js-airport-reviews">
-         @include('frontend.review2')
+        </div>
     </section>
+
+    @include('partials.reviews-section')
 
 </main>
 

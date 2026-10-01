@@ -337,62 +337,138 @@
     margin: 0;
 }
 
+.js-airport-pricing {
+    background: var(--js-surface);
+    border-top: 1px solid var(--js-border);
+}
+
+.js-airport-pricing__block {
+    margin-bottom: 48px;
+}
+
+.js-airport-pricing__block:last-child {
+    margin-bottom: 0;
+}
+
 .js-airport-table-wrap {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     border: 1px solid var(--js-border);
-    border-radius: var(--js-radius-lg);
+    border-radius: var(--js-radius-md);
     box-shadow: var(--js-shadow-sm);
-    background: var(--js-surface);
+    background: var(--js-background);
 }
 
 .js-airport-table {
     width: 100%;
     margin: 0;
     border-collapse: collapse;
-    font-size: 14px;
+    font-size: 0.95rem;
 }
 
 .js-airport-table thead th {
-    background: var(--js-primary-dark);
+    background: var(--js-primary);
     color: #fff;
-    font-weight: 600;
-    font-size: 13px;
-    padding: 14px 16px;
-    text-align: center;
+    font-weight: 650;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    text-align: left;
     white-space: nowrap;
     border: none;
 }
 
-.js-airport-table tbody td {
-    padding: 14px 16px;
-    vertical-align: middle;
+.js-airport-table thead th.js-airport-table__price-col {
+    text-align: right;
+}
+
+.js-airport-table thead th.js-airport-table__rating,
+.js-airport-table thead th.js-airport-table__transfer,
+.js-airport-table thead th.js-airport-table__awards {
     text-align: center;
+}
+
+.js-airport-table tbody td {
+    padding: 18px 20px;
+    vertical-align: middle;
     border-top: 1px solid var(--js-border);
     color: var(--js-text);
 }
 
+.js-airport-table tbody tr:first-child td {
+    border-top: none;
+}
+
 .js-airport-table tbody tr:nth-child(even) {
-    background: rgba(26, 26, 26, 0.03);
+    background: rgba(26, 26, 26, 0.025);
 }
 
 .js-airport-table tbody tr:hover {
-    background: rgba(26, 26, 26, 0.06);
+    background: rgba(26, 26, 26, 0.05);
 }
 
-.js-airport-table .js-airport-table__price {
-    font-size: 1.15rem;
+.js-airport-table__name {
+    font-weight: 650;
+    color: var(--js-heading);
+    text-align: left;
+    min-width: 200px;
+}
+
+.js-airport-table__rating,
+.js-airport-table__transfer,
+.js-airport-table__awards {
+    text-align: center;
+}
+
+.js-airport-table__transfer {
+    color: var(--js-muted);
+    font-size: 0.9rem;
+}
+
+.js-airport-table__price-col {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.js-airport-table__stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    color: #B8860B;
+    font-size: 0.82rem;
+}
+
+.js-airport-table__stars em {
+    margin-left: 8px;
+    font-style: normal;
     font-weight: 700;
-    color: var(--js-primary);
+    font-size: 0.9rem;
+    color: var(--js-heading);
 }
 
-.js-airport-table .reviews-stars {
-    color: var(--js-accent);
-    font-size: 14px;
+.js-airport-table__price {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--js-primary);
+    letter-spacing: -0.02em;
+}
+
+.js-airport-table__price sup {
+    font-size: 0.62em;
+    font-weight: 700;
+}
+
+.js-airport-table__dash {
+    color: var(--js-muted);
 }
 
 .js-airport-table .awards-img {
     max-height: 36px;
     width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
 }
 
 /* ── Service type cards ── */
@@ -553,72 +629,80 @@
     color: var(--js-primary);
 }
 
-/* ── Reviews wrapper ── */
-.js-airport-reviews {
-    padding: 0;
-    margin: 0;
-    background: var(--js-primary);
+/* ── Reviews (JetSeeker cards) ── */
+.js-airport-page .orangeClr {
+    color: var(--js-accent);
 }
 
-.js-airport-reviews .container,
-.js-airport-reviews .row,
-.js-airport-reviews .padd-lr {
-    margin: 0;
-    padding-left: 0;
-    padding-right: 0;
-    max-width: none;
+.js-airport-reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 8px;
 }
 
-.js-airport-reviews .secti {
-    background: var(--js-primary);
-    padding-bottom: 32px;
+.js-airport-review-card {
+    background: var(--js-surface);
+    border: 1px solid var(--js-border);
+    border-radius: var(--js-radius-md);
+    padding: 28px 24px;
+    box-shadow: var(--js-shadow-sm);
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.js-airport-reviews h3.mt-3 {
-    background: var(--js-primary) !important;
-    margin: 0 !important;
-    padding: 32px 16px 16px !important;
+.js-airport-review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--js-shadow-md);
 }
 
-.js-airport-reviews .js-review-avatar {
+.js-airport-review-card__avatar {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
-    margin: 0 auto 14px;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 12px;
     border-radius: 50%;
-    background: var(--js-accent, #C2185B);
+    background: var(--js-primary);
     color: #fff;
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 800;
-    letter-spacing: 0.02em;
-    line-height: 1;
-    text-transform: uppercase;
-    box-shadow: 0 6px 16px rgba(194, 24, 91, 0.35);
 }
 
-.js-airport-reviews .js-review-text {
-    display: block;
-    max-width: 640px;
-    margin: 0 auto 12px;
-    font-size: 1rem;
+.js-airport-review-card__stars {
+    margin-bottom: 12px;
+    color: var(--js-accent);
+    letter-spacing: 2px;
+}
+
+.js-airport-review-card__text {
+    margin: 0 0 14px;
+    font-size: 0.98rem;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.92);
+    color: var(--js-muted);
 }
 
-.js-airport-reviews .js-review-name {
+.js-airport-review-card__name {
     display: block;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--js-heading);
 }
 
-.js-airport-reviews .review-img {
-    display: none !important;
+.js-airport-services-wrap {
+    position: relative;
 }
 
-/* ── Airport hero + booking widget ── */
+.js-airport-services-wrap .js-parking-gate__body p,
+.js-airport-services-wrap .js-parking-gate__body div {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--js-muted);
+}
+
+/* ── Airport hero (legacy page-hero fallback) ── */
 .js-page-hero--airport {
     padding-bottom: 56px;
 }
@@ -639,6 +723,10 @@
 
     .js-page-hero--airport .js-booking-card--hero {
         margin-top: 24px;
+    }
+
+    .js-airport-reviews-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -687,10 +775,99 @@
     .js-airport-guide__panel {
         padding: 20px 16px 24px;
     }
+}
 
-    .js-airport-table thead th,
+/* ── Airport pricing table (mobile) ── */
+@media (max-width: 767px) {
+    .js-airport-table-wrap {
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        overflow: visible;
+    }
+
+    .js-airport-table thead {
+        display: none;
+    }
+
+    .js-airport-table,
+    .js-airport-table tbody,
+    .js-airport-table tr,
+    .js-airport-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .js-airport-table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .js-airport-table tbody tr {
+        padding: 18px 18px 16px;
+        border: 1px solid var(--js-border);
+        border-radius: var(--js-radius-md);
+        background: var(--js-background);
+        box-shadow: var(--js-shadow-sm);
+    }
+
+    .js-airport-table tbody tr:nth-child(even) {
+        background: var(--js-background);
+    }
+
     .js-airport-table tbody td {
-        padding: 10px 12px;
-        font-size: 13px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 6px 0;
+        border: none;
+        text-align: right;
+    }
+
+    .js-airport-table tbody td::before {
+        content: attr(data-label);
+        font-size: 0.72rem;
+        font-weight: 650;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--js-muted);
+        text-align: left;
+    }
+
+    .js-airport-table__name {
+        display: block !important;
+        text-align: left !important;
+        font-size: 1.05rem;
+        padding: 0 0 12px !important;
+        margin-bottom: 4px;
+        border-bottom: 1px solid var(--js-border) !important;
+    }
+
+    .js-airport-table__name::before {
+        display: none;
+    }
+
+    .js-airport-table__awards:has(.js-airport-table__dash) {
+        display: none !important;
+    }
+
+    .js-airport-table__price-col {
+        margin-top: 8px;
+        padding-top: 12px !important;
+        border-top: 1px solid var(--js-border);
+    }
+
+    .js-airport-table__price {
+        font-size: 1.4rem;
+        color: var(--js-accent);
     }
 }
+
+@media (max-width: 575px) {
+    .js-airport-pricing__block {
+        margin-bottom: 36px;
+    }
+}
+

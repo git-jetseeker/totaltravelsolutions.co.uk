@@ -37,13 +37,30 @@
     <div class="js-container">
         <div class="js-footer__grid">
             {{-- Column 1: Brand --}}
-            <div>
+            <div class="js-footer__brand">
                 <div class="js-footer__logo">
                     <a href="{{ url('/') }}">
                         <img src="{{ asset('theme/images/logo-white.png') }}?v=20260915" loading="lazy" alt="Total Travel Solutions logo" width="300" height="88">
                     </a>
                 </div>
-                <p class="js-footer__about">{{ $site_settings_main['footer_catch_line'] ?? '' }}</p>
+                <p class="js-footer__about">{{ $site_settings_main['footer_catch_line'] ?: 'Total Travel Solutions helps travellers compare and book reliable Park Mark accredited parking at major UK airports.' }}</p>
+                <div class="js-footer__social">
+                    @if (array_key_exists('twitter', $site_settings_main) && $site_settings_main['twitter'] != '' && ($site_settings_main['twitter_status'] ?? '') == 'active')
+                        <a target="_blank" rel="noopener" aria-label="Visit our Twitter page" href="{{ $site_settings_main['twitter'] }}"><i class="fa fa-twitter"></i></a>
+                    @endif
+                    @if (array_key_exists('facebook', $site_settings_main) && $site_settings_main['facebook'] != '' && ($site_settings_main['facebook_status'] ?? '') == 'active')
+                        <a target="_blank" rel="noopener" aria-label="Visit our Facebook page" href="{{ $site_settings_main['facebook'] }}"><i class="fa fa-facebook"></i></a>
+                    @endif
+                    @if (array_key_exists('instagram', $site_settings_main) && $site_settings_main['instagram'] != '' && ($site_settings_main['instagram_status'] ?? '') == 'active')
+                        <a target="_blank" rel="noopener" aria-label="Visit our Instagram page" href="{{ $site_settings_main['instagram'] }}"><i class="fa fa-instagram"></i></a>
+                    @endif
+                    @if (array_key_exists('linkedin', $site_settings_main) && $site_settings_main['linkedin'] != '' && ($site_settings_main['linkedin_status'] ?? '') == 'active')
+                        <a target="_blank" rel="noopener" aria-label="Visit our LinkedIn page" href="{{ $site_settings_main['linkedin'] }}"><i class="fa fa-linkedin"></i></a>
+                    @endif
+                    @if (array_key_exists('youtube', $site_settings_main) && $site_settings_main['youtube'] != '' && ($site_settings_main['youtube_status'] ?? '') == 'active')
+                        <a target="_blank" rel="noopener" aria-label="Visit our YouTube page" href="{{ $site_settings_main['youtube'] }}"><i class="fa fa-youtube"></i></a>
+                    @endif
+                </div>
             </div>
 
             {{-- Column 2: Quick Links --}}
@@ -63,11 +80,11 @@
             <div>
                 <h3 class="js-footer__title">{{ crm('global.footer_heading_parking', 'Airport Parking') }}</h3>
                 <ul class="js-footer__links">
-                    <li><a href="{{ route('page', ['slug' => 'heathrow-airport-parking']) }}">Heathrow Airport Parking</a></li>
-                    <li><a href="{{ route('page', ['slug' => 'gatwick-airport-parking']) }}">Gatwick Airport Parking</a></li>
-                    <li><a href="{{ route('page', ['slug' => 'manchester-airport-parking']) }}">Manchester Airport Parking</a></li>
-                    <li><a href="{{ route('page', ['slug' => 'stansted-airport-parking']) }}">Stansted Airport Parking</a></li>
-                    <li><a href="{{ route('page', ['slug' => 'luton-airport-parking']) }}">Luton Airport Parking</a></li>
+                    <li><a href="{{ route('page', ['slug' => 'heathrow-airport-parking']) }}">Heathrow</a></li>
+                    <li><a href="{{ route('page', ['slug' => 'gatwick-airport-parking']) }}">Gatwick</a></li>
+                    <li><a href="{{ route('page', ['slug' => 'manchester-airport-parking']) }}">Manchester</a></li>
+                    <li><a href="{{ route('page', ['slug' => 'stansted-airport-parking']) }}">Stansted</a></li>
+                    <li><a href="{{ route('page', ['slug' => 'luton-airport-parking']) }}">Luton</a></li>
                     <li><a href="{{ route('airports') }}">All Airports</a></li>
                 </ul>
             </div>
@@ -81,60 +98,53 @@
                     <li><a href="{{ route('static_page', ['page' => 'privacy-policy']) }}">Privacy Policy</a></li>
                     <li><a href="{{ route('cookies') }}">Cookie Policy</a></li>
                 </ul>
+            </div>
+        </div>
 
-                <div class="js-footer__contact js-mt-24">
-                    @if (!empty($site_settings_main['footer_email']))
-                        <p><i class="fa fa-envelope-o" aria-hidden="true"></i>
-                            <a href="mailto:{{ $site_settings_main['footer_email'] }}">{{ $site_settings_main['footer_email'] }}</a>
-                        </p>
-                    @endif
-                    @if (!empty($site_settings_main['footer_phone_no']))
-                        <p><i class="fa fa-phone" aria-hidden="true"></i>
-                            <a href="tel:{{ $site_settings_main['footer_phone_no'] }}">{{ $site_settings_main['footer_phone_no'] }}</a>
-                        </p>
-                    @endif
-                </div>
+        @php
+            $footerEmail = $site_settings_main['footer_email'] ?? 'support@totaltravelsolutions.co.uk';
+            $footerPhone = $site_settings_main['footer_phone_no'] ?? '';
+        @endphp
 
-                <div class="js-footer__social">
-                    @if (array_key_exists('twitter', $site_settings_main) && $site_settings_main['twitter'] != '' && ($site_settings_main['twitter_status'] ?? '') == 'active')
-                        <a target="_blank" rel="noopener" aria-label="Visit our Twitter page" href="{{ $site_settings_main['twitter'] }}"><i class="fa fa-twitter"></i></a>
-                    @endif
-                    @if (array_key_exists('facebook', $site_settings_main) && $site_settings_main['facebook'] != '' && ($site_settings_main['facebook_status'] ?? '') == 'active')
-                        <a target="_blank" rel="noopener" aria-label="Visit our Facebook page" href="{{ $site_settings_main['facebook'] }}"><i class="fa fa-facebook"></i></a>
-                    @endif
-                    @if (array_key_exists('instagram', $site_settings_main) && $site_settings_main['instagram'] != '' && ($site_settings_main['instagram_status'] ?? '') == 'active')
-                        <a target="_blank" rel="noopener" aria-label="Visit our Instagram page" href="{{ $site_settings_main['instagram'] }}"><i class="fa fa-instagram"></i></a>
-                    @endif
-                    @if (array_key_exists('linkedin', $site_settings_main) && $site_settings_main['linkedin'] != '' && ($site_settings_main['linkedin_status'] ?? '') == 'active')
-                        <a target="_blank" rel="noopener" aria-label="Visit our LinkedIn page" href="{{ $site_settings_main['linkedin'] }}"><i class="fa fa-linkedin"></i></a>
-                    @endif
-                    @if (array_key_exists('youtube', $site_settings_main) && $site_settings_main['youtube'] != '' && ($site_settings_main['youtube_status'] ?? '') == 'active')
-                        <a target="_blank" rel="noopener" aria-label="Visit our YouTube page" href="{{ $site_settings_main['youtube'] }}"><i class="fa fa-youtube"></i></a>
-                    @endif
-                </div>
+        <div class="js-footer__meta">
+            <div class="js-footer__contact">
+                @if ($footerEmail !== '')
+                    <a class="js-footer__contact-item" href="mailto:{{ $footerEmail }}">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <span>{{ $footerEmail }}</span>
+                    </a>
+                @endif
+                @if ($footerPhone !== '')
+                    <a class="js-footer__contact-item" href="tel:{{ $footerPhone }}">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <span>{{ $footerPhone }}</span>
+                    </a>
+                @endif
+            </div>
 
-                <p class="js-footer__title js-mt-24">We Accept</p>
+            <div class="js-footer__accept">
+                <span class="js-footer__accept-label">We Accept</span>
                 <div class="js-footer__payments">
                     <img src="{{ asset('theme/images/mgr-vise.png') }}" alt="Visa" height="28" width="48" loading="lazy">
                     <img src="{{ asset('theme/images/mgr-jcb.png') }}" alt="JCB" height="28" width="48" loading="lazy">
                     <img src="{{ asset('theme/images/mgr-master.png') }}" alt="Mastercard" height="28" width="48" loading="lazy">
                     <img src="{{ asset('theme/images/mgr-mastro.png') }}" alt="Maestro" height="28" width="48" loading="lazy">
                 </div>
+            </div>
 
-                <div class="js-mt-24" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
-                    <a href="//www.dmca.com/Protection/Status.aspx?ID=00d7fa62-cad9-46d5-a753-ca722bb5c731" title="DMCA.com Protection Status" class="dmca-badge">
-                        <img src="https://images.dmca.com/Badges/_dmca_premi_badge_5.png?ID=00d7fa62-cad9-46d5-a753-ca722bb5c731" loading="lazy" alt="DMCA.com Protection Status" height="40">
-                    </a>
-                    <a href="https://www.dmca.com/compliance/www.totaltravelsolutions.co.uk" title="DMCA Compliance information">
-                        <img width="80" height="40" alt="DMCA compliance" src="{{ asset('assets/dmca.png') }}" loading="lazy">
-                    </a>
-                </div>
+            <div class="js-footer__trust">
+                <a href="//www.dmca.com/Protection/Status.aspx?ID=00d7fa62-cad9-46d5-a753-ca722bb5c731" title="DMCA.com Protection Status" class="dmca-badge">
+                    <img src="https://images.dmca.com/Badges/_dmca_premi_badge_5.png?ID=00d7fa62-cad9-46d5-a753-ca722bb5c731" loading="lazy" alt="DMCA.com Protection Status" height="36" width="110">
+                </a>
+                <a href="https://www.dmca.com/compliance/www.totaltravelsolutions.co.uk" title="DMCA Compliance information">
+                    <img width="72" height="36" alt="DMCA compliance" src="{{ asset('assets/dmca.png') }}" loading="lazy">
+                </a>
             </div>
         </div>
 
         <div class="js-footer__bottom">
             <p class="js-mb-0">
-                &copy; {{ date('Y') }} {{ $site_settings_main['footer_copyright'] ?? 'Total Travel Solutions' }}
+                &copy; {{ date('Y') }} {{ $site_settings_main['footer_copyright'] ?: 'Total Travel Solutions. All rights reserved.' }}
                 @if (!empty($site_settings_main['footer_company_reg_no']))
                     <span>{{ $site_settings_main['footer_company_reg_no'] }}</span>
                 @endif

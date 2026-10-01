@@ -293,6 +293,72 @@ if (! function_exists('setting_agent_matches')) {
     }
 }
 
+if (! function_exists('pz_brand_settings')) {
+    /**
+     * Rewrite legacy JetSeeker/ParkingZone branding to Total Travel Solutions.
+     */
+    function pz_brand_settings(array $settings = []): array
+    {
+        $brand = 'Total Travel Solutions';
+        $email = 'support@totaltravelsolutions.co.uk';
+        $defaults = [
+            'site_title' => $brand . ' | Compare UK Airport Parking',
+            'footer_email' => $email,
+            'footer_catch_line' => $brand . ' helps travellers compare and book reliable Park Mark accredited parking at major UK airports — transparent pricing, quality service, and peace of mind every time you fly.',
+            'footer_copyright' => $brand . '. All rights reserved.',
+            'footer_company_reg_no' => 'Company Registration No 16770283.',
+            'site_author' => $brand,
+            'site_twitter_title' => $brand,
+            'site_og_title' => $brand,
+        ];
+
+        $rewriteText = static function ($value) use ($brand) {
+            $value = (string) $value;
+            if ($value === '') {
+                return $value;
+            }
+
+            $value = preg_replace('/\b(JETSEEKER|JET SEEKER|JetSeeker|Jetseeker)\b/i', $brand, $value) ?? $value;
+            $value = preg_replace('/\b(Parking\s*Zone|ParkingZone)\b/i', $brand, $value) ?? $value;
+            $value = preg_replace('/\bMeetandGreet\b/i', 'Meet & Greet', $value) ?? $value;
+            $value = preg_replace('/@jetseeker\.co\.uk\b/i', '@totaltravelsolutions.co.uk', $value) ?? $value;
+            $value = preg_replace('/https?:\/\/(?:www\.)?jetseeker\.co\.uk/i', 'https://www.totaltravelsolutions.co.uk', $value) ?? $value;
+
+            return $value;
+        };
+
+        foreach ($settings as $key => $value) {
+            if (! is_string($value) || $value === '') {
+                continue;
+            }
+
+            if ($key === 'footer_email' && preg_match('/@jetseeker\.co\.uk$/i', $value)) {
+                $settings[$key] = $email;
+                continue;
+            }
+
+            if (in_array($key, ['footer_copyright', 'footer_company_reg_no', 'footer_catch_line', 'site_title', 'site_author', 'site_twitter_title', 'site_og_title', 'meta_description', 'meta_keyword'], true)) {
+                if (preg_match('/jetseeker|parking\s*zone|meetandgreet|14989449/i', $value)) {
+                    $settings[$key] = $defaults[$key] ?? $rewriteText($value);
+                    continue;
+                }
+            }
+
+            if (preg_match('/jetseeker|@jetseeker\.co\.uk/i', $value)) {
+                $settings[$key] = $rewriteText($value);
+            }
+        }
+
+        foreach (['footer_email', 'footer_catch_line', 'footer_copyright', 'footer_company_reg_no', 'site_title'] as $key) {
+            if (empty($settings[$key])) {
+                $settings[$key] = $defaults[$key];
+            }
+        }
+
+        return $settings;
+    }
+}
+
 if (! function_exists('site_settings')) {
     /**
      * Load Magr settings for the current (or given) partner agent.
