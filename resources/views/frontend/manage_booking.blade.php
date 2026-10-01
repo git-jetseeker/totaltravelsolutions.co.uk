@@ -5,7 +5,7 @@
 @include('layouts.header')
 @include('layouts.nav')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-home.css?v=20261001manage') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-home.css?v=20261001mobileform') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-manage-booking.css?v=20261001manage2') }}">
 
 @include('layouts.search_form', [

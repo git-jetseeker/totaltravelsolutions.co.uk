@@ -4,7 +4,7 @@
 @section('meta_description', ($homeMeta->meta_description ?? null) ?: 'Compare and book airport parking with Total Travel Solutions.')
 @include('layouts.header')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-home.css?v=20261001light') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-home.css?v=20261001whitetabs') }}">
 
 @include('layouts.nav')
 

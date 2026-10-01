@@ -34,21 +34,25 @@
         <div class="js-product-tabs" role="tablist" aria-label="Search parking, lounges, hotels or car hire">
             <button type="button" class="js-product-tab is-active" role="tab" id="js-tab-btn-parking" aria-controls="js-panel-parking" aria-selected="true" data-product="parking">
                 <i class="fa fa-car" aria-hidden="true"></i>
-                <span>{{ crm('home.tab_parking', 'Parking') }}</span>
+                <span class="js-product-tab__label">{{ crm('home.tab_parking', 'Parking') }}</span>
+                <span class="js-product-tab__label-full">{{ crm('home.tab_parking_full', 'Airport Parking') }}</span>
             </button>
             <button type="button" class="js-product-tab" role="tab" id="js-tab-btn-lounges" aria-controls="js-panel-lounges" aria-selected="false" data-product="lounges">
                 <i class="fa fa-coffee" aria-hidden="true"></i>
-                <span>{{ crm('home.tab_lounges', 'Lounges') }}</span>
+                <span class="js-product-tab__label">{{ crm('home.tab_lounges', 'Lounges') }}</span>
+                <span class="js-product-tab__label-full">{{ crm('home.tab_lounges_full', 'Airport Lounges') }}</span>
                 <span class="js-soon-badge">Coming Soon</span>
             </button>
             <button type="button" class="js-product-tab" role="tab" id="js-tab-btn-hotels" aria-controls="js-panel-hotels" aria-selected="false" data-product="hotels">
                 <i class="fa fa-bed" aria-hidden="true"></i>
-                <span>{{ crm('home.tab_hotels', 'Hotels') }}</span>
+                <span class="js-product-tab__label">{{ crm('home.tab_hotels', 'Hotels') }}</span>
+                <span class="js-product-tab__label-full">{{ crm('home.tab_hotels_full', 'Airport Hotels') }}</span>
                 <span class="js-soon-badge">Coming Soon</span>
             </button>
             <button type="button" class="js-product-tab" role="tab" id="js-tab-btn-carhire" aria-controls="js-panel-carhire" aria-selected="false" data-product="carhire">
                 <i class="fa fa-cab" aria-hidden="true"></i>
-                <span>{{ crm('home.tab_carhire', 'Car Hire') }}</span>
+                <span class="js-product-tab__label">{{ crm('home.tab_carhire', 'Car Hire') }}</span>
+                <span class="js-product-tab__label-full">{{ crm('home.tab_carhire_full', 'Airport Car Hire') }}</span>
                 <span class="js-soon-badge">Coming Soon</span>
             </button>
         </div>
