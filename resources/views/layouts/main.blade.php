@@ -7,7 +7,7 @@
     <meta http-equiv="Cache-Control" content="Cache-Control: public, max-age=31536000" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <meta name="google-site-verification" content="kz0jW8P0ZXYec37awl79cMX367AGpQ_haFp6GB0l7Fc" />
+    <meta name="google-site-verification" content="0Hn1VMmAaGeUFSzG9jOKX8OkJim3YlwSviUgKGQgFu0" />
     <meta name="msvalidate.01" content="058CE2BBE3EF9D932E6FA366CAC4120F" />
     <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon-32x32q.png') }}?v=20260915b" sizes="32x32">
     <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon-16x16q.png') }}?v=20260915b" sizes="16x16">
