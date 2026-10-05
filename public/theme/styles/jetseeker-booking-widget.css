@@ -821,76 +821,117 @@
     }
 }
 
-/* Mobile: white tile boxes with brand magenta text */
+/* Mobile: horizontal product tabs (reference layout), stacked fields — keep brand colors */
 @media (max-width: 767px) {
+    .js-booking-card {
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
     .js-booking-widget-body {
-        padding: 14px 12px 16px;
+        padding: 16px 14px 18px;
     }
 
     .js-panel-hint {
         margin-bottom: 14px;
-        font-size: 13px;
+        font-size: 14px;
         line-height: 1.45;
     }
 
+    /* Date + time on the same row */
+    .js-booking-row {
+        display: grid !important;
+        grid-template-columns: 1.35fr 1fr;
+        column-gap: 10px;
+        row-gap: 0;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    .js-booking-field--airport,
+    .js-booking-field--promo,
+    .js-booking-field--guests {
+        grid-column: 1 / -1;
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important;
+        padding: 0 0 14px !important;
+    }
+
+    .js-booking-field--date,
+    .js-booking-field--time {
+        width: auto !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        flex: none !important;
+        padding: 0 0 14px !important;
+    }
+
     .js-product-tabs {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1px;
+        display: flex !important;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        gap: 3px;
         padding: 0;
-        background: rgba(194, 24, 91, 0.18);
+        background: #F3EEF0;
         border-bottom: none;
-        overflow: hidden;
+        overflow: visible;
     }
 
     .js-product-tab {
         position: relative;
-        flex: unset;
+        flex: 1 1 0;
         max-width: none;
-        width: 100%;
-        min-height: 104px;
-        padding: 18px 10px 16px;
+        width: auto;
+        min-width: 0;
+        min-height: 52px;
+        padding: 8px 4px;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 8px;
-        font-size: 13px;
+        gap: 3px;
+        font-size: 11px;
         font-weight: 700;
-        line-height: 1.2;
+        line-height: 1.15;
         white-space: normal;
         text-align: center;
-        color: var(--js-accent, #C2185B);
+        color: #fff;
         border: none !important;
-        border-bottom: 4px solid transparent !important;
-        border-radius: 0;
-        background: #fff;
+        border-bottom: none !important;
+        border-radius: 10px 10px 0 0 !important;
+        background: #6b7280;
         box-shadow: none !important;
     }
 
     .js-product-tab__label {
-        display: none;
+        display: block;
+        color: inherit;
+        overflow: visible;
+        text-overflow: unset;
+        white-space: normal;
+        max-width: 100%;
     }
 
     .js-product-tab__label-full {
-        display: block;
-        color: inherit;
+        display: none !important;
     }
 
     .js-product-tab i {
-        font-size: 28px;
+        font-size: 16px;
         line-height: 1;
-        color: var(--js-accent, #C2185B);
+        color: inherit;
         opacity: 1;
+        flex-shrink: 0;
     }
 
     .js-product-tab:hover {
-        background: #fff;
-        color: var(--js-accent, #C2185B);
+        background: #4b5563;
+        color: #fff;
         border-bottom-color: transparent !important;
     }
 
     .js-product-tab:hover i {
-        color: var(--js-accent, #C2185B);
+        color: #fff;
         transform: none;
     }
 
@@ -900,47 +941,63 @@
 
     .js-product-tab.is-active,
     .js-product-tab.is-active:hover {
-        background: #fff;
-        color: var(--js-accent, #C2185B);
+        background: var(--js-accent, #C2185B) !important;
+        color: #fff !important;
         border: none !important;
-        border-bottom: 4px solid var(--js-accent, #C2185B) !important;
+        border-bottom: none !important;
         box-shadow: none !important;
     }
 
     .js-product-tab.is-active i,
     .js-product-tab.is-active:hover i {
-        color: var(--js-accent, #C2185B);
+        color: #fff !important;
     }
 
+    .js-product-tab.is-active:hover {
+        color: #fff !important;
+        background: var(--js-accent, #C2185B) !important;
+    }
+
+    /* Coming soon stays in panel; hide bulky tab badges on compact tabs */
     .js-product-tab .js-soon-badge,
     .js-booking-card .js-product-tab .js-soon-badge,
     .js-product-tab.is-active .js-soon-badge {
-        position: static;
-        display: inline-block;
-        margin: 2px 0 0 !important;
-        margin-left: 0 !important;
-        padding: 4px 9px !important;
-        font-size: 9px !important;
-        font-weight: 800;
-        letter-spacing: 0.06em;
-        line-height: 1.2;
-        color: #fff !important;
-        background: var(--js-accent, #C2185B) !important;
-        border-radius: 3px;
-        max-width: none;
-        overflow: visible;
-        text-overflow: unset;
-        white-space: nowrap;
+        display: none !important;
     }
 
     .js-booking-field label {
         margin: 0;
-        font-size: 12px;
+        font-size: 14px;
         color: var(--js-primary-dark);
     }
 
     .js-booking-field {
         gap: 8px;
+    }
+
+    .js-booking-input,
+    .js-booking-field select,
+    .js-booking-field input[type="text"] {
+        font-size: 16px !important;
+        height: 48px;
+        min-height: 48px;
+    }
+
+    .js-booking-field .select2-container--default .select2-selection--single {
+        height: 48px !important;
+    }
+
+    .js-booking-field .select2-container--default .select2-selection--single .select2-selection__rendered {
+        font-size: 16px !important;
+        line-height: 46px !important;
+    }
+
+    .js-booking-submit {
+        font-size: 16px;
+    }
+
+    .js-product-tab {
+        font-size: 12px;
     }
 
     .js-booking-field--date .fa-calendar,
@@ -971,11 +1028,13 @@
         grid-template-columns: 1fr;
     }
 
-    /* Homepage hero — card inset like APB */
+    /* Homepage hero — card inset */
     .search1.js-hero .js-booking-card {
         margin-left: 12px;
         margin-right: 12px;
         max-width: calc(100% - 24px);
+        border-radius: 12px;
+        overflow: hidden;
     }
 
     /* Datepicker fits viewport on mobile */
@@ -1010,7 +1069,7 @@
     }
 }
 
-/* Narrow phones — keep 2×2 tabs (same as APB), tighten card margins */
+/* Narrow phones — tighten tab labels */
 @media (max-width: 575px) {
     .js-booking-card {
         margin-inline: 12px;
@@ -1023,20 +1082,17 @@
     }
 
     .js-product-tabs {
-        gap: 6px;
-        padding: 8px;
+        gap: 2px;
+        padding: 0;
     }
 
     .js-product-tab {
-        min-height: 72px;
-        padding: 16px 6px 12px;
-        font-size: 11px;
+        min-height: 50px;
+        padding: 8px 2px;
+        font-size: 10px;
     }
 
-    .js-product-tab .js-soon-badge {
-        top: 4px;
-        right: 4px;
-        font-size: 6.5px !important;
-        padding: 2px 4px !important;
+    .js-product-tab i {
+        font-size: 14px;
     }
 }

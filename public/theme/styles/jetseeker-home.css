@@ -2109,75 +2109,80 @@
     }
 
     .search1.js-hero.js-hero--mock .js-product-tabs {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1px;
+        display: flex !important;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        gap: 3px;
         padding: 0;
-        overflow: hidden;
-        flex-wrap: unset;
-        background: rgba(194, 24, 91, 0.18);
+        overflow: visible;
+        background: #F3EEF0;
         border-bottom: none;
     }
 
     .search1.js-hero.js-hero--mock .js-product-tab {
         position: relative;
-        flex: unset;
+        flex: 1 1 0;
         max-width: none;
-        width: 100%;
-        min-height: 104px;
-        padding: 18px 10px 16px;
+        width: auto;
+        min-width: 0;
+        min-height: 52px;
+        padding: 8px 4px;
         white-space: normal;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 8px;
-        font-size: 13px;
+        gap: 3px;
+        font-size: 11px;
         font-weight: 700;
-        color: var(--js-accent, #C2185B);
+        line-height: 1.15;
+        color: #fff;
         border: none !important;
-        border-bottom: 4px solid transparent !important;
-        border-radius: 0;
-        background: #fff;
+        border-bottom: none !important;
+        border-radius: 10px 10px 0 0 !important;
+        background: #6b7280;
         box-shadow: none !important;
     }
 
     .search1.js-hero.js-hero--mock .js-product-tab i {
-        font-size: 28px;
-        color: var(--js-accent, #C2185B);
+        font-size: 16px;
+        color: inherit;
         opacity: 1;
     }
 
     .search1.js-hero.js-hero--mock .js-product-tab.is-active,
     .search1.js-hero.js-hero--mock .js-product-tab.is-active:hover {
-        background: #fff;
-        color: var(--js-accent, #C2185B);
+        background: var(--js-accent, #C2185B) !important;
+        color: #fff !important;
         border: none !important;
-        border-bottom: 4px solid var(--js-accent, #C2185B) !important;
+        border-bottom: none !important;
         box-shadow: none !important;
     }
 
     .search1.js-hero.js-hero--mock .js-product-tab.is-active i {
-        color: var(--js-accent, #C2185B);
+        color: #fff !important;
     }
 
     .search1.js-hero.js-hero--mock .js-product-tab:not(.is-active):hover {
-        background: #fff;
-        border-bottom: 4px solid transparent !important;
+        background: #4b5563;
+        border-bottom: none !important;
         border-color: transparent !important;
-        color: var(--js-accent, #C2185B);
+        color: #fff;
     }
 
     .search1.js-hero.js-hero--mock .js-product-tab .js-soon-badge,
     .search1.js-hero.js-hero--mock .js-soon-badge {
-        position: static;
-        margin: 2px 0 0 !important;
-        padding: 4px 9px !important;
-        font-size: 9px !important;
-        line-height: 1.2;
-        white-space: nowrap;
-        color: #fff !important;
-        background: var(--js-accent, #C2185B) !important;
-        border-radius: 3px;
+        display: none !important;
+    }
+
+    .search1.js-hero.js-hero--mock .js-product-tab__label-full {
+        display: none !important;
+    }
+
+    .search1.js-hero.js-hero--mock .js-product-tab__label {
+        display: block;
+        max-width: 100%;
+        overflow: visible;
+        white-space: normal;
     }
 }
 
@@ -2508,78 +2513,89 @@
         margin: 0 !important;
         max-width: 100% !important;
         width: 100%;
-        border-radius: 14px !important;
-        overflow: visible;
+        border-radius: 12px !important;
+        overflow: hidden;
     }
 
     .search1.js-hero.js-hero--mock .js-product-tabs {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr;
-        gap: 1px;
+        display: flex !important;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        gap: 3px;
         padding: 0;
-        overflow: hidden;
-        flex-wrap: unset;
-        background: rgba(194, 24, 91, 0.18);
+        overflow: visible;
+        background: #F3EEF0;
         border-bottom: none;
     }
 
     .search1.js-hero.js-hero--mock .js-product-tab {
         position: relative;
-        flex: unset;
+        flex: 1 1 0;
         max-width: none;
-        width: 100%;
-        min-height: 104px;
-        padding: 18px 10px 16px;
-        font-size: 13px;
+        width: auto;
+        min-width: 0;
+        min-height: 52px;
+        padding: 8px 2px;
+        font-size: 10px;
         font-weight: 700;
         white-space: normal;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 8px;
-        color: var(--js-accent, #C2185B);
+        gap: 3px;
+        line-height: 1.15;
+        color: #fff;
         border: none !important;
-        border-bottom: 4px solid transparent !important;
-        border-radius: 0;
-        background: #fff;
+        border-bottom: none !important;
+        border-radius: 10px 10px 0 0 !important;
+        background: #6b7280;
         box-shadow: none !important;
+    }
+
+    .search1.js-hero.js-hero--mock .js-product-tab i {
+        font-size: 14px;
+        color: inherit;
+        opacity: 1;
     }
 
     .search1.js-hero.js-hero--mock .js-product-tab.is-active,
     .search1.js-hero.js-hero--mock .js-product-tab.is-active:hover {
-        background: #fff;
-        color: var(--js-accent, #C2185B);
+        background: var(--js-accent, #C2185B) !important;
+        color: #fff !important;
         border: none !important;
-        border-bottom: 4px solid var(--js-accent, #C2185B) !important;
+        border-bottom: none !important;
         box-shadow: none !important;
     }
 
     .search1.js-hero.js-hero--mock .js-product-tab.is-active i {
-        color: var(--js-accent, #C2185B);
+        color: #fff !important;
     }
 
     .search1.js-hero.js-hero--mock .js-product-tab:not(.is-active):hover {
-        background: #fff;
-        border-bottom: 4px solid transparent !important;
+        background: #4b5563;
+        border-bottom: none !important;
         border-color: transparent !important;
-        color: var(--js-accent, #C2185B);
+        color: #fff;
     }
 
     .search1.js-hero.js-hero--mock .js-product-tab .js-soon-badge,
     .search1.js-hero.js-hero--mock .js-soon-badge {
-        position: static !important;
-        margin: 2px 0 0 !important;
-        padding: 4px 9px !important;
-        font-size: 9px !important;
-        line-height: 1.2;
-        white-space: nowrap;
-        color: #fff !important;
-        background: var(--js-accent, #C2185B) !important;
-        border-radius: 3px;
+        display: none !important;
+    }
+
+    .search1.js-hero.js-hero--mock .js-product-tab__label-full {
+        display: none !important;
+    }
+
+    .search1.js-hero.js-hero--mock .js-product-tab__label {
+        display: block;
+        max-width: 100%;
+        overflow: visible;
+        white-space: normal;
     }
 
     .search1.js-hero.js-hero--mock .js-booking-widget-body {
-        padding: 14px 12px 16px;
+        padding: 16px 14px 18px;
     }
 
     .search1.js-hero.js-hero--mock .js-booking-submit {

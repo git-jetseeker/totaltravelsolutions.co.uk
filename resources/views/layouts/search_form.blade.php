@@ -3,7 +3,7 @@
 @endphp
 
 @unless($hideBookingWidget)
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20261001whitetabs') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20261005datetimerow') }}">
 @endunless
 
 <div style="display:none;" id="notification"></div>

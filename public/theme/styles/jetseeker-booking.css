@@ -1102,6 +1102,83 @@
     display: none;
 }
 
+/* Summary show/hide toggle (used on mobile/tablet) */
+.js-booking-page.apb-booking-page .js-summary-toggle {
+    display: none;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0 0 12px;
+    padding: 14px 16px;
+    border: 1px solid var(--js-booking-border);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(26, 26, 26, 0.06);
+    color: var(--js-booking-navy);
+    text-align: left;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.js-booking-page.apb-booking-page .js-summary-toggle__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.js-booking-page.apb-booking-page .js-summary-toggle__title {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--js-booking-navy);
+}
+
+.js-booking-page.apb-booking-page .js-summary-toggle__action {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--js-booking-accent, #C2185B);
+}
+
+.js-booking-page.apb-booking-page .js-summary-toggle__right {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.js-booking-page.apb-booking-page .js-summary-toggle__total {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--js-booking-navy);
+    line-height: 1;
+}
+
+.js-booking-page.apb-booking-page .js-summary-toggle__icon {
+    font-size: 14px;
+    color: var(--js-booking-accent, #C2185B);
+    transition: transform 0.2s ease;
+}
+
+.js-booking-page.apb-booking-page #show_cart.is-summary-open .js-summary-toggle__icon {
+    transform: rotate(180deg);
+}
+
+/* Desktop: keep summary always open; hide toggle chrome */
+@media (min-width: 992px) {
+    .js-booking-page.apb-booking-page .js-summary-toggle {
+        display: none !important;
+    }
+
+    .js-booking-page.apb-booking-page .js-booking-summary-body,
+    .js-booking-page.apb-booking-page .js-booking-summary-body[hidden] {
+        display: block !important;
+    }
+}
+
 /* Overlay spinner */
 .js-booking-flow .overlay {
     z-index: 9998;
@@ -1181,6 +1258,24 @@
     .js-booking-page.apb-booking-page #show_cart {
         position: static;
         max-width: 100%;
+    }
+
+    /* Mobile/tablet: collapse summary by default; toggle reveals it */
+    .js-booking-page.apb-booking-page #show_cart::before {
+        display: none;
+    }
+
+    .js-booking-page.apb-booking-page .js-summary-toggle {
+        display: flex;
+    }
+
+    .js-booking-page.apb-booking-page #show_cart.is-summary-collapsed .js-booking-summary-body,
+    .js-booking-page.apb-booking-page #show_cart.is-summary-collapsed .js-booking-summary-body[hidden] {
+        display: none !important;
+    }
+
+    .js-booking-page.apb-booking-page #show_cart.is-summary-open .js-booking-summary-body {
+        display: block !important;
     }
 
     /* Summary card — larger logo + left-aligned headings on mobile/tablet */
