@@ -109,7 +109,7 @@ Route::post('/checkBooking', [FrontBookingController::class, 'checkBooking'])->n
 Route::post('/booking/checkout', [FrontBookingController::class, 'checkout'])->name("checkout");
 Route::post('/booking/incomplete/booking/checkout', [FrontBookingController::class, 'checkout'])->name("checkout1");
 Route::post('/booking/payout', [FrontBookingController::class, 'paymentwithstripe'])->name("paymentwithstripe");
-Route::post('booking/incomplete/booking/payout', [FrontBookingController::class, 'paymentwithstripe'])->name("paymentwithstripe");
+Route::post('booking/incomplete/booking/payout', [FrontBookingController::class, 'paymentwithstripe'])->name("paymentwithstripe1");
 Route::post('/booking/payout_failed', [FrontBookingController::class, 'payout_failed'])->name("payout_failed");
 Route::get('/booking/thankyou/{id}', [FrontBookingController::class, 'thanyou'])->name("thankyou");
 Route::get('/ppc/airport-parking', [FrontHomeController::class, 'ppc_airport_parking'])->name("ppcAirportParking");
