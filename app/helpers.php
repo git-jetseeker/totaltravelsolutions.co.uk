@@ -218,7 +218,7 @@ if (!function_exists('ttss_dashboard_asset_url')) {
      */
     function ttss_dashboard_asset_url($path, $default = '')
     {
-        $base = 'https://www.dashboard.ttssgroup.com/';
+        $base = 'https://dashboard.ttssgroup.com/';
         $path = trim((string) $path);
         if ($path === '') {
             return $default;
@@ -276,6 +276,52 @@ if (!function_exists('ttss_company_logo_url')) {
     function ttss_company_logo_url($path, $default = '')
     {
         return ttss_dashboard_asset_url($path, $default);
+    }
+}
+
+if (!function_exists('ttss_award_image_url')) {
+    /**
+     * Award/reward images live under /storage/app/awards/ on dashboard.ttssgroup.com.
+     * Backend may store awards/foo.png, storage/app/awards/foo.png, or a bare filename.
+     */
+    function ttss_award_image_url($path, $default = '')
+    {
+        $base = 'https://dashboard.ttssgroup.com/storage/app/awards/';
+        $path = trim((string) $path);
+        if ($path === '') {
+            return $default;
+        }
+
+        $path = preg_replace('#^(https?:)+#i', 'https:', $path) ?: $path;
+        if (stripos($path, 'https://') === 0 || stripos($path, 'http://') === 0) {
+            return preg_replace('#^https://https://#i', 'https://', $path);
+        }
+        if (str_starts_with($path, '//')) {
+            return 'https:' . $path;
+        }
+
+        $path = ltrim(str_replace('\\', '/', $path), '/');
+
+        if (str_starts_with($path, 'public/')) {
+            $path = substr($path, strlen('public/'));
+        }
+        if (str_starts_with($path, 'storage/app/awards/')) {
+            $path = substr($path, strlen('storage/app/awards/'));
+        } elseif (str_starts_with($path, 'storage/app/')) {
+            $path = substr($path, strlen('storage/app/'));
+        } elseif (str_starts_with($path, 'storage/')) {
+            $path = substr($path, strlen('storage/'));
+        }
+        if (str_starts_with($path, 'awards/')) {
+            $path = substr($path, strlen('awards/'));
+        }
+
+        $path = ltrim($path, '/');
+        if ($path === '') {
+            return $default;
+        }
+
+        return $base . $path;
     }
 }
 

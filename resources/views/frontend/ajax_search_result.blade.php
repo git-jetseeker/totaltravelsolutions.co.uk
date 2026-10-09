@@ -47,11 +47,30 @@ use Illuminate\Support\Facades\Log;
                         return '';
                     }
 
-                    return str_replace(
-                        ['â€¢', 'â€"', 'â€"', 'â€™', 'â€œ', 'â€', 'Â·'],
-                        ['•', '–', '—', "'", '"', '"', '•'],
-                        $html
-                    );
+                    // Repair UTF-8 that was misread as Latin-1 / Windows-1252 (â€¢, â€“, Â, etc.)
+                    if (preg_match('/Ã[\x80-\xBF]|Â[\x80-\xBF]|â€/u', $html)) {
+                        $repaired = @iconv('UTF-8', 'ISO-8859-1//IGNORE', $html);
+                        if (is_string($repaired) && $repaired !== '' && mb_check_encoding($repaired, 'UTF-8')) {
+                            $html = $repaired;
+                        }
+                    }
+
+                    $map = [
+                        "\xC2\xA0" => ' ',
+                        'Â ' => ' ',
+                        'Â' => '',
+                        'â€¢' => '•',
+                        'â€“' => '–',
+                        'â€”' => '—',
+                        'â€™' => "'",
+                        'â€˜' => "'",
+                        'â€œ' => '"',
+                        'â€' => '"',
+                        'â€¦' => '...',
+                        'Â·' => '•',
+                    ];
+
+                    return str_replace(array_keys($map), array_values($map), $html);
                 };
             @endphp
 
@@ -301,110 +320,6 @@ use Illuminate\Support\Facades\Log;
 
                                 <div class="tab-content js-deal-info-modal__tab-content" id="nav-tabContent">
 
-                                    <?php
-
-                                    // Load the original HTML content
-
-                                    
-
-                                    $arivalContent = $company->overview;
-
-                                    
-
-                                    $overviewWithoutNumericValues = '';
-
-                                    
-
-                                    if (!empty($arivalContent)) {
-
-                                        // Create a new DOMDocument
-
-                                    
-
-                                        $dom = new DOMDocument();
-
-                                    
-
-                                        // Suppress errors due to malformed HTML
-
-                                    
-
-                                        libxml_use_internal_errors(true);
-
-                                    
-
-                                        // Load the HTML content into the DOMDocument
-
-                                    
-
-                                        $dom->loadHTML($arivalContent, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-
-                                    
-
-                                        // Create an XPath instance for the document
-
-                                    
-
-                                        $xpath = new DOMXPath($dom);
-
-                                    
-
-                                        // Get all <p> tags in the document
-
-                                    
-
-                                        $pTags = $xpath->query('//p');
-
-                                    
-
-                                        // Iterate over <p> tags
-
-                                    
-
-                                        foreach ($pTags as $pTag) {
-
-                                            // Get all text nodes within the <p> tag
-
-                                    
-
-                                            $textNodes = $xpath->query('.//text()', $pTag);
-
-                                    
-
-                                            foreach ($textNodes as $textNode) {
-
-                                                // Remove numeric values of 3 digits or more from text nodes
-
-                                    
-
-                                                $textNode->nodeValue = preg_replace('/\b\d{3,}\b/', '', $textNode->nodeValue);
-
-                                            }
-
-                                        }
-
-                                    
-
-                                        // Save the modified HTML content
-
-                                    
-
-                                        $overviewWithoutNumericValues = $dom->saveHTML();
-
-                                    
-
-                                        // Restore error handling
-
-                                    
-
-                                        libxml_clear_errors();
-
-                                    }
-
-                                    
-
-                                    ?>
-
                                     <div class="tab-pane fade show active note-editable note-editor mt-0 py-2"
 
                                         id="overview{{ $company->companyID }}" role="tabpanel"
@@ -417,7 +332,7 @@ use Illuminate\Support\Facades\Log;
 
                                                 <div class="note-editable">
 
-                                                    {!! $fixModalEncoding($overviewWithoutNumericValues) !!}
+                                                    {!! $fixModalEncoding($company->overview ?? '') !!}
 
                                                 </div>
 
@@ -435,110 +350,6 @@ use Illuminate\Support\Facades\Log;
 
                                     </div>
 
-                                    <?php
-
-                                    // Load the original HTML content
-
-                                    
-
-                                    $arivalContent = $company->arival;
-
-                                    
-
-                                    $arivalWithoutNumericValues = '';
-
-                                    
-
-                                    if (!empty($arivalContent)) {
-
-                                        // Create a new DOMDocument
-
-                                    
-
-                                        $dom = new DOMDocument();
-
-                                    
-
-                                        // Suppress errors due to malformed HTML
-
-                                    
-
-                                        libxml_use_internal_errors(true);
-
-                                    
-
-                                        // Load the HTML content into the DOMDocument
-
-                                    
-
-                                        $dom->loadHTML($arivalContent, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-
-                                    
-
-                                        // Create an XPath instance for the document
-
-                                    
-
-                                        $xpath = new DOMXPath($dom);
-
-                                    
-
-                                        // Get all <p> tags in the document
-
-                                    
-
-                                        $pTags = $xpath->query('//p');
-
-                                    
-
-                                        // Iterate over <p> tags
-
-                                    
-
-                                        foreach ($pTags as $pTag) {
-
-                                            // Get all text nodes within the <p> tag
-
-                                    
-
-                                            $textNodes = $xpath->query('.//text()', $pTag);
-
-                                    
-
-                                            foreach ($textNodes as $textNode) {
-
-                                                // Remove numeric values of 3 digits or more from text nodes
-
-                                    
-
-                                                $textNode->nodeValue = preg_replace('/\b\d{3,}\b/', '', $textNode->nodeValue);
-
-                                            }
-
-                                        }
-
-                                    
-
-                                        // Save the modified HTML content
-
-                                    
-
-                                        $arivalWithoutNumericValues = $dom->saveHTML();
-
-                                    
-
-                                        // Restore error handling
-
-                                    
-
-                                        libxml_clear_errors();
-
-                                    }
-
-                                    
-
-                                    ?>
-
                                     <div class="tab-pane fade py-0" id="arrival{{ $company->companyID }}"
 
                                         role="tabpanel" aria-labelledby="nav-contact-tab">
@@ -549,7 +360,7 @@ use Illuminate\Support\Facades\Log;
 
                                                 <div class="note-editable">
 
-                                                    {!! $fixModalEncoding($arivalWithoutNumericValues) !!}
+                                                    {!! $fixModalEncoding($company->arival ?? '') !!}
 
                                                 </div>
 
@@ -558,110 +369,6 @@ use Illuminate\Support\Facades\Log;
                                         </div>
 
                                     </div>
-
-                                    <?php
-
-                                    // Load the original HTML content
-
-                                    
-
-                                    $arivalContent = $company->return_proc;
-
-                                    
-
-                                    $returnWithoutNumericValues = '';
-
-                                    
-
-                                    if (!empty($arivalContent)) {
-
-                                        // Create a new DOMDocument
-
-                                    
-
-                                        $dom = new DOMDocument();
-
-                                    
-
-                                        // Suppress errors due to malformed HTML
-
-                                    
-
-                                        libxml_use_internal_errors(true);
-
-                                    
-
-                                        // Load the HTML content into the DOMDocument
-
-                                    
-
-                                        $dom->loadHTML($arivalContent, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-
-                                    
-
-                                        // Create an XPath instance for the document
-
-                                    
-
-                                        $xpath = new DOMXPath($dom);
-
-                                    
-
-                                        // Get all <p> tags in the document
-
-                                    
-
-                                        $pTags = $xpath->query('//p');
-
-                                    
-
-                                        // Iterate over <p> tags
-
-                                    
-
-                                        foreach ($pTags as $pTag) {
-
-                                            // Get all text nodes within the <p> tag
-
-                                    
-
-                                            $textNodes = $xpath->query('.//text()', $pTag);
-
-                                    
-
-                                            foreach ($textNodes as $textNode) {
-
-                                                // Remove numeric values of 3 digits or more from text nodes
-
-                                    
-
-                                                $textNode->nodeValue = preg_replace('/\b\d{3,}\b/', '', $textNode->nodeValue);
-
-                                            }
-
-                                        }
-
-                                    
-
-                                        // Save the modified HTML content
-
-                                    
-
-                                        $returnWithoutNumericValues = $dom->saveHTML();
-
-                                    
-
-                                        // Restore error handling
-
-                                    
-
-                                        libxml_clear_errors();
-
-                                    }
-
-                                    
-
-                                    ?>
 
                                     <div class="tab-pane fade py-0" id="return{{ $company->companyID }}"
 
@@ -673,7 +380,7 @@ use Illuminate\Support\Facades\Log;
 
                                                 <div class="note-editable">
 
-                                                    {!! $fixModalEncoding($returnWithoutNumericValues) !!}
+                                                    {!! $fixModalEncoding($company->return_proc ?? '') !!}
 
                                                 </div>
 

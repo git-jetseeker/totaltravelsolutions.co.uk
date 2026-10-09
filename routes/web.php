@@ -110,6 +110,7 @@ Route::post('/booking/checkout', [FrontBookingController::class, 'checkout'])->n
 Route::post('/booking/incomplete/booking/checkout', [FrontBookingController::class, 'checkout'])->name("checkout1");
 Route::post('/booking/payout', [FrontBookingController::class, 'paymentwithstripe'])->name("paymentwithstripe");
 Route::post('booking/incomplete/booking/payout', [FrontBookingController::class, 'paymentwithstripe'])->name("paymentwithstripe1");
+Route::post('/booking/vehicle-lookup', [FrontBookingController::class, 'lookupVehicle'])->name('booking.vehicleLookup');
 Route::post('/booking/payout_failed', [FrontBookingController::class, 'payout_failed'])->name("payout_failed");
 Route::get('/booking/thankyou/{id}', [FrontBookingController::class, 'thanyou'])->name("thankyou");
 Route::get('/ppc/airport-parking', [FrontHomeController::class, 'ppc_airport_parking'])->name("ppcAirportParking");
@@ -147,12 +148,13 @@ Route::post('/booking/payout_transfer', [FrontTransferController::class, 'payout
 Route::get('/airport/{slug}', [FrontHomeController::class, 'page'])->name("page");
 Route::get('/airports', [FrontHomeController::class, 'airports'])->name("airports");
 Route::get('/support', [TicketsController::class, 'index'])->name("support");
-Route::post('/store', [TicketsController::class, 'store'])->name("submit-ticket");
+Route::post('/support/submit-ticket', [TicketsController::class, 'store'])->name("submit-ticket");
+Route::post('/store', [TicketsController::class, 'store']); // legacy alias
 Route::post('/submit-reply', [TicketsController::class, 'submit_reply'])->name("submit-reply");
 Route::post('/addNote', [TicketsController::class, 'addNote'])->name("addNote");
 Route::post('/search-ticket', [TicketsController::class, 'search_ticket'])->name("search_ticket");
 // Route::post('/search-ticket', [TicketsController::class, 'search-ticket'])->name("search_ticket");
-Route::get('/ticket/view/{id}', [TicketsController::class, 'view'])->name("view-ticket");
+Route::get('/ticket/view/{id}', [TicketsController::class, 'view'])->where('id', '.*')->name("view-ticket");
 Route::get('/manage-booking', [FrontBookingController::class, 'manage_booking'])->name("manage_booking");
 Route::get('/manage-booking/detail', [FrontBookingController::class, 'showManageBookingDetail'])->name("manage_booking.show");
 Route::post('/booking-search', [FrontBookingController::class, 'booking_search'])->name("booking_search");

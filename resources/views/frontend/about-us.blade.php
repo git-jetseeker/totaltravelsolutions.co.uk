@@ -122,19 +122,6 @@
         ],
     ])
 
-    {{-- Company story --}}
-    <section class="js-about-content js-about-content--alt section-spacing">
-        <div class="container">
-            <article class="js-about-card js-reveal">
-                <div class="js-about-card__head">
-                    <span class="js-about-card__badge">{{ crm('about-us.company_badge', 'Since the 2000s') }}</span>
-                    <h2 class="js-about-card__title">{!! $crmSafe('about-us.company_title', 'Our Innovative <span>Company</span>') !!}</h2>
-                    <p class="js-about-card__intro">{{ crm('about-us.company_text', 'We started in the early 2000s. After over 21 years, we have become a trusted parking provider in the UK. We adapt to changes in the travel industry. We offer the latest technology updates and improve our tools, all while focusing on customer satisfaction.') }}</p>
-                </div>
-            </article>
-        </div>
-    </section>
-
     {{-- Team + specialise --}}
     <section class="js-about-content section-spacing">
         <div class="container">
@@ -235,8 +222,8 @@
                     <p>{{ crm('about-us.pricing_text', 'Total Travel Solutions will make sure you get the lowest most affordable price, however the prices may vary if the VAT increases on parking services.') }}</p>
                 </article>
                 <article class="js-about-info__item js-reveal" style="--reveal-delay: 100ms">
-                    <h3>{!! $crmSafe('about-us.trademark_title', crm('about-us.trademarks_title', 'Total Travel Solutions Trademarks')) !!}</h3>
-                    <p>{{ crm('about-us.trademark_text', crm('about-us.trademarks_text', 'This website is managed by Total Travel Solutions, registered in England and Registration No 16770283, Address: Suite 8f, Kelvin House, Kelvin Way, Crawley, United Kingdom, RH10 9WE')) }}</p>
+                    <h3>Total Travel Solutions Trademarks</h3>
+                    <p>This website is only managed by Total Travel Solutions.</p>
                 </article>
             </div>
         </div>

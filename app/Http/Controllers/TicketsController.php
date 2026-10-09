@@ -389,9 +389,7 @@ class TicketsController extends Controller
 
         // Prepare email details
 
-        $encryptedTicketId = Crypt::encrypt($ticketRef);
-
-        $link = route('view-ticket', ['id' => $encryptedTicketId]);
+        $link = $this->ticketViewUrl($ticketRef);
 
 
 
@@ -441,7 +439,7 @@ class TicketsController extends Controller
 
 
 
-        return hard_redirect(route('view-ticket', ['id' => $encryptedTicketId]));
+        return hard_redirect($link);
 
 
 
@@ -563,8 +561,7 @@ class TicketsController extends Controller
 
         if ($chat_data) {
             $ticket = tickets::where('ticket_id', $request->input('ticket_ref'))->first();
-            $tickref = Crypt::encrypt($request->input('ticket_ref'));
-            $link = route('view-ticket', ['id' => $tickref]);
+            $link = $this->ticketViewUrl($request->input('ticket_ref'));
             $email = new EmailController();
 
             $template_data = [];
@@ -588,7 +585,7 @@ class TicketsController extends Controller
                 $email->sendGmail('ticket_reply_company', $toEmail, $template_data);
             }
 
-            return hard_redirect(route('view-ticket', ['id' => $tickref]));
+            return hard_redirect($link);
         }
 
         return redirect()->back()->withErrors(['message' => 'Unable to submit reply. Please try again.'])->withInput();
@@ -739,14 +736,22 @@ class TicketsController extends Controller
     {
         $this->ensureTicketsSchema();
 
+        try {
+            $id = urldecode((string) $id);
+            $id = Crypt::decrypt($id);
+        } catch (\Throwable $e) {
+            Log::warning('Ticket view decrypt failed', ['error' => $e->getMessage()]);
 
-
-
-        $id = Crypt::decrypt($id);
+            return redirect()->route('support')
+                ->withErrors(['error' => 'This ticket link is invalid or has expired. Please search for your ticket below.']);
+        }
 
         $ticket = tickets::where('ticket_id', $id)->orderBy('id', 'desc')->first();
 
-
+        if (! $ticket) {
+            return redirect()->route('support')
+                ->withErrors(['error' => 'Ticket not found. Please check your ticket reference and try again.']);
+        }
 
         $department = support_departments::where('id', $ticket->department)->orderBy('id', 'desc')->first();
 
@@ -754,7 +759,7 @@ class TicketsController extends Controller
 
         $companyMsg = '';
 
-        if ($progress->reply_to == 'All') {
+        if ($progress && $progress->reply_to == 'All') {
 
             if ($progress->clientunread == 'Yes') {
 
@@ -770,7 +775,7 @@ class TicketsController extends Controller
 
             }
 
-        } elseif ($progress->reply_to != 'All') {
+        } elseif ($progress && $progress->reply_to != 'All') {
 
             if ($progress->reply_by == 'Client' && $progress->hold == 'Yes') {
 
@@ -806,6 +811,17 @@ class TicketsController extends Controller
 
 
 
+    }
+
+    /**
+     * Build a same-host ticket view URL (avoids APP_URL host/port mismatches).
+     */
+    private function ticketViewUrl(string $ticketRef): string
+    {
+        $encrypted = Crypt::encrypt($ticketRef);
+        $path = route('view-ticket', ['id' => $encrypted], false);
+
+        return url($path);
     }
 
 
@@ -904,9 +920,7 @@ class TicketsController extends Controller
         }
 
         if ($ticket) {
-            $tickref = Crypt::encrypt($ticket->ticket_id);
-
-            return hard_redirect(route('view-ticket', ['id' => $tickref]));
+            return hard_redirect($this->ticketViewUrl($ticket->ticket_id));
         }
 
         $validator->getMessageBag()->add(

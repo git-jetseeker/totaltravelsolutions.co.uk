@@ -540,6 +540,51 @@
     cursor: pointer;
 }
 
+/* Vehicle registration lookup */
+.js-booking-page.apb-booking-page .mgh-reg-wrap {
+    position: relative;
+}
+.js-booking-page.apb-booking-page .mgh-reg-wrap .bf-inptfld {
+    padding-right: 2.5rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+.js-booking-page.apb-booking-page .mgh-reg-wrap .bf-inptfld::placeholder {
+    text-transform: none;
+}
+.js-booking-page.apb-booking-page .mgh-reg-spinner {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    margin-top: -9px;
+    border: 2px solid rgba(194, 24, 91, .25);
+    border-top-color: #C2185B;
+    border-radius: 50%;
+    animation: mgh-reg-spin .7s linear infinite;
+}
+@keyframes mgh-reg-spin {
+    to { transform: rotate(360deg); }
+}
+.js-booking-page.apb-booking-page .mgh-reg-hint {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #7a8c9e;
+    line-height: 1.35;
+}
+.js-booking-page.apb-booking-page .mgh-reg-hint.is-ok { color: #198754 !important; }
+.js-booking-page.apb-booking-page .mgh-reg-hint.is-warn { color: #b45309 !important; }
+.js-booking-page.apb-booking-page .mgh-reg-hint.is-err { color: #b42318 !important; }
+.js-booking-page.apb-booking-page .mgh-vehicle-autofilled {
+    animation: mgh-field-flash .7s ease;
+}
+@keyframes mgh-field-flash {
+    0% { background-color: #fde7f0; }
+    100% { background-color: #fff; }
+}
+
 /* Travel details — stacked mobile / 3-col desktop */
 .js-booking-page.apb-booking-page .apb-travel-form {
     padding: 16px 18px 14px !important;

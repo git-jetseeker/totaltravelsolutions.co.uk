@@ -71,7 +71,6 @@
                     <li><a href="{{ route('about-us') }}">About Us</a></li>
                     <li><a href="{{ url('parking-services') }}">Parking Services</a></li>
                     <li><a href="{{ route('faqs') }}">FAQs</a></li>
-                    <li><a href="{{ route('support') }}">Customer Support</a></li>
                     <li><a href="{{ route('manage_booking') }}">Manage Booking</a></li>
                 </ul>
             </div>

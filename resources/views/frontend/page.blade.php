@@ -265,7 +265,7 @@
                                     <td class="js-airport-table__transfer" data-label="Transfer">Chauffeur at terminal</td>
                                     <td class="js-airport-table__awards" data-label="Awards">
                                         @if(count($arrangeAwardList) > 0)
-                                            <img class="awards-img" src="{{ asset('storage/' . $arrangeAwardList[0]->award->image) }}" alt="" loading="lazy" width="40" height="40">
+                                            <img class="awards-img" src="{{ ttss_award_image_url($arrangeAwardList[0]->award->image ?? '') }}" alt="" loading="lazy" width="40" height="40">
                                         @else
                                             <span class="js-airport-table__dash">—</span>
                                         @endif
@@ -326,7 +326,7 @@
                                     <td class="js-airport-table__transfer" data-label="Transfer">Shuttle to terminal</td>
                                     <td class="js-airport-table__awards" data-label="Awards">
                                         @if(count($arrangeAwardList) > 0)
-                                            <img class="awards-img" src="{{ asset('storage/' . $arrangeAwardList[0]->award->image) }}" alt="" loading="lazy" width="40" height="40">
+                                            <img class="awards-img" src="{{ ttss_award_image_url($arrangeAwardList[0]->award->image ?? '') }}" alt="" loading="lazy" width="40" height="40">
                                         @else
                                             <span class="js-airport-table__dash">—</span>
                                         @endif

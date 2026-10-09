@@ -82,7 +82,7 @@
                         <p>Fill in your booking details and message. Fields marked * are required.</p>
                     </header>
 
-                    <form id="js_contact-form" action="{{ route('submit-ticket') }}" class="js-support-form contact-form" method="post" enctype="multipart/form-data" novalidate>
+                    <form id="js_contact-form" action="{{ url('/support/submit-ticket') }}" class="js-support-form contact-form" method="post" enctype="multipart/form-data" novalidate>
                         @csrf
 
                         @if ($errors->ticket_store->isNotEmpty())
@@ -191,7 +191,7 @@
                             <p>Look up an existing support ticket.</p>
                         </header>
 
-                        <form action="{{ route('search_ticket') }}" method="post" class="js-support-form support-form" novalidate>
+                        <form action="{{ url('/search-ticket') }}" method="post" class="js-support-form support-form" novalidate>
                             @csrf
 
                             @if ($errors->search_ticket->isNotEmpty())
