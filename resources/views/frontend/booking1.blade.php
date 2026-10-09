@@ -1761,7 +1761,7 @@
                                                                     Email Address<span class="required-field">*</span>
                                                                     <span class="fa fa-info-circle cls-pointer" data-toggle="tooltip" data-placement="top" title="This is the email address you will receive confirmation which includes booking reference and parking procedures"></span>
                                                                 </label>
-                                                                <input type="email" class="form-control bf-inptfld" name="email" id="email" value="{{ old('email', $email ?? '') }}" required oninput="checkFields()">
+                                                                <input type="email" class="form-control bf-inptfld" name="email" id="email" value="{{ old('email', $email ?? '') }}" required autocomplete="email">
                                                             </div>
                                                         </div>
 
@@ -1777,11 +1777,11 @@
                                                             </div>
                                                             <div class="apb-field apb-field--firstname">
                                                                 <label class="lable" for="firstname">First Name<span class="required-field">*</span></label>
-                                                                <input class="form-control bf-inptfld" required type="text" placeholder="First Name" name="firstname" id="firstname" oninput="checkFields()" value="">
+                                                                <input class="form-control bf-inptfld" required type="text" placeholder="First Name" name="firstname" id="firstname" autocomplete="given-name" value="">
                                                             </div>
                                                             <div class="apb-field apb-field--lastname">
                                                                 <label class="lable" for="lastname">Last Name<span class="required-field">*</span></label>
-                                                                <input class="form-control bf-inptfld" type="text" placeholder="Last Name" name="lastname" required id="lastname" oninput="checkFields()" value="">
+                                                                <input class="form-control bf-inptfld" type="text" placeholder="Last Name" name="lastname" required id="lastname" autocomplete="family-name" value="">
                                                             </div>
                                                         </div>
 
@@ -1791,11 +1791,9 @@
                                                                     Mobile Number<span class="required-field">*</span>
                                                                     <span class="fa fa-info-circle cls-pointer" data-toggle="tooltip" data-placement="top" title="We may contact you on this number regarding your booking"></span>
                                                                 </label>
-                                                                <input class="form-control bf-inptfld" type="number" placeholder="Mobile" name="contactno" id="contactno" required disabled value="">
+                                                                <input class="form-control bf-inptfld" type="tel" placeholder="Mobile" name="contactno" id="contactno" required autocomplete="tel" maxlength="14" value="">
                                                             </div>
                                                         </div>
-
-                                                        <p class="checkout_hint filled-hidden">Please enter your first name, last name and email address to enable the mobile number field.</p>
 
                                                     </div><!-- end apb-personal-form -->
 
@@ -5272,33 +5270,121 @@
 
 
     <script>
-
         function checkFields() {
-
-            var nameValue = document.getElementById('firstname').value.trim();
-
-            var name2Value = document.getElementById('lastname').value.trim();
-
-            var emailValue = document.getElementById('email').value.trim();
-
             var phoneField = document.getElementById('contactno');
-
-
-
-            // Disable phone field if both name and email are empty
-
-            if (nameValue !== '' && emailValue !== '' && name2Value !== '') {
-
+            if (phoneField) {
                 phoneField.disabled = false;
-
-            } else {
-
-                phoneField.disabled = true;
-
+                phoneField.removeAttribute('disabled');
             }
-
         }
 
+        @php
+            $bookingDraftKey = 'parking_booking_draft_' . implode('_', [
+                (string) ($data['company_id'] ?? ''),
+                (string) ($data['airport'] ?? ''),
+                (string) ($data['dropdate'] ?? ''),
+                (string) ($data['pickdate'] ?? ''),
+                (string) ($data['product_code'] ?? ''),
+            ]);
+        @endphp
+        (function () {
+            var draftKey = @json($bookingDraftKey);
+
+            var textFieldIds = [
+                'email', 'title', 'firstname', 'lastname', 'contactno',
+                'registration', 'make', 'color', 'model',
+                'departterminal', 'arrivalterminal', 'returnflight'
+            ];
+            var radioNames = ['vehdetails', 'flightdetails'];
+
+            function collectDraft() {
+                var draft = {};
+                textFieldIds.forEach(function (id) {
+                    var el = document.getElementById(id);
+                    if (el) {
+                        draft[id] = el.value;
+                    }
+                });
+                radioNames.forEach(function (name) {
+                    var checked = document.querySelector('input[name="' + name + '"]:checked');
+                    if (checked) {
+                        draft[name] = checked.value;
+                    }
+                });
+                return draft;
+            }
+
+            function saveDraft() {
+                try {
+                    sessionStorage.setItem(draftKey, JSON.stringify(collectDraft()));
+                } catch (e) {}
+            }
+
+            function restoreDraft() {
+                var raw;
+                try {
+                    raw = sessionStorage.getItem(draftKey);
+                } catch (e) {
+                    return;
+                }
+                if (!raw) {
+                    return;
+                }
+
+                var draft;
+                try {
+                    draft = JSON.parse(raw);
+                } catch (e) {
+                    return;
+                }
+
+                textFieldIds.forEach(function (id) {
+                    var el = document.getElementById(id);
+                    if (!el || draft[id] == null || draft[id] === '') {
+                        return;
+                    }
+                    el.value = draft[id];
+                });
+
+                radioNames.forEach(function (name) {
+                    if (!draft[name]) {
+                        return;
+                    }
+                    var radio = document.querySelector('input[name="' + name + '"][value="' + draft[name] + '"]');
+                    if (radio) {
+                        radio.checked = true;
+                        if (window.jQuery) {
+                            jQuery(radio).trigger('change');
+                        } else {
+                            radio.dispatchEvent(new Event('change', { bubbles: true }));
+                        }
+                    }
+                });
+
+                checkFields();
+            }
+
+            function bindDraftPersistence() {
+                checkFields();
+                restoreDraft();
+
+                var formSelectors = '#personal_details_form, #vechile_detail, #travel_detail';
+                if (window.jQuery) {
+                    jQuery(formSelectors).on('input change', saveDraft);
+                } else {
+                    document.querySelectorAll(formSelectors).forEach(function (form) {
+                        form.addEventListener('input', saveDraft);
+                        form.addEventListener('change', saveDraft);
+                    });
+                }
+            }
+
+            if (window.jQuery) {
+                jQuery(bindDraftPersistence);
+            } else {
+                document.addEventListener('DOMContentLoaded', bindDraftPersistence);
+            }
+        })();
     </script>
 
 @endsection
