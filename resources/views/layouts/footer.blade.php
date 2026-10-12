@@ -233,65 +233,40 @@
 <script src="{{ asset('theme/js/jquery-3.2.1.min.js') }}"></script>
 
 <script defer src="{{ asset('theme/styles/bootstrap4/popper.js') }}"></script>
-
 <script defer src="{{ asset('theme/styles/bootstrap4/bootstrap.min.js') }}"></script>
 
 @php $isBookingCheckout = in_array(Route::currentRouteName(), ['addBookingForm', 'addBookingForm2'], true); @endphp
 
+{{-- Datepicker-only jQuery UI (~37KB) instead of full library (~254KB). --}}
+<script src="{{ asset('theme/js/jquery-ui-datepicker.min.js') }}"></script>
 @if (!$isBookingCheckout)
-<script src="{{ asset('theme/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
-
-<script src="{{ asset('theme/plugins/easing/easing.js') }}"></script>
-
-<script src="{{ asset('theme/js/custom.js') }}"></script>
 <script src="{{ asset('theme/js/jetseeker-ui.js?v=20251023') }}"></script>
-
-<script src="{{ asset('assets/front/js/bootstrap-datepicker.js') }}"></script>
-
-<script src="{{ asset('assets/front/js/custom-date-picker.js') }}"></script>
+<script src="{{ asset('theme/js/jetseeker-search.js?v=20261012') }}"></script>
+<script>
+(function () {
+    // Do not load bootstrap-datepicker here — it overwrites $.fn.datepicker and breaks jQuery UI.
+    var deferred = [
+        "{{ asset('theme/plugins/OwlCarousel2-2.2.1/owl.carousel.min.js') }}",
+        "{{ asset('theme/plugins/easing/easing.js') }}",
+        "{{ asset('theme/js/custom.js?v=20261012') }}"
+    ];
+    function loadNext(i) {
+        if (i >= deferred.length) return;
+        var s = document.createElement('script');
+        s.src = deferred[i];
+        s.onload = function () { loadNext(i + 1); };
+        s.onerror = function () { loadNext(i + 1); };
+        document.body.appendChild(s);
+    }
+    if (document.readyState === 'complete') {
+        loadNext(0);
+    } else {
+        window.addEventListener('load', function () { loadNext(0); });
+    }
+})();
+</script>
 @endif
 
-
-
-<!--script type='text/javascript'>
-
-window.__lo_site_id = 248579;
-
-
-
- (function() {
-
-  var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;
-
-  wa.src = 'https://d10lpsik1i8c69.cloudfront.net/w.js';
-
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
-
- })();
-
-</script-->
-
-
-
-
-
-
-
-{{-- <script async type="text/javascript" src="{{ asset('assets/front/parkingzone/js/trx_addons.js') }}"></script> --}}
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-@if (!$isBookingCheckout)
-<!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> -->
-
-<!-- <script src="{{ asset('theme/tinyCalender/index.js') }}"></script> -->
-<script src="{{ asset('theme/js/jquery-ui.min.js') }}"></script>
-<script src="{{ asset('theme/js/jetseeker-search.js?v=20251018') }}"></script>
-@else
-<script src="{{ asset('theme/js/jquery-ui.min.js') }}"></script>
-@endif
-<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> -->
 @if (!$isBookingCheckout)
 <script>
     $(document).ready(function () {
@@ -899,13 +874,37 @@ window.__lo_site_id = 248579;
 
 <meta name="google-site-verification" content="0Hn1VMmAaGeUFSzG9jOKX8OkJim3YlwSviUgKGQgFu0" />
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HHPJTF4GQM"></script>
+{{-- Queue gtag commands immediately; delay fetching the script until idle / interaction --}}
 <script>
+(function () {
+  var loaded = false;
+  var GA_ID = 'G-HHPJTF4GQM';
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  window.gtag = function () { dataLayer.push(arguments); };
   gtag('js', new Date());
-  gtag('config', 'G-HHPJTF4GQM');
+  gtag('config', GA_ID);
+
+  function loadGtag() {
+    if (loaded) return;
+    loaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+  }
+
+  ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'].forEach(function (evt) {
+    window.addEventListener(evt, loadGtag, { passive: true, once: true });
+  });
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadGtag, { timeout: 4000 });
+  } else {
+    window.addEventListener('load', function () {
+      setTimeout(loadGtag, 3500);
+    });
+  }
+})();
 </script>
 
 </body>

@@ -10,18 +10,13 @@
     <meta http-equiv="Expires" content="0" />
     <meta name="google-site-verification" content="0Hn1VMmAaGeUFSzG9jOKX8OkJim3YlwSviUgKGQgFu0" />
     <meta name="msvalidate.01" content="058CE2BBE3EF9D932E6FA366CAC4120F" />
-    <!-- <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> -->
-    <!--<meta name="facebook-domain-verification" content="ijicroog46un4zpog2phqh297tt92n" />-->
     <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon-32x32q.png') }}?v=20260915b" sizes="32x32">
     <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon-16x16q.png') }}?v=20260915b" sizes="16x16">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v=20260915b">
     <link rel="apple-touch-icon" href="{{ asset('assets/images/favicon-32x32q.png') }}?v=20260915b">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="{{asset('theme/styles/font-awesome.min.css')}}"> -->
-    <!-- <link rel="stylesheet" href="{{asset('theme/styles/all.css')}}"> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
-    <link rel="stylesheet" href="{{asset('theme/styles/jquery-ui.css')}}">
-    <link rel="stylesheet" href="{{asset('theme/styles/flatpickr.min.css')}}">
+    @if (Route::currentRouteName() === 'main')
+        <link rel="preload" as="image" type="image/webp" href="{{ url('/cached-media/hero-airport-parking.webp') }}" fetchpriority="high">
+    @endif
 
     @php
         $site_settings_main = [];
@@ -47,22 +42,13 @@
         <meta name="keywords" content="{{ $site_settings_main['meta_keyword'] ?? 'airport parking, airport hotels, lounges, transfers' }}">
     @endif
 
+    {{-- jQuery loads in footer; keep head free of render-blocking JS --}}
+    {{-- parkingzone all.css dropped: ~17 KiB gzip unused BS3 rules (icons use FA 4.7) --}}
 
-    <script src="{{ asset('assets/front/js/jquery.min.js') }}"></script>
-    @if (Route::currentRouteName() == 'main')
-        <!--<link rel="stylesheet"  href='{{ asset('assets/css/menu.css') }}'  media="all" type='text/css'/>-->
-        <!--<link rel="stylesheet"  href='{{ asset('assets/front/parkingzone/css/all_home.css') }}'  media="all" type='text/css'/>-->
-        
-    @else
-        <link rel="stylesheet" href="{{ asset('assets/front/parkingzone/css/all.css') }}" media="all"
-            type='text/css' />
-    @endif
-
-    <link rel='dns-prefetch' href='https://ajax.googleapis.com' />
-
-    <link rel='dns-prefetch' href='https://fonts.googleapis.com' />
+    <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+    <link rel="preconnect" href="{{ url('/') }}" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="{{ asset('theme/plugins/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0') }}" crossorigin>
     <link rel="canonical" href="{{ str_replace('', '/', Request::fullUrl()) }}" />
-    <!-- <link rel="canonical" href="{{ str_replace('//', '/', Request::fullUrl()) }}" /> -->
 
     <meta name="twitter:title" content="{!! $site_settings_main['site_twitter_title'] ?? config('app.name', 'Total Travel Solutions') !!}">
     <meta property="og:title" content="{!! $site_settings_main['site_og_title'] ?? config('app.name', 'Total Travel Solutions') !!}">
@@ -74,71 +60,52 @@
 
     {!! $site_settings_main['site_schema'] ?? '' !!}
 
-    @if (\Request::is('main'))
-    @else
+    {{-- Critical CSS — homepage skips full Bootstrap (unused ~16 KiB); grid lives in jetseeker CSS --}}
+    @if (Route::currentRouteName() !== 'main')
+        <link rel="stylesheet" href="{{ asset('theme/styles/bootstrap4/bootstrap.min.css') }}">
     @endif
-    {!! $site_settings_main['site_schema'] ?? '' !!}
+    <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261012min') }}">
+    <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20261005datetimerow') }}">
+    @if (Route::currentRouteName() === 'main')
+        <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-home.css?v=20261012css') }}">
+    @endif
 
-
-
-
-
-
-
-
-
-    <noscript id="deferred-styles">
-
-        {{-- <!--<link rel="stylesheet"  type="text/css" href="{{ url('theme/styles/bootstrap4/bootstrap.min.css') }}">--> --}}
-
-        {{-- <!--<link href="{{ url('theme/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}"  rel="stylesheet" type="text/css">--> --}}
+    {{-- Non-critical CSS: media=print + onload is non-render-blocking --}}
+    @php
+        $deferredStyles = [];
+        if (Route::currentRouteName() === 'main') {
+            // Homepage grid lives in jetseeker-home.css; only modal CSS needed for newsletter popup
+            $deferredStyles[] = asset('theme/styles/bootstrap4/bootstrap-modal.min.css?v=20261012');
+        }
+        $deferredStyles = array_merge($deferredStyles, [
+            asset('theme/plugins/font-awesome-4.7.0/css/font-awesome.min.css'),
+            asset('theme/styles/main_styles.css'),
+            asset('theme/styles/index-main.css?v=4122025325'),
+            asset('theme/styles/custom.css?v=3122025'),
+            asset('theme/styles/responsive.css'),
+            asset('theme/styles/jquery-ui.css'),
+            asset('theme/styles/flatpickr.min.css'),
+            asset('theme/plugins/OwlCarousel2-2.2.1/owl.carousel.css'),
+            asset('theme/plugins/OwlCarousel2-2.2.1/owl.theme.default.css'),
+            asset('theme/plugins/OwlCarousel2-2.2.1/animate.css'),
+            asset('assets/front/css/datepicker.css'),
+            asset('theme/styles/select2.min.css'),
+            asset('theme/styles/jetseeker-product-results.css?v=20260907noblue2'),
+        ]);
+    @endphp
+    @foreach ($deferredStyles as $href)
+        <link rel="stylesheet" href="{{ $href }}" media="print" onload="this.media='all'">
+    @endforeach
+    <noscript>
+        @foreach ($deferredStyles as $href)
+            <link rel="stylesheet" href="{{ $href }}">
+        @endforeach
     </noscript>
-
-    <script>
-        var loadDeferredStyles = function() {
-            var addStylesNode = document.getElementById("deferred-styles");
-            var replacement = document.createElement("div");
-            replacement.innerHTML = addStylesNode.textContent;
-            document.body.appendChild(replacement)
-            addStylesNode.parentElement.removeChild(addStylesNode);
-        };
-        var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-            window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-        if (raf) raf(function() {
-            window.setTimeout(loadDeferredStyles, 0);
-        });
-        else window.addEventListener('load', loadDeferredStyles);
-    </script>
-
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/bootstrap4/bootstrap.min.css') }}">
-
-    <!--<link href="{{ asset('theme/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}"  rel="stylesheet" type="text/css">-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('theme/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/plugins/OwlCarousel2-2.2.1/animate.css') }}">
-    
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/front/css/datepicker.css') }}" media="all">
-
-    <link rel="stylesheet" href="{{ asset('theme/styles/select2.min.css') }}">
-    
-    <!--<link rel="stylesheet"   type="text/css" href="{{ asset('theme/styles/responsive.css') }}">-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/main_styles.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/index-main.css?v=4122025325') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/custom.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/custom.css?v=3122025') }}">
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/responsive.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261007ioszoom') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-product-results.css?v=20260907noblue2') }}">
 
     @if (isset($site_settings_main['site_header_analytics']))
         {!! $site_settings_main['site_header_analytics'] !!}
     @endif
 </head>
-
 
 
 

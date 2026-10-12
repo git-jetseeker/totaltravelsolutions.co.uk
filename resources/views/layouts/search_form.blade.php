@@ -2,9 +2,7 @@
     $hideBookingWidget = !empty($hideBookingWidget);
 @endphp
 
-@unless($hideBookingWidget)
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20261005datetimerow') }}">
-@endunless
+{{-- jetseeker-booking-widget.css is loaded once in layouts/header (critical path) --}}
 
 <div style="display:none;" id="notification"></div>
 
@@ -62,7 +60,19 @@
 @endphp
 
 <section class="search1 js-hero js-hero--mock{{ $hideBookingWidget ? ' js-hero--no-widget' : '' }}">
-    <div class="js-hero__bg" aria-hidden="true"></div>
+    <div class="js-hero__bg" aria-hidden="true">
+        <picture>
+            <source srcset="{{ url('/cached-media/hero-airport-parking.webp') }}" type="image/webp">
+            <img
+                src="{{ url('/cached-media/hero-airport-parking.jpg') }}"
+                alt=""
+                width="1280"
+                height="720"
+                fetchpriority="high"
+                decoding="async"
+            >
+        </picture>
+    </div>
     <div class="js-hero__scrim" aria-hidden="true"></div>
     <div class="js-hero__blob" aria-hidden="true"></div>
     <div class="js-hero__flight" aria-hidden="true">

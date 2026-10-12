@@ -22,6 +22,11 @@
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
     # -------------------------------------------------------------
+    # Cached media (long Cache-Control) — before public/ rewrite
+    # -------------------------------------------------------------
+    RewriteRule ^cached-media/(.+)$ public/cache-media.php?f=$1 [L,QSA]
+
+    # -------------------------------------------------------------
     # Redirect all requests to public/
     # -------------------------------------------------------------
     RewriteCond %{REQUEST_URI} !^/public/

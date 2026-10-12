@@ -308,7 +308,7 @@
 
 <link rel="stylesheet" href="{{ url('public/theme/styles/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ url('public/theme/styles/owl.theme.default.css') }}">
-<script src="{{ url('public/theme/js/owl.carousel.js') }}"></script>
+<script src="{{ asset('theme/js/owl.carousel.min.js') }}"></script>
 
 <div class="premium-testimonial-slider js-reviews-slider">
     <div class="container">

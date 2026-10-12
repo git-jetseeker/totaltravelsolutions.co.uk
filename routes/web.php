@@ -39,6 +39,25 @@ Route::get('/linkstorage', function () {
     Artisan::call('storage:link');
 });
 
+// Fallback if rewrite to cache-media.php is skipped (e.g. some nginx setups)
+Route::get('/cached-media/{file}', function (string $file) {
+    $file = basename($file);
+    if ($file === '' || !preg_match('/^[A-Za-z0-9._\-\s]+\.(jpe?g|png|gif|webp|svg)$/i', $file)) {
+        abort(404);
+    }
+
+    $path = public_path('assets/images/' . $file);
+    if (!is_file($path)) {
+        abort(404);
+    }
+
+    return response()->file($path, [
+        'Cache-Control' => 'public, max-age=31536000, immutable',
+        'Expires' => gmdate('D, d M Y H:i:s', time() + 31536000) . ' GMT',
+        'X-Content-Type-Options' => 'nosniff',
+    ]);
+})->where('file', '[A-Za-z0-9._\\-\\s]+\\.(jpe?g|png|gif|webp|svg)');
+
 Route::get('/cache', function () {
     Artisan::call('cache:clear');
     Artisan::call('config:clear');

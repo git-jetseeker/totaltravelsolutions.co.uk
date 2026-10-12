@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap);
+/* Open Sans @import removed — jetseeker UI uses system fonts; avoids critical font chain */
 
 @charset "utf-8"@font-face {
     font-family: 'Beyond';
