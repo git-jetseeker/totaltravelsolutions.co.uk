@@ -1,9 +1,6 @@
-@if (\Request::is('main'))
-    <link rel="stylesheet" href='{{ asset('assets/css/menu.css') }}' media="all" type='text/css' />
-@else
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/bootstrap4/bootstrap.min.css') }}">
-    <link rel="stylesheet" href='{{ asset('assets/front/parkingzone/css/all.css') }}' media="all" type='text/css' />
-@endif
+{{-- CSS/JS for Bootstrap, all.css, and Owl are loaded once via layouts/header + footer.
+     Do not re-include them here — on `/` Request::is('main') is false and previously
+     re-injected ~240KB of render-blocking CSS on every homepage view. --}}
 
 <style>
     /* Premium Testimonial Styles */
@@ -306,10 +303,6 @@
     }
 </style>
 
-<link rel="stylesheet" href="{{ url('public/theme/styles/owl.carousel.min.css') }}">
-<link rel="stylesheet" href="{{ url('public/theme/styles/owl.theme.default.css') }}">
-<script src="{{ asset('theme/js/owl.carousel.min.js') }}"></script>
-
 <div class="premium-testimonial-slider js-reviews-slider">
     <div class="container">
        
@@ -347,35 +340,41 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $(".owl-carousel.premium-owl-theme").owlCarousel({
-            loop: true,
-            margin: 0,
-            nav: true,
-            dots: false,
-            autoHeight: true,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: true,
-            smartSpeed: 800,
-            responsive: {
-                0: {
-                    items: 1,
+(function () {
+    // Owl loads after window.load via layouts/footer — wait for plugin, then init once.
+    function initPremiumReviewsSlider() {
+        if (!window.jQuery || !jQuery.fn.owlCarousel) {
+            setTimeout(initPremiumReviewsSlider, 50);
+            return;
+        }
+        jQuery(function ($) {
+            var $el = $('.owl-carousel.premium-owl-theme');
+            if (!$el.length || $el.hasClass('owl-loaded')) {
+                return;
+            }
+            $el.owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: true,
+                dots: false,
+                autoHeight: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                smartSpeed: 800,
+                responsive: {
+                    0: { items: 1 },
+                    768: { items: 1 },
+                    992: { items: 1 },
+                    1200: { items: 1 }
                 },
-                768: {
-                    items: 1
-                },
-                992: {
-                    items: 1
-                },
-                1200: {
-                    items: 1
-                }
-            },
-            navText: [
-                "<i class='fa fa-chevron-left'></i>",
-                "<i class='fa fa-chevron-right'></i>"
-            ]
+                navText: [
+                    "<i class='fa fa-chevron-left'></i>",
+                    "<i class='fa fa-chevron-right'></i>"
+                ]
+            });
         });
-    });
+    }
+    initPremiumReviewsSlider();
+})();
 </script>

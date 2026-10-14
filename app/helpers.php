@@ -408,31 +408,41 @@ if (! function_exists('pz_brand_settings')) {
 if (! function_exists('site_settings')) {
     /**
      * Load Magr settings for the current (or given) partner agent.
+     * Cached briefly to cut TTFB from repeated settings::all() on every page.
      */
     function site_settings($agentId = null): array
     {
         $agentId = (string) ($agentId ?? (function_exists('current_agent_id') ? current_agent_id() : '1'));
-        $out = [];
+
+        $loader = static function () use ($agentId): array {
+            $out = [];
+
+            try {
+                foreach (\App\Models\settings::query()->get() as $setting) {
+                    if (setting_agent_matches($setting, $agentId)) {
+                        $out[$setting->field_name] = $setting->field_value;
+                    }
+                }
+            } catch (\Throwable $e) {
+                // keep empty map
+            }
+
+            if (function_exists('normalize_site_settings')) {
+                $out = normalize_site_settings($out);
+            }
+
+            if (function_exists('pz_brand_settings')) {
+                $out = pz_brand_settings($out);
+            }
+
+            return $out;
+        };
 
         try {
-            foreach (\App\Models\settings::all() as $setting) {
-                if (setting_agent_matches($setting, $agentId)) {
-                    $out[$setting->field_name] = $setting->field_value;
-                }
-            }
+            return cache()->remember('site_settings.agent.' . $agentId, 300, $loader);
         } catch (\Throwable $e) {
-            // keep empty map
+            return $loader();
         }
-
-        if (function_exists('normalize_site_settings')) {
-            $out = normalize_site_settings($out);
-        }
-
-        if (function_exists('pz_brand_settings')) {
-            $out = pz_brand_settings($out);
-        }
-
-        return $out;
     }
 }
 

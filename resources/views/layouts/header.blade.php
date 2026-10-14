@@ -19,12 +19,10 @@
     @endif
 
     @php
-        $site_settings_main = [];
-        $settingsAll = App\Models\settings::all()->filter(fn ($s) => setting_agent_matches($s));
-        foreach ($settingsAll as $setting) {
-            $site_settings_main[$setting->field_name] = $setting->field_value;
-        }
-    $site_settings_main = normalize_site_settings($site_settings_main);
+        // Cached per-agent settings map (was settings::all() on every request).
+        $site_settings_main = function_exists('site_settings')
+            ? site_settings()
+            : [];
     @endphp
     @hasSection('title')
         <title>@yield('title')</title>
@@ -64,34 +62,47 @@
     @if (Route::currentRouteName() !== 'main')
         <link rel="stylesheet" href="{{ asset('theme/styles/bootstrap4/bootstrap.min.css') }}">
     @endif
-    <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261012min') }}">
+    <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261014perf') }}">
     <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20261005datetimerow') }}">
     @if (Route::currentRouteName() === 'main')
-        <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-home.css?v=20261012css') }}">
+        <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-home.css?v=20261014perf') }}">
     @endif
 
     {{-- Non-critical CSS: media=print + onload is non-render-blocking --}}
     @php
+        $isHome = Route::currentRouteName() === 'main';
         $deferredStyles = [];
-        if (Route::currentRouteName() === 'main') {
-            // Homepage grid lives in jetseeker-home.css; only modal CSS needed for newsletter popup
-            $deferredStyles[] = asset('theme/styles/bootstrap4/bootstrap-modal.min.css?v=20261012');
+        if ($isHome) {
+            // Homepage: keep only styles needed below the fold / for booking widget.
+            $deferredStyles = [
+                asset('theme/styles/bootstrap4/bootstrap-modal.min.css?v=20261012'),
+                asset('theme/plugins/font-awesome-4.7.0/css/font-awesome.min.css'),
+                asset('theme/styles/main_styles.css'),
+                asset('theme/styles/index-main.css?v=4122025325'),
+                asset('theme/styles/custom.css?v=3122025'),
+                asset('theme/styles/responsive.css'),
+                asset('theme/styles/jquery-ui.css'),
+                asset('theme/plugins/OwlCarousel2-2.2.1/owl.carousel.css'),
+                asset('theme/plugins/OwlCarousel2-2.2.1/owl.theme.default.css'),
+                asset('theme/styles/select2.min.css'),
+            ];
+        } else {
+            $deferredStyles = [
+                asset('theme/plugins/font-awesome-4.7.0/css/font-awesome.min.css'),
+                asset('theme/styles/main_styles.css'),
+                asset('theme/styles/index-main.css?v=4122025325'),
+                asset('theme/styles/custom.css?v=3122025'),
+                asset('theme/styles/responsive.css'),
+                asset('theme/styles/jquery-ui.css'),
+                asset('theme/styles/flatpickr.min.css'),
+                asset('theme/plugins/OwlCarousel2-2.2.1/owl.carousel.css'),
+                asset('theme/plugins/OwlCarousel2-2.2.1/owl.theme.default.css'),
+                asset('theme/plugins/OwlCarousel2-2.2.1/animate.css'),
+                asset('assets/front/css/datepicker.css'),
+                asset('theme/styles/select2.min.css'),
+                asset('theme/styles/jetseeker-product-results.css?v=20260907noblue2'),
+            ];
         }
-        $deferredStyles = array_merge($deferredStyles, [
-            asset('theme/plugins/font-awesome-4.7.0/css/font-awesome.min.css'),
-            asset('theme/styles/main_styles.css'),
-            asset('theme/styles/index-main.css?v=4122025325'),
-            asset('theme/styles/custom.css?v=3122025'),
-            asset('theme/styles/responsive.css'),
-            asset('theme/styles/jquery-ui.css'),
-            asset('theme/styles/flatpickr.min.css'),
-            asset('theme/plugins/OwlCarousel2-2.2.1/owl.carousel.css'),
-            asset('theme/plugins/OwlCarousel2-2.2.1/owl.theme.default.css'),
-            asset('theme/plugins/OwlCarousel2-2.2.1/animate.css'),
-            asset('assets/front/css/datepicker.css'),
-            asset('theme/styles/select2.min.css'),
-            asset('theme/styles/jetseeker-product-results.css?v=20260907noblue2'),
-        ]);
     @endphp
     @foreach ($deferredStyles as $href)
         <link rel="stylesheet" href="{{ $href }}" media="print" onload="this.media='all'">
