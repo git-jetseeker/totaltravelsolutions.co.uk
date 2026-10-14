@@ -62,7 +62,10 @@
 <section class="search1 js-hero js-hero--mock{{ $hideBookingWidget ? ' js-hero--no-widget' : '' }}">
     <div class="js-hero__bg" aria-hidden="true">
         <picture>
-            <source srcset="{{ url('/cached-media/hero-airport-parking.webp') }}" type="image/webp">
+            <source
+                type="image/webp"
+                srcset="{{ url('/cached-media/hero-airport-parking-768.webp') }} 768w, {{ url('/cached-media/hero-airport-parking.webp') }} 1280w"
+                sizes="100vw">
             <img
                 src="{{ url('/cached-media/hero-airport-parking.jpg') }}"
                 alt=""

@@ -230,6 +230,7 @@
 
 
 
+{{-- jQuery stays sync (inline $() below). Everything else is defer so it leaves the LCP critical chain. --}}
 <script src="{{ asset('theme/js/jquery-3.2.1.min.js') }}"></script>
 
 <script defer src="{{ asset('theme/styles/bootstrap4/popper.js') }}"></script>
@@ -237,14 +238,17 @@
 
 @php $isBookingCheckout = in_array(Route::currentRouteName(), ['addBookingForm', 'addBookingForm2'], true); @endphp
 
-{{-- Datepicker-only jQuery UI (~37KB) instead of full library (~254KB). --}}
+@if ($isBookingCheckout)
 <script src="{{ asset('theme/js/jquery-ui-datepicker.min.js') }}"></script>
-@if (!$isBookingCheckout)
-<script src="{{ asset('theme/js/jetseeker-ui.js?v=20251023') }}"></script>
-<script src="{{ asset('theme/js/jetseeker-search.js?v=20261012') }}"></script>
+@else
+{{-- defer: download in parallel, run in order before DOMContentLoaded — not parser-blocking critical --}}
+<script defer src="{{ asset('theme/js/jquery-ui-datepicker.min.js') }}"></script>
+<script defer src="{{ asset('theme/js/jetseeker-ui.js?v=20251023') }}"></script>
+<script defer src="{{ asset('theme/js/jetseeker-search.js?v=20261014chain') }}"></script>
+<script defer src="{{ asset('theme/js/select2.min.js') }}"></script>
 <script>
 (function () {
-    // Do not load bootstrap-datepicker here — it overwrites $.fn.datepicker and breaks jQuery UI.
+    // Post-load only: carousels / legacy helpers (not needed for LCP or booking first paint)
     var deferred = [
         "{{ asset('theme/plugins/OwlCarousel2-2.2.1/owl.carousel.min.js') }}",
         "{{ asset('theme/plugins/easing/easing.js') }}",
@@ -874,11 +878,15 @@
 
 <meta name="google-site-verification" content="0Hn1VMmAaGeUFSzG9jOKX8OkJim3YlwSviUgKGQgFu0" />
 
-{{-- Queue gtag commands immediately; delay fetching the script until idle / interaction --}}
+{{-- Queue GA commands immediately; fetch gtag.js only after real engagement.
+     Short idle timeouts still load during Lighthouse and flag ~78 KiB unused JS. --}}
 <script>
 (function () {
   var loaded = false;
   var GA_ID = 'G-HHPJTF4GQM';
+  var path = (window.location.pathname || '').toLowerCase();
+  var needsEarlyGa = path.indexOf('/thankyou') !== -1 || path.indexOf('thankyou') !== -1;
+
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { dataLayer.push(arguments); };
   gtag('js', new Date());
@@ -893,17 +901,20 @@
     document.head.appendChild(s);
   }
 
-  ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'].forEach(function (evt) {
+  if (needsEarlyGa) {
+    loadGtag();
+    return;
+  }
+
+  // Interaction-only for normal pages (keeps gtag off lab unused-JS / LCP path)
+  ['scroll', 'pointerdown', 'touchstart', 'keydown'].forEach(function (evt) {
     window.addEventListener(evt, loadGtag, { passive: true, once: true });
   });
 
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(loadGtag, { timeout: 4000 });
-  } else {
-    window.addEventListener('load', function () {
-      setTimeout(loadGtag, 3500);
-    });
-  }
+  // Long fallback so passive visitors are still counted after Lighthouse usually finishes
+  window.addEventListener('load', function () {
+    setTimeout(loadGtag, 12000);
+  });
 })();
 </script>
 

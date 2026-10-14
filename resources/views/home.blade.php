@@ -2108,20 +2108,18 @@
 
 
 
-<script src="{{ asset('theme/js/select2.min.js') }}"></script>
-
-
-
-
-
+{{-- select2.min.js is deferred in layouts/footer (keeps it off the LCP critical chain) --}}
 <script type="text/javascript">
-
-    $(document).ready(function() {
-
-        $('.select2me').select2();
-
+    $(document).ready(function () {
+        function initSelect2() {
+            if (!window.jQuery || !jQuery.fn.select2) {
+                setTimeout(initSelect2, 30);
+                return;
+            }
+            jQuery('.select2me').select2();
+        }
+        initSelect2();
     });
-
 </script>
 
 

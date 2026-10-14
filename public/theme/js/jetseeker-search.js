@@ -8,8 +8,10 @@
         return;
     }
 
-    // Cache viewport width so datepicker/select2 DOM writes do not force reflow via innerWidth reads
-    var calendarMonths = window.innerWidth < 640 ? 1 : 2;
+    // Use matchMedia instead of window.innerWidth — reading innerWidth at parse time
+    // forces layout (Lighthouse: Forced reflow in jetseeker-search.js:12).
+    var calendarMonthsMq = window.matchMedia('(max-width: 639px)');
+    var calendarMonths = 2; // safe default until first non-forcing media check
     var calendarMonthsResizeBound = false;
 
     function getCalendarMonths() {
@@ -17,7 +19,7 @@
     }
 
     function refreshCachedCalendarMonths() {
-        calendarMonths = window.innerWidth < 640 ? 1 : 2;
+        calendarMonths = calendarMonthsMq.matches ? 1 : 2;
     }
 
     function bindCalendarMonthsResize() {
@@ -25,11 +27,15 @@
             return;
         }
         calendarMonthsResizeBound = true;
-        var resizeTimer;
-        $(window).on('resize.jsCalendarMonths', function () {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(refreshCachedCalendarMonths, 150);
-        });
+        refreshCachedCalendarMonths();
+        var onChange = function () {
+            refreshCachedCalendarMonths();
+        };
+        if (typeof calendarMonthsMq.addEventListener === 'function') {
+            calendarMonthsMq.addEventListener('change', onChange);
+        } else if (typeof calendarMonthsMq.addListener === 'function') {
+            calendarMonthsMq.addListener(onChange);
+        }
     }
 
     function bindCalendarTrigger($input) {

@@ -15,7 +15,9 @@
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v=20260915b">
     <link rel="apple-touch-icon" href="{{ asset('assets/images/favicon-32x32q.png') }}?v=20260915b">
     @if (Route::currentRouteName() === 'main')
-        <link rel="preload" as="image" type="image/webp" href="{{ url('/cached-media/hero-airport-parking.webp') }}" fetchpriority="high">
+        <link rel="preload" as="image" type="image/webp" fetchpriority="high"
+            imagesrcset="{{ url('/cached-media/hero-airport-parking-768.webp') }} 768w, {{ url('/cached-media/hero-airport-parking.webp') }} 1280w"
+            imagesizes="100vw">
     @endif
 
     @php
@@ -44,9 +46,15 @@
     {{-- parkingzone all.css dropped: ~17 KiB gzip unused BS3 rules (icons use FA 4.7) --}}
 
     <link rel="dns-prefetch" href="https://ajax.googleapis.com">
-    <link rel="preconnect" href="{{ url('/') }}" crossorigin>
-    <link rel="preload" as="font" type="font/woff2" href="{{ asset('theme/plugins/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0') }}" crossorigin>
+    {{-- No same-origin preconnect (Lighthouse: useless). FA font preload removed — FA CSS is deferred and competed with LCP. --}}
     <link rel="canonical" href="{{ str_replace('', '/', Request::fullUrl()) }}" />
+
+    @if (Route::currentRouteName() === 'main')
+        {{-- Start critical CSS fetches in parallel as early as possible --}}
+        <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261014perf') }}">
+        <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20261005datetimerow') }}">
+        <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-home.css?v=20261014perf') }}">
+    @endif
 
     <meta name="twitter:title" content="{!! $site_settings_main['site_twitter_title'] ?? config('app.name', 'Total Travel Solutions') !!}">
     <meta property="og:title" content="{!! $site_settings_main['site_og_title'] ?? config('app.name', 'Total Travel Solutions') !!}">
