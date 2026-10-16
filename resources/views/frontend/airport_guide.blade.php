@@ -1,35 +1,33 @@
-@section("title",$page->meta_title)
-@section("meta_keyword",$page->meta_keyword )
-@section("meta_description",$page->meta_description)
+@section('title', optional($page ?? null)->meta_title ?: 'Airport Guide - Total Travel Solutions')
+@section('meta_keyword', optional($page ?? null)->meta_keyword ?: 'airport guide')
+@section('meta_description', optional($page ?? null)->meta_description ?: 'Airport guide from Total Travel Solutions.')
+
 @include('layouts.header')
 @include('layouts.nav')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-.sb-serc a {
-    width: 100%;
-    margin-left: 0;
-}
-.sb-serc h4{
-        font-size: 20x !important;
-}
-.sb-serc p{
-    font-size: 13px !important;
-    line-height: 20px !important;
-}
-.sb-serc a{
-        margin-top: 20px !important;
-}
-.btn-submit{
-    display: none;
-}
-.sb-serc{
-    height: 330px !important;
-}
-</style>
-    <div class="container">
-    	<!-- end home-container -->
-    	{!! $page->airport_parking !!} 
-    </div>
-    
+
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-legal.css?v=20260929legal') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20261001mock') }}">
+
+@include('partials.page-hero', [
+    'eyebrow' => 'Travel guide',
+    'title' => optional($page ?? null)->page_title ?: 'Airport Guide',
+    'subtitle' => 'Helpful information for UK airports',
+    'lead' => 'Plan your journey with practical airport parking and travel guidance from Total Travel Solutions.',
+    'heroClass' => 'js-page-hero--enhanced',
+    'withBookingWidget' => true,
+    'bookingCardId' => 'airport_guide_search_form',
+])
+
+<main class="js-legal-page">
+    <section class="js-legal-body js-legal-body--top">
+        <div class="js-container">
+            <article class="js-legal-card js-legal-card--content">
+                <div class="js-legal-content">
+                    {!! !empty(optional($page ?? null)->airport_parking) ? $page->airport_parking : (optional($page ?? null)->content ?? '') !!}
+                </div>
+            </article>
+        </div>
+    </section>
+</main>
 
 @include('layouts.footer')

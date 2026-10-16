@@ -94,7 +94,7 @@
                 <p class="js-apb-deal-card__price l-price product-card" data-price="{{ $bPrice }}">£{{ $bPrice }}</p>
                 <p class="js-apb-deal-card__per-day">{{ $roomCount }} room type{{ $roomCount === 1 ? '' : 's' }}</p>
                 <a href="{{ route('hotel.detail', ['productId' => $company->product_id, 'searchId' => $searchId ?? $company->searchId ?? null]) }}"
-                   class="js-apb-deal-card__btn js-apb-deal-card__btn--book js-apb-deal-card__btn--pricing select-parking btn btn-info">
+                   class="js-apb-deal-card__btn js-apb-deal-card__btn--book js-apb-deal-card__btn--pricing select-parking">
                     <i class="fa fa-bed" aria-hidden="true"></i> View rooms
                 </a>
             </div>

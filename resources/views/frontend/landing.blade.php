@@ -819,7 +819,7 @@ h1, h2, h3, h4, h5, h6,p,label,b,li,span,a,button{
 <script async src="{{ asset('theme/js/jquery-3.2.1.min.js') }}"></script>
 <script defer src="{{ asset('theme/styles/bootstrap4/popper.js') }}"></script>
 <script defer src="{{ asset('theme/styles/bootstrap4/bootstrap.min.js') }}"></script>
-<script async src="{{ asset('theme/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
+<script async src="{{ asset('theme/plugins/OwlCarousel2-2.2.1/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('theme/plugins/easing/easing.js') }}"></script>
 <script async src="{{ asset('theme/js/custom.js') }}"></script>
 <script async src="{{ asset('assets/front/js/bootstrap-datepicker.js') }}"></script>

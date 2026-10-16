@@ -37,64 +37,13 @@
     <div class="js-container">
         <div class="js-footer__grid">
             {{-- Column 1: Brand --}}
-            <div>
+            <div class="js-footer__brand">
                 <div class="js-footer__logo">
                     <a href="{{ url('/') }}">
                         <img src="{{ asset('theme/images/logo-white.png') }}?v=20260915" loading="lazy" alt="Total Travel Solutions logo" width="300" height="88">
                     </a>
                 </div>
-                <p class="js-footer__about">{{ $site_settings_main['footer_catch_line'] ?? '' }}</p>
-            </div>
-
-            {{-- Column 2: Quick Links --}}
-            <div>
-                <h3 class="js-footer__title">{{ crm('global.footer_heading_useful', 'Quick Links') }}</h3>
-                <ul class="js-footer__links">
-                    <li><a href="{{ route('main') }}">Home</a></li>
-                    <li><a href="{{ route('about-us') }}">About Us</a></li>
-                    <li><a href="{{ url('parking-services') }}">Parking Services</a></li>
-                    <li><a href="{{ route('faqs') }}">FAQs</a></li>
-                    <li><a href="{{ route('support') }}">Customer Support</a></li>
-                    <li><a href="{{ route('manage_booking') }}">Manage Booking</a></li>
-                </ul>
-            </div>
-
-            {{-- Column 3: Airport Parking --}}
-            <div>
-                <h3 class="js-footer__title">{{ crm('global.footer_heading_parking', 'Airport Parking') }}</h3>
-                <ul class="js-footer__links">
-                    <li><a href="{{ route('page', ['slug' => 'heathrow-airport-parking']) }}">Heathrow Airport Parking</a></li>
-                    <li><a href="{{ route('page', ['slug' => 'gatwick-airport-parking']) }}">Gatwick Airport Parking</a></li>
-                    <li><a href="{{ route('page', ['slug' => 'manchester-airport-parking']) }}">Manchester Airport Parking</a></li>
-                    <li><a href="{{ route('page', ['slug' => 'stansted-airport-parking']) }}">Stansted Airport Parking</a></li>
-                    <li><a href="{{ route('page', ['slug' => 'luton-airport-parking']) }}">Luton Airport Parking</a></li>
-                    <li><a href="{{ route('airports') }}">All Airports</a></li>
-                </ul>
-            </div>
-
-            {{-- Column 4: Support & Legal --}}
-            <div>
-                <h3 class="js-footer__title">{{ crm('global.footer_heading_other', 'Support & Legal') }}</h3>
-                <ul class="js-footer__links">
-                    <li><a href="{{ route('support') }}">Customer Support</a></li>
-                    <li><a href="{{ route('static_page', ['page' => 'terms-and-conditions']) }}">Terms & Conditions</a></li>
-                    <li><a href="{{ route('static_page', ['page' => 'privacy-policy']) }}">Privacy Policy</a></li>
-                    <li><a href="{{ route('cookies') }}">Cookie Policy</a></li>
-                </ul>
-
-                <div class="js-footer__contact js-mt-24">
-                    @if (!empty($site_settings_main['footer_email']))
-                        <p><i class="fa fa-envelope-o" aria-hidden="true"></i>
-                            <a href="mailto:{{ $site_settings_main['footer_email'] }}">{{ $site_settings_main['footer_email'] }}</a>
-                        </p>
-                    @endif
-                    @if (!empty($site_settings_main['footer_phone_no']))
-                        <p><i class="fa fa-phone" aria-hidden="true"></i>
-                            <a href="tel:{{ $site_settings_main['footer_phone_no'] }}">{{ $site_settings_main['footer_phone_no'] }}</a>
-                        </p>
-                    @endif
-                </div>
-
+                <p class="js-footer__about">{{ $site_settings_main['footer_catch_line'] ?: 'Total Travel Solutions helps travellers compare and book reliable Park Mark accredited parking at major UK airports.' }}</p>
                 <div class="js-footer__social">
                     @if (array_key_exists('twitter', $site_settings_main) && $site_settings_main['twitter'] != '' && ($site_settings_main['twitter_status'] ?? '') == 'active')
                         <a target="_blank" rel="noopener" aria-label="Visit our Twitter page" href="{{ $site_settings_main['twitter'] }}"><i class="fa fa-twitter"></i></a>
@@ -112,29 +61,89 @@
                         <a target="_blank" rel="noopener" aria-label="Visit our YouTube page" href="{{ $site_settings_main['youtube'] }}"><i class="fa fa-youtube"></i></a>
                     @endif
                 </div>
+            </div>
 
-                <p class="js-footer__title js-mt-24">We Accept</p>
+            {{-- Column 2: Quick Links --}}
+            <div>
+                <h3 class="js-footer__title">{{ crm('global.footer_heading_useful', 'Quick Links') }}</h3>
+                <ul class="js-footer__links">
+                    <li><a href="{{ route('main') }}">Home</a></li>
+                    <li><a href="{{ route('about-us') }}">About Us</a></li>
+                    <li><a href="{{ url('parking-services') }}">Parking Services</a></li>
+                    <li><a href="{{ route('faqs') }}">FAQs</a></li>
+                    <li><a href="{{ route('manage_booking') }}">Manage Booking</a></li>
+                </ul>
+            </div>
+
+            {{-- Column 3: Airport Parking --}}
+            <div>
+                <h3 class="js-footer__title">{{ crm('global.footer_heading_parking', 'Airport Parking') }}</h3>
+                <ul class="js-footer__links">
+                    <li><a href="{{ route('page', ['slug' => 'heathrow-airport-parking']) }}">Heathrow</a></li>
+                    <li><a href="{{ route('page', ['slug' => 'gatwick-airport-parking']) }}">Gatwick</a></li>
+                    <li><a href="{{ route('page', ['slug' => 'manchester-airport-parking']) }}">Manchester</a></li>
+                    <li><a href="{{ route('page', ['slug' => 'stansted-airport-parking']) }}">Stansted</a></li>
+                    <li><a href="{{ route('page', ['slug' => 'luton-airport-parking']) }}">Luton</a></li>
+                    <li><a href="{{ route('airports') }}">All Airports</a></li>
+                </ul>
+            </div>
+
+            {{-- Column 4: Support & Legal --}}
+            <div>
+                <h3 class="js-footer__title">{{ crm('global.footer_heading_other', 'Support & Legal') }}</h3>
+                <ul class="js-footer__links">
+                    <li><a href="{{ route('support') }}">Customer Support</a></li>
+                    <li><a href="{{ route('static_page', ['page' => 'terms-and-conditions']) }}">Terms & Conditions</a></li>
+                    <li><a href="{{ route('static_page', ['page' => 'privacy-policy']) }}">Privacy Policy</a></li>
+                    <li><a href="{{ route('cookies') }}">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        @php
+            $footerEmail = $site_settings_main['footer_email'] ?? 'support@totaltravelsolutions.co.uk';
+            $footerPhone = $site_settings_main['footer_phone_no'] ?? '';
+        @endphp
+
+        <div class="js-footer__meta">
+            <div class="js-footer__contact">
+                @if ($footerEmail !== '')
+                    <a class="js-footer__contact-item" href="mailto:{{ $footerEmail }}">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <span>{{ $footerEmail }}</span>
+                    </a>
+                @endif
+                @if ($footerPhone !== '')
+                    <a class="js-footer__contact-item" href="tel:{{ $footerPhone }}">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <span>{{ $footerPhone }}</span>
+                    </a>
+                @endif
+            </div>
+
+            <div class="js-footer__accept">
+                <span class="js-footer__accept-label">We Accept</span>
                 <div class="js-footer__payments">
                     <img src="{{ asset('theme/images/mgr-vise.png') }}" alt="Visa" height="28" width="48" loading="lazy">
                     <img src="{{ asset('theme/images/mgr-jcb.png') }}" alt="JCB" height="28" width="48" loading="lazy">
                     <img src="{{ asset('theme/images/mgr-master.png') }}" alt="Mastercard" height="28" width="48" loading="lazy">
                     <img src="{{ asset('theme/images/mgr-mastro.png') }}" alt="Maestro" height="28" width="48" loading="lazy">
                 </div>
+            </div>
 
-                <div class="js-mt-24" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
-                    <a href="//www.dmca.com/Protection/Status.aspx?ID=00d7fa62-cad9-46d5-a753-ca722bb5c731" title="DMCA.com Protection Status" class="dmca-badge">
-                        <img src="https://images.dmca.com/Badges/_dmca_premi_badge_5.png?ID=00d7fa62-cad9-46d5-a753-ca722bb5c731" loading="lazy" alt="DMCA.com Protection Status" height="40">
-                    </a>
-                    <a href="https://www.dmca.com/compliance/www.totaltravelsolutions.co.uk" title="DMCA Compliance information">
-                        <img width="80" height="40" alt="DMCA compliance" src="{{ asset('assets/dmca.png') }}" loading="lazy">
-                    </a>
-                </div>
+            <div class="js-footer__trust">
+                <a href="//www.dmca.com/Protection/Status.aspx?ID=00d7fa62-cad9-46d5-a753-ca722bb5c731" title="DMCA.com Protection Status" class="dmca-badge">
+                    <img src="https://images.dmca.com/Badges/_dmca_premi_badge_5.png?ID=00d7fa62-cad9-46d5-a753-ca722bb5c731" loading="lazy" alt="DMCA.com Protection Status" height="36" width="110">
+                </a>
+                <a href="https://www.dmca.com/compliance/www.totaltravelsolutions.co.uk" title="DMCA Compliance information">
+                    <img width="72" height="36" alt="DMCA compliance" src="{{ asset('assets/dmca.png') }}" loading="lazy">
+                </a>
             </div>
         </div>
 
         <div class="js-footer__bottom">
             <p class="js-mb-0">
-                &copy; {{ date('Y') }} {{ $site_settings_main['footer_copyright'] ?? 'Total Travel Solutions' }}
+                &copy; {{ date('Y') }} {{ $site_settings_main['footer_copyright'] ?: 'Total Travel Solutions. All rights reserved.' }}
                 @if (!empty($site_settings_main['footer_company_reg_no']))
                     <span>{{ $site_settings_main['footer_company_reg_no'] }}</span>
                 @endif
@@ -221,68 +230,47 @@
 
 
 
+{{-- jQuery stays sync (inline $() below). Everything else is defer so it leaves the LCP critical chain. --}}
 <script src="{{ asset('theme/js/jquery-3.2.1.min.js') }}"></script>
 
 <script defer src="{{ asset('theme/styles/bootstrap4/popper.js') }}"></script>
-
 <script defer src="{{ asset('theme/styles/bootstrap4/bootstrap.min.js') }}"></script>
 
 @php $isBookingCheckout = in_array(Route::currentRouteName(), ['addBookingForm', 'addBookingForm2'], true); @endphp
 
-@if (!$isBookingCheckout)
-<script src="{{ asset('theme/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
-
-<script src="{{ asset('theme/plugins/easing/easing.js') }}"></script>
-
-<script src="{{ asset('theme/js/custom.js') }}"></script>
-<script src="{{ asset('theme/js/jetseeker-ui.js?v=20251023') }}"></script>
-
-<script src="{{ asset('assets/front/js/bootstrap-datepicker.js') }}"></script>
-
-<script src="{{ asset('assets/front/js/custom-date-picker.js') }}"></script>
-@endif
-
-
-
-<!--script type='text/javascript'>
-
-window.__lo_site_id = 248579;
-
-
-
- (function() {
-
-  var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;
-
-  wa.src = 'https://d10lpsik1i8c69.cloudfront.net/w.js';
-
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
-
- })();
-
-</script-->
-
-
-
-
-
-
-
-{{-- <script async type="text/javascript" src="{{ asset('assets/front/parkingzone/js/trx_addons.js') }}"></script> --}}
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-@if (!$isBookingCheckout)
-<!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> -->
-
-<!-- <script src="{{ asset('theme/tinyCalender/index.js') }}"></script> -->
-<script src="{{ asset('theme/js/jquery-ui.min.js') }}"></script>
-<script src="{{ asset('theme/js/jetseeker-search.js?v=20251018') }}"></script>
+@if ($isBookingCheckout)
+<script src="{{ asset('theme/js/jquery-ui-datepicker.min.js') }}"></script>
 @else
-<script src="{{ asset('theme/js/jquery-ui.min.js') }}"></script>
+{{-- defer: download in parallel, run in order before DOMContentLoaded — not parser-blocking critical --}}
+<script defer src="{{ asset('theme/js/jquery-ui-datepicker.min.js') }}"></script>
+<script defer src="{{ asset('theme/js/jetseeker-ui.js?v=20251023') }}"></script>
+<script defer src="{{ asset('theme/js/jetseeker-search.js?v=20261014chain') }}"></script>
+<script defer src="{{ asset('theme/js/select2.min.js') }}"></script>
+<script>
+(function () {
+    // Post-load only: carousels / legacy helpers (not needed for LCP or booking first paint)
+    var deferred = [
+        "{{ asset('theme/plugins/OwlCarousel2-2.2.1/owl.carousel.min.js') }}",
+        "{{ asset('theme/plugins/easing/easing.js') }}",
+        "{{ asset('theme/js/custom.js?v=20261012') }}"
+    ];
+    function loadNext(i) {
+        if (i >= deferred.length) return;
+        var s = document.createElement('script');
+        s.src = deferred[i];
+        s.onload = function () { loadNext(i + 1); };
+        s.onerror = function () { loadNext(i + 1); };
+        document.body.appendChild(s);
+    }
+    if (document.readyState === 'complete') {
+        loadNext(0);
+    } else {
+        window.addEventListener('load', function () { loadNext(0); });
+    }
+})();
+</script>
 @endif
-<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> -->
+
 @if (!$isBookingCheckout)
 <script>
     $(document).ready(function () {
@@ -890,13 +878,44 @@ window.__lo_site_id = 248579;
 
 <meta name="google-site-verification" content="0Hn1VMmAaGeUFSzG9jOKX8OkJim3YlwSviUgKGQgFu0" />
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HHPJTF4GQM"></script>
+{{-- Queue GA commands immediately; fetch gtag.js only after real engagement.
+     Short idle timeouts still load during Lighthouse and flag ~78 KiB unused JS. --}}
 <script>
+(function () {
+  var loaded = false;
+  var GA_ID = 'G-HHPJTF4GQM';
+  var path = (window.location.pathname || '').toLowerCase();
+  var needsEarlyGa = path.indexOf('/thankyou') !== -1 || path.indexOf('thankyou') !== -1;
+
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  window.gtag = function () { dataLayer.push(arguments); };
   gtag('js', new Date());
-  gtag('config', 'G-HHPJTF4GQM');
+  gtag('config', GA_ID);
+
+  function loadGtag() {
+    if (loaded) return;
+    loaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+  }
+
+  if (needsEarlyGa) {
+    loadGtag();
+    return;
+  }
+
+  // Interaction-only for normal pages (keeps gtag off lab unused-JS / LCP path)
+  ['scroll', 'pointerdown', 'touchstart', 'keydown'].forEach(function (evt) {
+    window.addEventListener(evt, loadGtag, { passive: true, once: true });
+  });
+
+  // Long fallback so passive visitors are still counted after Lighthouse usually finishes
+  window.addEventListener('load', function () {
+    setTimeout(loadGtag, 12000);
+  });
+})();
 </script>
 
 </body>

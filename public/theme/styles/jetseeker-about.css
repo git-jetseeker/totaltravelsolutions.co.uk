@@ -1,32 +1,37 @@
 /**
  * Total Travel Solutions — About Us page
- * Matches jetseeker design system (charcoal + magenta)
+ * Aligns with homepage design system (light hero, why section, works path)
  */
+
+/* Hero without booking widget — leave room for floating stats */
+.search1.js-hero.js-hero--mock.js-hero--no-widget {
+    min-height: auto;
+    padding: 48px 0 88px;
+}
+
+.search1.js-hero.js-hero--mock.js-hero--no-widget .js-hero__inner {
+    padding-bottom: 0;
+}
+
+.search1.js-hero.js-hero--mock.js-hero--no-widget .js-hero__copy {
+    max-width: 720px;
+    text-align: left;
+    padding: 12px 0 0;
+}
+
+.search1.js-hero.js-hero--mock.js-hero--no-widget .js-hero__features {
+    margin-bottom: 0;
+}
 
 .js-about-page {
     background: var(--js-background);
 }
 
-/* ── Page hero eyebrow (About) ── */
-.js-page-hero--enhanced .js-page-hero__eyebrow {
-    display: inline-block;
-    padding: 6px 14px;
-    margin-bottom: 16px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #F9A8D4;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(249, 168, 212, 0.35);
-    border-radius: 999px;
-}
-
-/* ── Stats strip ── */
+/* ── Stats strip (floats over hero bottom) ── */
 .js-about-stats {
-    margin-top: -36px;
+    margin-top: -56px;
     position: relative;
-    z-index: 2;
+    z-index: 4;
     padding: 0 0 8px;
 }
 
@@ -49,6 +54,12 @@
     border: 1px solid var(--js-border);
     border-radius: var(--js-radius-lg);
     box-shadow: var(--js-shadow-md);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.js-about-stat:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--js-shadow-lg);
 }
 
 .js-about-stat__value {
@@ -65,34 +76,6 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--js-muted);
-}
-
-/* ── Section heads ── */
-.js-about-section-head {
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto 40px;
-}
-
-.js-about-section-head__badge {
-    display: inline-block;
-    padding: 6px 14px;
-    margin-bottom: 14px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #fff;
-    background: var(--js-primary);
-    border-radius: 999px;
-}
-
-.js-about-section-head__title {
-    font-size: clamp(1.65rem, 3vw, 2.25rem);
-    font-weight: 800;
-    color: var(--js-heading);
-    margin: 0;
-    line-height: 1.25;
 }
 
 /* ── Split story blocks (mission / promise) ── */
@@ -165,7 +148,7 @@
 
 .js-about-story__text strong,
 .js-about-story__text b {
-    color: var(--js-heading);
+    color: var(--js-accent);
     font-weight: 700;
 }
 
@@ -205,83 +188,14 @@
     border-top-left-radius: 72px;
 }
 
-/* ── Why cards ── */
-.js-about-why {
-    padding: 72px 0;
-    background: linear-gradient(180deg, #FDF2F8 0%, var(--js-background) 100%);
-}
-
-.js-about-why__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.js-about-why-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    min-height: 210px;
-    padding: 28px 24px;
-    background: var(--js-surface);
-    border: 1px solid var(--js-border);
-    border-radius: var(--js-radius-lg);
-    box-shadow: var(--js-shadow-sm);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.js-about-why-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--js-shadow-md);
-    border-color: rgba(194, 24, 91, 0.25);
-}
-
-.js-about-why-card__icon {
-    width: 44px;
-    height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-    border-radius: 12px;
-    background: rgba(194, 24, 91, 0.1);
+/* ── Why icons (font-awesome fallback when no image) ── */
+.js-about-page .js-why-item__icon-wrap i {
+    font-size: 1.5rem;
     color: var(--js-accent);
-    font-size: 1.1rem;
 }
 
-.js-about-why-card__title {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--js-heading);
-    margin: 0 0 10px;
-    line-height: 1.3;
-}
-
-.js-about-why-card__text {
-    margin: 0;
-    font-size: 0.98rem;
-    line-height: 1.7;
-    color: var(--js-muted);
-    flex: 1 1 auto;
-}
-
-/* Center the final row of 2 cards on desktop */
-@media (min-width: 992px) {
-    .js-about-why__grid {
-        grid-template-columns: repeat(6, 1fr);
-    }
-
-    .js-about-why-card {
-        grid-column: span 2;
-    }
-
-    .js-about-why-card:nth-child(4) {
-        grid-column: 2 / span 2;
-    }
-
-    .js-about-why-card:nth-child(5) {
-        grid-column: 4 / span 2;
-    }
+.js-about-page .js-why-grid {
+    grid-template-columns: repeat(4, 1fr);
 }
 
 /* ── Content cards ── */
@@ -409,65 +323,14 @@
     margin-top: 1px;
 }
 
-/* ── How it works ── */
-.js-about-how {
-    padding: 72px 0;
-    background: var(--js-surface);
-    border-top: 1px solid var(--js-border);
-    border-bottom: 1px solid var(--js-border);
-}
-
-.js-about-how__grid {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
+/* ── How it works — 3 steps on about ── */
+.js-about-works.js-works-path {
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
 }
 
-.js-about-how-step {
-    position: relative;
-    height: 100%;
-    min-height: 200px;
-    padding: 28px 24px;
-    background: var(--js-background);
-    border: 1px solid var(--js-border);
-    border-radius: var(--js-radius-lg);
-    overflow: hidden;
-}
-
-.js-about-how-step::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--js-primary), var(--js-accent));
-}
-
-.js-about-how-step__num {
-    display: block;
-    margin-bottom: 14px;
-    font-size: 0.85rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    color: var(--js-accent);
-}
-
-.js-about-how-step__title {
-    margin: 0 0 10px;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--js-heading);
-}
-
-.js-about-how-step__text {
-    margin: 0;
-    font-size: 0.98rem;
-    line-height: 1.7;
-    color: var(--js-muted);
+.js-about-works.js-works-path::before {
+    left: 16%;
+    right: 16%;
 }
 
 /* ── Info duo ── */
@@ -579,6 +442,14 @@
 
 /* ── Responsive ── */
 @media (max-width: 991px) {
+    .search1.js-hero.js-hero--mock.js-hero--no-widget {
+        padding: 40px 0 72px;
+    }
+
+    .js-about-stats {
+        margin-top: -40px;
+    }
+
     .js-about-story__grid,
     .js-about-story__grid--reverse {
         grid-template-columns: 1fr;
@@ -593,21 +464,11 @@
         height: 280px;
     }
 
-    .js-about-why__grid,
-    .js-about-how__grid,
+    .js-about-page .js-why-grid,
     .js-about-features__grid,
-    .js-about-info__grid {
-        grid-template-columns: 1fr;
-    }
-
-    .js-about-why__grid {
+    .js-about-info__grid,
+    .js-about-works.js-works-path {
         grid-template-columns: 1fr 1fr;
-    }
-
-    .js-about-why-card,
-    .js-about-why-card:nth-child(4),
-    .js-about-why-card:nth-child(5) {
-        grid-column: auto;
     }
 
     .js-about-banner__inner {
@@ -622,8 +483,13 @@
 }
 
 @media (max-width: 767px) {
+    .search1.js-hero.js-hero--mock.js-hero--no-widget {
+        padding: 32px 0 64px;
+    }
+
     .js-about-stats {
-        margin-top: -24px;
+        margin-top: -32px;
+        padding: 0 0 24px;
     }
 
     .js-about-stats__grid {
@@ -636,9 +502,7 @@
 
     .js-about-story,
     .js-about-content,
-    .js-about-info,
-    .js-about-why,
-    .js-about-how {
+    .js-about-info {
         padding: 48px 0;
     }
 
@@ -646,8 +510,10 @@
         padding: 28px 22px;
     }
 
-    .js-about-why__grid,
-    .js-about-how__grid {
+    .js-about-page .js-why-grid,
+    .js-about-features__grid,
+    .js-about-info__grid,
+    .js-about-works.js-works-path {
         grid-template-columns: 1fr;
     }
 

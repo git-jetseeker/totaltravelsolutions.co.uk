@@ -1761,7 +1761,7 @@
                                                                     Email Address<span class="required-field">*</span>
                                                                     <span class="fa fa-info-circle cls-pointer" data-toggle="tooltip" data-placement="top" title="This is the email address you will receive confirmation which includes booking reference and parking procedures"></span>
                                                                 </label>
-                                                                <input type="email" class="form-control bf-inptfld" name="email" id="email" value="{{ old('email', $email ?? '') }}" required oninput="checkFields()">
+                                                                <input type="email" class="form-control bf-inptfld" name="email" id="email" value="{{ old('email', $email ?? '') }}" required autocomplete="email">
                                                             </div>
                                                         </div>
 
@@ -1777,11 +1777,11 @@
                                                             </div>
                                                             <div class="apb-field apb-field--firstname">
                                                                 <label class="lable" for="firstname">First Name<span class="required-field">*</span></label>
-                                                                <input class="form-control bf-inptfld" required type="text" placeholder="First Name" name="firstname" id="firstname" oninput="checkFields()" value="">
+                                                                <input class="form-control bf-inptfld" required type="text" placeholder="First Name" name="firstname" id="firstname" autocomplete="given-name" value="">
                                                             </div>
                                                             <div class="apb-field apb-field--lastname">
                                                                 <label class="lable" for="lastname">Last Name<span class="required-field">*</span></label>
-                                                                <input class="form-control bf-inptfld" type="text" placeholder="Last Name" name="lastname" required id="lastname" oninput="checkFields()" value="">
+                                                                <input class="form-control bf-inptfld" type="text" placeholder="Last Name" name="lastname" required id="lastname" autocomplete="family-name" value="">
                                                             </div>
                                                         </div>
 
@@ -1791,11 +1791,9 @@
                                                                     Mobile Number<span class="required-field">*</span>
                                                                     <span class="fa fa-info-circle cls-pointer" data-toggle="tooltip" data-placement="top" title="We may contact you on this number regarding your booking"></span>
                                                                 </label>
-                                                                <input class="form-control bf-inptfld" type="number" placeholder="Mobile" name="contactno" id="contactno" required disabled value="">
+                                                                <input class="form-control bf-inptfld" type="tel" placeholder="e.g. 07123456789" name="contactno" id="contactno" required autocomplete="tel" maxlength="14" inputmode="numeric" pattern="[0-9+\s\-()]{10,14}" value="">
                                                             </div>
                                                         </div>
-
-                                                        <p class="checkout_hint filled-hidden">Please enter your first name, last name and email address to enable the mobile number field.</p>
 
                                                     </div><!-- end apb-personal-form -->
 
@@ -1872,9 +1870,13 @@
                                                             <div class="apb-field apb-field--reg">
                                                                 <label class="lable" for="registration">
                                                                     Vehicle Registration
-                                                                    <span class="fa fa-info-circle cls-pointer" data-toggle="tooltip" data-placement="top" title="Enter your vehicle registration number. You can update this later if needed."></span>
+                                                                    <span class="fa fa-info-circle cls-pointer" data-toggle="tooltip" data-placement="top" title="Enter your reg — spaces are fine. We’ll fill make, model and colour automatically when possible."></span>
                                                                 </label>
-                                                                <input class="form-control bf-inptfld" type="text" required name="registration" id="registration" placeholder="Registration No" value="" />
+                                                                <div class="mgh-reg-wrap">
+                                                                    <input class="form-control bf-inptfld mgh-reg-input" type="text" required name="registration" id="registration" placeholder="Registration No" value="" autocomplete="off" inputmode="text" maxlength="11" />
+                                                                    <span class="mgh-reg-spinner" id="regLookupSpinner" aria-hidden="true" hidden></span>
+                                                                </div>
+                                                                <small id="regLookupHint" class="mgh-reg-hint" aria-live="polite"></small>
                                                             </div>
                                                             <div class="apb-field apb-field--make">
                                                                 <label class="lable" for="make">Vehicle Make</label>
@@ -3018,6 +3020,89 @@
 
 
 
+        if ($.validator && !$.validator.methods.phoneUKLoose) {
+            $.validator.addMethod('phoneUKLoose', function (value, element) {
+                if (this.optional(element)) {
+                    return true;
+                }
+                var digits = String(value).replace(/[^\d]/g, '');
+                return digits.length >= 10 && digits.length <= 14;
+            }, 'Please enter a valid phone number.');
+        }
+
+        $("#personal_details_form").validate({
+            ignore: [],
+            errorElement: 'label',
+            errorClass: 'error',
+            validClass: 'valid',
+            focusInvalid: true,
+            rules: {
+                gender: { required: true },
+                firstname: {
+                    required: true,
+                    minlength: 2,
+                    maxlength: 60
+                },
+                lastname: {
+                    required: true,
+                    minlength: 2,
+                    maxlength: 60
+                },
+                email: {
+                    required: true,
+                    email: true,
+                    maxlength: 120
+                },
+                contactno: {
+                    required: true,
+                    phoneUKLoose: true
+                }
+            },
+            messages: {
+                gender: {
+                    required: 'Please select a title.'
+                },
+                firstname: {
+                    required: 'Please enter your first name.',
+                    minlength: 'First name must be at least 2 characters.',
+                    maxlength: 'First name cannot exceed 60 characters.'
+                },
+                lastname: {
+                    required: 'Please enter your last name.',
+                    minlength: 'Last name must be at least 2 characters.',
+                    maxlength: 'Last name cannot exceed 60 characters.'
+                },
+                email: {
+                    required: 'Please enter your email address.',
+                    email: 'Please enter a valid email address.',
+                    maxlength: 'Email cannot exceed 120 characters.'
+                },
+                contactno: {
+                    required: 'Please enter your phone number.',
+                    phoneUKLoose: 'Please enter a valid phone number (at least 10 digits).'
+                }
+            },
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            },
+            highlight: function (element) {
+                $(element).addClass('error is-invalid').removeClass('valid');
+            },
+            unhighlight: function (element) {
+                $(element).removeClass('error is-invalid').addClass('valid');
+            },
+            submitHandler: function () {
+                return false;
+            }
+        });
+
+        $('#contactno').on('input', function () {
+            var cleaned = String($(this).val()).replace(/[^\d+\s\-()]/g, '');
+            if ($(this).val() !== cleaned) {
+                $(this).val(cleaned);
+            }
+        });
+
         $("#vechile_detail").validate({
 
 
@@ -3632,7 +3717,10 @@
 
 
 
-            $('#contactno').change(function() {
+            $('#contactno').on('change blur', function() {
+                if (!$("#personal_details_form").valid()) {
+                    return;
+                }
 
 
 
@@ -5272,33 +5360,294 @@
 
 
     <script>
-
         function checkFields() {
-
-            var nameValue = document.getElementById('firstname').value.trim();
-
-            var name2Value = document.getElementById('lastname').value.trim();
-
-            var emailValue = document.getElementById('email').value.trim();
-
             var phoneField = document.getElementById('contactno');
-
-
-
-            // Disable phone field if both name and email are empty
-
-            if (nameValue !== '' && emailValue !== '' && name2Value !== '') {
-
+            if (phoneField) {
                 phoneField.disabled = false;
-
-            } else {
-
-                phoneField.disabled = true;
-
+                phoneField.removeAttribute('disabled');
             }
-
         }
 
+        @php
+            $bookingDraftKey = 'parking_booking_draft_' . implode('_', [
+                (string) ($data['company_id'] ?? ''),
+                (string) ($data['airport'] ?? ''),
+                (string) ($data['dropdate'] ?? ''),
+                (string) ($data['pickdate'] ?? ''),
+                (string) ($data['product_code'] ?? ''),
+            ]);
+        @endphp
+        (function () {
+            var draftKey = @json($bookingDraftKey);
+
+            var textFieldIds = [
+                'email', 'title', 'firstname', 'lastname', 'contactno',
+                'registration', 'make', 'color', 'model',
+                'departterminal', 'arrivalterminal', 'returnflight'
+            ];
+            var radioNames = ['vehdetails', 'flightdetails'];
+
+            function collectDraft() {
+                var draft = {};
+                textFieldIds.forEach(function (id) {
+                    var el = document.getElementById(id);
+                    if (el) {
+                        draft[id] = el.value;
+                    }
+                });
+                radioNames.forEach(function (name) {
+                    var checked = document.querySelector('input[name="' + name + '"]:checked');
+                    if (checked) {
+                        draft[name] = checked.value;
+                    }
+                });
+                return draft;
+            }
+
+            function saveDraft() {
+                try {
+                    sessionStorage.setItem(draftKey, JSON.stringify(collectDraft()));
+                } catch (e) {}
+            }
+
+            function restoreDraft() {
+                var raw;
+                try {
+                    raw = sessionStorage.getItem(draftKey);
+                } catch (e) {
+                    return;
+                }
+                if (!raw) {
+                    return;
+                }
+
+                var draft;
+                try {
+                    draft = JSON.parse(raw);
+                } catch (e) {
+                    return;
+                }
+
+                textFieldIds.forEach(function (id) {
+                    var el = document.getElementById(id);
+                    if (!el || draft[id] == null || draft[id] === '') {
+                        return;
+                    }
+                    el.value = draft[id];
+                });
+
+                radioNames.forEach(function (name) {
+                    if (!draft[name]) {
+                        return;
+                    }
+                    var radio = document.querySelector('input[name="' + name + '"][value="' + draft[name] + '"]');
+                    if (radio) {
+                        radio.checked = true;
+                        if (window.jQuery) {
+                            jQuery(radio).trigger('change');
+                        } else {
+                            radio.dispatchEvent(new Event('change', { bubbles: true }));
+                        }
+                    }
+                });
+
+                checkFields();
+            }
+
+            function bindDraftPersistence() {
+                checkFields();
+                restoreDraft();
+
+                var formSelectors = '#personal_details_form, #vechile_detail, #travel_detail';
+                if (window.jQuery) {
+                    jQuery(formSelectors).on('input change', saveDraft);
+                } else {
+                    document.querySelectorAll(formSelectors).forEach(function (form) {
+                        form.addEventListener('input', saveDraft);
+                        form.addEventListener('change', saveDraft);
+                    });
+                }
+            }
+
+            if (window.jQuery) {
+                jQuery(bindDraftPersistence);
+            } else {
+                document.addEventListener('DOMContentLoaded', bindDraftPersistence);
+            }
+        })();
+
+        /* Auto vehicle lookup from registration (CarCheckScraper) */
+        (function initVehicleRegLookup() {
+            function boot() {
+                if (!window.jQuery) {
+                    return;
+                }
+                var $ = window.jQuery;
+                var $reg = $('#registration');
+                var $make = $('#make');
+                var $model = $('#model');
+                var $color = $('#color');
+                var $hint = $('#regLookupHint');
+                var $spinner = $('#regLookupSpinner');
+                if (!$reg.length) {
+                    return;
+                }
+
+                var debounceTimer = null;
+                var lastLookup = '';
+                var xhr = null;
+                var lookupUrl = {!! json_encode(route('booking.vehicleLookup')) !!};
+                var csrf = $('meta[name="csrf-token"]').attr('content') ||
+                    $('input[name="_token"]').first().val() || @json(csrf_token());
+
+                function normalizeReg(v) {
+                    return String(v || '').toUpperCase().replace(/\s+/g, '');
+                }
+
+                function sanitizeRegInput(v) {
+                    return String(v || '').toUpperCase().replace(/[^A-Z0-9 ]/g, '').replace(/ {2,}/g, ' ');
+                }
+
+                function setHint(msg, kind) {
+                    $hint
+                        .removeClass('is-ok is-warn is-err')
+                        .addClass(kind ? ('is-' + kind) : '')
+                        .text(msg || '');
+                }
+
+                function setLoading(on) {
+                    if (on) {
+                        $spinner.prop('hidden', false).attr('aria-hidden', 'false');
+                        $reg.attr('aria-busy', 'true');
+                        $make.add($model).add($color).prop('readonly', true);
+                    } else {
+                        $spinner.prop('hidden', true).attr('aria-hidden', 'true');
+                        $reg.attr('aria-busy', 'false');
+                        $make.add($model).add($color).prop('readonly', false);
+                    }
+                }
+
+                function flashFill($el, value) {
+                    if (value == null || value === '') {
+                        return;
+                    }
+                    $el.val(value).trigger('change');
+                    $el.addClass('mgh-vehicle-autofilled');
+                    setTimeout(function () {
+                        $el.removeClass('mgh-vehicle-autofilled');
+                    }, 700);
+                }
+
+                function lookupVehicle(force) {
+                    if ($('input[name=vehdetails]:checked').val() === 'No') {
+                        return;
+                    }
+
+                    var reg = normalizeReg($reg.val());
+                    if (!reg || reg === 'TBA' || reg.length < 2) {
+                        setHint('', '');
+                        return;
+                    }
+                    if (!force && reg === lastLookup) {
+                        return;
+                    }
+
+                    if (xhr && xhr.readyState !== 4) {
+                        try { xhr.abort(); } catch (e) {}
+                    }
+
+                    setLoading(true);
+                    setHint('Looking up vehicle…', 'warn');
+
+                    xhr = $.ajax({
+                        url: lookupUrl,
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                            _token: csrf,
+                            registration: reg
+                        }
+                    }).done(function (res) {
+                        lastLookup = reg;
+                        if (res && res.success) {
+                            flashFill($make, res.make);
+                            flashFill($model, res.model);
+                            flashFill($color, res.color);
+                            setHint('Vehicle found — you can edit the details if needed.', 'ok');
+                        } else {
+                            setHint((res && res.message) || 'Vehicle not found. Please enter details manually.', 'warn');
+                        }
+                    }).fail(function (jqXHR, textStatus) {
+                        if (textStatus === 'abort') {
+                            return;
+                        }
+                        lastLookup = reg;
+                        var msg = 'Lookup unavailable. Please enter make, model and colour manually.';
+                        try {
+                            var body = jqXHR.responseJSON;
+                            if (body && body.message) {
+                                msg = body.message;
+                            }
+                        } catch (e) {}
+                        setHint(msg, jqXHR.status === 404 ? 'warn' : 'err');
+                    }).always(function () {
+                        setLoading(false);
+                    });
+                }
+
+                $reg.on('keydown', function (e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        clearTimeout(debounceTimer);
+                        lookupVehicle(true);
+                    }
+                });
+
+                $reg.on('input', function () {
+                    var caret = this.selectionStart;
+                    var before = this.value;
+                    var cleaned = sanitizeRegInput(before);
+                    if (before !== cleaned) {
+                        var removedBeforeCaret = (before.slice(0, caret).match(/[^A-Z0-9 ]/gi) || []).length;
+                        this.value = cleaned;
+                        if (typeof caret === 'number') {
+                            var next = Math.max(0, caret - removedBeforeCaret);
+                            this.setSelectionRange(next, next);
+                        }
+                    }
+                    clearTimeout(debounceTimer);
+                    debounceTimer = setTimeout(function () {
+                        lookupVehicle(false);
+                    }, 650);
+                });
+
+                $reg.on('paste', function (e) {
+                    e.preventDefault();
+                    var text = '';
+                    try {
+                        text = (e.originalEvent || e).clipboardData.getData('text') || '';
+                    } catch (err) {}
+                    var cleaned = sanitizeRegInput(text).slice(0, 11);
+                    var el = this;
+                    var start = el.selectionStart || 0;
+                    var end = el.selectionEnd || 0;
+                    var merged = sanitizeRegInput(el.value.slice(0, start) + cleaned + el.value.slice(end)).slice(0, 11);
+                    el.value = merged;
+                    $(el).trigger('input');
+                });
+
+                $reg.on('blur', function () {
+                    clearTimeout(debounceTimer);
+                    lookupVehicle(true);
+                });
+            }
+
+            if (window.jQuery) {
+                jQuery(boot);
+            } else {
+                window.addEventListener('load', boot);
+            }
+        })();
     </script>
 
 @endsection

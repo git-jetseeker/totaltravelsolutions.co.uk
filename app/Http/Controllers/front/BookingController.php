@@ -16,6 +16,8 @@ use App\Library\functions;
 
 use App\Services\BookFhrService;
 
+use App\Services\CarCheckScraper;
+
 use App\Models\airport;
 
 use App\Models\airports_bookings;
@@ -4471,6 +4473,60 @@ class BookingController extends Controller
 
         return $filepath;
 
+    }
+
+    /**
+     * Auto-fill make / model / colour from registration (CarCheckScraper).
+     */
+    public function lookupVehicle(Request $request)
+    {
+        $registration = strtoupper(preg_replace('/\s+/', '', (string) $request->input('registration', '')) ?? '');
+
+        if ($registration === '' || strlen($registration) < 2) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Enter a valid registration number.',
+            ], 422);
+        }
+
+        if (strtoupper($registration) === 'TBA') {
+            return response()->json([
+                'success' => false,
+                'message' => 'Registration lookup skipped.',
+            ], 422);
+        }
+
+        try {
+            $scraper = new CarCheckScraper();
+            $details = $scraper->getVehicleDetails($registration, 120);
+
+            if (!$details) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Vehicle not found. Please enter make, model and colour manually.',
+                    'registration' => $registration,
+                ], 404);
+            }
+
+            return response()->json([
+                'success' => true,
+                'registration' => $details['registration'] ?? $registration,
+                'make' => $details['make'] ?? '',
+                'model' => $details['model'] ?? '',
+                'color' => $details['color'] ?? '',
+            ]);
+        } catch (\Throwable $e) {
+            Log::error('Vehicle lookup failed', [
+                'registration' => $registration,
+                'error' => $e->getMessage(),
+            ]);
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Lookup unavailable. Please enter vehicle details manually.',
+                'registration' => $registration,
+            ], 500);
+        }
     }
 
 }

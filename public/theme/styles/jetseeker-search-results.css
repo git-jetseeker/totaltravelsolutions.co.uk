@@ -31,11 +31,11 @@
     --js-results-sticky-top: 20px;
     --js-results-filter-col: 280px;
     --js-results-grid-gap: 20px;
-    --js-results-tint: rgba(26, 26, 26, 0.1);
-    --js-results-tint-strong: rgba(26, 26, 26, 0.14);
-    --js-results-tint-border: rgba(26, 26, 26, 0.28);
+    --js-results-tint: rgba(194, 24, 91, 0.1);
+    --js-results-tint-strong: rgba(194, 24, 91, 0.14);
+    --js-results-tint-border: rgba(194, 24, 91, 0.28);
     --js-results-divider: rgba(26, 26, 26, 0.12);
-    --js-results-pricing-bg: #f5f5f5;
+    --js-results-pricing-bg: #FDF2F8;
     background: var(--js-background);
     color: var(--js-text);
     overflow: visible;
@@ -55,10 +55,10 @@
     margin-right: auto;
 }
 
-/* ── Title bar — Jetseeker gradient hero ── */
+/* ── Title bar — light homepage-style hero ── */
 .js-results-title-bar {
-    background: linear-gradient(135deg, var(--js-primary-dark) 0%, var(--js-secondary) 100%);
-    border-bottom: none;
+    background: linear-gradient(165deg, #ffffff 0%, #FDF2F8 55%, #FAF7F8 100%);
+    border-bottom: 1px solid rgba(194, 24, 91, 0.12);
     padding: 28px 0 26px;
     text-align: center;
 }
@@ -77,7 +77,7 @@
     font-size: clamp(1.35rem, 3.2vw, 1.85rem);
     font-weight: 700;
     line-height: 1.25;
-    color: #fff;
+    color: #1A1A1A;
     letter-spacing: 0.01em;
 }
 
@@ -147,7 +147,7 @@
     justify-self: end;
     min-width: 88px;
     padding: 10px 22px;
-    background: var(--js-primary);
+    background: var(--js-accent, #C2185B);
     border: none;
     border-radius: var(--js-radius-sm, 8px);
     color: #fff !important;
@@ -160,7 +160,7 @@
 
 .js-results-meta__edit:hover,
 .js-results-meta__edit.is-open {
-    background: var(--js-primary-dark);
+    background: var(--js-accent-dark, #9F1248);
 }
 
 /* ── Collapsible amend search panel ── */
@@ -585,7 +585,7 @@
 
 .js-apb-filters__search-input:focus {
     outline: none;
-    border-color: var(--js-primary);
+    border-color: var(--js-accent, #C2185B);
     box-shadow: 0 0 0 3px var(--js-results-tint);
 }
 
@@ -657,7 +657,7 @@
     width: 16px;
     height: 16px;
     margin: 0;
-    accent-color: var(--js-primary);
+    accent-color: var(--js-accent, #C2185B);
     flex-shrink: 0;
     cursor: pointer;
 }
@@ -715,7 +715,7 @@
     padding: 0 18px;
     border: none;
     border-radius: 8px;
-    background: var(--js-primary);
+    background: var(--js-accent, #C2185B);
     color: #fff;
     font-size: 14px;
     font-weight: 700;
@@ -723,7 +723,7 @@
 }
 
 .js-results-error__retry:hover {
-    background: var(--js-primary-dark);
+    background: var(--js-accent-dark, #9F1248);
 }
 
 /* ── Loading overlay (APB-style) ── */
@@ -750,9 +750,10 @@
     min-height: 0;
     padding: 0;
     border-radius: 16px;
-    background: linear-gradient(135deg, var(--js-primary) 0%, var(--js-primary-dark) 100%);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    background: linear-gradient(165deg, #ffffff 0%, #FDF2F8 100%);
+    box-shadow: 0 20px 60px rgba(194, 24, 91, 0.18);
     overflow: hidden;
+    border: 1px solid rgba(194, 24, 91, 0.14);
 }
 
 .js-results-loader__brand {
@@ -762,7 +763,7 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--js-accent, #C2185B);
     text-align: center;
 }
 
@@ -771,7 +772,7 @@
     padding: 0 24px;
     font-size: 1.35rem;
     font-weight: 800;
-    color: #fff;
+    color: #1A1A1A;
     text-align: center;
 }
 
@@ -780,7 +781,7 @@
     padding: 0 24px;
     font-size: 14px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--js-accent, #C2185B);
     text-align: center;
 }
 
@@ -793,7 +794,7 @@
 }
 
 .js-results-loader__steps .li-css {
-    color: #fff;
+    color: #1A1A1A;
     font-size: 15px;
     font-weight: 600;
     padding: 8px 0;
@@ -806,10 +807,10 @@
 }
 
 .js-results-loader__steps .li-css i {
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(194, 24, 91, 0.35);
     font-size: 1.15em;
     transition: color 0.3s ease;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+    filter: none;
 }
 
 .js-results-loader__steps .li-css i.icon1 { animation: jsLoaderIcon1 1s step-end forwards; }
@@ -817,16 +818,16 @@
 .js-results-loader__steps .li-css i.icon3 { animation: jsLoaderIcon3 5s step-end forwards; }
 .js-results-loader__steps .li-css i.icon4 { animation: jsLoaderIcon4 7s step-end forwards; }
 
-@keyframes jsLoaderIcon1 { from { color: rgba(255,255,255,0.35); } to { color: #fff; } }
-@keyframes jsLoaderIcon2 { from { color: rgba(255,255,255,0.35); } to { color: #fff; } }
-@keyframes jsLoaderIcon3 { from { color: rgba(255,255,255,0.35); } to { color: #fff; } }
-@keyframes jsLoaderIcon4 { from { color: rgba(255,255,255,0.35); } to { color: #fff; } }
+@keyframes jsLoaderIcon1 { from { color: rgba(194, 24, 91, 0.3); } to { color: #C2185B; } }
+@keyframes jsLoaderIcon2 { from { color: rgba(194, 24, 91, 0.3); } to { color: #C2185B; } }
+@keyframes jsLoaderIcon3 { from { color: rgba(194, 24, 91, 0.3); } to { color: #C2185B; } }
+@keyframes jsLoaderIcon4 { from { color: rgba(194, 24, 91, 0.3); } to { color: #C2185B; } }
 
 .js-results-loader__thanks {
     margin: 0;
     padding: 12px 24px 20px;
     text-align: center;
-    color: rgba(255, 255, 255, 0.85);
+    color: #6b7280;
     font-size: 14px;
 }
 
@@ -1064,29 +1065,39 @@
 
 .js-apb-deal-card__btn--info {
     background: var(--js-surface);
-    color: var(--js-primary-dark) !important;
-    border: 2px solid var(--js-primary-dark);
+    color: var(--js-accent, #C2185B) !important;
+    border: 2px solid var(--js-accent, #C2185B);
 }
 
 .js-apb-deal-card__btn--info:hover {
-    background: #f0f4ff;
+    background: #FDF2F8;
 }
 
-.js-apb-deal-card__btn--book {
-    background: var(--js-primary) !important;
+.js-results-page .js-apb-deal-card__btn--book,
+.js-results-page .js-apb-deal-card__btn--book.btn,
+.js-results-page .js-apb-deal-card__btn--book.btn-info,
+.js-apb-deal-card__btn--book,
+.js-apb-deal-card__btn--book.btn-info {
+    background: #C2185B !important;
+    background-color: #C2185B !important;
     color: #fff !important;
-    border: 2px solid var(--js-primary) !important;
+    border: 2px solid #C2185B !important;
 }
 
-.js-apb-deal-card__btn--book:hover {
-    background: var(--js-primary-dark) !important;
-    border-color: var(--js-primary-dark) !important;
+.js-results-page .js-apb-deal-card__btn--book:hover,
+.js-results-page .js-apb-deal-card__btn--book.btn-info:hover,
+.js-apb-deal-card__btn--book:hover,
+.js-apb-deal-card__btn--book.btn-info:hover {
+    background: #9F1248 !important;
+    background-color: #9F1248 !important;
+    border-color: #9F1248 !important;
+    color: #fff !important;
 }
 
 .js-apb-deal-card__savings {
     padding: 12px 20px;
-    background: rgba(250, 158, 27, 0.12);
-    color: var(--js-accent-dark);
+    background: rgba(194, 24, 91, 0.1);
+    color: var(--js-accent-dark, #9F1248);
     font-size: 13px;
     font-weight: 600;
     text-align: center;
@@ -1208,19 +1219,21 @@
 
 /* Edit search modal */
 #search_data_modal .modal-header.primart-bg-color {
-    background: var(--js-primary-dark) !important;
+    background: #FDF2F8 !important;
     border-radius: 0;
+    border-bottom: 2px solid var(--js-accent, #C2185B);
 }
 
 #search_data_modal .modal-title {
-    color: #fff !important;
+    color: #1A1A1A !important;
     font-weight: 700;
 }
 
 #search_data_modal .btn-book.primart-bg-color {
-    background: var(--js-primary) !important;
-    border-color: var(--js-primary) !important;
+    background: var(--js-accent, #C2185B) !important;
+    border-color: var(--js-accent, #C2185B) !important;
     font-weight: 700;
+    color: #fff !important;
 }
 
 /* ── Deal info modal (More Information) ── */
@@ -1240,15 +1253,15 @@
 
 .js-results-page .js-deal-info-modal .modal-header,
 .js-deal-info-modal .js-deal-info-modal__header {
-    background: linear-gradient(135deg, var(--js-primary-dark) 0%, var(--js-secondary) 100%) !important;
-    border-bottom: none;
+    background: #FDF2F8 !important;
+    border-bottom: 2px solid var(--js-accent, #C2185B);
     padding: 18px 20px;
     align-items: center;
 }
 
 .js-results-page .js-deal-info-modal .modal-title,
 .js-deal-info-modal .js-deal-info-modal__title {
-    color: #fff !important;
+    color: #1A1A1A !important;
     font-size: clamp(1rem, 2.5vw, 1.2rem);
     font-weight: 700;
     margin: 0;
@@ -1258,7 +1271,7 @@
 
 .js-results-page .js-deal-info-modal .close,
 .js-deal-info-modal .js-deal-info-modal__close {
-    color: #fff !important;
+    color: #C2185B !important;
     opacity: 0.92;
     text-shadow: none;
     font-size: 1.75rem;
@@ -1314,9 +1327,9 @@
 .js-deal-info-modal .js-deal-info-modal__tabs .nav-link.active,
 .js-results-page .js-deal-info-modal #listing-tabs .nav-tabs .nav-link.active,
 .js-deal-info-modal #listing-tabs .nav-tabs .nav-link.active {
-    background: var(--js-primary) !important;
+    background: var(--js-accent, #C2185B) !important;
     color: #fff !important;
-    border-color: var(--js-primary) !important;
+    border-color: var(--js-accent, #C2185B) !important;
 }
 
 .js-results-page .js-deal-info-modal .js-deal-info-modal__tab-content,

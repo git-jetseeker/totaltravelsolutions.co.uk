@@ -149,7 +149,7 @@
                 <input type="hidden" name="bookfhrSearchId" value="{{ $company->searchId ?? '' }}">
                 <input type="hidden" name="bookfhrOptionId" value="{{ $company->option_id ?? '' }}">
                 <input type="hidden" name="bookingfor" value="lounge">
-                <button type="submit" class="js-apb-deal-card__btn js-apb-deal-card__btn--book select-parking btn btn-info">
+                <button type="submit" class="js-apb-deal-card__btn js-apb-deal-card__btn--book select-parking">
                     <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Book Now
                 </button>
             </form>

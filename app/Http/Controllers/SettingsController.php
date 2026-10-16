@@ -349,6 +349,13 @@ class SettingsController extends Controller
             $setting = settings::updateOrCreate(["field_name" => $field_name], ["field_name" => $field_name, "field_value" => $field_value]);
             $setting->save();
         }
+        try {
+            $agentId = function_exists('current_agent_id') ? (string) current_agent_id() : '1';
+            cache()->forget('site_settings.agent.' . $agentId);
+            cache()->forget('site_settings.agent.1');
+        } catch (\Throwable $e) {
+            // non-fatal
+        }
         return redirect()->back();
     }
 

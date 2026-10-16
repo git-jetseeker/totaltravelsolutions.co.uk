@@ -30,25 +30,9 @@ $(document).ready(function()
 	var menuActive = false;
 	var header = $('.header');
 	var searchActive = false;
-
-	setHeader();
-
-	$(window).on('resize', function()
-	{
-		setHeader();
-	});
-
-	$(document).on('scroll', function()
-	{
-		setHeader();
-	});
-
-	initHomeSlider();
-	initMenu();
-	initSearch();
-	initCtaSlider();
-	initTestSlider();
-	initSearchForm();
+	var headerScrolled = null;
+	var headerRafPending = false;
+	var resizeTimer = null;
 
 	/* 
 
@@ -58,33 +42,61 @@ $(document).ready(function()
 
 	function setHeader()
 	{
-		if(window.innerWidth < 992)
+		var scrolled = (window.pageYOffset || document.documentElement.scrollTop || 0) > 100;
+
+		// Avoid redundant class writes that invalidate layout
+		if (scrolled !== headerScrolled)
 		{
-			if($(window).scrollTop() > 100)
-			{
-				header.addClass('scrolled');
-			}
-			else
-			{
-				header.removeClass('scrolled');
-			}
+			headerScrolled = scrolled;
+			header.toggleClass('scrolled', scrolled);
 		}
-		else
-		{
-			if($(window).scrollTop() > 100)
-			{
-				header.addClass('scrolled');
-			}
-			else
-			{
-				header.removeClass('scrolled');
-			}
-		}
-		if(window.innerWidth > 991 && menuActive)
+
+		if (window.innerWidth > 991 && menuActive)
 		{
 			closeMenu();
 		}
 	}
+
+	function scheduleHeaderUpdate()
+	{
+		if (headerRafPending)
+		{
+			return;
+		}
+		headerRafPending = true;
+		window.requestAnimationFrame(function()
+		{
+			headerRafPending = false;
+			setHeader();
+		});
+	}
+
+	// Read scroll/width while layout is still clean
+	setHeader();
+
+	$(window).on('resize', function()
+	{
+		clearTimeout(resizeTimer);
+		resizeTimer = setTimeout(setHeader, 100);
+	});
+
+	window.addEventListener('scroll', scheduleHeaderUpdate, { passive: true });
+
+	initMenu();
+	initSearch();
+	initSearchForm();
+
+	// Defer OwlCarousel init until after paint so its width reads
+	// do not force a synchronous reflow of dirty styles
+	window.requestAnimationFrame(function()
+	{
+		initHomeSlider();
+		window.requestAnimationFrame(function()
+		{
+			initCtaSlider();
+			initTestSlider();
+		});
+	});
 
 	/* 
 

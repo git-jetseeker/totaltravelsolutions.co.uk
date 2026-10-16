@@ -39,6 +39,25 @@ Route::get('/linkstorage', function () {
     Artisan::call('storage:link');
 });
 
+// Fallback if rewrite to cache-media.php is skipped (e.g. some nginx setups)
+Route::get('/cached-media/{file}', function (string $file) {
+    $file = basename($file);
+    if ($file === '' || !preg_match('/^[A-Za-z0-9._\-\s]+\.(jpe?g|png|gif|webp|svg)$/i', $file)) {
+        abort(404);
+    }
+
+    $path = public_path('assets/images/' . $file);
+    if (!is_file($path)) {
+        abort(404);
+    }
+
+    return response()->file($path, [
+        'Cache-Control' => 'public, max-age=31536000, immutable',
+        'Expires' => gmdate('D, d M Y H:i:s', time() + 31536000) . ' GMT',
+        'X-Content-Type-Options' => 'nosniff',
+    ]);
+})->where('file', '[A-Za-z0-9._\\-\\s]+\\.(jpe?g|png|gif|webp|svg)');
+
 Route::get('/cache', function () {
     Artisan::call('cache:clear');
     Artisan::call('config:clear');
@@ -109,7 +128,8 @@ Route::post('/checkBooking', [FrontBookingController::class, 'checkBooking'])->n
 Route::post('/booking/checkout', [FrontBookingController::class, 'checkout'])->name("checkout");
 Route::post('/booking/incomplete/booking/checkout', [FrontBookingController::class, 'checkout'])->name("checkout1");
 Route::post('/booking/payout', [FrontBookingController::class, 'paymentwithstripe'])->name("paymentwithstripe");
-Route::post('booking/incomplete/booking/payout', [FrontBookingController::class, 'paymentwithstripe'])->name("paymentwithstripe");
+Route::post('booking/incomplete/booking/payout', [FrontBookingController::class, 'paymentwithstripe'])->name("paymentwithstripe1");
+Route::post('/booking/vehicle-lookup', [FrontBookingController::class, 'lookupVehicle'])->name('booking.vehicleLookup');
 Route::post('/booking/payout_failed', [FrontBookingController::class, 'payout_failed'])->name("payout_failed");
 Route::get('/booking/thankyou/{id}', [FrontBookingController::class, 'thanyou'])->name("thankyou");
 Route::get('/ppc/airport-parking', [FrontHomeController::class, 'ppc_airport_parking'])->name("ppcAirportParking");
@@ -147,12 +167,13 @@ Route::post('/booking/payout_transfer', [FrontTransferController::class, 'payout
 Route::get('/airport/{slug}', [FrontHomeController::class, 'page'])->name("page");
 Route::get('/airports', [FrontHomeController::class, 'airports'])->name("airports");
 Route::get('/support', [TicketsController::class, 'index'])->name("support");
-Route::post('/store', [TicketsController::class, 'store'])->name("submit-ticket");
+Route::post('/support/submit-ticket', [TicketsController::class, 'store'])->name("submit-ticket");
+Route::post('/store', [TicketsController::class, 'store']); // legacy alias
 Route::post('/submit-reply', [TicketsController::class, 'submit_reply'])->name("submit-reply");
 Route::post('/addNote', [TicketsController::class, 'addNote'])->name("addNote");
 Route::post('/search-ticket', [TicketsController::class, 'search_ticket'])->name("search_ticket");
 // Route::post('/search-ticket', [TicketsController::class, 'search-ticket'])->name("search_ticket");
-Route::get('/ticket/view/{id}', [TicketsController::class, 'view'])->name("view-ticket");
+Route::get('/ticket/view/{id}', [TicketsController::class, 'view'])->where('id', '.*')->name("view-ticket");
 Route::get('/manage-booking', [FrontBookingController::class, 'manage_booking'])->name("manage_booking");
 Route::get('/manage-booking/detail', [FrontBookingController::class, 'showManageBookingDetail'])->name("manage_booking.show");
 Route::post('/booking-search', [FrontBookingController::class, 'booking_search'])->name("booking_search");

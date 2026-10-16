@@ -8,8 +8,34 @@
         return;
     }
 
+    // Use matchMedia instead of window.innerWidth — reading innerWidth at parse time
+    // forces layout (Lighthouse: Forced reflow in jetseeker-search.js:12).
+    var calendarMonthsMq = window.matchMedia('(max-width: 639px)');
+    var calendarMonths = 2; // safe default until first non-forcing media check
+    var calendarMonthsResizeBound = false;
+
     function getCalendarMonths() {
-        return window.innerWidth < 640 ? 1 : 2;
+        return calendarMonths;
+    }
+
+    function refreshCachedCalendarMonths() {
+        calendarMonths = calendarMonthsMq.matches ? 1 : 2;
+    }
+
+    function bindCalendarMonthsResize() {
+        if (calendarMonthsResizeBound) {
+            return;
+        }
+        calendarMonthsResizeBound = true;
+        refreshCachedCalendarMonths();
+        var onChange = function () {
+            refreshCachedCalendarMonths();
+        };
+        if (typeof calendarMonthsMq.addEventListener === 'function') {
+            calendarMonthsMq.addEventListener('change', onChange);
+        } else if (typeof calendarMonthsMq.addListener === 'function') {
+            calendarMonthsMq.addListener(onChange);
+        }
     }
 
     function bindCalendarTrigger($input) {
@@ -170,6 +196,7 @@
         $(window).off('resize.jsParkingCalendar').on('resize.jsParkingCalendar', function () {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function () {
+                refreshCachedCalendarMonths();
                 refreshCalendarMonths($start);
                 refreshCalendarMonths($end);
             }, 150);
@@ -219,15 +246,18 @@
                 }
             });
 
-            if (product === 'hotels') {
-                initHotelDatepickers();
-            }
-            if (product === 'lounges') {
-                initLoungeDatepicker();
-            }
-            if ($.fn.select2) {
-                $widget.find('.js-product-panel.is-active .select2me').select2({ width: '100%' });
-            }
+            // Defer measuring widgets until after panel class/attr writes flush layout
+            window.requestAnimationFrame(function () {
+                if (product === 'hotels') {
+                    initHotelDatepickers();
+                }
+                if (product === 'lounges') {
+                    initLoungeDatepicker();
+                }
+                if ($.fn.select2) {
+                    $widget.find('.js-product-panel.is-active .select2me').select2({ width: '100%' });
+                }
+            });
         }
 
         $widget.on('click', '.js-product-tab', function () {
@@ -249,7 +279,9 @@
         });
 
         if ($.fn.select2) {
-            $widget.find('.js-product-panel.is-active .select2me').select2({ width: '100%' });
+            window.requestAnimationFrame(function () {
+                $widget.find('.js-product-panel.is-active .select2me').select2({ width: '100%' });
+            });
         }
     }
 
@@ -404,6 +436,9 @@
     window.initJsHotelDatepickers = initHotelDatepickers;
 
     $(document).ready(function () {
+        bindCalendarMonthsResize();
+        refreshCachedCalendarMonths();
+
         initBookingWidget();
         initLoungeGuestPicker();
 

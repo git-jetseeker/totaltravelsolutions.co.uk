@@ -171,25 +171,23 @@ class HomeController extends Controller
 
     public function index()
     {
+        $agentId = (string) current_agent_id();
 
+        // Scoped queries (avoid airport::all() / reviews::all() then filtering in PHP).
+        $airports = cache()->remember('home.airports.status_yes', 600, function () {
+            return airport::query()->where('status', 'Yes')->get();
+        });
 
-
-
-
-        $airports = airport::all()->where('status', 'Yes');
-
-        $reviews = reviews::all()->where('status', 'Yes')->where('agent_id', (string) current_agent_id())->take(4)->sortByDesc('id');
-
-
-
-        //dd($reviews);
+        $reviews = cache()->remember('home.reviews.' . $agentId . '.top4', 300, function () use ($agentId) {
+            return reviews::query()
+                ->where('status', 'Yes')
+                ->where('agent_id', $agentId)
+                ->orderByDesc('id')
+                ->limit(4)
+                ->get();
+        });
 
         return view('home', ['airports' => $airports, 'reviews' => $reviews]);
-
-
-
-        // return view('welcome');
-
     }
 
     public function search(Request $request)

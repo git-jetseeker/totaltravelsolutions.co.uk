@@ -377,9 +377,9 @@
    <script src="{{ asset('theme/js/jquery-3.2.1.min.js') }}"></script>
    <script src="{{ asset('theme/styles/bootstrap4/popper.js') }}" defer></script>
    <script src="{{ asset('theme/styles/bootstrap4/bootstrap.min.js') }}" defer></script>
-   <script src="{{ asset('theme/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}" defer></script>
+   <script src="{{ asset('theme/plugins/OwlCarousel2-2.2.1/owl.carousel.min.js') }}" defer></script>
    <script src="{{ asset('theme/plugins/easing/easing.js') }}" defer></script>
-   <script src="{{ asset('theme/js/custom.js') }}" defer></script>
+   <script src="{{ asset('theme/js/custom.js?v=20261012') }}" defer></script>
 
    <script type='text/javascript'>
        window.__lo_site_id = 248579;

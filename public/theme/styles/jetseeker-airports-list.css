@@ -31,9 +31,9 @@
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--js-accent);
-    background: rgba(250, 158, 27, 0.15);
-    border: 1px solid rgba(250, 158, 27, 0.35);
+    color: #F9A8D4;
+    background: rgba(194, 24, 91, 0.18);
+    border: 1px solid rgba(249, 168, 212, 0.35);
 }
 
 .js-page-hero--airports-list .js-page-hero__title span {
