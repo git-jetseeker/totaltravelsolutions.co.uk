@@ -1590,51 +1590,74 @@ header.header:not(.js-header) {
 /* ── Airport cards ── */
 .js-airport-card {
     background: var(--js-surface);
-    border-radius: var(--js-radius-md);
+    border-radius: var(--js-radius-lg);
     overflow: hidden;
     border: 1px solid var(--js-border);
     box-shadow: var(--js-shadow-sm);
-    transition: box-shadow var(--js-transition), transform var(--js-transition);
+    transition: box-shadow var(--js-transition), transform var(--js-transition), border-color var(--js-transition);
 }
 
 .js-airport-card:hover {
-    box-shadow: var(--js-shadow-md);
-    transform: translateY(-3px);
+    box-shadow: var(--js-shadow-lg);
+    transform: translateY(-6px);
+    border-color: rgba(194, 24, 91, 0.28);
 }
 
+.js-airport-card__media,
 .js-airport-card__image {
     position: relative;
+    display: block;
     overflow: hidden;
-    aspect-ratio: 16 / 10;
+    height: 176px;
+    background: var(--js-background);
+    text-decoration: none !important;
 }
 
+.js-airport-card__img,
 .js-airport-card__image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 300ms ease;
+    display: block;
+    transition: transform 450ms ease;
 }
 
+.js-airport-card:hover .js-airport-card__img,
 .js-airport-card:hover .js-airport-card__image img {
-    transform: scale(1.04);
+    transform: scale(1.06);
+}
+
+.js-airport-card__img-shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 45%, rgba(13, 13, 13, 0.35) 100%);
+    pointer-events: none;
 }
 
 .js-airport-card__body {
-    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    gap: 14px;
+    padding: 18px 18px 16px;
+    min-width: 0;
 }
 
+.js-airport-card__top,
 .js-airport-card__header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 12px;
-    margin-bottom: 12px;
 }
 
 .js-airport-card__name {
-    font-size: 1rem;
-    font-weight: 700;
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 800;
+    line-height: 1.25;
     color: var(--js-heading);
+    min-width: 0;
 }
 
 .js-airport-card__name a {
@@ -1643,37 +1666,109 @@ header.header:not(.js-header) {
 }
 
 .js-airport-card__name a:hover {
-    color: var(--js-primary);
+    color: var(--js-accent);
+}
+
+.js-airport-card__price-block {
+    flex-shrink: 0;
+    text-align: right;
+    line-height: 1.15;
 }
 
 .js-airport-card__price-label {
-    font-size: 11px;
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
     color: var(--js-muted);
     text-transform: uppercase;
+    margin-bottom: 2px;
 }
 
 .js-airport-card__price {
-    font-size: 1.25rem;
+    display: block;
+    font-size: 1.35rem;
     font-weight: 800;
-    color: var(--js-primary);
+    color: var(--js-heading);
+    letter-spacing: -0.02em;
+}
+
+.js-airport-card__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.js-airport-card__stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.js-airport-card__stars .fa-star.checked {
+    color: var(--js-accent);
+}
+
+.js-airport-card__stars .fa-star.unchecked {
+    color: #d1d5db;
 }
 
 .js-airport-card__footer {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding-top: 12px;
+    margin-top: auto;
+    padding-top: 14px;
     border-top: 1px solid var(--js-border);
 }
 
 .js-airport-card__location {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-size: 13px;
     color: var(--js-muted);
 }
 
 .js-airport-card__location i {
-    color: var(--js-primary);
-    margin-right: 4px;
+    color: var(--js-accent);
+    font-size: 12px;
+}
+
+.js-airport-card__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 16px;
+    border-radius: var(--js-radius-sm);
+    background: var(--js-primary);
+    color: #fff !important;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    transition: background 0.2s ease;
+}
+
+.js-airport-card__cta:hover,
+.js-airport-card__cta:focus {
+    background: var(--js-accent);
+    color: #fff !important;
+}
+
+.js-airport-card__cta i {
+    font-size: 11px;
+    transition: transform 0.2s ease;
+}
+
+.js-airport-card__cta:hover i {
+    transform: translateX(3px);
 }
 
 /* ── Footer ── */
