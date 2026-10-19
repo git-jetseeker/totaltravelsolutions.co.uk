@@ -10,10 +10,10 @@
     <meta http-equiv="Expires" content="0" />
     <meta name="google-site-verification" content="0Hn1VMmAaGeUFSzG9jOKX8OkJim3YlwSviUgKGQgFu0" />
     <meta name="msvalidate.01" content="058CE2BBE3EF9D932E6FA366CAC4120F" />
-    <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon-32x32q.png') }}?v=20260915b" sizes="32x32">
-    <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon-16x16q.png') }}?v=20260915b" sizes="16x16">
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v=20260915b">
-    <link rel="apple-touch-icon" href="{{ asset('assets/images/favicon-32x32q.png') }}?v=20260915b">
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon-32x32q.png') }}?v=20261019" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon-16x16q.png') }}?v=20261019" sizes="16x16">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v=20261019">
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/apple-touch-icon.png') }}?v=20261019">
     @if (Route::currentRouteName() === 'main')
         <link rel="preload" as="image" type="image/webp" fetchpriority="high"
             imagesrcset="{{ url('/cached-media/hero-airport-parking-768.webp') }}?v=20261019plane2 768w, {{ url('/cached-media/hero-airport-parking.webp') }}?v=20261019plane2 1280w"

@@ -32,8 +32,8 @@
     <meta name="twitter:image" content="{{ asset('theme/images/logo-black.png') }}">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    <link rel="apple-touch-icon" href="{{ asset('theme/images/logo-black.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v=20261019">
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/apple-touch-icon.png') }}?v=20261019">
 
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
