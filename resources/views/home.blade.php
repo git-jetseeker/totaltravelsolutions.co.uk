@@ -1760,122 +1760,59 @@
 
                 @endphp
 
-                <div class="col-lg-3 col-md-6 offers_col js-airport-col">
+                <div class="col-lg-3 col-md-6 col-sm-6 offers_col js-airport-col more1">
 
-                    <div class="offers_item more1 js-airport-pass js-reveal">
+                    <article class="offers_item js-airport-pass js-airport-card js-reveal">
 
-                        <div class="row row-a">
+                        <a href="{{ route('page', ['slug' => $url]) }}" class="js-airport-card__media" tabindex="-1" aria-hidden="true">
+                            <img
+                                class="js-airport-card__img"
+                                loading="lazy"
+                                alt=""
+                                width="340"
+                                height="200"
+                                src="{{ ttss_dashboard_asset_url($airport->profile_image) }}"
+                                onerror="this.onerror=null;this.src='{{ asset('theme/images/logo-black.png') }}';"
+                            >
+                            <span class="js-airport-card__img-shade"></span>
+                        </a>
 
-                            <div class="col-lg-12" style="">
+                        <div class="js-airport-card__body">
 
-                                <div class="offers_image_container">
-
-                                    <!-- Image by https://unsplash.com/@kensuarez -->
-
-                                    <img class="offers_image_background" loading="lazy" alt="{{ $airport->name }}"
-
-                                        height="200" width="340"
-
-                                        src='{{ ttss_dashboard_asset_url($airport->profile_image) }}'
-                                        onerror="this.onerror=null;this.src='{{ asset('theme/images/logo-black.png') }}';">
-
-
-
-
-
+                            <div class="js-airport-card__top">
+                                <h3 class="js-airport-card__name">
+                                    <a href="{{ route('page', ['slug' => $url]) }}">{{ $airport->name }}</a>
+                                </h3>
+                                <div class="js-airport-card__price-block">
+                                    <span class="js-airport-card__price-label">{{ crm('home.airport_card_price_prefix', 'Starting from') }}</span>
+                                    <span class="js-airport-card__price">£{{ $p }}</span>
                                 </div>
-
                             </div>
 
-                            <div class="col-lg-12">
-
-                                <div class="offers_content">
-
-                                    <div class="row p-12">
-
-                                        <div class="col-sm-6">
-
-                                            <div class="airport-h">
-
-                                                <a
-
-                                                    href="{{ route('page', ['slug' => $url]) }}">{{ $airport->name }}</a>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-sm-6 text-right">
-
-                                            <div class="offers_price"> <span>{{ crm('home.airport_card_price_prefix', 'Starting from') }}</span></div>
-
-                                            <div class="offers_price1"><span>£ {{$p}}</span></div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="row p-12">
-
-                                        <div class="col-sm-6">
-
-                                            <div>
-
-                                                <i class="fa fa-map-marker" aria-hidden="true"
-
-                                                    style="display: inline;"></i>
-
-                                                <p style="display: inline;">{{ $airport->name }}</p>
-
-                                            </div>
-
-                                            <div class="rating_r rating_r_4 offers_rating">
-
-                                                <i class="fa fa-star checked"></i>
-
-                                                <i class="fa fa-star checked"></i>
-
-                                                <i class="fa fa-star checked"></i>
-
-                                                <i class="fa fa-star checked"></i>
-
-                                                <i class="fa fa-star unchecked"></i>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-sm-6 text-right">
-
-                                            <div class="offers_link"><a
-
-                                                    href="{{ route('page', ['slug' => $url]) }}">{{ crm('home.airport_card_cta', 'Read More') }}</a></div>
-
-                                        </div>
-
-                                    </div>
-
-
-
-                                    @php
-
-                                        $companies = DB::table('companies')->where('airport_id', $airport->id)->get();
-
-                                    @endphp
-
-
-
-
-
-
-
+                            <div class="js-airport-card__meta">
+                                <span class="js-airport-card__location">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    {{ $airport->name }} Airport
+                                </span>
+                                <div class="js-airport-card__stars" aria-label="Rated 4 out of 5">
+                                    <i class="fa fa-star checked" aria-hidden="true"></i>
+                                    <i class="fa fa-star checked" aria-hidden="true"></i>
+                                    <i class="fa fa-star checked" aria-hidden="true"></i>
+                                    <i class="fa fa-star checked" aria-hidden="true"></i>
+                                    <i class="fa fa-star unchecked" aria-hidden="true"></i>
                                 </div>
+                            </div>
 
+                            <div class="js-airport-card__footer">
+                                <a href="{{ route('page', ['slug' => $url]) }}" class="js-airport-card__cta">
+                                    {{ crm('home.airport_card_cta', 'Read More') }}
+                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                </a>
                             </div>
 
                         </div>
 
-                    </div>
+                    </article>
 
                 </div>
 
@@ -1972,80 +1909,36 @@
 
         let visibleItems = 8;
 
-        const allItems = $(".more1");
+        const allItems = $(".js-airports-grid > .js-airport-col.more1");
 
         const loadMoreBtn = $("#loadMore");
 
-
-
-        // Initially hide all items
-
-        allItems.hide();
-
-
-
-        // Show first batch
-
-        allItems.slice(0, visibleItems).show().addClass('display');
-
-
-
-        // Hide button if fewer items than visibleItems
+        allItems.removeClass('display').hide();
+        allItems.slice(0, visibleItems).addClass('display').show();
 
         if (allItems.length <= visibleItems) {
-
             loadMoreBtn.hide();
-
             return;
-
         }
 
-
-
         loadMoreBtn.on('click', function(e) {
-
             e.preventDefault();
 
-
-
-            if ($(this).text() === 'Load More') {
-
-                // Show next batch
-
+            if ($(this).text().trim() === 'Load More') {
                 const hiddenItems = allItems.filter(':hidden');
-
-                hiddenItems.slice(0, visibleItems).show().addClass('display');
-
-
-
-                // If no more hidden items, change button text
+                hiddenItems.slice(0, visibleItems).addClass('display').show();
 
                 if (allItems.filter(':hidden').length === 0) {
-
                     $(this).text('Show Less');
-
                 }
-
             } else {
-
-                // Hide all except first batch
-
-                allItems.slice(visibleItems).hide().removeClass('display');
-
+                allItems.slice(visibleItems).removeClass('display').hide();
                 $(this).text('Load More');
 
-
-
-                // Scroll to section
-
                 $('html, body').animate({
-
                     scrollTop: $("#js-airports-section").offset().top - 100
-
                 }, 800);
-
             }
-
         });
 
     });
