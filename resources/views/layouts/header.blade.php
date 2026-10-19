@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon" href="{{ asset('assets/images/favicon-32x32q.png') }}?v=20260915b">
     @if (Route::currentRouteName() === 'main')
         <link rel="preload" as="image" type="image/webp" fetchpriority="high"
-            imagesrcset="{{ url('/cached-media/hero-airport-parking-768.webp') }} 768w, {{ url('/cached-media/hero-airport-parking.webp') }} 1280w"
+            imagesrcset="{{ url('/cached-media/hero-airport-parking-768.webp') }}?v=20261019plane2 768w, {{ url('/cached-media/hero-airport-parking.webp') }}?v=20261019plane2 1280w"
             imagesizes="100vw">
     @endif
 
@@ -51,9 +51,9 @@
 
     @if (Route::currentRouteName() === 'main')
         {{-- Start critical CSS fetches in parallel as early as possible --}}
-        <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261014perf') }}">
+        <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261019plane2') }}">
         <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20261005datetimerow') }}">
-        <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-home.css?v=20261014perf') }}">
+        <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-home.css?v=20261019plane2') }}">
     @endif
 
     <meta name="twitter:title" content="{!! $site_settings_main['site_twitter_title'] ?? config('app.name', 'Total Travel Solutions') !!}">
@@ -70,10 +70,10 @@
     @if (Route::currentRouteName() !== 'main')
         <link rel="stylesheet" href="{{ asset('theme/styles/bootstrap4/bootstrap.min.css') }}">
     @endif
-    <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261014perf') }}">
+    <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261019plane2') }}">
     <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20261005datetimerow') }}">
     @if (Route::currentRouteName() === 'main')
-        <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-home.css?v=20261014perf') }}">
+        <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-home.css?v=20261019plane2') }}">
     @endif
 
     {{-- Non-critical CSS: media=print + onload is non-render-blocking --}}

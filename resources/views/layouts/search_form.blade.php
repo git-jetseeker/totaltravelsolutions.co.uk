@@ -64,10 +64,10 @@
         <picture>
             <source
                 type="image/webp"
-                srcset="{{ url('/cached-media/hero-airport-parking-768.webp') }} 768w, {{ url('/cached-media/hero-airport-parking.webp') }} 1280w"
+                srcset="{{ url('/cached-media/hero-airport-parking-768.webp') }}?v=20261019plane2 768w, {{ url('/cached-media/hero-airport-parking.webp') }}?v=20261019plane2 1280w"
                 sizes="100vw">
             <img
-                src="{{ url('/cached-media/hero-airport-parking.jpg') }}"
+                src="{{ url('/cached-media/hero-airport-parking.jpg') }}?v=20261019plane2"
                 alt=""
                 width="1280"
                 height="720"
@@ -78,15 +78,7 @@
     </div>
     <div class="js-hero__scrim" aria-hidden="true"></div>
     <div class="js-hero__blob" aria-hidden="true"></div>
-    <div class="js-hero__flight" aria-hidden="true">
-        <svg viewBox="0 0 220 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M8 72 C60 68, 90 20, 150 28 C180 32, 198 40, 210 48" stroke="currentColor" stroke-width="2" stroke-dasharray="5 7" stroke-linecap="round"/>
-            <g transform="translate(204,44) rotate(28)">
-                <path d="M0 0 L14 -4 L18 0 L14 4 Z" fill="currentColor"/>
-                <path d="M2 0 L-6 -8 L-4 0 L-6 8 Z" fill="currentColor"/>
-            </g>
-        </svg>
-    </div>
+    {{-- Airplane is now part of the hero photo; no SVG overlay needed --}}
 
     <div class="container js-hero__inner">
         <div class="js-hero__copy">
