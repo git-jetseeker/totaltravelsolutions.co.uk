@@ -18,6 +18,9 @@
         <link rel="preload" as="image" type="image/webp" fetchpriority="high"
             imagesrcset="{{ url('/cached-media/hero-airport-parking-768.webp') }}?v=20261019plane2 768w, {{ url('/cached-media/hero-airport-parking.webp') }}?v=20261019plane2 1280w"
             imagesizes="100vw">
+    @elseif (Route::currentRouteName() === 'carhire')
+        <link rel="preload" as="image" type="image/webp" fetchpriority="high"
+            href="{{ url('/cached-media/hero-car-hire.webp') }}?v=20261021ch3">
     @endif
 
     @php
@@ -49,11 +52,11 @@
     {{-- No same-origin preconnect (Lighthouse: useless). FA font preload removed — FA CSS is deferred and competed with LCP. --}}
     <link rel="canonical" href="{{ str_replace('', '/', Request::fullUrl()) }}" />
 
-    @if (Route::currentRouteName() === 'main')
+    @if (in_array(Route::currentRouteName(), ['main', 'carhire'], true))
         {{-- Start critical CSS fetches in parallel as early as possible --}}
         <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261019plane2') }}">
         <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20261005datetimerow') }}">
-        <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-home.css?v=20261019plane2') }}">
+        <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-home.css?v=20261021ch3') }}">
     @endif
 
     <meta name="twitter:title" content="{!! $site_settings_main['site_twitter_title'] ?? config('app.name', 'Total Travel Solutions') !!}">
@@ -72,13 +75,13 @@
     @endif
     <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261019plane2') }}">
     <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20261005datetimerow') }}">
-    @if (Route::currentRouteName() === 'main')
-        <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-home.css?v=20261019plane2') }}">
+    @if (in_array(Route::currentRouteName(), ['main', 'carhire'], true))
+        <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-home.css?v=20261021ch3') }}">
     @endif
 
     {{-- Non-critical CSS: media=print + onload is non-render-blocking --}}
     @php
-        $isHome = Route::currentRouteName() === 'main';
+        $isHome = in_array(Route::currentRouteName(), ['main', 'carhire'], true);
         $deferredStyles = [];
         if ($isHome) {
             // Homepage: keep only styles needed below the fold / for booking widget.
@@ -130,7 +133,7 @@
 
 
 
-<body class="js-body{{ Route::currentRouteName() === 'main' ? ' home' : '' }}">
+<body class="js-body{{ in_array(Route::currentRouteName(), ['main', 'carhire'], true) ? ' home' : '' }}{{ Route::currentRouteName() === 'carhire' ? ' js-page-carhire' : '' }}">
     @if (isset($site_settings_main['site_body_analytics']))
         {!! $site_settings_main['site_body_analytics'] !!}
     @endif

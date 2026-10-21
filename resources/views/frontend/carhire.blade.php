@@ -9,6 +9,10 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-parking-services.css?v=20261001ps4') }}">
 
 @include('layouts.search_form', [
+    'heroClass' => 'js-hero--carhire',
+    'heroImage' => url('/cached-media/hero-car-hire.jpg') . '?v=20261021ch3',
+    'heroImageWebp' => url('/cached-media/hero-car-hire.webp') . '?v=20261021ch3',
+    'heroImageWebpSmall' => url('/cached-media/hero-car-hire.webp') . '?v=20261021ch3',
     'heroEyebrow' => crm('car-hire.hero_eyebrow', 'Total Travel Solutions'),
     'heroTitle' => crm('car-hire.hero_title', 'Book Easy, Hire Smart, Travel Happy!'),
     'heroSubtitle' => carhire_enabled()
@@ -158,7 +162,7 @@
                 </div>
                 <div class="js-compare-visual js-reveal" style="--reveal-delay: 120ms">
                     <div class="js-compare-visual__frame">
-                        <img src="{{ asset('assets/images/COMPARE AIRPORT PARKING.png') }}" alt="{{ crm('car-hire.choose_img_alt', 'Compare airport car hire') }}" class="img-fluid" loading="lazy" width="400" height="290">
+                        <img src="{{ url('/cached-media/hero-car-hire.jpg') }}?v=20261021ch3" alt="{{ crm('car-hire.choose_img_alt', 'Compare airport car hire') }}" class="img-fluid" loading="lazy" width="400" height="290">
                     </div>
                     <div class="js-compare-metrics">
                         <div class="js-compare-metric">

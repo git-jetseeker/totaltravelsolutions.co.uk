@@ -195,22 +195,83 @@ window.initJsCarhireSearchForm = function ($) {
     }
     window.__jsCarhireFormBound = true;
 
-    function bindDatepickers() {
-        if (!$.fn.datepicker) { return; }
-        if ($('#carhire_pickup_date').hasClass('hasDatepicker')) {
-            $('#carhire_pickup_date').datepicker('destroy');
+    function carhireCalendarMonths() {
+        if (window.JetseekerSearch && typeof window.JetseekerSearch.getCalendarMonths === 'function') {
+            return window.JetseekerSearch.getCalendarMonths();
         }
-        if ($('#carhire_dropoff_date').hasClass('hasDatepicker')) {
-            $('#carhire_dropoff_date').datepicker('destroy');
-        }
-        $('#carhire_pickup_date').datepicker({
-            minDate: 0,
+        return window.matchMedia('(max-width: 639px)').matches ? 1 : 2;
+    }
+
+    function carhireDateOptions() {
+        return {
             dateFormat: 'dd/mm/yy',
-            onSelect: function (dateText) {
-                $('#carhire_dropoff_date').datepicker('option', 'minDate', dateText);
+            numberOfMonths: carhireCalendarMonths(),
+            showAnim: 'fadeIn',
+            beforeShow: function () {
+                $('#ui-datepicker-div').addClass('js-datepicker-panel');
+            }
+        };
+    }
+
+    function bindCarhireDateInput($input) {
+        $input.off('click.jsCarhireCal focus.jsCarhireCal').on('click.jsCarhireCal focus.jsCarhireCal', function () {
+            if ($(this).hasClass('hasDatepicker')) {
+                $(this).datepicker('show');
             }
         });
-        $('#carhire_dropoff_date').datepicker({ minDate: 0, dateFormat: 'dd/mm/yy' });
+        $input.closest('.form-group-calender').find('.fa-calendar').off('click.jsCarhireCal').on('click.jsCarhireCal', function () {
+            $input.datepicker('show');
+        });
+    }
+
+    function bindDatepickers() {
+        if (!$.fn.datepicker) { return; }
+        var $pickup = $('#carhire_pickup_date');
+        var $dropoff = $('#carhire_dropoff_date');
+        if ($pickup.hasClass('hasDatepicker')) {
+            $pickup.datepicker('destroy');
+        }
+        if ($dropoff.hasClass('hasDatepicker')) {
+            $dropoff.datepicker('destroy');
+        }
+        var shared = carhireDateOptions();
+        $pickup.datepicker($.extend({}, shared, {
+            minDate: 0,
+            onSelect: function (dateText) {
+                $dropoff.datepicker('option', 'minDate', dateText);
+                var pick = $pickup.datepicker('getDate');
+                var drop = $dropoff.datepicker('getDate');
+                if (pick && drop && drop < pick) {
+                    $dropoff.datepicker('setDate', pick);
+                }
+            }
+        }));
+        $dropoff.datepicker($.extend({}, shared, {
+            minDate: $pickup.datepicker('getDate') || 0,
+            beforeShow: function () {
+                $('#ui-datepicker-div').addClass('js-datepicker-panel');
+                var pick = $pickup.datepicker('getDate');
+                if (pick) {
+                    $(this).datepicker('option', 'minDate', pick);
+                }
+            }
+        }));
+        bindCarhireDateInput($pickup);
+        bindCarhireDateInput($dropoff);
+
+        var resizeTimer;
+        $(window).off('resize.jsCarhireCalendar').on('resize.jsCarhireCalendar', function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function () {
+                var months = carhireCalendarMonths();
+                if ($pickup.hasClass('hasDatepicker')) {
+                    $pickup.datepicker('option', 'numberOfMonths', months);
+                }
+                if ($dropoff.hasClass('hasDatepicker')) {
+                    $dropoff.datepicker('option', 'numberOfMonths', months);
+                }
+            }, 150);
+        });
     }
 
     function syncOptions() {

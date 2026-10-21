@@ -57,17 +57,28 @@
     $heroEyebrow = isset($heroEyebrow) && trim((string) $heroEyebrow) !== ''
         ? trim((string) $heroEyebrow)
         : 'Total Travel Solutions';
+
+    $heroImage = isset($heroImage) && trim((string) $heroImage) !== ''
+        ? trim((string) $heroImage)
+        : url('/cached-media/hero-airport-parking.jpg') . '?v=20261019plane2';
+    $heroImageWebp = isset($heroImageWebp) && trim((string) $heroImageWebp) !== ''
+        ? trim((string) $heroImageWebp)
+        : url('/cached-media/hero-airport-parking.webp') . '?v=20261019plane2';
+    $heroImageWebpSmall = isset($heroImageWebpSmall) && trim((string) $heroImageWebpSmall) !== ''
+        ? trim((string) $heroImageWebpSmall)
+        : url('/cached-media/hero-airport-parking-768.webp') . '?v=20261019plane2';
+    $heroClass = isset($heroClass) ? trim((string) $heroClass) : '';
 @endphp
 
-<section class="search1 js-hero js-hero--mock{{ $hideBookingWidget ? ' js-hero--no-widget' : '' }}">
+<section class="search1 js-hero js-hero--mock{{ $hideBookingWidget ? ' js-hero--no-widget' : '' }}{{ $heroClass !== '' ? ' ' . $heroClass : '' }}">
     <div class="js-hero__bg" aria-hidden="true">
         <picture>
             <source
                 type="image/webp"
-                srcset="{{ url('/cached-media/hero-airport-parking-768.webp') }}?v=20261019plane2 768w, {{ url('/cached-media/hero-airport-parking.webp') }}?v=20261019plane2 1280w"
+                srcset="{{ $heroImageWebpSmall }} 768w, {{ $heroImageWebp }} 1280w"
                 sizes="100vw">
             <img
-                src="{{ url('/cached-media/hero-airport-parking.jpg') }}?v=20261019plane2"
+                src="{{ $heroImage }}"
                 alt=""
                 width="1280"
                 height="720"

@@ -302,3 +302,19 @@
         max-width: 100%;
     }
 }
+
+/* Car hire landing uses the homepage hero, with the rental photo on the right */
+.search1.js-hero.js-hero--carhire .js-hero__bg img {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 185%;
+    top: -58%;
+    max-width: none;
+    object-fit: cover;
+    object-position: 78% center;
+}
+
+body.js-page-carhire.home .js-nav__item:first-child .js-nav__link::after {
+    content: none;
+}
