@@ -254,6 +254,10 @@
                 if (product === 'lounges') {
                     initLoungeDatepicker();
                 }
+                if (product === 'carhire' && typeof window.initJsCarhireSearchForm === 'function') {
+                    window.__jsCarhireFormBound = false;
+                    window.initJsCarhireSearchForm(jQuery);
+                }
                 if ($.fn.select2) {
                     $widget.find('.js-product-panel.is-active .select2me').select2({ width: '100%' });
                 }

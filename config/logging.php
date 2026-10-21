@@ -65,6 +65,14 @@ return [
             'replace_placeholders' => true,
         ],
 
+        'carhire' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/carhire.log'),
+            'level' => env('CARHIRE_LOG_LEVEL', 'debug'),
+            'days' => 14,
+            'replace_placeholders' => true,
+        ],
+
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),

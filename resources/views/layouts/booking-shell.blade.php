@@ -29,4 +29,5 @@
     <div class="super_container">
         @yield('content')
         @include('layouts.footer')
+        @yield('footer-script')
     </div>

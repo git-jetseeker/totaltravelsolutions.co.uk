@@ -92,31 +92,23 @@
 
             <p class="main-paragraph js-hero__subtitle">{!! $heroSubtitleHtml !!}</p>
 
+            @php
+                $heroFeatures = $heroFeatures ?? [
+                    ['icon' => 'fa-shield', 'title' => crm('home.hero_feat_1_title', 'Secure Parking')],
+                    ['icon' => 'fa-tag', 'title' => crm('home.hero_feat_2_title', 'Best Prices')],
+                    ['icon' => 'fa-plane', 'title' => crm('home.hero_feat_3_title', 'Multiple Airports')],
+                    ['icon' => 'fa-headphones', 'title' => crm('home.hero_feat_4_title', 'Expert Support')],
+                ];
+            @endphp
             <ul class="js-hero__features">
-                <li class="js-hero__feature">
-                    <span class="js-hero__feature-icon" aria-hidden="true"><i class="fa fa-shield"></i></span>
-                    <span class="js-hero__feature-text">
-                        <strong>{{ crm('home.hero_feat_1_title', 'Secure Parking') }}</strong>
-                    </span>
-                </li>
-                <li class="js-hero__feature">
-                    <span class="js-hero__feature-icon" aria-hidden="true"><i class="fa fa-tag"></i></span>
-                    <span class="js-hero__feature-text">
-                        <strong>{{ crm('home.hero_feat_2_title', 'Best Prices') }}</strong>
-                    </span>
-                </li>
-                <li class="js-hero__feature">
-                    <span class="js-hero__feature-icon" aria-hidden="true"><i class="fa fa-plane"></i></span>
-                    <span class="js-hero__feature-text">
-                        <strong>{{ crm('home.hero_feat_3_title', 'Multiple Airports') }}</strong>
-                    </span>
-                </li>
-                <li class="js-hero__feature">
-                    <span class="js-hero__feature-icon" aria-hidden="true"><i class="fa fa-headphones"></i></span>
-                    <span class="js-hero__feature-text">
-                        <strong>{{ crm('home.hero_feat_4_title', 'Expert Support') }}</strong>
-                    </span>
-                </li>
+                @foreach($heroFeatures as $feature)
+                    <li class="js-hero__feature">
+                        <span class="js-hero__feature-icon" aria-hidden="true"><i class="fa {{ $feature['icon'] ?? 'fa-check' }}"></i></span>
+                        <span class="js-hero__feature-text">
+                            <strong>{{ $feature['title'] ?? '' }}</strong>
+                        </span>
+                    </li>
+                @endforeach
             </ul>
         </div>
 
@@ -125,6 +117,7 @@
                 @include('partials.booking-widget', [
                     'selectedAirportId' => $selectedAirportId ?? null,
                     'bookingCardId' => $bookingCardId ?? 'home_search_form',
+                    'activeBookingTab' => $activeBookingTab ?? null,
                 ])
             </div>
         @endunless

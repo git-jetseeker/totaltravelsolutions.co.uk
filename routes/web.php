@@ -5,6 +5,7 @@ use App\Http\Controllers\front\BookingController as FrontBookingController;
 use App\Http\Controllers\front\LoungeController as FrontLoungeController;
 use App\Http\Controllers\front\HotelController as FrontHotelController;
 use App\Http\Controllers\front\TransferController as FrontTransferController;
+use App\Http\Controllers\front\CarHireController;
 use App\Http\Controllers\TicketsController as TicketsController;
 use App\Http\Controllers\SubscribersController as SubscribersController;
 use App\Http\Controllers\CustomerController as CustomerController;
@@ -153,6 +154,17 @@ Route::post('/hotel_checkout', [FrontHotelController::class, 'hotel_checkout'])-
 Route::post('/checkBookingHotel', [FrontHotelController::class, 'checkBookingHotel'])->name("checkBookingHotel");
 Route::post('/hotels/payout', [FrontHotelController::class, 'payout_hotel'])->name("payout_hotel");
 Route::get('/hotels/thankyou/{id}', [FrontHotelController::class, 'thankyou'])->name("thankyou_hotel");
+
+Route::get('/car-hire', [CarHireController::class, 'index'])->name('carhire');
+Route::get('/car-hire/locations', [CarHireController::class, 'searchLocations'])->name('carhire.locations');
+Route::match(['get', 'post'], '/car-hire/search', [CarHireController::class, 'search'])->name('carhire.search');
+Route::match(['get', 'post'], '/car-hire/deal', [CarHireController::class, 'viewDeal'])->name('carhire.deal');
+Route::post('/car-hire/booking', [CarHireController::class, 'addBookingForm'])->name('carhire.booking');
+Route::post('/car-hire/checkout', [CarHireController::class, 'checkout'])->name('carhire.checkout');
+Route::post('/car-hire/save-details', [CarHireController::class, 'saveDetails'])->name('carhire.save');
+Route::post('/car-hire/payout', [CarHireController::class, 'payout'])->name('carhire.payout');
+Route::get('/car-hire/thankyou/{id}', [CarHireController::class, 'thankyou'])->name('carhire.thankyou');
+
 Route::get('/about-us', [FrontHomeController::class, 'about_us'])->name("about-us");
 Route::post('/searchresult_transfer', [FrontHomeController::class, 'getSearchResultTransfer'])->name("searchresult_transfer");
 Route::get('/searchresult_transfer', [FrontHomeController::class, 'getSearchResultTransfer'])->name("searchresult_transfer.show");

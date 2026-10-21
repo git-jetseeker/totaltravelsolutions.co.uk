@@ -1,5 +1,16 @@
 <?php
 
+if (! function_exists('carhire_enabled')) {
+    /**
+     * Live toggle for car hire booking. When false, UI shows Coming Soon
+     * and booking/search endpoints redirect away.
+     */
+    function carhire_enabled(): bool
+    {
+        return (bool) config('services.enjoytravel.enabled', true);
+    }
+}
+
 if (! function_exists('normalize_site_host')) {
     function normalize_site_host($value)
     {

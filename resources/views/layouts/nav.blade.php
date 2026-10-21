@@ -93,6 +93,9 @@
                     <a href="{{ url('parking-services') }}" class="js-nav__link">{{ crm('global.nav_parking_services', 'Parking Services') }}</a>
                 </li>
                 <li class="js-nav__item">
+                    <a href="{{ route('carhire') }}" class="js-nav__link">{{ crm('global.nav_carhire', 'Car Hire') }}</a>
+                </li>
+                <li class="js-nav__item">
                     <a href="{{ url('about-us') }}" class="js-nav__link">{{ crm('global.nav_about', 'About Us') }}</a>
                 </li>
                 <li class="js-nav__item">
@@ -138,6 +141,7 @@
                 </div>
             </li>
             <li><a href="{{ url('parking-services') }}" class="js-mobile-nav__link">{{ crm('global.nav_parking_services', 'Parking Services') }}</a></li>
+            <li><a href="{{ route('carhire') }}" class="js-mobile-nav__link">{{ crm('global.nav_carhire', 'Car Hire') }}</a></li>
             <li><a href="{{ url('about-us') }}" class="js-mobile-nav__link">{{ crm('global.nav_about', 'About Us') }}</a></li>
             <li><a href="{{ route('faqs') }}" class="js-mobile-nav__link">{{ crm('global.nav_faqs', 'FAQs') }}</a></li>
             <li><a href="{{ route('support') }}" class="js-mobile-nav__link">{{ crm('global.nav_support', 'Customer Support') }}</a></li>

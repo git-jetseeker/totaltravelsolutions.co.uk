@@ -23,6 +23,11 @@
 
     $bookingCardId = $bookingCardId ?? 'home_search_form';
     $bookingCardClass = trim('js-booking-card ' . ($bookingCardClass ?? ''));
+    $activeBookingTab = $activeBookingTab ?? session('open_booking_tab', 'parking');
+    if (!in_array($activeBookingTab, ['parking', 'lounges', 'hotels', 'carhire'], true)) {
+        $activeBookingTab = 'parking';
+    }
+    $carhireLive = function_exists('carhire_enabled') ? carhire_enabled() : true;
 @endphp
 
 @include('partials.booking-widget-setup', [
@@ -30,36 +35,38 @@
 ])
 
 <div id="{{ $bookingCardId }}" class="{{ $bookingCardClass }}">
-    <div class="js-booking-widget" data-js-booking-widget data-active="parking">
+    <div class="js-booking-widget" data-js-booking-widget data-active="{{ $activeBookingTab }}">
         <div class="js-product-tabs" role="tablist" aria-label="Search parking, lounges, hotels or car hire">
-            <button type="button" class="js-product-tab is-active" role="tab" id="js-tab-btn-parking" aria-controls="js-panel-parking" aria-selected="true" data-product="parking">
+            <button type="button" class="js-product-tab{{ $activeBookingTab === 'parking' ? ' is-active' : '' }}" role="tab" id="js-tab-btn-parking" aria-controls="js-panel-parking" aria-selected="{{ $activeBookingTab === 'parking' ? 'true' : 'false' }}" data-product="parking">
                 <i class="fa fa-car" aria-hidden="true"></i>
                 <span class="js-product-tab__label">{{ crm('home.tab_parking', 'Parking') }}</span>
                 <span class="js-product-tab__label-full">{{ crm('home.tab_parking_full', 'Airport Parking') }}</span>
             </button>
-            <button type="button" class="js-product-tab" role="tab" id="js-tab-btn-lounges" aria-controls="js-panel-lounges" aria-selected="false" data-product="lounges">
+            <button type="button" class="js-product-tab{{ $activeBookingTab === 'lounges' ? ' is-active' : '' }}" role="tab" id="js-tab-btn-lounges" aria-controls="js-panel-lounges" aria-selected="{{ $activeBookingTab === 'lounges' ? 'true' : 'false' }}" data-product="lounges">
                 <i class="fa fa-coffee" aria-hidden="true"></i>
                 <span class="js-product-tab__label">{{ crm('home.tab_lounges', 'Lounges') }}</span>
                 <span class="js-product-tab__label-full">{{ crm('home.tab_lounges_full', 'Airport Lounges') }}</span>
                 <span class="js-soon-badge">Coming Soon</span>
             </button>
-            <button type="button" class="js-product-tab" role="tab" id="js-tab-btn-hotels" aria-controls="js-panel-hotels" aria-selected="false" data-product="hotels">
+            <button type="button" class="js-product-tab{{ $activeBookingTab === 'hotels' ? ' is-active' : '' }}" role="tab" id="js-tab-btn-hotels" aria-controls="js-panel-hotels" aria-selected="{{ $activeBookingTab === 'hotels' ? 'true' : 'false' }}" data-product="hotels">
                 <i class="fa fa-bed" aria-hidden="true"></i>
                 <span class="js-product-tab__label">{{ crm('home.tab_hotels', 'Hotels') }}</span>
                 <span class="js-product-tab__label-full">{{ crm('home.tab_hotels_full', 'Airport Hotels') }}</span>
                 <span class="js-soon-badge">Coming Soon</span>
             </button>
-            <button type="button" class="js-product-tab" role="tab" id="js-tab-btn-carhire" aria-controls="js-panel-carhire" aria-selected="false" data-product="carhire">
+            <button type="button" class="js-product-tab{{ $activeBookingTab === 'carhire' ? ' is-active' : '' }}" role="tab" id="js-tab-btn-carhire" aria-controls="js-panel-carhire" aria-selected="{{ $activeBookingTab === 'carhire' ? 'true' : 'false' }}" data-product="carhire">
                 <i class="fa fa-cab" aria-hidden="true"></i>
                 <span class="js-product-tab__label">{{ crm('home.tab_carhire', 'Car Hire') }}</span>
                 <span class="js-product-tab__label-full">{{ crm('home.tab_carhire_full', 'Airport Car Hire') }}</span>
-                <span class="js-soon-badge">Coming Soon</span>
+                @unless($carhireLive)
+                    <span class="js-soon-badge">Coming Soon</span>
+                @endunless
             </button>
         </div>
 
         <div class="js-booking-widget-body">
             {{-- Parking --}}
-            <div class="js-product-panel is-active" id="js-panel-parking" role="tabpanel" aria-labelledby="js-tab-btn-parking" data-panel="parking">
+            <div class="js-product-panel{{ $activeBookingTab === 'parking' ? ' is-active' : '' }}" id="js-panel-parking" role="tabpanel" aria-labelledby="js-tab-btn-parking" data-panel="parking"@if($activeBookingTab !== 'parking') hidden @endif>
                 <p class="js-panel-hint">{{ crm('home.panel_hint_parking', 'Compare meet & greet, park & ride and on-site parking.') }}</p>
                 <form method="get" action="{{ route('searchresult') }}" id="search_form_1" class="js-booking-form">
                     @if (!empty($searchEmail))
@@ -133,7 +140,7 @@
             </div>
 
             {{-- Lounges (coming soon) --}}
-            <div class="js-product-panel" id="js-panel-lounges" role="tabpanel" aria-labelledby="js-tab-btn-lounges" data-panel="lounges" hidden>
+            <div class="js-product-panel{{ $activeBookingTab === 'lounges' ? ' is-active' : '' }}" id="js-panel-lounges" role="tabpanel" aria-labelledby="js-tab-btn-lounges" data-panel="lounges"@if($activeBookingTab !== 'lounges') hidden @endif>
                 <div class="js-carhire-soon">
                     <span class="js-carhire-soon__badge">Coming Soon</span>
                     <h3 class="js-carhire-soon__title">Airport lounges are on the way</h3>
@@ -142,7 +149,7 @@
             </div>
 
             {{-- Hotels (coming soon) --}}
-            <div class="js-product-panel" id="js-panel-hotels" role="tabpanel" aria-labelledby="js-tab-btn-hotels" data-panel="hotels" hidden>
+            <div class="js-product-panel{{ $activeBookingTab === 'hotels' ? ' is-active' : '' }}" id="js-panel-hotels" role="tabpanel" aria-labelledby="js-tab-btn-hotels" data-panel="hotels"@if($activeBookingTab !== 'hotels') hidden @endif>
                 <div class="js-carhire-soon">
                     <span class="js-carhire-soon__badge">Coming Soon</span>
                     <h3 class="js-carhire-soon__title">Airport hotels are on the way</h3>
@@ -150,9 +157,9 @@
                 </div>
             </div>
 
-            {{-- Car Hire (coming soon) --}}
-            <div class="js-product-panel" id="js-panel-carhire" role="tabpanel" aria-labelledby="js-tab-btn-carhire" data-panel="carhire" hidden>
-                @include('layouts.carhire_form')
+            {{-- Car Hire --}}
+            <div class="js-product-panel{{ $activeBookingTab === 'carhire' ? ' is-active' : '' }}" id="js-panel-carhire" role="tabpanel" aria-labelledby="js-tab-btn-carhire" data-panel="carhire"@if($activeBookingTab !== 'carhire') hidden @endif>
+                @include('layouts.carhire_form', ['activeBookingTab' => 'carhire'])
             </div>
         </div>
     </div>

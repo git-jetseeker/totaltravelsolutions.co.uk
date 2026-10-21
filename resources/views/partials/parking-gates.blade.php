@@ -10,14 +10,29 @@
     $meetTitle = $meetTitle ?? 'Meet & Greet';
     $meetText = $meetText ?? 'A seamless start to your journey. Drive to the terminal, hand over your keys, and let a professional park your vehicle while you head straight to departures.';
     $meetFooter = $meetFooter ?? 'Fastest check-in';
+    $meetImage = $meetImage ?? asset('assets/images/Meet & Greet.png');
+    $meetCode = $meetCode ?? 'MG';
+    $meetLane = $meetLane ?? 'Lane 01';
+    $meetTag = $meetTag ?? 'Premium';
+    $meetTagClass = $meetTagClass ?? 'js-parking-gate__tag--premium';
 
     $onsiteTitle = $onsiteTitle ?? 'On-Site Airport Parking';
     $onsiteText = $onsiteText ?? 'Park close to the terminal within walking distance. Direct access, high security, and maximum convenience for short or busy trips.';
     $onsiteFooter = $onsiteFooter ?? 'Walk to terminal';
+    $onsiteImage = $onsiteImage ?? asset('assets/images/On Site.png');
+    $onsiteCode = $onsiteCode ?? 'OS';
+    $onsiteLane = $onsiteLane ?? 'Lane 02';
+    $onsiteTag = $onsiteTag ?? 'Most popular';
+    $onsiteTagClass = $onsiteTagClass ?? 'js-parking-gate__tag--convenient';
 
     $parkTitle = $parkTitle ?? 'Park & Ride';
     $parkText = $parkText ?? 'Great value for longer stays. Park securely and take a complimentary shuttle straight to your terminal without delays.';
     $parkFooter = $parkFooter ?? 'Free shuttle included';
+    $parkImage = $parkImage ?? asset('assets/images/Park & Ride.png');
+    $parkCode = $parkCode ?? 'PR';
+    $parkLane = $parkLane ?? 'Lane 03';
+    $parkTag = $parkTag ?? 'Great value';
+    $parkTagClass = $parkTagClass ?? 'js-parking-gate__tag--value';
 
     $wrapHtml = function ($html): string {
         $html = trim((string) $html);
@@ -43,12 +58,12 @@
         <div class="js-parking-gates">
             <article class="js-parking-gate{{ $withReveal ? ' js-reveal' : '' }}"@if($withReveal) style="--reveal-delay: 0ms"@endif>
                 <header class="js-parking-gate__header">
-                    <span class="js-parking-gate__code">MG</span>
-                    <span class="js-parking-gate__lane">Lane 01</span>
-                    <span class="js-parking-gate__tag js-parking-gate__tag--premium">Premium</span>
+                    <span class="js-parking-gate__code">{{ $meetCode }}</span>
+                    <span class="js-parking-gate__lane">{{ $meetLane }}</span>
+                    <span class="js-parking-gate__tag {{ $meetTagClass }}">{{ $meetTag }}</span>
                 </header>
                 <div class="js-parking-gate__icon">
-                    <img src="{{ asset('assets/images/Meet & Greet.png') }}" alt="" loading="lazy" width="64" height="64">
+                    <img src="{{ $meetImage }}" alt="" loading="lazy" width="64" height="64">
                 </div>
                 <div class="js-parking-gate__body">
                     <h3>{{ $meetTitle }}</h3>
@@ -61,12 +76,12 @@
 
             <article class="js-parking-gate js-parking-gate--featured{{ $withReveal ? ' js-reveal' : '' }}"@if($withReveal) style="--reveal-delay: 100ms"@endif>
                 <header class="js-parking-gate__header">
-                    <span class="js-parking-gate__code">OS</span>
-                    <span class="js-parking-gate__lane">Lane 02</span>
-                    <span class="js-parking-gate__tag js-parking-gate__tag--convenient">Most popular</span>
+                    <span class="js-parking-gate__code">{{ $onsiteCode }}</span>
+                    <span class="js-parking-gate__lane">{{ $onsiteLane }}</span>
+                    <span class="js-parking-gate__tag {{ $onsiteTagClass }}">{{ $onsiteTag }}</span>
                 </header>
                 <div class="js-parking-gate__icon">
-                    <img src="{{ asset('assets/images/On Site.png') }}" alt="" loading="lazy" width="64" height="64">
+                    <img src="{{ $onsiteImage }}" alt="" loading="lazy" width="64" height="64">
                 </div>
                 <div class="js-parking-gate__body">
                     <h3>{{ $onsiteTitle }}</h3>
@@ -79,12 +94,12 @@
 
             <article class="js-parking-gate{{ $withReveal ? ' js-reveal' : '' }}"@if($withReveal) style="--reveal-delay: 200ms"@endif>
                 <header class="js-parking-gate__header">
-                    <span class="js-parking-gate__code">PR</span>
-                    <span class="js-parking-gate__lane">Lane 03</span>
-                    <span class="js-parking-gate__tag js-parking-gate__tag--value">Best value</span>
+                    <span class="js-parking-gate__code">{{ $parkCode }}</span>
+                    <span class="js-parking-gate__lane">{{ $parkLane }}</span>
+                    <span class="js-parking-gate__tag {{ $parkTagClass }}">{{ $parkTag }}</span>
                 </header>
                 <div class="js-parking-gate__icon">
-                    <img src="{{ asset('assets/images/Park & Ride.png') }}" alt="" loading="lazy" width="64" height="64">
+                    <img src="{{ $parkImage }}" alt="" loading="lazy" width="64" height="64">
                 </div>
                 <div class="js-parking-gate__body">
                     <h3>{{ $parkTitle }}</h3>

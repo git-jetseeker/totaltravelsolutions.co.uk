@@ -279,6 +279,10 @@
             window.initJsHotelSearchForm(jQuery);
         }
 
+        if (typeof window.initJsCarhireSearchForm === 'function') {
+            window.initJsCarhireSearchForm(jQuery);
+        }
+
         if (window.JetseekerSearch && typeof window.JetseekerSearch.initHotelDatepickers === 'function') {
             var $widget = $('[data-js-booking-widget]');
             var onHotelsTab = $widget.length && ($widget.attr('data-active') === 'hotels' || window.location.hash === '#hotels');
@@ -288,9 +292,22 @@
             }
         }
 
-@if(session('open_booking_tab') === 'hotels' || $errors->has('hotel_checkin_date') || $errors->has('hotel_checkout_date') || $errors->has('hotel_room_type') || $errors->has('hotel_search'))
+@php
+    $footerErrorBag = isset($errors) ? $errors : null;
+@endphp
+@if(session('open_booking_tab') === 'hotels' || ($footerErrorBag && ($footerErrorBag->has('hotel_checkin_date') || $footerErrorBag->has('hotel_checkout_date') || $footerErrorBag->has('hotel_room_type') || $footerErrorBag->has('hotel_search'))))
         if (window.JetseekerSearch && $('[data-js-booking-widget]').length) {
             $('[data-js-booking-widget]').find('.js-product-tab[data-product="hotels"]').trigger('click');
+        }
+@endif
+
+@if(session('open_booking_tab') === 'carhire' || (!empty($activeBookingTab) && $activeBookingTab === 'carhire'))
+        if ($('[data-js-booking-widget]').length) {
+            $('[data-js-booking-widget]').find('.js-product-tab[data-product="carhire"]').trigger('click');
+        }
+        if (typeof window.initJsCarhireSearchForm === 'function') {
+            window.__jsCarhireFormBound = false;
+            window.initJsCarhireSearchForm(jQuery);
         }
 @endif
 

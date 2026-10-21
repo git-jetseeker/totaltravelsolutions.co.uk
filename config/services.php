@@ -48,4 +48,20 @@ return [
         'origin' => env('BOOKFHR_ORIGIN', env('APP_URL')),
     ],
 
+    'enjoytravel' => [
+        // Set CARHIRE_ENABLED=false to hide booking and show Coming Soon again.
+        'enabled' => filter_var(env('CARHIRE_ENABLED', true), FILTER_VALIDATE_BOOLEAN),
+        'base_url' => env('ENJOYTRAVEL_BASE_URL', 'https://ettapi-test.azurewebsites.net'),
+        'auth_url' => env('ENJOYTRAVEL_AUTH_URL', 'https://auth.enjoytravel.com'),
+        'username' => env('ENJOYTRAVEL_USERNAME'),
+        'password' => env('ENJOYTRAVEL_PASSWORD'),
+        'client_id' => env('ENJOYTRAVEL_CLIENT_ID'),
+        'client_secret' => env('ENJOYTRAVEL_CLIENT_SECRET'),
+        'source' => env('ENJOYTRAVEL_SOURCE'),
+        'scope' => env('ENJOYTRAVEL_SCOPE', 'Enjoy.API'),
+        'lang' => env('ENJOYTRAVEL_LANG', 'en-gb'),
+        'currency' => env('ENJOYTRAVEL_CURRENCY', 'GBP'),
+        'location_id' => env('ENJOYTRAVEL_LOCATION_ID', 7857),
+    ],
+
 ];
