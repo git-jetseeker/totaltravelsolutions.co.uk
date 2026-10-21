@@ -133,7 +133,7 @@
 
 
 
-<body class="js-body{{ in_array(Route::currentRouteName(), ['main', 'carhire'], true) ? ' home' : '' }}{{ Route::currentRouteName() === 'carhire' ? ' js-page-carhire' : '' }}">
+<body class="js-body{{ in_array(Route::currentRouteName(), ['main', 'carhire'], true) ? ' home' : '' }}{{ str_starts_with((string) Route::currentRouteName(), 'carhire') ? ' js-page-carhire' : '' }}">
     @if (isset($site_settings_main['site_body_analytics']))
         {!! $site_settings_main['site_body_analytics'] !!}
     @endif

@@ -218,6 +218,87 @@
         padding: 0px;
         border: 0;
     }
+
+    /* Car hire search/deal use the same header as the homepage */
+    body.js-page-carhire .js-topbar {
+        display: none !important;
+    }
+
+    body.js-page-carhire .js-header {
+        top: 0;
+        background: #fff;
+        border-bottom: 1px solid #eee;
+        box-shadow: none;
+    }
+
+    body.js-page-carhire .js-nav__link {
+        background: transparent;
+        border-radius: 0;
+        position: relative;
+        padding: 0 8px;
+    }
+
+    body.js-page-carhire .js-nav__link.is-active,
+    body.js-page-carhire .js-nav__link:hover {
+        color: #c2185b;
+        background: transparent;
+    }
+
+    body.js-page-carhire .js-nav__link.is-active::after {
+        content: '';
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        bottom: 6px;
+        height: 2px;
+        background: #c2185b;
+        border-radius: 999px;
+    }
+
+    body.js-page-carhire .js-nav__item--dropdown > .js-nav__link::after {
+        content: '';
+        position: static;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: 0;
+        height: 0;
+        margin-left: 6px;
+        background: none;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 5px solid currentColor;
+        border-radius: 0;
+    }
+
+    body.js-page-carhire .js-helpline-widget--header {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        gap: 10px !important;
+        transform: none !important;
+    }
+
+    body.js-page-carhire .js-helpline-widget--header:hover,
+    body.js-page-carhire .js-helpline-widget--header:focus {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+
+    body.js-page-carhire .js-helpline-widget--header .js-helpline-widget__icon {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+        box-shadow: none;
+    }
+
+    body.js-page-carhire .js-nav__cta .js-btn--primary {
+        background: #c2185b;
+        border-color: #c2185b;
+    }
 </style>
 
 {{-- <link href="{{ asset('theme/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet"
