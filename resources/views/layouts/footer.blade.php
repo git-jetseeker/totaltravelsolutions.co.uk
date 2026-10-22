@@ -18,6 +18,11 @@
         color: #fff !important;
     }
 
+    .js-footer__social a {
+        background: transparent;
+        border-color: transparent;
+    }
+
     .js-footer__social a svg,
     .js-footer__social a svg * {
         fill: currentColor !important;
