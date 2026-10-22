@@ -1312,6 +1312,27 @@
 
     .js-booking-page.apb-booking-page .js-summary-toggle {
         display: flex;
+        min-height: 68px;
+        padding: 12px 14px;
+        gap: 8px;
+    }
+
+    .js-booking-page.apb-booking-page .js-summary-toggle__text {
+        gap: 3px;
+    }
+
+    .js-booking-page.apb-booking-page .js-summary-toggle__title {
+        font-size: 11px;
+        letter-spacing: 0.07em;
+    }
+
+    .js-booking-page.apb-booking-page .js-summary-toggle__action {
+        font-size: 13px;
+        line-height: 1.25;
+    }
+
+    .js-booking-page.apb-booking-page .js-summary-toggle__right {
+        gap: 7px;
     }
 
     .js-booking-page.apb-booking-page #show_cart.is-summary-collapsed .js-booking-summary-body,
@@ -1332,20 +1353,20 @@
     }
 
     .js-booking-page.apb-booking-page #show_cart .js-booking-summary-logo {
-        flex: 0 0 38% !important;
-        width: 38% !important;
-        max-width: 150px !important;
-        min-width: 110px !important;
-        min-height: 100px;
+        flex: 0 0 32% !important;
+        width: 32% !important;
+        max-width: 132px !important;
+        min-width: 0 !important;
+        min-height: 88px;
         padding: 10px;
     }
 
     .js-booking-page.apb-booking-page #show_cart .parkImg {
         width: 100% !important;
         max-width: 100% !important;
-        min-width: 90px;
+        min-width: 0;
         max-height: 96px;
-        min-height: 72px;
+        min-height: 64px;
         object-fit: contain;
     }
 
@@ -1372,6 +1393,21 @@
     .js-booking-page.apb-booking-page #show_cart .booking-second-sec-table-total #totalPrice,
     .js-booking-page.apb-booking-page #show_cart .booking-second-sec-table-total .total {
         font-size: 24px;
+    }
+}
+
+@media (max-width: 359px) {
+    .js-booking-page.apb-booking-page .js-summary-toggle {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .js-booking-page.apb-booking-page .js-summary-toggle__right {
+        gap: 5px;
+    }
+
+    .js-booking-page.apb-booking-page .js-summary-toggle__total {
+        font-size: 16px;
     }
 }
 

@@ -6,7 +6,7 @@
 @include('layouts.nav')
 
 <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-home.css?v=20261012min') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-manage-booking.css?v=20261001manage2') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-manage-booking.css?v=20261022spacing') }}">
 
 @include('layouts.search_form', [
     'heroEyebrow' => crm('manage-booking.hero_eyebrow', 'Your trip, in one place'),

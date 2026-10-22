@@ -22,6 +22,10 @@
     color: var(--js-muted);
 }
 
+.js-parking-services .js-parking-gate__tag--premium {
+    color: #fff !important;
+}
+
 /* ── Intro ── */
 .js-ps-intro {
     padding-top: 0;

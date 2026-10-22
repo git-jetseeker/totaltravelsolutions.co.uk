@@ -6,7 +6,7 @@
 @include('layouts.header')
 @include('layouts.nav')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-parking-services.css?v=20261001ps4') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-parking-services.css?v=20261022pillcolor') }}">
 
 @include('layouts.search_form', [
     'heroClass' => 'js-hero--carhire',

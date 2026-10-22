@@ -1,7 +1,7 @@
 @include('layouts.header')
 @include('layouts.nav')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-manage-booking.css?v=20260929detail') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-manage-booking.css?v=20261022spacing') }}">
 <style>
     .js-manage-detail {
         --js-primary: #111111;

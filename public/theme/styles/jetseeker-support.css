@@ -89,8 +89,8 @@
 
 /* Notices */
 .js-support-notices {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
     margin-bottom: 28px;
 }
@@ -105,12 +105,14 @@
 .js-support-notice--info {
     background: rgba(26, 26, 26, 0.06);
     border: 1px solid rgba(26, 26, 26, 0.12);
+    border-left: 4px solid var(--js-primary);
     color: var(--js-heading);
 }
 
 .js-support-notice--warn {
     background: rgba(194, 24, 91, 0.06);
     border: 1px solid rgba(194, 24, 91, 0.18);
+    border-left: 4px solid var(--js-accent);
     color: var(--js-heading);
 }
 
@@ -133,6 +135,7 @@
     margin: 0;
     padding: 0;
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
 }
 
@@ -161,7 +164,7 @@
 /* Forms grid */
 .js-support-grid {
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.8fr);
     gap: 28px;
     align-items: start;
 }
@@ -600,6 +603,11 @@
     .js-support-contact-strip {
         margin-top: 0;
         padding: 20px 0 8px;
+    }
+
+    .js-support-notices,
+    .js-support-intro ul {
+        grid-template-columns: 1fr;
     }
 
     .js-support-grid {

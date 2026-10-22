@@ -12,6 +12,42 @@
         color: #fff;
         background-color: var(--js-primary);
     }
+
+    .js-footer__social a,
+    .js-footer__social a i {
+        color: #fff !important;
+    }
+
+    .js-footer__social a svg,
+    .js-footer__social a svg * {
+        fill: currentColor !important;
+    }
+
+    @media (max-width: 767px) {
+        .js-footer__grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px 18px;
+        }
+
+        .js-footer__brand {
+            min-width: 0;
+            padding-right: 0;
+        }
+
+        .js-footer__logo img {
+            max-width: 100%;
+        }
+
+        .js-footer__title {
+            line-height: 1.5;
+        }
+    }
+
+    @media (max-width: 359px) {
+        .js-footer__grid {
+            gap: 20px 12px;
+        }
+    }
 </style>
 
 <div class="modal fade" id="myModal" role="dialog">

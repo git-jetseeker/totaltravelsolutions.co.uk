@@ -177,7 +177,7 @@
     font-size: 1.02rem;
     line-height: 1.8;
     color: var(--js-text);
-    max-width: 920px;
+    max-width: 100%;
 }
 
 .js-airport-content > *:first-child {
@@ -873,4 +873,3 @@
         margin-bottom: 36px;
     }
 }
-

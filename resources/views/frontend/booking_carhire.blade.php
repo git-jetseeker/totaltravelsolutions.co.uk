@@ -5,7 +5,7 @@
 @section('stylesheets')
     <link property="stylesheet" rel="stylesheet" href="{{ asset('assets/page.css') }}" type="text/css" media="all" />
     <link rel="stylesheet" href="{{ asset('assets/payzone/payzone_gateway.css?v=1.2') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking.css?v=20250902l') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking.css?v=20261022mobilesummary') }}">
 @endsection
 
 @section('content')

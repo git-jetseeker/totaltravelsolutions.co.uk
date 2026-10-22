@@ -46,6 +46,16 @@
     margin-bottom: 36px;
 }
 
+.js-manage-page .js-section-head .js-section-title {
+    margin: 0 0 8px;
+}
+
+.js-manage-page .js-section-head .js-section-subtitle {
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
 .js-manage-panel {
     background: var(--js-surface);
     border: 1px solid var(--js-border);

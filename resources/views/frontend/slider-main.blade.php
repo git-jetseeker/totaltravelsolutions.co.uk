@@ -174,7 +174,7 @@
         justify-content: center;
         transition: all 0.3s ease;
         pointer-events: all;
-        margin: 0 -10px;
+        margin: 0 10px;
     }
 
     .owl-nav .owl-prev:hover,
@@ -285,7 +285,7 @@
         .owl-nav .owl-next {
             width: 50px;
             height: 50px;
-                   margin: 0 -10px;
+            margin: 0 8px;
 
         }
 

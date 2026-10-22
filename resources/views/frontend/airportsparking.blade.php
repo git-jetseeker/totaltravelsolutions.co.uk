@@ -6,7 +6,7 @@
 @include('layouts.nav')
 
 <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-home.css?v=20261012min') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-parking-services.css?v=20261001ps4') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-parking-services.css?v=20261022pillcolor') }}">
 
 @php
     $site_settings_main = [];

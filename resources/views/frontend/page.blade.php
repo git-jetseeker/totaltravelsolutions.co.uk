@@ -6,7 +6,7 @@
 @include('layouts.nav')
 
 <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-home.css?v=20261012min') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-airport.css?v=20261001airport5') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-airport.css?v=20261022contentwidth') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20261001mock') }}">
 
    @if(request()->get('src') != '')

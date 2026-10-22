@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('theme/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/page.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261012min') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking.css?v=20261009vehiclelookup') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking.css?v=20261022mobilesummary') }}">
     @yield('stylesheets')
 
     @if (isset($settings['site_header_analytics']))
