@@ -115,14 +115,46 @@
         }
 
         .lounge-summary-card__head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 16px 20px;
-            border-bottom: 1px solid #eef2f5;
             font-size: 17px;
             font-weight: 700;
             color: #1a1a1a;
             text-align: left;
+            cursor: pointer;
+            list-style: none;
+        }
+        .lounge-summary-card__head::-webkit-details-marker { display: none; }
+        .lounge-summary-card__head::after {
+            content: '';
+            width: 9px;
+            height: 9px;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(45deg);
+            transition: transform 0.2s ease;
+        }
+        .lounge-summary-card[open] .lounge-summary-card__head {
+            border-bottom: 1px solid #eef2f5;
+        }
+        .lounge-summary-card[open] .lounge-summary-card__head::after {
+            transform: rotate(225deg);
         }
         .lounge-summary-card__body { padding: 18px 20px 20px; }
+
+        .lounge-checkout-page > .container > .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .lounge-checkout-page > .container > .row > [class*="col-"] {
+            float: none;
+            width: 100%;
+        }
+        .lounge-checkout-page > .container > .row > .col-md-5 {
+            order: -1;
+        }
 
         .lounge-summary-top {
             display: flex;
@@ -348,7 +380,7 @@
                     <div class="lounge-checkout-card" id="checkout-pay">
                         <h2 class="lounge-checkout-card__title">Payment Details</h2>
 
-                        @if (($settings['payment_type'] ?? '') == 'stripe')
+                        @if (($settings['payment_type'] ?? 'stripe') == 'stripe')
                     <div class="paymentFrm" id="paymentFrm">
                         <form method="post">
                             {{ csrf_field() }}
@@ -392,8 +424,8 @@
                                     </div>
 
                 <div class="col-xs-12 col-md-5 col-lg-4">
-                    <div class="lounge-summary-card">
-                        <div class="lounge-summary-card__head">Booking Summary</div>
+                    <details class="lounge-summary-card">
+                        <summary class="lounge-summary-card__head">Booking Summary</summary>
                         <div class="lounge-summary-card__body">
                             <div class="lounge-summary-top">
                                 <img src="{{ $data['logobooking2'] }}" alt="{{ $data['lounge_name'] }}" onerror="this.onerror=null;this.src='{{ asset('favicon.ico') }}';">
@@ -496,7 +528,7 @@
                                 <a href="{{ url('terms-and-conditions') }}" target="_blank">Terms &amp; Conditions</a>.
                             </p>
                         </div>
-                    </div>
+                    </details>
                 </div>
             </div>
         </div>
@@ -721,7 +753,7 @@
         });
     </script>
 
-    @if (($settings['payment_type'] ?? '') == 'stripe')
+    @if (($settings['payment_type'] ?? 'stripe') == 'stripe')
         <script src="https://js.stripe.com/v3/"></script>
         <script>window.STRIPE_PUBLIC_KEY = @json(config('services.stripe.key'));</script>
         <script src="{{ asset('assets/stripe/checkout_lounge.js?v=127') }}"></script>

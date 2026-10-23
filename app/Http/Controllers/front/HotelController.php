@@ -22,7 +22,12 @@ use Stripe\Stripe;
 
 class HotelController extends Controller
 {
-    public $_setting = [];
+    public $_setting = [
+        'payment_type' => 'stripe',
+        'booking_fee' => 0,
+        'sms_notification_fee' => 0,
+        'cancellation_fee' => 0,
+    ];
 
     public $stripeKey;
 
@@ -43,6 +48,17 @@ class HotelController extends Controller
         foreach ($my_settings as $my_setting) {
             $this->_mysetting[$my_setting->field_name] = $my_setting->field_value;
         }
+
+        foreach ($this->_mysetting as $field => $value) {
+            $this->_setting[$field] = $value;
+        }
+
+        foreach (['booking_fee', 'sms_notification_fee', 'cancellation_fee'] as $feeSetting) {
+            if (!isset($this->_setting[$feeSetting]) || $this->_setting[$feeSetting] === '') {
+                $this->_setting[$feeSetting] = 0;
+            }
+        }
+        $this->_setting['payment_type'] = $this->_setting['payment_type'] ?: 'stripe';
 
         $this->_setting['stripe_public_key'] = config('services.stripe.key');
         $this->_setting['stripe_private_key'] = config('services.stripe.secret');

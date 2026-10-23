@@ -47,17 +47,9 @@
                         <label class="js-apb-filter-check is-active">
                             <input type="checkbox" name="filter_terminal" value="all" checked data-filter-all="terminal">
                             <span class="js-apb-filter-check__label">All</span>
+                            <span class="js-terminal-count" data-terminal="all">(0)</span>
                         </label>
                     </li>
-                    @foreach (['1', '2', '3', '4', '5'] as $term)
-                        <li>
-                            <label class="js-apb-filter-check">
-                                <input type="checkbox" name="filter_terminal" value="{{ $term }}">
-                                <span class="js-apb-filter-check__label">Terminal {{ $term }}</span>
-                                <span class="js-terminal-count" data-terminal="{{ $term }}">(0)</span>
-                            </label>
-                        </li>
-                    @endforeach
                 </ul>
             </div>
         </div>

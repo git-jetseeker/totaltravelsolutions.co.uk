@@ -368,36 +368,44 @@
     }
 
     function bindCheckboxGroup(name, groupKey) {
-        var allCheckbox = document.querySelector('input[name="' + name + '"][data-filter-all="' + groupKey + '"]');
-        var specificCheckboxes = document.querySelectorAll('input[name="' + name + '"]:not([data-filter-all])');
+        var list = document.getElementById('js-filter-' + groupKey);
+        if (!list) {
+            return;
+        }
 
-        document.querySelectorAll('input[name="' + name + '"]').forEach(function (input) {
-            input.addEventListener('change', function () {
-                if (input.hasAttribute('data-filter-all')) {
-                    if (input.checked) {
-                        specificCheckboxes.forEach(function (cb) {
-                            cb.checked = false;
-                        });
-                    } else if (!Array.prototype.some.call(specificCheckboxes, function (cb) {
-                        return cb.checked;
-                    })) {
-                        input.checked = true;
-                    }
-                } else if (input.checked && allCheckbox) {
-                    allCheckbox.checked = false;
-                }
+        list.addEventListener('change', function (event) {
+            var input = event.target;
+            if (!input.matches('input[name="' + name + '"]')) {
+                return;
+            }
 
-                var anySpecific = Array.prototype.some.call(specificCheckboxes, function (cb) {
+            var allCheckbox = list.querySelector('input[name="' + name + '"][data-filter-all="' + groupKey + '"]');
+            var specificCheckboxes = list.querySelectorAll('input[name="' + name + '"]:not([data-filter-all])');
+
+            if (input.hasAttribute('data-filter-all')) {
+                if (input.checked) {
+                    specificCheckboxes.forEach(function (cb) {
+                        cb.checked = false;
+                    });
+                } else if (!Array.prototype.some.call(specificCheckboxes, function (cb) {
                     return cb.checked;
-                });
-
-                if (!anySpecific && allCheckbox) {
-                    allCheckbox.checked = true;
+                })) {
+                    input.checked = true;
                 }
+            } else if (input.checked && allCheckbox) {
+                allCheckbox.checked = false;
+            }
 
-                setActiveFilterLabels();
-                applyFilters();
+            var anySpecific = Array.prototype.some.call(specificCheckboxes, function (cb) {
+                return cb.checked;
             });
+
+            if (!anySpecific && allCheckbox) {
+                allCheckbox.checked = true;
+            }
+
+            setActiveFilterLabels();
+            applyFilters();
         });
     }
 
@@ -449,39 +457,44 @@
 
     function extractTerminalsFromText(text) {
         var terminals = [];
-        var haystack = (text || '').toLowerCase();
-        var matches = haystack.match(/terminal[\s#]*([0-9,\s&\/\-]+)/gi);
+        var matches = (text || '').match(/\b(?:(?:north|south|east|west|main)\s+terminal|terminal\s*(?:#\s*)?[a-z0-9]+)\b/gi) || [];
 
-        if (matches) {
-            matches.forEach(function (chunk) {
-                var nums = chunk.match(/\d+/g);
-                if (nums) {
-                    nums.forEach(function (num) {
-                        if (terminals.indexOf(num) === -1) {
-                            terminals.push(num);
-                        }
-                    });
-                }
-            });
-        }
+        matches.forEach(function (terminal) {
+            var normalized = terminal.replace(/\s+/g, ' ').trim();
+            if (!terminals.some(function (existing) {
+                return existing.toLowerCase() === normalized.toLowerCase();
+            })) {
+                terminals.push(normalized);
+            }
+        });
 
         return terminals;
     }
 
     function getCardTerminals(card) {
+        var labelAttr = card.getAttribute('data-terminal-label') || '';
         var fromAttr = card.getAttribute('data-terminals') || card.getAttribute('data-terminal') || '';
-        var terminals = fromAttr
-            ? fromAttr.split(/[,\s]+/).filter(Boolean)
-            : [];
+        var terminals = labelAttr
+            ? labelAttr.split(/[;,]+/).map(function (terminal) {
+                return terminal.replace(/\s+/g, ' ').trim();
+            }).filter(Boolean)
+            : fromAttr.split(',').map(function (terminal) {
+                var value = terminal.replace(/\s+/g, ' ').trim();
+                return /^\d+$/.test(value) ? 'Terminal ' + value : value;
+            }).filter(Boolean);
 
         if (!terminals.length) {
             var searchText = card.getAttribute('data-search-text') || '';
             var nameEl = card.querySelector('.company-name');
             var nameText = nameEl ? nameEl.textContent : '';
-            terminals = extractTerminalsFromText(nameText + ' ' + searchText);
+            var subtitle = card.querySelector('.js-apb-deal-card__subtitle');
+            var subtitleText = subtitle ? subtitle.textContent : '';
+            terminals = extractTerminalsFromText(subtitleText + ' ' + nameText + ' ' + searchText);
         }
 
-        return terminals;
+        return terminals.map(function (terminal) {
+            return terminal.toLowerCase();
+        });
     }
 
     function hydrateResultCards() {
@@ -544,43 +557,155 @@
         var productType = getProductType();
 
         if (productType === 'hotel') {
-            var starCounts = { '3': 0, '4': 0, '5': 0 };
+            var starCounts = Object.create(null);
+            var starLabels = Object.create(null);
 
             cards.forEach(function (card) {
-                var stars = String(card.getAttribute('data-star-rating') || '');
-                if (starCounts[stars] !== undefined) {
-                    starCounts[stars]++;
+                var stars = getCardStarRating(card);
+                if (stars) {
+                    starCounts[stars] = (starCounts[stars] || 0) + 1;
+                    starLabels[stars] = stars;
                 }
             });
 
-            document.querySelectorAll('.js-star-count').forEach(function (el) {
-                var key = el.getAttribute('data-star');
-                if (key === 'all') {
-                    el.textContent = '(' + total + ')';
-                } else if (key && starCounts[key] !== undefined) {
-                    el.textContent = '(' + starCounts[key] + ')';
-                }
-            });
+            renderStarFilters(starCounts, starLabels, total);
         } else {
-            var terminalCounts = { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 };
+            var terminalCounts = Object.create(null);
+            var terminalLabels = Object.create(null);
 
             cards.forEach(function (card) {
-                getCardTerminals(card).forEach(function (term) {
-                    if (terminalCounts[term] !== undefined) {
-                        terminalCounts[term]++;
-                    }
+                getCardTerminalLabels(card).forEach(function (terminal) {
+                    terminalCounts[terminal.key] = (terminalCounts[terminal.key] || 0) + 1;
+                    terminalLabels[terminal.key] = terminal.label;
                 });
             });
 
-            document.querySelectorAll('.js-terminal-count').forEach(function (el) {
-                var key = el.getAttribute('data-terminal');
-                if (key && terminalCounts[key] !== undefined) {
-                    el.textContent = '(' + terminalCounts[key] + ')';
-                }
-            });
+            renderTerminalFilters(terminalCounts, terminalLabels, total);
         }
 
         updateVisibleCount(total, total);
+    }
+
+    function renderStarFilters(starCounts, starLabels, total) {
+        var list = document.getElementById('js-filter-star');
+        if (!list) {
+            return;
+        }
+
+        var selectedStars = getSelectedValues('filter_star') || [];
+        var allItem = list.querySelector('input[data-filter-all="star"]').closest('li');
+
+        while (allItem.nextElementSibling) {
+            allItem.nextElementSibling.remove();
+        }
+
+        var stars = Object.keys(starCounts).sort(function (a, b) {
+            return Number(a) - Number(b);
+        });
+        var selectedAvailable = stars.filter(function (rating) {
+            return selectedStars.indexOf(rating) !== -1;
+        });
+        var allCheckbox = allItem.querySelector('input[data-filter-all="star"]');
+        allCheckbox.checked = selectedAvailable.length === 0;
+        allItem.querySelector('.js-star-count').textContent = '(' + total + ')';
+
+        stars.forEach(function (rating) {
+            var item = document.createElement('li');
+            var label = document.createElement('label');
+            var checkbox = document.createElement('input');
+            var labelText = document.createElement('span');
+            var count = document.createElement('span');
+
+            label.className = 'js-apb-filter-check';
+            checkbox.type = 'checkbox';
+            checkbox.name = 'filter_star';
+            checkbox.value = rating;
+            checkbox.checked = selectedAvailable.indexOf(rating) !== -1;
+            labelText.className = 'js-apb-filter-check__label';
+            labelText.textContent = starLabels[rating] + ' Star';
+            count.className = 'js-star-count';
+            count.setAttribute('data-star', rating);
+            count.textContent = '(' + starCounts[rating] + ')';
+
+            label.appendChild(checkbox);
+            label.appendChild(labelText);
+            label.appendChild(count);
+            item.appendChild(label);
+            list.appendChild(item);
+        });
+    }
+
+    function getCardTerminalLabels(card) {
+        var labelAttr = card.getAttribute('data-terminal-label') || '';
+        var terminals = labelAttr
+            ? labelAttr.split(/[;,]+/).map(function (terminal) {
+                return terminal.replace(/\s+/g, ' ').trim();
+            }).filter(Boolean)
+            : [];
+
+        if (!terminals.length) {
+            terminals = getCardTerminals(card);
+        }
+
+        var seen = Object.create(null);
+        return terminals.map(function (terminal) {
+            var label = terminal.replace(/\s+/g, ' ').trim();
+            var key = label.toLowerCase();
+            if (!label || seen[key]) {
+                return null;
+            }
+            seen[key] = true;
+            return { key: key, label: label };
+        }).filter(Boolean);
+    }
+
+    function renderTerminalFilters(terminalCounts, terminalLabels, total) {
+        var list = document.getElementById('js-filter-terminal');
+        if (!list) {
+            return;
+        }
+
+        var selectedTerms = getSelectedValues('filter_terminal') || [];
+        var allItem = list.querySelector('input[data-filter-all="terminal"]').closest('li');
+
+        while (allItem.nextElementSibling) {
+            allItem.nextElementSibling.remove();
+        }
+
+        var terminals = Object.keys(terminalCounts).sort(function (a, b) {
+            return a.localeCompare(b, undefined, { numeric: true });
+        });
+        var selectedAvailable = terminals.filter(function (term) {
+            return selectedTerms.indexOf(term) !== -1;
+        });
+        var allCheckbox = allItem.querySelector('input[data-filter-all="terminal"]');
+        allCheckbox.checked = selectedAvailable.length === 0;
+        allItem.querySelector('.js-terminal-count').textContent = '(' + total + ')';
+
+        terminals.forEach(function (term) {
+            var item = document.createElement('li');
+            var label = document.createElement('label');
+            var checkbox = document.createElement('input');
+            var labelText = document.createElement('span');
+            var count = document.createElement('span');
+
+            label.className = 'js-apb-filter-check';
+            checkbox.type = 'checkbox';
+            checkbox.name = 'filter_terminal';
+            checkbox.value = term;
+            checkbox.checked = selectedAvailable.indexOf(term) !== -1;
+            labelText.className = 'js-apb-filter-check__label';
+            labelText.textContent = terminalLabels[term];
+            count.className = 'js-terminal-count';
+            count.setAttribute('data-terminal', term);
+            count.textContent = '(' + terminalCounts[term] + ')';
+
+            label.appendChild(checkbox);
+            label.appendChild(labelText);
+            label.appendChild(count);
+            item.appendChild(label);
+            list.appendChild(item);
+        });
     }
 
     function cardMatchesTerminals(card, selectedTerms) {
@@ -603,12 +728,21 @@
             return true;
         }
 
-        var cardStars = String(card.getAttribute('data-star-rating') || '');
+        var cardStars = getCardStarRating(card);
         if (!cardStars) {
             return false;
         }
 
         return selectedStars.indexOf(cardStars) !== -1;
+    }
+
+    function getCardStarRating(card) {
+        var stars = String(card.getAttribute('data-star-rating') || '').trim();
+        var numericStars = Number(stars);
+
+        return stars && isFinite(numericStars) && numericStars > 0
+            ? String(numericStars)
+            : '';
     }
 
     function applyFilters() {

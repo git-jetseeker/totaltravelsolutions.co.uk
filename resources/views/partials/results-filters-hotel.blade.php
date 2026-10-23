@@ -50,15 +50,6 @@
                             <span class="js-star-count" data-star="all">(0)</span>
                         </label>
                     </li>
-                    @foreach (['3', '4', '5'] as $stars)
-                        <li>
-                            <label class="js-apb-filter-check">
-                                <input type="checkbox" name="filter_star" value="{{ $stars }}">
-                                <span class="js-apb-filter-check__label">{{ $stars }} Star</span>
-                                <span class="js-star-count" data-star="{{ $stars }}">(0)</span>
-                            </label>
-                        </li>
-                    @endforeach
                 </ul>
             </div>
         </div>

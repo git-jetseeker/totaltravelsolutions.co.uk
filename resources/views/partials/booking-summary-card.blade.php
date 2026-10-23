@@ -128,7 +128,7 @@
                         @endif
                         <tr>
                             <td class="booking-second-sec-table"><b>Booking Fee</b></td>
-                            <td class="booking-second-sec-table-2 text-right">&pound;{{ $data['booking_fee'] }}</td>
+                            <td class="booking-second-sec-table-2 text-right">&pound;{{ $data['booking_fee'] ?? '0.00' }}</td>
                         </tr>
                     </tbody>
                 </table>

@@ -867,6 +867,18 @@
         padding: 0 0 14px !important;
     }
 
+    #search_form_lounge .js-booking-field--date {
+        grid-column: 1 / -1;
+    }
+
+    #search_form_lounge .js-booking-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #search_form_lounge .js-booking-field--time {
+        grid-column: span 1;
+    }
+
     .js-product-tabs {
         display: flex !important;
         flex-wrap: nowrap;

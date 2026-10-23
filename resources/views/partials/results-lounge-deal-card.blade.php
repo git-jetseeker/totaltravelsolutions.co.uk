@@ -54,7 +54,7 @@
     }
 @endphp
 
-<div class="js-result-card" @if($terminalsAttr !== '') data-terminals="{{ $terminalsAttr }}" @endif data-sort-index="{{ $index ?? 0 }}">
+<div class="js-result-card" @if($terminalLabel !== '') data-terminal-label="{{ $terminalLabel }}" @endif @if($terminalsAttr !== '') data-terminals="{{ $terminalsAttr }}" @endif data-sort-index="{{ $index ?? 0 }}">
     <article class="js-apb-deal-card js-apb-deal-card--product">
         <header class="js-apb-deal-card__header">
             <h3 class="js-apb-deal-card__title company-name">{{ $displayName }}</h3>

@@ -175,7 +175,7 @@
 }
 
 .js-results-amend-panel.is-open {
-    max-height: 640px;
+    max-height: 1600px;
     opacity: 1;
     padding: 0 0 12px;
 }

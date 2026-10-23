@@ -23,7 +23,12 @@ use Stripe\Stripe;
 
 class LoungeController extends Controller
 {
-    public $_setting = [];
+    public $_setting = [
+        'payment_type' => 'stripe',
+        'booking_fee' => 0,
+        'sms_notification_fee' => 0,
+        'cancellation_fee' => 0,
+    ];
 
     public $stripeKey;
 

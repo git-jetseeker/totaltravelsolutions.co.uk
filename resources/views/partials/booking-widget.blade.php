@@ -46,13 +46,11 @@
                 <i class="fa fa-coffee" aria-hidden="true"></i>
                 <span class="js-product-tab__label">{{ crm('home.tab_lounges', 'Lounges') }}</span>
                 <span class="js-product-tab__label-full">{{ crm('home.tab_lounges_full', 'Airport Lounges') }}</span>
-                <span class="js-soon-badge">Coming Soon</span>
             </button>
             <button type="button" class="js-product-tab{{ $activeBookingTab === 'hotels' ? ' is-active' : '' }}" role="tab" id="js-tab-btn-hotels" aria-controls="js-panel-hotels" aria-selected="{{ $activeBookingTab === 'hotels' ? 'true' : 'false' }}" data-product="hotels">
                 <i class="fa fa-bed" aria-hidden="true"></i>
                 <span class="js-product-tab__label">{{ crm('home.tab_hotels', 'Hotels') }}</span>
                 <span class="js-product-tab__label-full">{{ crm('home.tab_hotels_full', 'Airport Hotels') }}</span>
-                <span class="js-soon-badge">Coming Soon</span>
             </button>
             <button type="button" class="js-product-tab{{ $activeBookingTab === 'carhire' ? ' is-active' : '' }}" role="tab" id="js-tab-btn-carhire" aria-controls="js-panel-carhire" aria-selected="{{ $activeBookingTab === 'carhire' ? 'true' : 'false' }}" data-product="carhire">
                 <i class="fa fa-cab" aria-hidden="true"></i>
@@ -139,22 +137,14 @@
                 </form>
             </div>
 
-            {{-- Lounges (coming soon) --}}
+            {{-- Lounges --}}
             <div class="js-product-panel{{ $activeBookingTab === 'lounges' ? ' is-active' : '' }}" id="js-panel-lounges" role="tabpanel" aria-labelledby="js-tab-btn-lounges" data-panel="lounges"@if($activeBookingTab !== 'lounges') hidden @endif>
-                <div class="js-carhire-soon">
-                    <span class="js-carhire-soon__badge">Coming Soon</span>
-                    <h3 class="js-carhire-soon__title">Airport lounges are on the way</h3>
-                    <p class="js-carhire-soon__text">We're getting live lounge access ready. Check back shortly to search, compare and book airport lounges.</p>
-                </div>
+                @include('layouts.lounges_form')
             </div>
 
-            {{-- Hotels (coming soon) --}}
+            {{-- Hotels --}}
             <div class="js-product-panel{{ $activeBookingTab === 'hotels' ? ' is-active' : '' }}" id="js-panel-hotels" role="tabpanel" aria-labelledby="js-tab-btn-hotels" data-panel="hotels"@if($activeBookingTab !== 'hotels') hidden @endif>
-                <div class="js-carhire-soon">
-                    <span class="js-carhire-soon__badge">Coming Soon</span>
-                    <h3 class="js-carhire-soon__title">Airport hotels are on the way</h3>
-                    <p class="js-carhire-soon__text">We're getting live hotel rates ready. Check back shortly to search, compare and book airport hotels.</p>
-                </div>
+                @include('layouts.hotels_form')
             </div>
 
             {{-- Car Hire --}}

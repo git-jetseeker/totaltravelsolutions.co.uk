@@ -134,7 +134,7 @@
 
     .js-hotel-detail-card {
         display: grid;
-        grid-template-columns: minmax(280px, 0.9fr) 1.1fr;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
         gap: 28px;
         background: #fff;
         border-radius: 14px;
@@ -144,16 +144,21 @@
         margin-bottom: 28px;
     }
 
+    .js-hotel-detail-media,
+    .js-hotel-detail-info {
+        min-width: 0;
+    }
+
     .js-hotel-detail-media__main {
         border-radius: 10px;
         overflow: hidden;
         background: #dce8f0;
-        min-height: 280px;
     }
 
     .js-hotel-detail-media__main img {
         width: 100%;
-        height: 320px;
+        max-width: 100%;
+        height: clamp(220px, 32vw, 360px);
         object-fit: cover;
         display: block;
     }
@@ -202,6 +207,7 @@
         font-size: 14px;
         line-height: 1.7;
         margin: 12px 0 0;
+        overflow-wrap: anywhere;
     }
 
     .js-hotel-listing__pills {
@@ -293,6 +299,8 @@
         flex-direction: column;
         gap: 12px;
         position: relative;
+        min-width: 0;
+        overflow-wrap: anywhere;
     }
 
     .js-hotel-room-card--popular {
@@ -371,10 +379,15 @@
 
     .js-hotel-room-card__footer {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: flex-end;
         gap: 12px;
         margin-top: auto;
+    }
+
+    .js-hotel-room-card__footer > * {
+        min-width: 0;
     }
 
     .js-hotel-room-card__price {
@@ -432,6 +445,10 @@
         .js-hotel-detail-card,
         .js-hotel-room-grid {
             grid-template-columns: 1fr;
+        }
+
+        .js-hotel-detail-media__main img {
+            height: clamp(220px, 55vw, 360px);
         }
     }
 </style>

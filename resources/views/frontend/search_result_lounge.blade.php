@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20260907noblue2') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-product-results.css?v=20250902c') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-search-results.css?v=20260907logo2') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-search-results.css?v=20261023amendpanel') }}">
 
 @include('partials.results-page-logo-bar')
 
@@ -35,4 +35,4 @@
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="{{ asset('theme/js/select2.min.js') }}"></script>
-<script src="{{ asset('theme/js/jetseeker-product-results.js?v=20250902d') }}"></script>
+<script src="{{ asset('theme/js/jetseeker-product-results.js?v=20261023dynamic-hotel-stars') }}"></script>

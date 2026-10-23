@@ -148,18 +148,48 @@
         }
 
         .hotel-summary-card__head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 16px 20px;
-            border-bottom: 1px solid #eef2f5;
             font-size: 17px;
             font-weight: 700;
             color: #1a1a1a;
-            display: flex;
-            align-items: center;
             gap: 8px;
+            cursor: pointer;
+            list-style: none;
         }
 
         .hotel-summary-card__head i { color: #C2185B; }
+        .hotel-summary-card__head::-webkit-details-marker { display: none; }
+        .hotel-summary-card__head::after {
+            content: '';
+            width: 9px;
+            height: 9px;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(45deg);
+            transition: transform 0.2s ease;
+        }
+        .hotel-summary-card[open] .hotel-summary-card__head {
+            border-bottom: 1px solid #eef2f5;
+        }
+        .hotel-summary-card[open] .hotel-summary-card__head::after {
+            transform: rotate(225deg);
+        }
         .hotel-summary-card__body { padding: 18px 20px 20px; }
+
+        .hotel-checkout-page > .container > .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .hotel-checkout-page > .container > .row > [class*="col-"] {
+            float: none;
+            width: 100%;
+        }
+        .hotel-checkout-page > .container > .row > .col-md-5 {
+            order: -1;
+        }
 
         .hotel-summary-top {
             display: flex;
@@ -311,7 +341,7 @@
         }
 
         @media (max-width: 991px) {
-            .hotel-checkout-page { padding-top: 90px; }
+            .hotel-checkout-page { padding-top: 45px; }
             .hotel-checkout-card { padding: 20px 18px; }
         }
     </style>
@@ -369,7 +399,7 @@
                             <i class="fas fa-credit-card"></i> Payment Details
                         </h2>
 
-                        @if (($settings['payment_type'] ?? '') == 'stripe')
+                        @if (($settings['payment_type'] ?? 'stripe') == 'stripe')
                             <div class="paymentFrm" id="paymentFrm">
                                 <form method="post">
                                     {{ csrf_field() }}
@@ -417,10 +447,10 @@
                 </div>
 
                 <div class="col-xs-12 col-md-5 col-lg-4" id="show_cart">
-                    <div class="hotel-summary-card">
-                        <div class="hotel-summary-card__head">
+                    <details class="hotel-summary-card">
+                        <summary class="hotel-summary-card__head">
                             <i class="fas fa-shopping-cart"></i> Booking Summary
-                        </div>
+                        </summary>
                         <div class="hotel-summary-card__body">
                             <div class="hotel-summary-top">
                                 <img src="{{ $data['logobooking2'] ?: asset('favicon.ico') }}" alt="{{ $data['hotel_name'] }}" onerror="this.onerror=null;this.src='{{ asset('favicon.ico') }}';">
@@ -527,7 +557,7 @@
                                 and <a href="{{ url('privacy-policy') }}" target="_blank">Privacy Policy</a>.
                             </p>
                         </div>
-                    </div>
+                    </details>
 
                     <div class="hotel-trust-bar">
                         <span><i class="fas fa-lock"></i> Payment 100% Secured</span>
@@ -692,7 +722,7 @@
         });
     </script>
 
-    @if (($settings['payment_type'] ?? '') == 'stripe')
+    @if (($settings['payment_type'] ?? 'stripe') == 'stripe')
         <script>var stripeKey = @json(config('services.stripe.key'));</script>
         <script src="https://js.stripe.com/v3/"></script>
         <script src="{{ asset('assets/stripe/hotel-payment.js?v=1') }}"></script>
