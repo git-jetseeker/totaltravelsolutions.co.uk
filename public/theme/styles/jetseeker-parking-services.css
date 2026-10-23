@@ -28,7 +28,7 @@
 
 /* ── Intro ── */
 .js-ps-intro {
-    padding-top: 0;
+    padding-top: 32px;
     background: linear-gradient(180deg, #ffffff 0%, #FDF2F8 52%, var(--js-background) 100%);
 }
 
@@ -393,7 +393,7 @@
     }
 
     .js-parking-services .js-ps-intro {
-        padding-top: 0;
+        padding-top: 24px;
         padding-bottom: 36px;
     }
 
