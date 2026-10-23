@@ -54,7 +54,8 @@
 
     @if (in_array(Route::currentRouteName(), ['main', 'carhire'], true))
         {{-- Start critical CSS fetches in parallel as early as possible --}}
-        <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261019plane2') }}">
+        <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261023globalheader3') }}">
+        <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-global-header.css?v=20261023globalheader') }}">
         <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20261005datetimerow') }}">
         <link rel="preload" as="style" href="{{ asset('theme/styles/jetseeker-home.css?v=20261021ch3') }}">
     @endif
@@ -73,7 +74,7 @@
     @if (Route::currentRouteName() !== 'main')
         <link rel="stylesheet" href="{{ asset('theme/styles/bootstrap4/bootstrap.min.css') }}">
     @endif
-    <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261019plane2') }}">
+    <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-design-system.css?v=20261023globalheader3') }}">
     <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-booking-widget.css?v=20261005datetimerow') }}">
     @if (in_array(Route::currentRouteName(), ['main', 'carhire'], true))
         <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-home.css?v=20261021ch3') }}">
@@ -123,6 +124,7 @@
             <link rel="stylesheet" href="{{ $href }}">
         @endforeach
     </noscript>
+    <link rel="stylesheet" href="{{ asset('theme/styles/jetseeker-global-header.css?v=20261023globalheader') }}">
 
     @if (isset($site_settings_main['site_header_analytics']))
         {!! $site_settings_main['site_header_analytics'] !!}

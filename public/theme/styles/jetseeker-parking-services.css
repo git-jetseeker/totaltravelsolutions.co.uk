@@ -28,7 +28,7 @@
 
 /* ── Intro ── */
 .js-ps-intro {
-    padding-top: 0;
+    padding-top: 32px;
     background: linear-gradient(180deg, #ffffff 0%, #FDF2F8 52%, var(--js-background) 100%);
 }
 
@@ -366,5 +366,90 @@
     .js-ps-step-card__image {
         width: 88px;
         height: 88px;
+    }
+}
+
+@media (max-width: 767px) {
+    .search1.js-hero.js-hero--mock.js-parking-services-hero .js-hero__title {
+        margin-bottom: 6px !important;
+    }
+
+    .search1.js-hero.js-hero--mock.js-parking-services-hero .js-hero__subtitle {
+        margin-bottom: 10px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .js-parking-services p {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .js-parking-services > .section-spacing:not(.js-ps-intro),
+    .js-parking-services .js-ps-types,
+    .js-parking-services .js-ps-steps {
+        padding-top: 36px;
+        padding-bottom: 36px;
+    }
+
+    .js-parking-services .js-ps-intro {
+        padding-top: 24px;
+        padding-bottom: 36px;
+    }
+
+    .js-parking-services .js-section-head,
+    .js-parking-services .js-ps-intro .js-section-head {
+        margin-bottom: 24px;
+    }
+
+    .js-parking-services .js-section-head__badge {
+        margin-bottom: 8px;
+        padding: 5px 11px;
+    }
+
+    .js-parking-services .js-section-title {
+        margin: 0 0 8px;
+        padding: 0 !important;
+        font-size: 1.5rem;
+        line-height: 1.25;
+    }
+
+    .js-parking-services .js-section-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.55;
+    }
+
+    .js-parking-services .js-why-item__content p {
+        margin: 0;
+    }
+
+    .js-parking-services .js-ps-intro__card-body {
+        font-size: 0.98rem;
+        line-height: 1.65;
+    }
+
+    .js-parking-services .js-ps-intro__card-body p {
+        margin-bottom: 10px;
+    }
+
+    .js-parking-services .js-ps-airports {
+        margin-top: 14px;
+    }
+
+    .js-parking-services .js-ps-steps__grid {
+        gap: 18px;
+    }
+
+    .js-parking-services .js-ps-step-card {
+        min-height: 0;
+        padding: 24px 20px;
+    }
+
+    .js-parking-services .js-ps-step-card__image {
+        margin-bottom: 14px;
+    }
+
+    .js-parking-services .js-ps-banner {
+        padding-bottom: 36px;
     }
 }
