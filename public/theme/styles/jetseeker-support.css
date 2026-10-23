@@ -386,6 +386,16 @@
     margin-top: 8px;
 }
 
+#search_ticket.js-support-btn.js-support-btn--block {
+    display: flex;
+    width: 100%;
+    min-height: 44px;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
 /* Dark contact info panel */
 .js-support-info {
     background: var(--js-primary-dark);

@@ -18,6 +18,9 @@
 
     $navAirportsCol1 = array_slice($navAirports, 0, 6);
     $navAirportsCol2 = array_slice($navAirports, 6);
+    $currentRouteName = (string) Route::currentRouteName();
+    $isAirportParkingPage = in_array($currentRouteName, ['airports', 'airport_types', 'airportsparking'], true)
+        || str_ends_with((string) request()->route('slug'), '-airport-parking');
 @endphp
 
 {{-- Top Bar --}}
@@ -50,11 +53,11 @@
         <nav class="js-nav__desktop" aria-label="Main navigation">
             <ul class="js-nav">
                 <li class="js-nav__item">
-                    <a href="{{ route('main') }}" class="js-nav__link">{{ crm('global.nav_home', 'Home') }}</a>
+                    <a href="{{ route('main') }}" class="js-nav__link{{ $currentRouteName === 'main' ? ' is-active' : '' }}">{{ crm('global.nav_home', 'Home') }}</a>
                 </li>
 
                 <li class="js-nav__item js-nav__item--dropdown">
-                    <a href="#" class="js-nav__link" aria-haspopup="true" aria-expanded="false"
+                    <a href="#" class="js-nav__link{{ $isAirportParkingPage ? ' is-active' : '' }}" aria-haspopup="true" aria-expanded="false"
                         onclick="event.preventDefault();">{{ crm('global.nav_parking', 'Airport Parking') }}</a>
                     <div class="js-megamenu" role="menu">
                         <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
@@ -90,22 +93,22 @@
                 </li>
 
                 <li class="js-nav__item">
-                    <a href="{{ url('parking-services') }}" class="js-nav__link">{{ crm('global.nav_parking_services', 'Parking Services') }}</a>
+                    <a href="{{ url('parking-services') }}" class="js-nav__link{{ $currentRouteName === 'airportsparking1' ? ' is-active' : '' }}">{{ crm('global.nav_parking_services', 'Parking Services') }}</a>
                 </li>
                 <li class="js-nav__item">
-                    <a href="{{ route('carhire') }}" class="js-nav__link{{ str_starts_with((string) Route::currentRouteName(), 'carhire') ? ' is-active' : '' }}">{{ crm('global.nav_carhire', 'Car Hire') }}</a>
+                    <a href="{{ route('carhire') }}" class="js-nav__link{{ str_starts_with($currentRouteName, 'carhire') ? ' is-active' : '' }}">{{ crm('global.nav_carhire', 'Car Hire') }}</a>
                 </li>
                 <li class="js-nav__item">
-                    <a href="{{ url('about-us') }}" class="js-nav__link">{{ crm('global.nav_about', 'About Us') }}</a>
+                    <a href="{{ url('about-us') }}" class="js-nav__link{{ $currentRouteName === 'about-us' ? ' is-active' : '' }}">{{ crm('global.nav_about', 'About Us') }}</a>
                 </li>
                 <li class="js-nav__item">
-                    <a href="{{ route('faqs') }}" class="js-nav__link">{{ crm('global.nav_faqs', 'FAQs') }}</a>
+                    <a href="{{ route('faqs') }}" class="js-nav__link{{ in_array($currentRouteName, ['faqs', 'faqs_pages'], true) ? ' is-active' : '' }}">{{ crm('global.nav_faqs', 'FAQs') }}</a>
                 </li>
                 <li class="js-nav__item">
-                    <a href="{{ route('support') }}" class="js-nav__link">{{ crm('global.nav_support', 'Customer Support') }}</a>
+                    <a href="{{ route('support') }}" class="js-nav__link{{ in_array($currentRouteName, ['support', 'submit-ticket'], true) ? ' is-active' : '' }}">{{ crm('global.nav_support', 'Customer Support') }}</a>
                 </li>
                 <li class="js-nav__item js-nav__cta">
-                    <a href="{{ url('manage-booking') }}" class="js-btn js-btn--primary js-btn--sm">{{ crm('global.nav_manage', 'Manage Booking') }}</a>
+                    <a href="{{ url('manage-booking') }}" class="js-btn js-btn--primary js-btn--sm{{ in_array($currentRouteName, ['manage_booking', 'manage_booking.show'], true) ? ' is-active' : '' }}">{{ crm('global.nav_manage', 'Manage Booking') }}</a>
                 </li>
             </ul>
         </nav>
@@ -127,9 +130,9 @@
     {{-- Mobile / tablet inline navigation (APB-style collapse below header) --}}
     <nav class="js-mobile-nav-inline" id="js-mobile-nav-panel" aria-hidden="true" aria-label="Mobile navigation">
         <ul class="js-mobile-nav__list">
-            <li><a href="{{ route('main') }}" class="js-mobile-nav__link">{{ crm('global.nav_home', 'Home') }}</a></li>
+            <li><a href="{{ route('main') }}" class="js-mobile-nav__link{{ $currentRouteName === 'main' ? ' is-active' : '' }}">{{ crm('global.nav_home', 'Home') }}</a></li>
             <li>
-                <button type="button" class="js-mobile-nav__accordion-btn" aria-expanded="false"
+                <button type="button" class="js-mobile-nav__accordion-btn{{ $isAirportParkingPage ? ' is-active' : '' }}" aria-expanded="false"
                     aria-controls="mobile-airports-menu">
                     {{ crm('global.nav_parking', 'Airport Parking') }} <i class="fa fa-chevron-down" aria-hidden="true"></i>
                 </button>
@@ -140,11 +143,11 @@
                     <a href="{{ route('airports') }}">{{ crm('global.nav_view_all_airports', 'View All Airports') }}</a>
                 </div>
             </li>
-            <li><a href="{{ url('parking-services') }}" class="js-mobile-nav__link">{{ crm('global.nav_parking_services', 'Parking Services') }}</a></li>
-            <li><a href="{{ route('carhire') }}" class="js-mobile-nav__link{{ str_starts_with((string) Route::currentRouteName(), 'carhire') ? ' is-active' : '' }}">{{ crm('global.nav_carhire', 'Car Hire') }}</a></li>
-            <li><a href="{{ url('about-us') }}" class="js-mobile-nav__link">{{ crm('global.nav_about', 'About Us') }}</a></li>
-            <li><a href="{{ route('faqs') }}" class="js-mobile-nav__link">{{ crm('global.nav_faqs', 'FAQs') }}</a></li>
-            <li><a href="{{ route('support') }}" class="js-mobile-nav__link">{{ crm('global.nav_support', 'Customer Support') }}</a></li>
+            <li><a href="{{ url('parking-services') }}" class="js-mobile-nav__link{{ $currentRouteName === 'airportsparking1' ? ' is-active' : '' }}">{{ crm('global.nav_parking_services', 'Parking Services') }}</a></li>
+            <li><a href="{{ route('carhire') }}" class="js-mobile-nav__link{{ str_starts_with($currentRouteName, 'carhire') ? ' is-active' : '' }}">{{ crm('global.nav_carhire', 'Car Hire') }}</a></li>
+            <li><a href="{{ url('about-us') }}" class="js-mobile-nav__link{{ $currentRouteName === 'about-us' ? ' is-active' : '' }}">{{ crm('global.nav_about', 'About Us') }}</a></li>
+            <li><a href="{{ route('faqs') }}" class="js-mobile-nav__link{{ in_array($currentRouteName, ['faqs', 'faqs_pages'], true) ? ' is-active' : '' }}">{{ crm('global.nav_faqs', 'FAQs') }}</a></li>
+            <li><a href="{{ route('support') }}" class="js-mobile-nav__link{{ in_array($currentRouteName, ['support', 'submit-ticket'], true) ? ' is-active' : '' }}">{{ crm('global.nav_support', 'Customer Support') }}</a></li>
         </ul>
         <div class="js-mobile-nav__cta">
             <a href="{{ url('manage-booking') }}" class="js-btn js-btn--primary js-btn--block">{{ crm('global.nav_manage', 'Manage Booking') }}</a>

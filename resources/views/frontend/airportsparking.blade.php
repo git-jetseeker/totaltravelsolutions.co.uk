@@ -6,7 +6,7 @@
 @include('layouts.nav')
 
 <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-home.css?v=20261012min') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-parking-services.css?v=20261022pillcolor') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-parking-services.css?v=20261023mobilespacing3') }}">
 
 @php
     $site_settings_main = [];
@@ -119,6 +119,7 @@
     'heroTitle' => crm('parking-services.hero_title', 'Parking Services'),
     'heroSubtitle' => crm('parking-services.hero_subtitle', 'Meet & Greet, Park & Ride, and On-Airport options'),
     'bookingCardId' => 'parking_services_search_form',
+    'heroClass' => 'js-parking-services-hero',
 ])
 
 <main class="js-parking-services">

@@ -6,6 +6,11 @@
     background: var(--js-background);
 }
 
+.js-airport-page p {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 /* ── Trust strip ── */
 .js-airport-trust {
     background: var(--js-surface);
@@ -871,5 +876,87 @@
 @media (max-width: 575px) {
     .js-airport-pricing__block {
         margin-bottom: 36px;
+    }
+}
+
+@media (max-width: 767px) {
+    .js-airport-page .section-spacing,
+    .js-airport-page .js-airport-guide,
+    .js-airport-page .js-airport-services,
+    .js-airport-page .js-airport-others {
+        padding-top: 36px;
+        padding-bottom: 36px;
+    }
+
+    .js-airport-page .js-airport-pricing {
+        padding: 36px 0;
+    }
+
+    .js-airport-page .js-section-head {
+        margin-bottom: 24px;
+    }
+
+    .js-airport-page .js-section-head__badge {
+        margin-bottom: 8px;
+        padding: 5px 11px;
+    }
+
+    .js-airport-page .js-section-title {
+        margin: 0 0 8px;
+        padding: 0 !important;
+        font-size: 1.5rem;
+        line-height: 1.25;
+    }
+
+    .js-airport-page .js-section-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.55;
+    }
+
+    .js-airport-guide__head {
+        margin-bottom: 20px;
+    }
+
+    .js-airport-guide__eyebrow {
+        margin-bottom: 8px;
+        padding: 5px 11px;
+    }
+
+    .js-airport-guide__title {
+        margin-bottom: 8px;
+        font-size: 1.5rem;
+        line-height: 1.25;
+    }
+
+    .js-airport-guide__lead {
+        font-size: 0.95rem;
+        line-height: 1.55;
+    }
+
+    .js-airport-guide__panel {
+        padding: 16px 14px 18px;
+    }
+
+    .js-airport-content {
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+
+    .js-airport-content h2 {
+        gap: 8px;
+        margin: 22px 0 8px;
+        padding: 10px 12px !important;
+    }
+
+    .js-airport-content h3 {
+        margin: 16px 0 6px;
+    }
+
+    .js-airport-content p {
+        margin-bottom: 10px;
+    }
+
+    .js-airport-pricing__block {
+        margin-bottom: 28px;
     }
 }
