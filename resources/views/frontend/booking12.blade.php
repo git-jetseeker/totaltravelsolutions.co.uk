@@ -1485,7 +1485,7 @@ select.form22{height:35px; border-radius:4px; border:solid 1px #bbb; color:#555;
 
 
 
-    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js" data-autoinit='true'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js" data-autoinit='true'></script>
 
 
 
@@ -1495,7 +1495,9 @@ select.form22{height:35px; border-radius:4px; border:solid 1px #bbb; color:#555;
 
     <script type="text/javascript">
 
-        $(":input").inputmask();
+        if ($.fn.inputmask) {
+            $(":input").inputmask();
+        }
 
 
 

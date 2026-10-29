@@ -1123,7 +1123,7 @@
 
 
 
-    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js" data-autoinit='true'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js" data-autoinit='true'></script>
 
 
 
@@ -1142,7 +1142,9 @@
 
         //Next Code
 
-        $(":input").inputmask();
+        if ($.fn.inputmask) {
+            $(":input").inputmask();
+        }
 
         $("#vechile_detail").validate({
 
