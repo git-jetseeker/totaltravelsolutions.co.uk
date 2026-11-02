@@ -54,8 +54,12 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
-            'ignore_exceptions' => false,
+            // daily file log + Slack (Slack only when LOG_SLACK_WEBHOOK_URL is set)
+            'channels' => array_values(array_unique(array_filter(array_merge(
+                array_map('trim', explode(',', env('LOG_STACK', 'daily'))),
+                [env('LOG_SLACK_WEBHOOK_URL') ? 'slack' : null]
+            )))),
+            'ignore_exceptions' => true, // never let Slack/network failure break app or file logs
         ],
 
         'single' => [
@@ -84,10 +88,11 @@ return [
         'slack' => [
             'driver' => 'slack',
             'url' => env('LOG_SLACK_WEBHOOK_URL'),
-            'username' => 'Laravel Log',
-            'emoji' => ':boom:',
-            'level' => env('LOG_LEVEL', 'critical'),
+            'username' => env('LOG_SLACK_USERNAME', env('APP_NAME', 'Laravel Log')),
+            'emoji' => env('LOG_SLACK_EMOJI', ':boom:'),
+            'level' => env('LOG_SLACK_LEVEL', env('LOG_LEVEL', 'error')),
             'replace_placeholders' => true,
+            'tap' => [\App\Logging\IncludeSiteName::class],
         ],
 
         'papertrail' => [
