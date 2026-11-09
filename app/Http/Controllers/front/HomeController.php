@@ -3654,9 +3654,11 @@ public function faqs()
             }
 
             $hotelRecord = $this->findCatalogueMatch($activeHotels, $product);
-            if ($hotelRecord) {
-                $matchedCount++;
+            if (!$hotelRecord) {
+                continue;
             }
+            $matchedCount++;
+
             $hotel_max_discount = (float) ($hotelRecord->max_discount ?? 0);
 
             $final_max_discount_allowed = 0;
@@ -3885,6 +3887,10 @@ public function faqs()
         $company = $this->findHotelCompanyFromContext($context['companies'] ?? [], $productId);
 
         if (!$company) {
+            abort(404);
+        }
+
+        if (!$this->findCatalogueMatch(Hotel::catalogueLookup(), ['id' => $productId])) {
             abort(404);
         }
 

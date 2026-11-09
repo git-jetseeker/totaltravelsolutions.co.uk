@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+AVP-001,TTS-RCBB53,Gatwick,2026-11-09,15:42:25,2026-11-11,09:00:00,2026-11-14,09:00:00,South,North,4,Mr,teet,test,07222222222222,36.95,25.865,11.085,TBA,"test last",0,Mercedes-benz,A-class,White,AB12,Next

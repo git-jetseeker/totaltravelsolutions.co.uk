@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+AVP-001,TTS-MPCIIN,Gatwick,2026-11-09,13:56:59,2026-11-17,09:00:00,2026-11-25,09:00:00,South,North,9,Mr,"test First Name","test Last Name",07111111111111,48.95,34.265,14.685,TBA,"Return Flight Number:",0,Mercedes-benz,A-class,White,AB12,Next

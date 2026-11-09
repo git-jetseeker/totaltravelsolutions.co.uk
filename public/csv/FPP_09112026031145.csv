@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+AVP-001,TTS-ZD4V0F,Gatwick,2026-11-09,15:08:06,2026-11-18,09:00:00,2026-11-21,09:00:00,South,North,4,Mr,test1111,test,07111144444444,36.95,25.865,11.085,TBA,teeesst,0,Mercedes-benz,A-class,White,AB12,Next

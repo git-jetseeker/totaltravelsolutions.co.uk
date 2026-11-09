@@ -84,15 +84,11 @@ class Hotel extends Model
 
     public function scopeActive(Builder $query): Builder
     {
-        $query->where(function (Builder $inner) {
-            if (Schema::hasColumn($this->getTable(), 'is_active')) {
-                $inner->orWhere('is_active', 'Yes');
+        foreach (['is_active', 'status'] as $activeColumn) {
+            if (Schema::hasColumn($this->getTable(), $activeColumn)) {
+                $query->where($activeColumn, 'Yes');
             }
-
-            if (Schema::hasColumn($this->getTable(), 'status')) {
-                $inner->orWhere('status', 'Yes');
-            }
-        });
+        }
 
         if (Schema::hasColumn($this->getTable(), 'removed')) {
             $query->where(function (Builder $inner) {

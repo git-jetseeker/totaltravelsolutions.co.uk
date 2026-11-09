@@ -1,0 +1,2 @@
+ProductCode,Refno,Airport,BookingDate,BookingTime,DepartureDate,DepartureTime,ReturnDate,ReturnTime,DepartureTerminal,ReturnTerminal,TotalDays,Title,FirstName,LastName,Telephone,BookingPrice,CompanyShare,AgentShare,DeptFlight,ReturnFlight,AirportLevyFee,CarMake,CarModel,CarColor,CarRegistration,BookingStatus
+AVP-001,TTS-K08HG9,Gatwick,2026-11-09,14:08:24,2026-11-19,09:00:00,2026-11-27,09:00:00,North,South,9,Mr,test,tesst,07333333333333,48.95,34.265,14.685,TBA,"Return Flight Number:",0,Mercedes-benz,A-class,White,AB12,Next
