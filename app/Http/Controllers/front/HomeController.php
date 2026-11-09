@@ -2397,12 +2397,11 @@ public function faqs()
 
 
 
+        $array = [];
+        $apiUrl = config('services.AVPS_API_URL');
+        $token = config('services.AVPS_ACCESS_TOKEN');
+
         if ($companies !== false) {
-
-            $array = []; // Initialize $array here
-
-            $apiUrl = config('services.AVPS_API_URL');
-            $token = config('services.AVPS_ACCESS_TOKEN');
 
             foreach ($companies as $index => $company) {
 
@@ -2446,38 +2445,12 @@ public function faqs()
 
                 }
 
-                if (isset($company['product_code']) && strpos($company['product_code'], 'AVP') !== false && ! empty($apiUrl) && ! empty($token)) {
-                    try {
-                        $payLoad = [
-                            'company_code' => $company['product_code'],
-                            'drop_date' => $dropofdate,
-                            'drop_time' => $dropoftime,
-                            'return_date' => $pickupdate,
-                            'return_time' => $pickuptime,
-                        ];
-                        $AVPS_response = Http::timeout(8)
-                            ->connectTimeout(3)
-                            ->withToken($token, 'Bearer')
-                            ->post($apiUrl, $payLoad);
-
-                        if ($AVPS_response->successful()) {
-                            $responseBody = $AVPS_response->json();
-                            $totalPrice = $responseBody['data']['total_price'] ?? 0;
-                            $company['price'] = $totalPrice <= 0
-                                ? number_format($company['price'], 2, '.', '')
-                                : number_format($totalPrice, 2, '.', '');
-                        }
-                    } catch (\Throwable $e) {
-                        \Log::warning('AVPS price lookup failed for parking search', [
-                            'company_code' => $company['product_code'] ?? null,
-                            'message' => $e->getMessage(),
-                        ]);
-                    }
-                }
-
                 $dbProductCode = strtoupper(trim((string) ($company['product_code'] ?? '')));
-                // BookFHR products must use live API price, not DB price plans.
+                // BookFHR / AVPS products must use live API price, not DB price plans.
                 if ($dbProductCode !== '' && (str_starts_with($dbProductCode, 'BOOKFHR') || $dbProductCode === 'BOOKFHR')) {
+                    continue;
+                }
+                if ($dbProductCode !== '' && strpos($dbProductCode, 'AVP') !== false) {
                     continue;
                 }
 
@@ -2490,9 +2463,88 @@ public function faqs()
 
         }
 
+        // AVPS products: load from DB company rows + live AVPS price API (no monthly price-plan required).
+        if (! empty($apiUrl) && ! empty($token)) {
+            $avpsFilterSql = '';
+            if ($filter1 != '' && $filter1 != 'All') {
+                $avpsFilterSql .= " AND parking_type = " . DB::getPdo()->quote($filter1);
+            }
+            if ($filter3 != '') {
+                $avpsFilterSql .= " AND terminal = " . DB::getPdo()->quote($filter3);
+            }
 
+            $avpsRows = DB::select(
+                "SELECT fc.admin_id, fc.company_code AS product_code, fc.opening_time, fc.closing_time,
+                        fc.id AS companyID, fc.aph_id, fc.name, fc.processtime, fc.awards, fc.featured,
+                        fc.recommended, fc.share_percentage, fc.special_features, fc.overview,
+                        IF(LENGTH(fc.returnfront) > 0, fc.returnfront, fc.return_proc) AS return_proc,
+                        IF(LENGTH(fc.arivalfront) > 0, fc.arivalfront, fc.arival) AS arival,
+                        fc.terms, fc.address, fc.town, fc.post_code, fc.message, fc.extra_charges,
+                        fc.parking_type, fc.logo, fc.travel_time, fc.miles_from_airport, fc.cancelable,
+                        fc.editable, fc.is_flex, fc.bookingspace, NULL AS brand_name, 0 AS after_30_days,
+                        NULL AS pl_id, 0.00 AS price
+                 FROM companies AS fc
+                 WHERE fc.is_active = 'Yes'
+                   AND fc.removed != 'Yes'
+                   AND fc.airport_id = ?
+                   AND fc.company_code LIKE '%AVP%'
+                   AND (fc.processtime IS NULL OR fc.processtime < ?)
+                   {$avpsFilterSql}",
+                [$airport_id, $hours]
+            );
 
+            foreach ($avpsRows as $avpsRow) {
+                $company = (array) $avpsRow;
+                $companyId = $company['companyID'] ?? null;
+                $adminId = $company['admin_id'] ?? null;
 
+                if ($adminId && isset($offDaysAdmin[$adminId]) && (in_array($dropofdate, $offDaysAdmin[$adminId]) || in_array($pickupdate, $offDaysAdmin[$adminId]))) {
+                    continue;
+                }
+                if ($companyId && isset($offDaysComp[$companyId]) && (in_array($dropofdate, $offDaysComp[$companyId]) || in_array($pickupdate, $offDaysComp[$companyId]))) {
+                    continue;
+                }
+
+                try {
+                    $payLoad = [
+                        'company_code' => $company['product_code'],
+                        'drop_date' => $dropofdate,
+                        'drop_time' => $dropoftime,
+                        'return_date' => $pickupdate,
+                        'return_time' => $pickuptime,
+                    ];
+                    $AVPS_response = Http::timeout(8)
+                        ->connectTimeout(3)
+                        ->withToken($token, 'Bearer')
+                        ->post($apiUrl, $payLoad);
+
+                    if (! $AVPS_response->successful()) {
+                        \Log::warning('AVPS price lookup non-success for parking search', [
+                            'company_code' => $company['product_code'] ?? null,
+                            'status' => $AVPS_response->status(),
+                            'body' => $AVPS_response->json(),
+                        ]);
+                        continue;
+                    }
+
+                    $responseBody = $AVPS_response->json();
+                    $totalPrice = (float) ($responseBody['data']['total_price'] ?? 0);
+                    if ($totalPrice <= 0) {
+                        continue;
+                    }
+
+                    $company['price'] = number_format($totalPrice, 2, '.', '');
+                    $company['park_api'] = 'DB';
+                    $company['price_source'] = 'AVPS';
+                    $array[] = $this->array_flatten($company);
+                } catch (\Throwable $e) {
+                    \Log::warning('AVPS price lookup failed for parking search', [
+                        'company_code' => $company['product_code'] ?? null,
+                        'message' => $e->getMessage(),
+                    ]);
+                }
+            }
+        }
 
         $dbcompany = json_decode(json_encode((array) $array), false);
 
@@ -3597,17 +3649,14 @@ public function faqs()
             $product = $item['product'] ?? [];
             $options = $item['options'] ?? [];
 
-            if (($product['type'] ?? '') !== 'Hotel' || empty($options)) {
+            if (strcasecmp((string) ($product['type'] ?? ''), 'Hotel') !== 0 || empty($options)) {
                 continue;
             }
 
             $hotelRecord = $this->findCatalogueMatch($activeHotels, $product);
-
-            if (!$hotelRecord) {
-                continue;
+            if ($hotelRecord) {
+                $matchedCount++;
             }
-
-            $matchedCount++;
             $hotel_max_discount = (float) ($hotelRecord->max_discount ?? 0);
 
             $final_max_discount_allowed = 0;
@@ -3713,14 +3762,14 @@ public function faqs()
                 ?? ($hotelRecord ? $hotelRecord->getImageUrl(asset('favicon.ico')) : asset('favicon.ico'));
 
             $companies[] = (object) [
-                'companyID'           => $hotelRecord->id ?? $product['id'],
+                'companyID'           => $hotelRecord->id ?? null,
                 'hotel_db_id'         => $hotelRecord->id ?? null,
                 'searchId'            => $searchId,
                 'product_id'          => $product['id'],
                 'option_id'           => $cheapest->option_id,
                 'park_api'            => 'bookfhr',
-                'name'                => $hotelRecord->display_name ?: ($product['displayName'] ?? $product['name'] ?? 'Hotel'),
-                'displayName'         => $hotelRecord->display_name ?: ($product['displayName'] ?? $product['name'] ?? 'Hotel'),
+                'name'                => ($hotelRecord->display_name ?? '') ?: ($product['displayName'] ?? $product['name'] ?? 'Hotel'),
+                'displayName'         => ($hotelRecord->display_name ?? '') ?: ($product['displayName'] ?? $product['name'] ?? 'Hotel'),
                 'image'               => $hotelImage,
                 'starRating'          => $hotelDetails['starRating'] ?? null,
                 'checkIn'             => isset($hotelDetails['checkIn']) ? date('H:i', strtotime($hotelDetails['checkIn'])) : $checkin_time,
@@ -3836,10 +3885,6 @@ public function faqs()
         $company = $this->findHotelCompanyFromContext($context['companies'] ?? [], $productId);
 
         if (!$company) {
-            abort(404);
-        }
-
-        if (!$this->findCatalogueMatch(Hotel::catalogueLookup(), ['id' => $productId])) {
             abort(404);
         }
 
@@ -4163,4 +4208,3 @@ public function faqs()
     // Airport Hotels Functions End
 
 }
-

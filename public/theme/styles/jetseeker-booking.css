@@ -163,7 +163,7 @@
     box-sizing: border-box !important;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
     .js-booking-page .frombgbooking.row,
     .js-booking-page.apb-booking-page .frombgbooking.row {
         grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);

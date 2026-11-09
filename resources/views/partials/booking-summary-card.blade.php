@@ -45,22 +45,23 @@
     }
 
     $airport = \App\Models\airport::find($data['airport']);
-    $bookingPriceDisplay = number_format($customerParkingPrice + ($data['discount_amount'] ?? 0), 2);
+    $parkingPrice = (float) ($customerParkingPrice ?? ($data['booking_amount'] ?? 0));
+    $bookingPriceDisplay = number_format($parkingPrice + (float) ($data['discount_amount'] ?? 0), 2);
     $logoFallback = asset('theme/images/logo-black.png');
-    $initialTotal = number_format(($data['booking_amount'] ?? 0) + ($data['booking_fee'] ?? 0), 2);
+    $initialTotal = number_format($parkingPrice + (float) ($data['booking_fee'] ?? 0), 2);
 @endphp
 
-<aside class="side-bar js-booking-summary is-summary-collapsed" id="show_cart" data-js-summary-toggle>
+<aside class="side-bar js-booking-summary is-summary-open" id="show_cart" data-js-summary-toggle>
     <button
         type="button"
         class="js-summary-toggle"
         id="js-summary-toggle"
-        aria-expanded="false"
+        aria-expanded="true"
         aria-controls="js-booking-summary-body"
     >
         <span class="js-summary-toggle__text">
             <span class="js-summary-toggle__title">Booking summary</span>
-            <span class="js-summary-toggle__action" data-label-show="Show summary" data-label-hide="Hide summary">Show summary</span>
+            <span class="js-summary-toggle__action" data-label-show="Show summary" data-label-hide="Hide summary">Hide summary</span>
         </span>
         <span class="js-summary-toggle__right">
             <span class="js-summary-toggle__total">&pound;<span class="js-summary-toggle__price">{{ $initialTotal }}</span></span>
@@ -68,7 +69,7 @@
         </span>
     </button>
 
-    <div class="js-booking-summary-body" id="js-booking-summary-body" hidden>
+    <div class="js-booking-summary-body" id="js-booking-summary-body">
         <div class="section-borders js-booking-summary-card">
             <div class="cardDetail apb-summary-header">
                 <div class="js-booking-summary-logo">
@@ -161,8 +162,8 @@
         <div id="disamount">
             <input type="hidden" id="disAmount" name="discount_amount" value="{{ $data['discount_amount'] }}">
         </div>
-        <input type="hidden" id="bookingprice" value="{{ $data['booking_amount'] }}">
-        <input type="hidden" id="alltotal" value="{{ $data['booking_amount'] }}">
+        <input type="hidden" id="bookingprice" value="{{ number_format($parkingPrice, 2, '.', '') }}">
+        <input type="hidden" id="alltotal" value="{{ $initialTotal }}">
         <input type="hidden" name="company_id" value="{{ $data['company_id'] }}">
         <input type="hidden" name="product_code" value="{{ $data['product_code'] }}">
         <input type="hidden" name="parking_type" value="{{ $data['parking_type'] }}">
@@ -222,17 +223,7 @@
         syncPrice();
     }
 
-    // Mobile/tablet: collapsed by default. Desktop: always open.
-    function applyViewportMode() {
-        if (window.matchMedia('(max-width: 991px)').matches) {
-            setOpen(false);
-        } else {
-            setOpen(true);
-        }
-    }
-
     btn.addEventListener('click', function () {
-        if (!window.matchMedia('(max-width: 991px)').matches) return;
         setOpen(root.classList.contains('is-summary-collapsed'));
     });
 
@@ -246,12 +237,6 @@
         new MutationObserver(syncPrice).observe(totalPrice, { childList: true, characterData: true, subtree: true });
     }
 
-    applyViewportMode();
-    window.addEventListener('resize', function () {
-        // Only auto-open when crossing up to desktop; don't force-close if user opened on tablet
-        if (!window.matchMedia('(max-width: 991px)').matches) {
-            setOpen(true);
-        }
-    });
+    syncPrice();
 })();
 </script>

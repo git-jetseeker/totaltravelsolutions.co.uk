@@ -21,6 +21,14 @@
     $currentRouteName = (string) Route::currentRouteName();
     $isAirportParkingPage = in_array($currentRouteName, ['airports', 'airport_types', 'airportsparking'], true)
         || str_ends_with((string) request()->route('slug'), '-airport-parking');
+    $customerIsSignedIn = is_array(session('manage_booking_customer'));
+    $manageAccountUrl = $customerIsSignedIn ? route('customer.dashboard') : route('manage_booking');
+    $manageAccountLabel = $customerIsSignedIn ? 'Dashboard' : crm('global.nav_manage', 'Manage Booking');
+    $isCustomerAccountPage = in_array($currentRouteName, [
+        'customer.dashboard',
+        'customer.bookings',
+        'customer.tickets',
+    ], true);
 @endphp
 
 {{-- Top Bar --}}
@@ -108,7 +116,7 @@
                     <a href="{{ route('support') }}" class="js-nav__link{{ in_array($currentRouteName, ['support', 'submit-ticket'], true) ? ' is-active' : '' }}">{{ crm('global.nav_support', 'Customer Support') }}</a>
                 </li>
                 <li class="js-nav__item js-nav__cta">
-                    <a href="{{ url('manage-booking') }}" class="js-btn js-btn--primary js-btn--sm{{ in_array($currentRouteName, ['manage_booking', 'manage_booking.show'], true) ? ' is-active' : '' }}">{{ crm('global.nav_manage', 'Manage Booking') }}</a>
+                    <a href="{{ $manageAccountUrl }}" class="js-btn js-btn--primary js-btn--sm{{ $isCustomerAccountPage || in_array($currentRouteName, ['manage_booking', 'manage_booking.show'], true) ? ' is-active' : '' }}">{{ $manageAccountLabel }}</a>
                 </li>
             </ul>
         </nav>
@@ -150,7 +158,7 @@
             <li><a href="{{ route('support') }}" class="js-mobile-nav__link{{ in_array($currentRouteName, ['support', 'submit-ticket'], true) ? ' is-active' : '' }}">{{ crm('global.nav_support', 'Customer Support') }}</a></li>
         </ul>
         <div class="js-mobile-nav__cta">
-            <a href="{{ url('manage-booking') }}" class="js-btn js-btn--primary js-btn--block">{{ crm('global.nav_manage', 'Manage Booking') }}</a>
+            <a href="{{ $manageAccountUrl }}" class="js-btn js-btn--primary js-btn--block">{{ $manageAccountLabel }}</a>
         </div>
     </nav>
 </header>

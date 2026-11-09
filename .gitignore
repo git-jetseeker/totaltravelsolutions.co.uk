@@ -19,6 +19,7 @@ yarn-error.log
 /.vscode
 # Secrets / credentials
 storage/travelgeek-*.json
+storage/app/email_credentials.json
 .env.tts-backup
 .env.*
 !.env.example

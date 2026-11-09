@@ -156,6 +156,20 @@
             order: -1;
         }
 
+        @media (min-width: 992px) {
+            .lounge-checkout-page > .container > .row > .col-md-7 {
+                order: 0;
+                flex: 0 0 66.666667%;
+                max-width: 66.666667%;
+            }
+
+            .lounge-checkout-page > .container > .row > .col-md-5 {
+                order: 1;
+                flex: 0 0 33.333333%;
+                max-width: 33.333333%;
+            }
+        }
+
         .lounge-summary-top {
             display: flex;
             gap: 14px;
@@ -424,7 +438,7 @@
                                     </div>
 
                 <div class="col-xs-12 col-md-5 col-lg-4">
-                    <details class="lounge-summary-card">
+                    <details class="lounge-summary-card" open>
                         <summary class="lounge-summary-card__head">Booking Summary</summary>
                         <div class="lounge-summary-card__body">
                             <div class="lounge-summary-top">

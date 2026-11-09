@@ -144,31 +144,38 @@ class functions
 
     {
 
-        $url = "www.voodooSMS.com/vapi/server/sendSMS";
+        $body = "Thank you for choosing Total Travel Solutions. Your booking with Ref# " . $ref . " is confirmed, for arrival & departure procedure please check your email.";
+        $maskedNumber = $this->maskSmsNumber($number);
+        if (trim((string) $number) === '') {
+            \Log::channel('notifications')->warning('Outbound SMS notification', [
+                'channel' => 'sms',
+                'status' => 'failed',
+                'booking_reference' => $ref,
+                'recipient' => $maskedNumber,
+                'reason' => 'Recipient phone number is empty.',
+            ]);
+            $this->recordSmsLog($ref, $number, $body, 'failed', null, 'Recipient phone number is empty.');
 
-        $getString = "?dest=" . $number . "&";
+            return '0';
+        }
 
-        $getString .= "orig=TTS&";
-
-        $getString .= "msg=" . urlencode("Thank you for choosing Total Travel Solutions. Your booking with Ref# " . $ref . " is confirmed, for arrival & departure procedure please check your email.") . "&";
-
-        $getString .= "pass=w2imbg6&";
-
-        $getString .= "uid=flyparkplus&";
-
-        $getString .= "validity=1&";
-
-        $getString .= "format=xml&";
-
-        $getString .= "cc=44";
-
-
+        $url = 'https://www.voodooSMS.com/vapi/server/sendSMS';
+        $query = http_build_query([
+            'dest' => $number,
+            'orig' => 'TTS',
+            'msg' => $body,
+            'pass' => 'w2imbg6',
+            'uid' => 'flyparkplus',
+            'validity' => 1,
+            'format' => 'xml',
+            'cc' => 44,
+        ]);
 
         $ch = curl_init();
 
         //set the url, GET data
 
-        curl_setopt($ch, CURLOPT_URL, $url . $getString);
+        curl_setopt($ch, CURLOPT_URL, $url . '?' . $query);
 
         curl_setopt($ch, CURLOPT_HTTPGET, 1); //default
 
@@ -185,14 +192,31 @@ class functions
         //execute post
 
         $xml = curl_exec($ch);
-
-        $xml = simplexml_load_string($xml);
-
-        $result = json_decode(json_encode((array)$xml));
-
-        return $result->result;
-
+        $curlError = curl_error($ch);
+        $httpStatus = (int) curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
         curl_close($ch);
+
+        $result = $this->parseVoodooSmsResult($xml, $curlError, 'send_sms', $ref, $httpStatus, $maskedNumber);
+        $this->recordSmsLog(
+            $ref,
+            $number,
+            $body,
+            $result === '0' ? 'failed' : 'sent',
+            null,
+            $result === '0' ? ($curlError !== '' ? $curlError : 'SMS provider rejected the request or returned an invalid response.') : null
+        );
+
+        if ($result !== '0') {
+            \Log::channel('notifications')->info('Outbound SMS notification', [
+                'channel' => 'sms',
+                'status' => 'accepted_by_provider',
+                'booking_reference' => $ref,
+                'recipient' => $maskedNumber,
+                'provider_result' => $result,
+            ]);
+        }
+
+        return $result;
 
     }
     
@@ -200,23 +224,29 @@ class functions
 
     {
 
-        $url = "www.voodooSMS.com/vapi/server/sendSMS";
+        $body = "We have your incomplete booking, please follow link to complete the booking " . $link;
+        $bookingId = null;
+        if (preg_match('~/booking/incomplete/(\d+)~', (string) $link, $matches)) {
+            $bookingId = (int) $matches[1];
+        }
 
-        $getString = "?dest=" . $number . "&";
+        $maskedNumber = $this->maskSmsNumber($number);
+        if (trim((string) $number) === '') {
+            $this->recordSmsLog(null, $number, $body, 'failed', null, 'Recipient phone number is empty.', $bookingId);
+            return '0';
+        }
 
-        $getString .= "orig=TTS&";
-
-        $getString .= "msg=" . urlencode("We have your incomplete booking, please follow link to complete the booking " . $link ) . "&";
-
-        $getString .= "pass=w2imbg6&";
-
-        $getString .= "uid=flyparkplus&";
-
-        $getString .= "validity=1&";
-
-        $getString .= "format=xml&";
-
-        $getString .= "cc=44";
+        $url = 'https://www.voodooSMS.com/vapi/server/sendSMS';
+        $query = http_build_query([
+            'dest' => $number,
+            'orig' => 'TTS',
+            'msg' => $body,
+            'pass' => 'w2imbg6',
+            'uid' => 'flyparkplus',
+            'validity' => 1,
+            'format' => 'xml',
+            'cc' => 44,
+        ]);
 
 
 
@@ -224,7 +254,7 @@ class functions
 
         //set the url, GET data
 
-        curl_setopt($ch, CURLOPT_URL, $url . $getString);
+        curl_setopt($ch, CURLOPT_URL, $url . '?' . $query);
 
         curl_setopt($ch, CURLOPT_HTTPGET, 1); //default
 
@@ -241,17 +271,152 @@ class functions
         //execute post
 
         $xml = curl_exec($ch);
-
-        $xml = simplexml_load_string($xml);
-
-        $result = json_decode(json_encode((array)$xml));
-
-        return $result->result;
-
+        $curlError = curl_error($ch);
+        $httpStatus = (int) curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
         curl_close($ch);
+
+        $result = $this->parseVoodooSmsResult($xml, $curlError, 'incomplete_sms', null, $httpStatus, $maskedNumber);
+        $this->recordSmsLog(
+            null,
+            $number,
+            $body,
+            $result === '0' ? 'failed' : 'sent',
+            null,
+            $result === '0' ? ($curlError !== '' ? $curlError : 'SMS provider rejected the request or returned an invalid response.') : null,
+            $bookingId
+        );
+
+        return $result;
 
     }
 
+    private function recordSmsLog(
+        $reference,
+        $number,
+        string $body,
+        string $status,
+        ?string $providerMessageId = null,
+        ?string $error = null,
+        ?int $bookingId = null
+    ): void {
+        app(\App\Services\OutboundSmsLogService::class)->record([
+            'booking_ref' => $reference,
+            'booking_id' => $bookingId,
+            'to_number' => $number,
+            'body' => $body,
+            'provider' => 'voodoo_sms',
+            'provider_message_id' => $providerMessageId,
+            'status' => $status,
+            'error_message' => $error,
+            'triggered_by' => 'system',
+        ]);
+    }
+
+    /**
+     * Voodoo SMS XML may decode to object or array depending on response shape.
+     */
+    private function parseVoodooSmsResult(
+        $rawXml,
+        string $curlError = '',
+        string $context = 'sms',
+        ?string $reference = null,
+        int $httpStatus = 0,
+        ?string $recipient = null
+    ): string
+    {
+        if ($curlError !== '') {
+            \Log::channel('notifications')->warning('Voodoo SMS request failed', [
+                'context' => $context,
+                'booking_reference' => $reference,
+                'recipient' => $recipient,
+                'http_status' => $httpStatus,
+                'curl_error' => $curlError,
+                'reason' => 'SMS transport reported an error.',
+            ]);
+
+            return '0';
+        }
+
+        if ($httpStatus > 0 && ($httpStatus < 200 || $httpStatus >= 300)) {
+            \Log::channel('notifications')->warning('Voodoo SMS request failed', [
+                'context' => $context,
+                'booking_reference' => $reference,
+                'recipient' => $recipient,
+                'http_status' => $httpStatus,
+                'curl_error' => $curlError,
+                'reason' => 'SMS provider returned a non-success HTTP status.',
+            ]);
+
+            return '0';
+        }
+
+        if ($rawXml === false || $rawXml === null || $rawXml === '') {
+            \Log::channel('notifications')->warning('Voodoo SMS request failed', [
+                'context' => $context,
+                'booking_reference' => $reference,
+                'recipient' => $recipient,
+                'http_status' => $httpStatus,
+                'curl_error' => $curlError,
+                'reason' => 'Provider returned an empty response.',
+            ]);
+
+            return '0';
+        }
+
+        $xml = @simplexml_load_string($rawXml);
+        if ($xml === false) {
+            \Log::channel('notifications')->warning('Voodoo SMS response could not be parsed', [
+                'context' => $context,
+                'booking_reference' => $reference,
+                'recipient' => $recipient,
+                'http_status' => $httpStatus,
+                'reason' => 'Provider response was not valid XML.',
+            ]);
+
+            return '0';
+        }
+
+        $decoded = json_decode(json_encode($xml), true);
+        if (! is_array($decoded)) {
+            return '0';
+        }
+
+        $value = $decoded['result'] ?? ($decoded['status'] ?? null);
+        if (is_array($value)) {
+            $value = reset($value);
+        }
+
+        if ($value === null || $value === false || $value === '') {
+            \Log::channel('notifications')->warning('Voodoo SMS response has no result', [
+                'context' => $context,
+                'booking_reference' => $reference,
+                'recipient' => $recipient,
+                'http_status' => $httpStatus,
+                'reason' => 'Provider response did not contain a result/status field.',
+            ]);
+
+            return '0';
+        }
+
+        if ((string) $value === '0') {
+            \Log::channel('notifications')->warning('Voodoo SMS request rejected', [
+                'context' => $context,
+                'booking_reference' => $reference,
+                'recipient' => $recipient,
+                'http_status' => $httpStatus,
+                'provider_result' => (string) $value,
+                'reason' => 'SMS provider returned a failure result.',
+            ]);
+        }
+
+        return (string) $value;
+    }
+
+    private function maskSmsNumber($number): string
+    {
+        $digits = preg_replace('/\D+/', '', (string) $number);
+        return $digits === '' ? '[empty]' : '***' . substr($digits, -4);
+    }
 
 
     function multisort(&$array, $key)
@@ -2575,4 +2740,3 @@ class functions
 }
 
 ?>
-

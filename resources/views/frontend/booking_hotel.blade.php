@@ -6,7 +6,7 @@
     <link property="stylesheet" rel="stylesheet" href="{{ asset('assets/page.css') }}" type="text/css" media="all" />
     <link rel="stylesheet" href="{{ asset('assets/payzone/payzone_gateway.css?v=1.2') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking.css?v=20261022mobilesummary') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('theme/styles/jetseeker-booking.css?v=20261109hotelright') }}">
 @endsection
 
 @section('content')
@@ -145,6 +145,8 @@
             overflow: hidden;
             box-shadow: 0 2px 14px rgba(65, 105, 225, 0.06);
             margin-bottom: 16px;
+            width: 100%;
+            min-width: 0;
         }
 
         .hotel-summary-card__head {
@@ -180,15 +182,34 @@
         .hotel-summary-card__body { padding: 18px 20px 20px; }
 
         .hotel-checkout-page > .container > .row {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 20px;
+            margin-left: 0;
+            margin-right: 0;
         }
         .hotel-checkout-page > .container > .row > [class*="col-"] {
-            float: none;
-            width: 100%;
+            box-sizing: border-box;
+            width: 100% !important;
+            max-width: none !important;
+            min-width: 0;
+            float: none !important;
+            flex: none !important;
+            padding-left: 0;
+            padding-right: 0;
         }
-        .hotel-checkout-page > .container > .row > .col-md-5 {
-            order: -1;
+
+        @media (min-width: 992px) {
+            .hotel-checkout-page > .container > .row {
+                grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+                align-items: start;
+            }
+
+            .hotel-checkout-page #show_cart {
+                position: sticky;
+                top: 24px;
+                justify-self: stretch;
+            }
         }
 
         .hotel-summary-top {
@@ -447,7 +468,7 @@
                 </div>
 
                 <div class="col-xs-12 col-md-5 col-lg-4" id="show_cart">
-                    <details class="hotel-summary-card">
+                    <details class="hotel-summary-card" open>
                         <summary class="hotel-summary-card__head">
                             <i class="fas fa-shopping-cart"></i> Booking Summary
                         </summary>

@@ -19,17 +19,14 @@ use App\Services\BookFhrService;
 use App\Services\CarCheckScraper;
 
 use App\Models\airport;
-
 use App\Models\airports_bookings;
-
 use App\Models\airports_terminals;
-
+use App\Models\carhire_bookings;
 use App\Models\Company;
-
 use App\Models\customers;
-
 use App\Models\discounts;
-
+use App\Models\hotels_bookings;
+use App\Models\lounges_bookings;
 use App\Models\modules_settings;
 
 use App\Models\pages;
@@ -39,6 +36,7 @@ use App\Models\ref_tracking;
 use App\Models\Email;
 
 use App\Models\settings;
+use App\Models\tickets;
 
 use http\Exception;
 
@@ -55,6 +53,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 use Illuminate\Support\Facades\DB;
+
+use Illuminate\Support\Facades\Http;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -267,6 +267,8 @@ class BookingController extends Controller
         $incomplete = $request->input('incomplete');
 
         $booking_id = $request->input('booking_id');
+
+        $bookingref = (string) ($request->input('reference_no') ?? '');
 
         $park_api = $request->input('park_api');
 
@@ -541,6 +543,17 @@ class BookingController extends Controller
         $booking_amount = $this->APBookingPrice($company_id, $airport, $total_days, $dropdate);
 
         $company_detail = company::where('id', $company_id)->first();
+
+        $booking_amount = $this->applyAvpsBookingAmount(
+            $booking_amount,
+            $company_detail,
+            $product_code,
+            $dropdate,
+            $droptime,
+            $pickdate,
+            $picktime,
+            $request
+        );
 
         if ($park_api == 'aph') {
 
@@ -987,9 +1000,9 @@ class BookingController extends Controller
 
         $data = [];
 
-        $data['booking_id'] = $booking_id;
+        $data['booking_id'] = $booking_id ?: 0;
 
-        $data['referenceNo'] = $bookingref;
+        $data['referenceNo'] = $bookingref ?: '';
 
         $data['available'] = 'Yes';
 
@@ -1200,6 +1213,17 @@ class BookingController extends Controller
        
 
         $company_detail = company::where('id', $company_id)->first();
+
+        $booking_amount = $this->applyAvpsBookingAmount(
+            $booking_amount,
+            $company_detail,
+            $product_code,
+            $dropdate,
+            $droptime,
+            $pickdate,
+            $picktime,
+            $request
+        );
 
         
 
@@ -1700,6 +1724,102 @@ class BookingController extends Controller
 
 
 
+    private function isAvpsProduct(?string $productCode): bool
+    {
+        $code = strtoupper(trim((string) $productCode));
+
+        return $code !== '' && strpos($code, 'AVP') !== false;
+    }
+
+    /**
+     * AVPS products have no monthly DB price plans — resolve live price from AVPS API.
+     */
+    private function applyAvpsBookingAmount(
+        $bookingAmount,
+        $companyDetail,
+        $productCode,
+        $dropdate,
+        $droptime,
+        $pickdate,
+        $picktime,
+        Request $request
+    ) {
+        $companyCode = (string) ($companyDetail?->company_code ?? $productCode ?? '');
+        if (! $this->isAvpsProduct($companyCode) && ! $this->isAvpsProduct((string) $productCode)) {
+            return $bookingAmount;
+        }
+
+        $fallback = $request->input('booking_amount');
+        if ($fallback === null || $fallback === '' || (float) $fallback <= 0) {
+            $fallback = $request->input('new_price');
+        }
+        if ($fallback === null || $fallback === '' || (float) $fallback <= 0) {
+            $fallback = $request->input('total_amount');
+        }
+        if (($fallback === null || $fallback === '' || (float) $fallback <= 0) && (float) $bookingAmount > 0) {
+            $fallback = $bookingAmount;
+        }
+
+        $livePrice = $this->resolveAvpsLivePrice(
+            $companyCode !== '' ? $companyCode : (string) $productCode,
+            (string) $dropdate,
+            (string) $droptime,
+            (string) $pickdate,
+            (string) $picktime,
+            (float) ($fallback ?: 0)
+        );
+
+        return number_format((float) $livePrice, 2, '.', '');
+    }
+
+    private function resolveAvpsLivePrice(
+        string $companyCode,
+        string $dropDate,
+        string $dropTime,
+        string $returnDate,
+        string $returnTime,
+        float $fallback = 0
+    ): float {
+        $apiUrl = config('services.AVPS_API_URL');
+        $token = config('services.AVPS_ACCESS_TOKEN');
+        if (empty($apiUrl) || empty($token) || trim($companyCode) === '') {
+            return $fallback;
+        }
+
+        try {
+            $response = Http::timeout(8)
+                ->connectTimeout(3)
+                ->withToken($token, 'Bearer')
+                ->post($apiUrl, [
+                    'company_code' => $companyCode,
+                    'drop_date' => date('Y-m-d', strtotime($dropDate)),
+                    'drop_time' => $dropTime,
+                    'return_date' => date('Y-m-d', strtotime($returnDate)),
+                    'return_time' => $returnTime,
+                ]);
+
+            if ($response->successful()) {
+                $totalPrice = (float) ($response->json('data.total_price') ?? 0);
+                if ($totalPrice > 0) {
+                    return $totalPrice;
+                }
+            } else {
+                Log::warning('AVPS booking price non-success', [
+                    'company_code' => $companyCode,
+                    'status' => $response->status(),
+                    'body' => $response->json(),
+                ]);
+            }
+        } catch (\Throwable $e) {
+            Log::warning('AVPS booking price lookup failed', [
+                'company_code' => $companyCode,
+                'message' => $e->getMessage(),
+            ]);
+        }
+
+        return $fallback;
+    }
+
     public function APBookingPrice($cid, $aid, $no_of_days, $checkindate)
 
     {
@@ -1811,6 +1931,10 @@ class BookingController extends Controller
     public function manage_booking()
 
     {
+        $customer = session('manage_booking_customer');
+        if (is_array($customer) && !empty($customer['email'])) {
+            return redirect()->route('customer.dashboard');
+        }
 
         $page = $this->getPagebySlug();
 
@@ -3022,12 +3146,11 @@ class BookingController extends Controller
     $emailResults = [];
     
     foreach ($toemails as $email) {
-        $emailcheck = $email_send->sendGmail('Add Booking', $email, $template_data);
-        $emailResults[] = $emailcheck === '0' ? '0' : '1';
+        $emailResults[] = $email_send->sendGmail('Add Booking', $email, $template_data);
     }
     
     // Single update for email status
-    $updateData = ['email_check' => in_array('0', $emailResults) ? '0' : '1'];
+    $updateData = ['email_check' => in_array(false, $emailResults, true) ? '0' : '1'];
     
     // Handle company email with attachment
     if ($company->id == 1342134633 || $company->id == 1342134653) {
@@ -3037,14 +3160,14 @@ class BookingController extends Controller
         
         foreach ($companyEmails as $email) {
             $cmpCheck = $email_send->sendGmailWithAttachment('Add Booking Company', $email, $template_data, $filePath);
-            $companyEmailResults[] = $cmpCheck === '0' ? '0' : '1';
+            $companyEmailResults[] = $cmpCheck;
         }
         
-        $updateData['comp_email_check'] = in_array('0', $companyEmailResults) ? '0' : '1';
+        $updateData['cmp_check'] = in_array(false, $companyEmailResults, true) ? '0' : '1';
     } else {
         $filePath = $this->create_csv($booking->id, 'Next');
         $cmpCheck = $email_send->sendGmailWithAttachment('Add Booking Company', $company->company_email, $template_data, $filePath);
-        $updateData['comp_email_check'] = $cmpCheck === '0' ? '0' : '1';
+        $updateData['cmp_check'] = $cmpCheck ? '1' : '0';
     }
     
     // Final single update
@@ -3054,10 +3177,48 @@ class BookingController extends Controller
             ->update($updateData);
     }
 
-    // Send SMS if needed
-    if ($request->input('smsfee') > 0) {
-        $functions = new functions();
-        $functions->send_sms($request->input('contactno'), $referenceNo);
+    // Send SMS if needed — never fail payout if SMS provider errors
+    $smsFeeValue = $request->input('smsfee');
+    $smsSelected = $smsFeeValue === 'Yes'
+        || $smsFeeValue === 1
+        || $smsFeeValue === '1'
+        || (is_numeric($smsFeeValue) && (float) $smsFeeValue > 0);
+
+    if ($smsSelected) {
+        try {
+            $functions = new functions();
+            $functions->send_sms($request->input('contactno'), $referenceNo);
+        } catch (\Throwable $e) {
+            app(\App\Services\OutboundSmsLogService::class)->record([
+                'booking_ref' => $referenceNo,
+                'to_number' => $request->input('contactno'),
+                'provider' => 'voodoo_sms',
+                'status' => 'failed',
+                'error_message' => $e->getMessage(),
+                'triggered_by' => 'system',
+            ]);
+            Log::channel('notifications')->warning('Outbound SMS notification', [
+                'channel' => 'sms',
+                'status' => 'failed',
+                'booking_reference' => $referenceNo,
+                'reason' => $e->getMessage(),
+            ]);
+        }
+    } else {
+        app(\App\Services\OutboundSmsLogService::class)->record([
+            'booking_ref' => $referenceNo,
+            'to_number' => $request->input('contactno'),
+            'provider' => 'voodoo_sms',
+            'status' => 'skipped',
+            'error_message' => 'SMS notification was not selected.',
+            'triggered_by' => 'system',
+        ]);
+        Log::channel('notifications')->info('Outbound SMS notification', [
+            'channel' => 'sms',
+            'status' => 'skipped',
+            'booking_reference' => $referenceNo,
+            'reason' => 'SMS notification was not selected.',
+        ]);
     }
 
     return true;
@@ -3205,6 +3366,10 @@ class BookingController extends Controller
 
     public function booking_search(Request $request)
     {
+        if ($request->has('product_type')) {
+            return $this->searchManageBookingProduct($request);
+        }
+
         $messages = [
             'ref_no.required' => 'Booking reference number is required.',
             'ref_no.string' => 'Booking reference number must be valid text.',
@@ -3256,6 +3421,266 @@ class BookingController extends Controller
         return $this->renderManageBookingDetail((int) $bookingId);
     }
 
+    protected function searchManageBookingProduct(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'product_type' => 'required|in:parking,hotel,carhire,lounge',
+            'search_by' => 'required|in:booking_number,car_registration,mobile',
+            'search_value' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'last_name' => 'nullable|string|max:255',
+        ], [
+            'search_value.required' => 'Enter the booking number, registration, or mobile number.',
+        ]);
+
+        $productType = (string) $request->input('product_type');
+        $searchBy = (string) $request->input('search_by');
+        $searchValue = trim((string) $request->input('search_value'));
+        $email = strtolower(trim((string) $request->input('email')));
+        $lastName = strtolower(trim((string) $request->input('last_name')));
+
+        if ($productType !== 'parking' && $searchBy === 'car_registration') {
+            $validator->getMessageBag()->add('search_by', 'Car registration search is only available for parking bookings.');
+        }
+
+        if ($productType === 'parking' && $searchBy === 'booking_number' && $lastName === '') {
+            $validator->getMessageBag()->add('last_name', 'Enter the lead passenger’s last name.');
+        }
+
+        if ($validator->fails()) {
+            return $this->manageBookingFormResponse($validator);
+        }
+
+        if ($productType === 'parking') {
+            $query = airports_bookings::query()
+                ->whereRaw('LOWER(TRIM(email)) = ?', [$email]);
+
+            if ($searchBy === 'booking_number') {
+                $refNorm = strtoupper(preg_replace('/\s+/', '', $searchValue));
+                $query->whereRaw('LOWER(TRIM(last_name)) = ?', [$lastName])
+                    ->where(function ($bookingQuery) use ($searchValue, $refNorm) {
+                        $bookingQuery->where('referenceNo', $searchValue)
+                            ->orWhereRaw("REPLACE(UPPER(IFNULL(referenceNo,'')), ' ', '') = ?", [$refNorm]);
+                    });
+            } elseif ($searchBy === 'car_registration') {
+                $query->where(function ($bookingQuery) use ($searchValue) {
+                    $bookingQuery->where('registration', $searchValue)
+                        ->orWhereIn('id', function ($vehicleQuery) use ($searchValue) {
+                            $vehicleQuery->select('b_id')
+                                ->from('booking_vehicles')
+                                ->where('registration', $searchValue);
+                        });
+                });
+            } else {
+                $query->whereRaw('LOWER(TRIM(phone_number)) = ?', [strtolower($searchValue)]);
+            }
+
+            $booking = $query->orderByDesc('id')->first();
+            if ($booking) {
+                $this->startManageBookingCustomerSession($booking);
+
+                return redirect()->route('customer.dashboard');
+            }
+        } else {
+            if ($productType === 'hotel') {
+                $query = hotels_bookings::query();
+            } elseif ($productType === 'lounge') {
+                $query = lounges_bookings::query();
+            } else {
+                $query = carhire_bookings::query();
+            }
+
+            $query->whereRaw('LOWER(TRIM(email)) = ?', [$email]);
+            if ($searchBy === 'booking_number') {
+                $query->where(function ($bookingQuery) use ($searchValue) {
+                    $bookingQuery->where('referenceNo', $searchValue)
+                        ->orWhere('ext_ref', $searchValue);
+                });
+            } else {
+                $query->whereRaw('LOWER(TRIM(phone_number)) = ?', [strtolower($searchValue)]);
+            }
+
+            $booking = $query->orderByDesc('created_at')->first();
+            if ($booking && (!empty($booking->referenceNo) || !empty($booking->ext_ref))) {
+                $this->startManageBookingCustomerSession($booking);
+
+                return redirect()->route('customer.dashboard');
+            }
+        }
+
+        $validator->getMessageBag()->add(
+            'search_value',
+            'No booking found for those details. Please check your information and try again.'
+        );
+
+        return $this->manageBookingFormResponse($validator);
+    }
+
+    private function startManageBookingCustomerSession($booking): void
+    {
+        request()->session()->regenerate();
+
+        session([
+            'manage_booking_customer' => [
+                'email' => strtolower(trim((string) $booking->email)),
+                'phone_number' => trim((string) ($booking->phone_number ?? '')),
+                'first_name' => trim((string) ($booking->first_name ?? '')),
+                'last_name' => trim((string) ($booking->last_name ?? '')),
+                'verified_reference' => trim((string) ($booking->referenceNo ?: ($booking->ext_ref ?? ''))),
+            ],
+        ]);
+    }
+
+    public function customerDashboard()
+    {
+        $portal = $this->buildManageBookingPortal();
+        if ($portal === null) {
+            return redirect()->route('manage_booking');
+        }
+
+        $portal['bookings'] = $portal['bookings']->take(5)->values();
+        $portal['tickets'] = $portal['tickets']->take(5)->values();
+
+        return $this->customerPortalResponse('frontend.customer_dashboard', $portal);
+    }
+
+    public function customerBookingHistory()
+    {
+        $portal = $this->buildManageBookingPortal();
+        if ($portal === null) {
+            return redirect()->route('manage_booking');
+        }
+
+        return $this->customerPortalResponse('frontend.customer_booking_history', $portal);
+    }
+
+    public function customerSupportTickets()
+    {
+        $portal = $this->buildManageBookingPortal();
+        if ($portal === null) {
+            return redirect()->route('manage_booking');
+        }
+
+        return $this->customerPortalResponse('frontend.customer_support_tickets', $portal);
+    }
+
+    private function customerPortalResponse(string $view, array $portal)
+    {
+        return response()
+            ->view($view, $portal)
+            ->header('Cache-Control', 'no-store, no-cache, private, max-age=0')
+            ->header('Pragma', 'no-cache');
+    }
+
+    private function buildManageBookingPortal(): ?array
+    {
+        $customer = session('manage_booking_customer');
+        if (!is_array($customer) || empty($customer['email'])) {
+            return null;
+        }
+
+        $email = strtolower(trim((string) $customer['email']));
+
+        $bookings = collect();
+        $parkingBookings = airports_bookings::query()
+            ->leftJoin('airports', 'airports.id', '=', 'airports_bookings.airportID')
+            ->whereRaw('LOWER(TRIM(airports_bookings.email)) = ?', [$email])
+            ->select('airports_bookings.*', 'airports.name as portal_place')
+            ->orderByDesc('airports_bookings.created_at')
+            ->get();
+
+        foreach ($parkingBookings as $booking) {
+            $bookings->push([
+                'product' => 'Airport parking',
+                'reference' => $booking->referenceNo,
+                'place' => $booking->portal_place ?: 'Airport parking',
+                'start_date' => $booking->departDate,
+                'end_date' => $booking->returnDate,
+                'vehicle' => $booking->registration,
+                'status' => $booking->booking_status ?: $booking->payment_status,
+                'amount' => $booking->total_amount ?? $booking->booking_amount,
+                'created_at' => $booking->created_at,
+            ]);
+        }
+
+        $productBookings = [
+            [hotels_bookings::class, 'Hotel', 'hotel_name', 'check_in', 'check_out'],
+            [carhire_bookings::class, 'Car hire', 'vehicle_name', 'pickup_datetime', 'dropoff_datetime'],
+            [lounges_bookings::class, 'Lounge', 'lounge_name', 'check_in', 'returnDate'],
+        ];
+
+        foreach ($productBookings as [$model, $product, $placeField, $startField, $endField]) {
+            $rows = $model::query()
+                ->whereRaw('LOWER(TRIM(email)) = ?', [$email])
+                ->orderByDesc('created_at')
+                ->get();
+
+            foreach ($rows as $booking) {
+                $bookings->push([
+                    'product' => $product,
+                    'reference' => $booking->referenceNo ?: $booking->ext_ref,
+                    'place' => $booking->{$placeField} ?: $product,
+                    'start_date' => $booking->{$startField},
+                    'end_date' => $booking->{$endField},
+                    'vehicle' => $booking->vehicle_name ?? null,
+                    'status' => $booking->booking_status ?: $booking->payment_status,
+                    'amount' => $booking->total_amount ?? $booking->booking_amount,
+                    'created_at' => $booking->created_at ?? $booking->createdate ?? null,
+                ]);
+            }
+        }
+
+        $ticketsForCustomer = tickets::query()
+            ->whereRaw('LOWER(TRIM(email)) = ?', [$email])
+            ->orderByDesc('date')
+            ->get();
+
+        $openTickets = $ticketsForCustomer->filter(function ($ticket) {
+            return in_array(strtolower(trim((string) ($ticket->status ?? 'open'))), [
+                '', 'open', 'pending', 'in progress', 'new', 'awaiting', 'replied',
+            ], true);
+        });
+
+        $bookings = $bookings->sortByDesc(function ($booking) {
+            return strtotime((string) ($booking['created_at'] ?? '')) ?: 0;
+        })->values();
+        $lastBooking = $bookings->first();
+        $thisMonthBookings = $bookings->filter(function ($booking) {
+            return substr((string) ($booking['created_at'] ?? ''), 0, 7) === now()->format('Y-m');
+        })->count();
+        $customerSince = $bookings->sortBy('created_at')->first()['created_at'] ?? null;
+        $membershipYears = 0;
+        if ($customerSince) {
+            try {
+                $membershipYears = (int) \Carbon\Carbon::parse($customerSince)->diffInYears(now());
+            } catch (\Exception $exception) {
+                $membershipYears = 0;
+            }
+        }
+
+        return [
+            'customer' => $customer,
+            'bookings' => $bookings,
+            'tickets' => $ticketsForCustomer,
+            'portalStats' => [
+                'bookings' => $bookings->count(),
+                'this_month' => $thisMonthBookings,
+                'tickets' => $ticketsForCustomer->count(),
+                'open_tickets' => $openTickets->count(),
+                'last_booking' => $lastBooking,
+                'customer_since' => $customerSince,
+                'membership_years' => $membershipYears,
+            ],
+        ];
+    }
+
+    public function customerDashboardLogout(Request $request)
+    {
+        $request->session()->forget('manage_booking_customer');
+
+        return redirect()->route('manage_booking');
+    }
+
     protected function manageBookingFormResponse($validator)
     {
         $request = request();
@@ -3269,6 +3694,9 @@ class BookingController extends Controller
                 'ref_no' => (string) $request->input('ref_no', ''),
                 'last_name' => (string) $request->input('last_name', ''),
                 'email' => (string) $request->input('email', ''),
+                'product_type' => (string) $request->input('product_type', 'parking'),
+                'search_by' => (string) $request->input('search_by', 'booking_number'),
+                'search_value' => (string) $request->input('search_value', $request->input('ref_no', '')),
             ],
         ])->withErrors($validator);
 
@@ -4530,4 +4958,3 @@ class BookingController extends Controller
     }
 
 }
-

@@ -45,6 +45,11 @@ class LoungeController extends Controller
             $this->_setting[$setting->name] = $setting->value;
         }
 
+        $bookingFee = $this->_setting['booking_fee'] ?? null;
+        if (! is_numeric($bookingFee) || (float) $bookingFee <= 0) {
+            $this->_setting['booking_fee'] = 1.99;
+        }
+
         $my_settings = settings::all();
         foreach ($my_settings as $my_setting) {
             $this->_mysetting[$my_setting->field_name] = $my_setting->field_value;

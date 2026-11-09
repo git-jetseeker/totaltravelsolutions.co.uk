@@ -189,6 +189,10 @@ Route::get('/ticket/view/{id}', [TicketsController::class, 'view'])->where('id',
 Route::get('/manage-booking', [FrontBookingController::class, 'manage_booking'])->name("manage_booking");
 Route::get('/manage-booking/detail', [FrontBookingController::class, 'showManageBookingDetail'])->name("manage_booking.show");
 Route::post('/booking-search', [FrontBookingController::class, 'booking_search'])->name("booking_search");
+Route::get('/customer-dashboard', [FrontBookingController::class, 'customerDashboard'])->name('customer.dashboard');
+Route::get('/customer-dashboard/bookings', [FrontBookingController::class, 'customerBookingHistory'])->name('customer.bookings');
+Route::get('/customer-dashboard/tickets', [FrontBookingController::class, 'customerSupportTickets'])->name('customer.tickets');
+Route::post('/customer-dashboard/logout', [FrontBookingController::class, 'customerDashboardLogout'])->name('customer.dashboard.logout');
 Route::post('/reSendEmailBooking', [FrontBookingController::class, 'reSendEmailBooking'])->name("reSendEmailBooking");
 Route::get('/admin/export_subscriber_excel', [SubscribersController::class, 'export_subscriber_excel'])->name("export_subscriber_excel");
 Route::get('/admin/export_customer_excel', [CustomerController::class, 'export_customer_excel'])->name("export_customer_excel");

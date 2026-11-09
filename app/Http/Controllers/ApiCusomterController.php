@@ -1004,40 +1004,32 @@ class ApiCusomterController extends Controller
             $request->email,
             "fullstack@seedanalytica.com",
         ];
+        $emailResults = [];
         foreach ($toemails as $email) {
-            $emailcheck = $email_send->sendGmail(
+            $emailResults[] = $email_send->sendGmail(
                 "Add Booking",
                 $email,
                 $template_data
             );
-            if ($emailcheck == "0") {
-                $data["email_check"] = "0";
-            } else {
-                $data["email_check"] = "1";
-            }
-            $update = DB::table("airports_bookings")
-                ->where("referenceNo", $bookingref)
-                ->update($data);
         }
+        $data["email_check"] = in_array(false, $emailResults, true) ? "0" : "1";
+        DB::table("airports_bookings")
+            ->where("referenceNo", $bookingref)
+            ->update($data);
+
         if ($company_data->id == 207 || $company_data->id == 208) {
             $filePath = $this->create_csv_air($booking_id, "Next");
             $toemails = explode(",", $company_data->company_email);
+            $companyEmailResults = [];
             foreach ($toemails as $email) {
-                $cmpCheck = $email_send->sendGmailWithAttachment(
+                $companyEmailResults[] = $email_send->sendGmailWithAttachment(
                     "Add Booking Company",
                     'fullstack@seedanalytica.com',
                     $template_data,
                     $filePath
                 );
-                if ($cmpCheck == "0") {
-                    $data["comp_email_check"] = "0";
-                } else {
-                    $data["comp_email_check"] = "1";
-                }
-                $update = DB::table("airports_bookings")
-                    ->where("referenceNo", $bookingref)
-                    ->update($data);
             }
+            $data["cmp_check"] = in_array(false, $companyEmailResults, true) ? "0" : "1";
         } else {
             $filePath = $this->create_csv($booking_id, "Next");
             $cmpCheck = $email_send->sendGmailWithAttachment(
@@ -1046,20 +1038,60 @@ class ApiCusomterController extends Controller
                 $template_data,
                 $filePath
             );
-            if ($cmpCheck == "0") {
-                $data["comp_email_check"] = "0";
-            } else {
-                $data["comp_email_check"] = "1";
-            }
-            $update = DB::table("airports_bookings")
-                ->where("referenceNo", $bookingref)
-                ->update($data);
+            $data["cmp_check"] = $cmpCheck ? "1" : "0";
         }
-        // $smsfee = $request->sms_fee;
-        // if ($smsfee > 0) {
-        //     $functions = new functions();
-        //     $functions->send_sms($request->phone_number, $bookingref);
-        // }
+        DB::table("airports_bookings")
+            ->where("referenceNo", $bookingref)
+            ->update($data);
+
+        $smsFee = $request->sms_fee;
+        $smsSelected = $smsFee === "Yes"
+            || $smsFee === 1
+            || $smsFee === "1"
+            || (is_numeric($smsFee) && (float) $smsFee > 0);
+
+        if ($smsSelected) {
+            try {
+                $functions = new functions();
+                $functions->send_sms($request->phone_number, $bookingref);
+            } catch (\Throwable $e) {
+                app(\App\Services\OutboundSmsLogService::class)->record([
+                    "booking_ref" => $bookingref,
+                    "to_number" => $request->phone_number,
+                    "provider" => "voodoo_sms",
+                    "status" => "failed",
+                    "error_message" => $e->getMessage(),
+                    "triggered_by" => "system",
+                ]);
+                \Illuminate\Support\Facades\Log::channel("notifications")->warning(
+                    "Outbound SMS notification",
+                    [
+                        "channel" => "sms",
+                        "status" => "failed",
+                        "booking_reference" => $bookingref,
+                        "reason" => $e->getMessage(),
+                    ]
+                );
+            }
+        } else {
+            app(\App\Services\OutboundSmsLogService::class)->record([
+                "booking_ref" => $bookingref,
+                "to_number" => $request->phone_number,
+                "provider" => "voodoo_sms",
+                "status" => "skipped",
+                "error_message" => "SMS notification was not selected.",
+                "triggered_by" => "system",
+            ]);
+            \Illuminate\Support\Facades\Log::channel("notifications")->info(
+                "Outbound SMS notification",
+                [
+                    "channel" => "sms",
+                    "status" => "skipped",
+                    "booking_reference" => $bookingref,
+                    "reason" => "SMS notification was not selected.",
+                ]
+            );
+        }
         ob_end_clean();
     }
     public function create_csv_air($token, $status)

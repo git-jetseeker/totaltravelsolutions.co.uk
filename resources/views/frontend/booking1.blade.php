@@ -2251,7 +2251,7 @@
 
                                                                 <div class="apb-payment-charge">
                                                                     <span class="apb-payment-charge__label">Your Card Will Be Charged</span>
-                                                                    <span class="apb-payment-charge__badge">£<span id="ccPrice">0</span></span>
+                                                                    <span class="apb-payment-charge__badge">£<span id="ccPrice">{{ number_format(($customerParkingPrice ?? ($data['booking_amount'] ?? 0)) + (float) ($data['booking_fee'] ?? 0), 2) }}</span></span>
                                                                 </div>
 
 
@@ -2705,7 +2705,7 @@
 
                                                     <h3 class="total_charged">Your Card Will Be Charged <strong>£<span
 
-                                                                id="ccPrice">00.00</span></strong></h3>
+                                                                id="ccPriceLegacy">{{ number_format(($customerParkingPrice ?? ($data['booking_amount'] ?? 0)) + (float) ($data['booking_fee'] ?? 0), 2) }}</span></strong></h3>
 
 
 
