@@ -105,7 +105,7 @@ Route::match(['get', 'post'], '/internal/crm-cache-forget', function (\Illuminat
 // ********************************************************************************* Front Routes *********************************************************************************
 Route::get('/', [FrontHomeController::class, 'index'])->name("main");
 Route::post('/store-email', [FrontEmailController::class, 'store'])->name('store.email');
-Route::get('/test-email', [EmailController::class, 'testEmail']);
+Route::get('/test-email', [EmailController::class, 'testEmail'])->middleware('throttle:3,1');
 
 Route::get('/landing', [FrontHomeController::class, 'landing'])->name("landing");
 Route::get('/all-reviews', [FrontHomeController::class, 'all_reviews'])->name("allReviews");

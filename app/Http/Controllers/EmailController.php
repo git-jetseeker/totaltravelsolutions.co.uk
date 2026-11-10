@@ -78,15 +78,75 @@ class EmailController extends Controller
 
  public function testEmail()
 {
-   $toEmail = "fullstackqmechanicspk@gmail.com"; 
+   $toEmail = "mzt646@qmechanicspk.com";
     $subject = "Test Email from Laravel";
     $body = "This is a test email to check SMTP settings in Laravel.";
 
-   try { \Mail::raw($body, function ($message) use ($toEmail, $subject) { $message->to($toEmail) ->subject($subject) ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME')); });
+    try {
+        if ($this->useGoogleApi) {
+            $serviceAccount = MailCredentials::googleServiceAccount();
+            $fromEmail = $this->credentialValue(
+                'gmail_from_email',
+                $this->credentialValue('email_from_address', $this->credentialValue('email_username', ''))
+            );
+            $fromName = $this->credentialValue(
+                'gmail_from_name',
+                $this->credentialValue('email_from_name', config('mail.from.name'))
+            );
 
-        return "✅ Test email sent successfully to " . $toEmail;
-    } catch (\Exception $e) {
-        return "❌ Error sending email: " . $e->getMessage();
+            if ($serviceAccount === null || trim((string) $fromEmail) === '') {
+                throw new \RuntimeException('Gmail API credentials or sender address are not configured.');
+            }
+
+            $client = new GoogleClient();
+            $client->setAuthConfig($serviceAccount);
+            $client->setSubject((string) $fromEmail);
+            $client->addScope(Gmail::GMAIL_SEND);
+
+            $mimeMessage = (new MimeEmail())
+                ->from(new Address((string) $fromEmail, (string) $fromName))
+                ->to($toEmail)
+                ->subject($subject)
+                ->text($body);
+
+            $gmailMessage = new Message();
+            $gmailMessage->setRaw(rtrim(strtr(base64_encode($mimeMessage->toString()), '+/', '-_'), '='));
+
+            $gmailService = new Gmail($client);
+            $sentMessage = $gmailService->users_messages->send('me', $gmailMessage);
+            $provider = 'gmail_api';
+            $messageId = $sentMessage->getId();
+        } else {
+            $sentMessage = Mail::mailer('smtp')->raw($body, function ($message) use ($toEmail, $subject) {
+                $message->to($toEmail)
+                    ->subject($subject)
+                    ->from(config('mail.from.address'), config('mail.from.name'));
+            });
+            $provider = 'smtp';
+            $messageId = is_object($sentMessage) && method_exists($sentMessage, 'getMessageId')
+                ? $sentMessage->getMessageId()
+                : null;
+        }
+
+        return response()->json([
+            'status' => 'sent',
+            'message' => 'Test email was accepted by the mail provider.',
+            'recipient' => $toEmail,
+            'provider' => $provider,
+            'message_id' => $messageId,
+        ]);
+    } catch (\Throwable $e) {
+        Log::error('Test email delivery failed', [
+            'recipient' => $toEmail,
+            'exception' => get_class($e),
+            'reason' => $e->getMessage(),
+        ]);
+
+        return response()->json([
+            'status' => 'failed',
+            'message' => 'Test email could not be sent. Check the application mail logs and configuration.',
+            'recipient' => $toEmail,
+        ], 500);
     }
 }
 
