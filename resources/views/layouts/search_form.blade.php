@@ -129,6 +129,7 @@
                     'selectedAirportId' => $selectedAirportId ?? null,
                     'bookingCardId' => $bookingCardId ?? 'home_search_form',
                     'activeBookingTab' => $activeBookingTab ?? null,
+                    'showClosedProductsComingSoon' => $showClosedProductsComingSoon ?? false,
                 ])
             </div>
         @endunless

@@ -27,7 +27,11 @@
     if (!in_array($activeBookingTab, ['parking', 'lounges', 'hotels', 'carhire'], true)) {
         $activeBookingTab = 'parking';
     }
-    $carhireLive = function_exists('carhire_enabled') ? carhire_enabled() : true;
+    $showClosedProductsComingSoon = $showClosedProductsComingSoon ?? false;
+    $loungesLive = !($showClosedProductsComingSoon && config('products.lounge_close', false));
+    $hotelsLive = !($showClosedProductsComingSoon && config('products.hotel_close', false));
+    $carhireEnabled = function_exists('carhire_enabled') ? carhire_enabled() : true;
+    $carhireLive = $carhireEnabled && !($showClosedProductsComingSoon && config('products.car_hire_close', false));
 @endphp
 
 @include('partials.booking-widget-setup', [
@@ -46,11 +50,17 @@
                 <i class="fa fa-coffee" aria-hidden="true"></i>
                 <span class="js-product-tab__label">{{ crm('home.tab_lounges', 'Lounges') }}</span>
                 <span class="js-product-tab__label-full">{{ crm('home.tab_lounges_full', 'Airport Lounges') }}</span>
+                @unless($loungesLive)
+                    <span class="js-soon-badge">Coming Soon</span>
+                @endunless
             </button>
             <button type="button" class="js-product-tab{{ $activeBookingTab === 'hotels' ? ' is-active' : '' }}" role="tab" id="js-tab-btn-hotels" aria-controls="js-panel-hotels" aria-selected="{{ $activeBookingTab === 'hotels' ? 'true' : 'false' }}" data-product="hotels">
                 <i class="fa fa-bed" aria-hidden="true"></i>
                 <span class="js-product-tab__label">{{ crm('home.tab_hotels', 'Hotels') }}</span>
                 <span class="js-product-tab__label-full">{{ crm('home.tab_hotels_full', 'Airport Hotels') }}</span>
+                @unless($hotelsLive)
+                    <span class="js-soon-badge">Coming Soon</span>
+                @endunless
             </button>
             <button type="button" class="js-product-tab{{ $activeBookingTab === 'carhire' ? ' is-active' : '' }}" role="tab" id="js-tab-btn-carhire" aria-controls="js-panel-carhire" aria-selected="{{ $activeBookingTab === 'carhire' ? 'true' : 'false' }}" data-product="carhire">
                 <i class="fa fa-cab" aria-hidden="true"></i>
@@ -139,17 +149,35 @@
 
             {{-- Lounges --}}
             <div class="js-product-panel{{ $activeBookingTab === 'lounges' ? ' is-active' : '' }}" id="js-panel-lounges" role="tabpanel" aria-labelledby="js-tab-btn-lounges" data-panel="lounges"@if($activeBookingTab !== 'lounges') hidden @endif>
-                @include('layouts.lounges_form')
+                @if($loungesLive)
+                    @include('layouts.lounges_form')
+                @else
+                    @include('partials.product-coming-soon', [
+                        'title' => 'Airport lounges are on the way',
+                        'message' => 'We are getting airport lounge bookings ready. Check back soon to search and book.',
+                    ])
+                @endif
             </div>
 
             {{-- Hotels --}}
             <div class="js-product-panel{{ $activeBookingTab === 'hotels' ? ' is-active' : '' }}" id="js-panel-hotels" role="tabpanel" aria-labelledby="js-tab-btn-hotels" data-panel="hotels"@if($activeBookingTab !== 'hotels') hidden @endif>
-                @include('layouts.hotels_form')
+                @if($hotelsLive)
+                    @include('layouts.hotels_form')
+                @else
+                    @include('partials.product-coming-soon', [
+                        'title' => 'Airport hotels are on the way',
+                        'message' => 'We are getting airport hotel bookings ready. Check back soon to search and book.',
+                    ])
+                @endif
             </div>
 
             {{-- Car Hire --}}
             <div class="js-product-panel{{ $activeBookingTab === 'carhire' ? ' is-active' : '' }}" id="js-panel-carhire" role="tabpanel" aria-labelledby="js-tab-btn-carhire" data-panel="carhire"@if($activeBookingTab !== 'carhire') hidden @endif>
-                @include('layouts.carhire_form', ['activeBookingTab' => 'carhire'])
+                @if($carhireLive)
+                    @include('layouts.carhire_form', ['activeBookingTab' => 'carhire'])
+                @else
+                    @include('layouts.carhire_coming_soon')
+                @endif
             </div>
         </div>
     </div>
