@@ -1,3 +1,9 @@
+@if(config('products.lounge_close', false))
+    @include('partials.product-coming-soon', [
+        'title' => 'Airport lounges are on the way',
+        'message' => 'We are getting airport lounge bookings ready. Check back soon to search and book.',
+    ])
+@else
 @php
     $loungeDropdownTimer = [];
     for ($i = 0; $i <= 23; $i++) {
@@ -126,3 +132,4 @@
         <button type="submit" id="lounge_submit" class="js-booking-submit">Find Lounges</button>
     </div>
 </form>
+@endif

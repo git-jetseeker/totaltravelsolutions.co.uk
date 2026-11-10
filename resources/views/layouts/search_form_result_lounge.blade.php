@@ -1,3 +1,9 @@
+@if(config('products.lounge_close', false))
+    @include('partials.product-coming-soon', [
+        'title' => 'Airport lounges are on the way',
+        'message' => 'We are getting airport lounge bookings ready. Check back soon to search and book.',
+    ])
+@else
 <style>
     .search_panel.active {
         display: flex !important;
@@ -175,3 +181,4 @@
         </div>
     </div>
 </div>
+@endif

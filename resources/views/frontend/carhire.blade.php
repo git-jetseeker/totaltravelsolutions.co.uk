@@ -15,7 +15,7 @@
     'heroImageWebpSmall' => url('/cached-media/hero-car-hire.webp') . '?v=20261021ch3',
     'heroEyebrow' => crm('car-hire.hero_eyebrow', 'Total Travel Solutions'),
     'heroTitle' => crm('car-hire.hero_title', 'Book Easy, Hire Smart, Travel Happy!'),
-    'heroSubtitle' => carhire_enabled()
+    'heroSubtitle' => carhire_enabled() && !config('products.car_hire_close', false)
         ? crm('car-hire.hero_subtitle', 'Compare live airport car hire deals from trusted suppliers')
         : crm('car-hire.hero_subtitle_soon', 'Coming soon — search, compare and book airport car hire'),
     'activeBookingTab' => $activeBookingTab ?? 'carhire',

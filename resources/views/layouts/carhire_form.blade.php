@@ -1,4 +1,4 @@
-@if (!carhire_enabled())
+@if (!carhire_enabled() || config('products.car_hire_close', false))
     @include('layouts.carhire_coming_soon')
 @else
 @php

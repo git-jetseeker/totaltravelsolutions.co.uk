@@ -1536,7 +1536,7 @@
 
 
 
-@include('layouts.search_form', ['showClosedProductsComingSoon' => true])
+@include('layouts.search_form')
 
 
 

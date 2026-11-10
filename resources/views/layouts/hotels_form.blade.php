@@ -1,3 +1,9 @@
+@if(config('products.hotel_close', false))
+    @include('partials.product-coming-soon', [
+        'title' => 'Airport hotels are on the way',
+        'message' => 'We are getting airport hotel bookings ready. Check back soon to search and book.',
+    ])
+@else
 @php
     $hotelCheckinDefault = old('hotel_checkin_date', request()->hotel_checkin_date ?? \Carbon\Carbon::today()->addDay()->format('d-m-Y'));
     $hotelCheckoutDefault = old('hotel_checkout_date', request()->hotel_checkout_date ?? \Carbon\Carbon::today()->addDays(2)->format('d-m-Y'));
@@ -358,3 +364,4 @@ window.initJsHotelSearchForm = function ($) {
     });
 };
 </script>
+@endif

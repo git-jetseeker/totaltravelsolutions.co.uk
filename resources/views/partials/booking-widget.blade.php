@@ -27,11 +27,10 @@
     if (!in_array($activeBookingTab, ['parking', 'lounges', 'hotels', 'carhire'], true)) {
         $activeBookingTab = 'parking';
     }
-    $showClosedProductsComingSoon = $showClosedProductsComingSoon ?? false;
-    $loungesLive = !($showClosedProductsComingSoon && config('products.lounge_close', false));
-    $hotelsLive = !($showClosedProductsComingSoon && config('products.hotel_close', false));
+    $loungesLive = !config('products.lounge_close', false);
+    $hotelsLive = !config('products.hotel_close', false);
     $carhireEnabled = function_exists('carhire_enabled') ? carhire_enabled() : true;
-    $carhireLive = $carhireEnabled && !($showClosedProductsComingSoon && config('products.car_hire_close', false));
+    $carhireLive = $carhireEnabled && !config('products.car_hire_close', false);
 @endphp
 
 @include('partials.booking-widget-setup', [
@@ -149,26 +148,12 @@
 
             {{-- Lounges --}}
             <div class="js-product-panel{{ $activeBookingTab === 'lounges' ? ' is-active' : '' }}" id="js-panel-lounges" role="tabpanel" aria-labelledby="js-tab-btn-lounges" data-panel="lounges"@if($activeBookingTab !== 'lounges') hidden @endif>
-                @if($loungesLive)
-                    @include('layouts.lounges_form')
-                @else
-                    @include('partials.product-coming-soon', [
-                        'title' => 'Airport lounges are on the way',
-                        'message' => 'We are getting airport lounge bookings ready. Check back soon to search and book.',
-                    ])
-                @endif
+                @include('layouts.lounges_form')
             </div>
 
             {{-- Hotels --}}
             <div class="js-product-panel{{ $activeBookingTab === 'hotels' ? ' is-active' : '' }}" id="js-panel-hotels" role="tabpanel" aria-labelledby="js-tab-btn-hotels" data-panel="hotels"@if($activeBookingTab !== 'hotels') hidden @endif>
-                @if($hotelsLive)
-                    @include('layouts.hotels_form')
-                @else
-                    @include('partials.product-coming-soon', [
-                        'title' => 'Airport hotels are on the way',
-                        'message' => 'We are getting airport hotel bookings ready. Check back soon to search and book.',
-                    ])
-                @endif
+                @include('layouts.hotels_form')
             </div>
 
             {{-- Car Hire --}}
