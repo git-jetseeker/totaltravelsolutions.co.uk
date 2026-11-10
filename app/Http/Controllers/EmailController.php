@@ -55,8 +55,8 @@ class EmailController extends Controller
         'mail.from.name' => $fromName,
     ]);
 
-    $hasDatabaseOrFileSmtpCredentials = $this->hasSmtpCredentials($this->_setting);
-    $this->useGoogleApi = ! $hasDatabaseOrFileSmtpCredentials
+    $hasSmtpCredentials = $this->hasSmtpCredentials($this->_setting);
+    $this->useGoogleApi = ! $hasSmtpCredentials
         && MailCredentials::googleServiceAccount() !== null;
 
     Mail::purge('smtp');

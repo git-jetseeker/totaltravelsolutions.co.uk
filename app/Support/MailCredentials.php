@@ -34,15 +34,24 @@ class MailCredentials
                     ->toArray();
             }
         } catch (\Throwable $exception) {
-            Log::warning('Unable to load mail settings from the database; trying the credential-file fallback.', [
+            Log::warning('Unable to load mail settings from the database; using environment configuration.', [
                 'exception' => get_class($exception),
             ]);
         }
 
-        $file = self::fromFile();
-        foreach ($file as $key => $value) {
+        $environment = [
+            'email_host' => config('mail.mailers.smtp.host'),
+            'email_port' => config('mail.mailers.smtp.port'),
+            'email_encryption_type' => config('mail.mailers.smtp.encryption'),
+            'email_username' => config('mail.mailers.smtp.username'),
+            'email_password' => config('mail.mailers.smtp.password'),
+            'email_from_address' => config('mail.from.address'),
+            'email_from_name' => config('mail.from.name'),
+        ];
+
+        foreach ($environment as $key => $value) {
             $databaseValue = $database[$key] ?? null;
-            if ($databaseValue === null || $databaseValue === '' || $databaseValue === []) {
+            if (($databaseValue === null || $databaseValue === '' || $databaseValue === []) && $value !== null) {
                 $database[$key] = $value;
             }
         }
@@ -69,32 +78,5 @@ class MailCredentials
         }
 
         return null;
-    }
-
-    private static function fromFile(): array
-    {
-        $path = config('mail.credentials_path', storage_path('app/email_credentials.json'));
-        if (! is_file($path) || ! is_readable($path)) {
-            return [];
-        }
-
-        try {
-            $credentials = json_decode((string) file_get_contents($path), true, 512, JSON_THROW_ON_ERROR);
-        } catch (JsonException $exception) {
-            Log::warning('Mail credentials fallback file contains invalid JSON.');
-            return [];
-        }
-
-        if (! is_array($credentials)) {
-            Log::warning('Mail credentials fallback file must contain a JSON object.');
-            return [];
-        }
-
-        if (array_key_exists('gmail_service_account', $credentials)) {
-            $credentials['gmail_service_account_json'] = $credentials['gmail_service_account'];
-            unset($credentials['gmail_service_account']);
-        }
-
-        return array_intersect_key($credentials, array_fill_keys(self::SETTING_KEYS, true));
     }
 }

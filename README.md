@@ -21,6 +21,17 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Mail configuration
+
+Set the `MAIL_*` SMTP values in `.env`. Database mail settings take precedence when present; missing values fall back to `.env`. To copy the configured mail settings into the database for agent 1, run:
+
+```sh
+php artisan config:clear
+php artisan db:seed --class=MailSettingsSeeder
+```
+
+The seeder requires the existing `settings` table and a configured `MAIL_PASSWORD`.
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.

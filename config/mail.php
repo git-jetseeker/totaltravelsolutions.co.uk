@@ -2,8 +2,6 @@
 
 return [
 
-    'credentials_path' => env('MAIL_CREDENTIALS_JSON', storage_path('app/email_credentials.json')),
-
     /*
     |--------------------------------------------------------------------------
     | Default Mailer
